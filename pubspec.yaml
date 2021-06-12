@@ -18,5 +18,19 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-    - images
-    - images/project
+
+  assets:
+    - images/
+    - images/project/
+
+  fonts:
+    - family: KaushanScript
+      fonts:
+        - asset: fonts\KaushanScript-Regular.ttf
+    - family: Raleway
+      fonts:
+        - asset: fonts\Raleway-Bold.ttf
+          weight: 700
+        - asset: fonts\Raleway-Italic.ttf
+          style: italic
+        - asset: fonts\Raleway-Regular.ttf
