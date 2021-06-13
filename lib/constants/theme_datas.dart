@@ -4,7 +4,7 @@ import 'colors.dart';
 import 'text_style.dart';
 
 final ThemeData lightTheme = ThemeData.light().copyWith(
-  
+  hoverColor: orangeDarkColor,
   colorScheme: ColorScheme.light(
     primary: orangeDarkColor,
     primaryVariant: orangeColor,
@@ -32,6 +32,17 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
     headline5: headline5,
     headline6: headline6,
     button: button,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      padding: MaterialStateProperty.all(
+        const EdgeInsets.all(24),
+      ),
+    ),
+  ),
+  scrollbarTheme: ScrollbarThemeData(
+    interactive: true,
+    showTrackOnHover: true,
   ),
 );
 
