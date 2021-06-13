@@ -8,6 +8,14 @@ const TextStyle bodyText1 = TextStyle(
   fontFamily: 'Roboto',
 );
 
+const TextStyle bodyText2 = TextStyle(
+  fontSize: 14,
+  letterSpacing: 1,
+  height: 1.2,
+  fontWeight: FontWeight.w400,
+  fontFamily: 'Roboto',
+);
+
 const TextStyle headline1 = TextStyle(
   fontSize: 72,
   letterSpacing: 0.5,
@@ -50,7 +58,6 @@ const TextStyle headline6 = TextStyle(
 const TextStyle button = TextStyle(
   fontSize: 16,
   letterSpacing: 0.5,
-  height: 2,
   fontWeight: FontWeight.w400,
   fontFamily: 'Raleway',
 );
