@@ -9,8 +9,10 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  animated_text_kit: ^4.2.1
   flutter:
     sdk: flutter
+  url_launcher: ^6.0.6
 
 dev_dependencies:
   flutter_test:
@@ -26,11 +28,11 @@ flutter:
   fonts:
     - family: KaushanScript
       fonts:
-        - asset: fonts\KaushanScript-Regular.ttf
+        - asset: fonts/KaushanScript-Regular.ttf
     - family: Raleway
       fonts:
-        - asset: fonts\Raleway-Bold.ttf
+        - asset: fonts/Raleway-Bold.ttf
           weight: 700
-        - asset: fonts\Raleway-Italic.ttf
+        - asset: fonts/Raleway-Italic.ttf
           style: italic
-        - asset: fonts\Raleway-Regular.ttf
+        - asset: fonts/Raleway-Regular.ttf
