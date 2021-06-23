@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../responsive.dart';
 
 class Header extends StatelessWidget {
-  Header({Key? key}) : super(key: key);
+  const Header({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class Header extends StatelessWidget {
               height: 260,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(130),
-                image: DecorationImage(
+                image: const DecorationImage(
                   image: AssetImage(
                     'images/IMG_20180831_004109_835.webp',
                   ),
@@ -47,7 +47,7 @@ class Header extends StatelessWidget {
                     margin: const EdgeInsets.only(bottom: defaultPadding * 2),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(130),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage(
                           'images/IMG_20180831_004109_835.webp',
                         ),
@@ -86,7 +86,7 @@ class Header extends StatelessWidget {
                             color: Theme.of(context).colorScheme.onSecondary,
                           ),
                       overflow: TextOverflow.ellipsis,
-                      child: CustomAnimatedTextKit(),
+                      child: const CustomAnimatedTextKit(),
                     ),
                   ],
                 ),

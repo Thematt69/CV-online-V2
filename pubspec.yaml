@@ -13,11 +13,11 @@ dependencies:
     sdk: flutter
   animated_text_kit: ^4.2.1
   url_launcher: ^6.0.6
-  flutter_lints: ^1.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^1.0.3
 
 flutter:
   uses-material-design: true

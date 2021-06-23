@@ -5,7 +5,7 @@ import 'text_style.dart';
 
 final ThemeData lightTheme = ThemeData.light().copyWith(
   hoverColor: orangeDarkColor,
-  colorScheme: ColorScheme.light(
+  colorScheme: const ColorScheme.light(
     primary: orangeDarkColor,
     primaryVariant: orangeColor,
     onPrimary: whiteDarkerColor,
@@ -19,12 +19,12 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
     background: whiteDarkerColor,
     onBackground: blackColor,
   ),
-  cardTheme: CardTheme(
+  cardTheme: const CardTheme(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.zero),
     ),
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodyText1: bodyText1,
     headline1: headline1,
     headline2: headline2,
@@ -40,7 +40,7 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
       ),
     ),
   ),
-  scrollbarTheme: ScrollbarThemeData(
+  scrollbarTheme: const ScrollbarThemeData(
     interactive: true,
     showTrackOnHover: true,
   ),
