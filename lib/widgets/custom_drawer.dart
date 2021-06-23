@@ -95,7 +95,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               const Divider(height: 1),
               CustomItemMenu(
                 hover: hoverAPropos,
-                title: 'Présenatation',
+                title: 'Présentation',
                 onHover: (value) {
                   setState(() {
                     hoverAPropos = !hoverAPropos;

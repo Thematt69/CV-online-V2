@@ -19,6 +19,7 @@ class Presentation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: whiteColor,
+      width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
         horizontal: defaultPadding,
         vertical: defaultPadding * 2,
@@ -73,66 +74,66 @@ class Presentation extends StatelessWidget {
               spacing: 10,
               runSpacing: 10,
               children: [
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Date de naissance',
+                  label: 'Date de naissance : ',
                   value: '29/09/2000',
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Age',
+                  label: 'Age : ',
                   value:
                       '${DateTime.now().difference(DateTime(2000, 09, 29)).inDays ~/ 365.25} ans',
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Mobilité',
+                  label: 'Mobilité : ',
                   value: 'Permis B',
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Localisation',
+                  label: 'Localisation : ',
                   value: '2 Rue Jean Jacques Rousseau, Corbas 69960, France',
                   url: urlMaps,
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Intérêts',
+                  label: 'Intérêts : ',
                   value:
                       'Jeux vidéo, Photographie, Streaming & Vidéo, Musique, Rollers, Vélo, Informatique',
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Diplôme',
+                  label: 'Diplôme : ',
                   value:
                       'BAC Système Electronique et Numérique & BTS Système Numérique, option Informatique et Réseaux',
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'École',
+                  label: 'École : ',
                   value: 'XEFI ACADEMY en partenariat avec EPSI',
                   url: urlXefiAcademy,
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Formation',
+                  label: 'Formation : ',
                   value: "Concepteur Développeur d'Application",
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Entreprise',
+                  label: 'Entreprise : ',
                   value: 'XEFI Software',
                   url: urlXefi,
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Adresse mail',
+                  label: 'Adresse mail : ',
                   value: 'devilliers.matthieu@gmail.com',
                   url: urlMail,
                 ),
-                CustomCard(
+                CustomCard.presentation(
                   context: context,
-                  label: 'Téléphone',
+                  label: 'Téléphone : ',
                   value: '06 45 56 48 45',
                   url: urlTel,
                 ),

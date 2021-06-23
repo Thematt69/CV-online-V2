@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'constants/colors.dart';
 import 'constants/sections.dart';
 import 'constants/sizes.dart';
+import 'views/competence.dart';
 
 void main() {
   runApp(
@@ -31,7 +32,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -154,6 +154,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             Presentation(
               key: keyPresentation,
               scrollController: _scrollController,
+            ),
+            Competence(
+              key: keyCompetence,
             ),
           ],
         ),

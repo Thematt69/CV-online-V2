@@ -13,6 +13,7 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       color: darkLightColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

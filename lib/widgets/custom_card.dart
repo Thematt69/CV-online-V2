@@ -3,20 +3,42 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomCard extends StatelessWidget {
-  final BuildContext context;
-  final String label;
-  final String value;
+  final BuildContext? context;
+  final String? label;
+  final String? value;
   final String? url;
 
-  const CustomCard({
-    required this.context,
-    required this.label,
-    required this.value,
+  const CustomCard._({
+    this.context,
+    this.label,
+    this.value,
     this.url,
     Key? key,
   }) : super(key: key);
 
-  // TODO - Faire des factory pour avoir deux formats de card
+  factory CustomCard.presentation({
+    required BuildContext context,
+    required String label,
+    required String value,
+    String? url,
+  }) {
+    return CustomCard._(
+      context: context,
+      label: label,
+      value: value,
+      url: url,
+    );
+  }
+
+  factory CustomCard.competence({
+    required BuildContext context,
+    required String label,
+  }) {
+    return CustomCard._(
+      context: context,
+      label: label,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,31 +49,32 @@ class CustomCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            '$label : ',
+            label!,
             style: Theme.of(context).textTheme.bodyText1!.copyWith(
                   height: 1.6,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
           ),
-          Flexible(
-            child: InkWell(
-              onTap: url != null
-                  ? () async => await canLaunch(url!)
-                      ? await launch(url!)
-                      : debugPrint('Could not launch ${url!}')
-                  : null,
-              child: Text(
-                value,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: url != null
-                          ? Theme.of(context).colorScheme.primary
-                          : greyColor,
-                      height: 1.6,
-                    ),
+          if (value != null && value!.isNotEmpty)
+            Flexible(
+              child: InkWell(
+                onTap: url != null
+                    ? () async => await canLaunch(url!)
+                        ? await launch(url!)
+                        : debugPrint('Could not launch ${url!}')
+                    : null,
+                child: Text(
+                  value!,
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: url != null
+                            ? Theme.of(context).colorScheme.primary
+                            : greyColor,
+                        height: 1.6,
+                      ),
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
