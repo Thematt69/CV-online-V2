@@ -1,4 +1,5 @@
 import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sections.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
@@ -8,22 +9,10 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Presentation extends StatelessWidget {
   final ScrollController scrollController;
-  final GlobalKey keyHeader;
-  final GlobalKey keyPresentation;
-  final GlobalKey keyCompetence;
-  final GlobalKey keyRealisation;
-  final GlobalKey keyExperience;
-  final GlobalKey keyContact;
 
   const Presentation({
     Key? key,
     required this.scrollController,
-    required this.keyHeader,
-    required this.keyPresentation,
-    required this.keyCompetence,
-    required this.keyRealisation,
-    required this.keyExperience,
-    required this.keyContact,
   }) : super(key: key);
 
   @override
@@ -50,7 +39,7 @@ class Presentation extends StatelessWidget {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                 overflow: TextOverflow.ellipsis,
-                child: CustomAnimatedTextKit(),
+                child: const CustomAnimatedTextKit(),
               ),
             ],
           ),
@@ -156,22 +145,18 @@ class Presentation extends StatelessWidget {
                 onPressed: () async => await canLaunch(urlCV)
                     ? await launch(urlCV)
                     : debugPrint('Could not launch $urlCV'),
-                child: Text('Télécharger CV'),
+                child: const Text('Télécharger CV'),
               ),
               const SizedBox(width: defaultPadding * 2),
               ElevatedButton(
                 onPressed: () {
                   scrollController.animateTo(
-                    (keyHeader.currentContext?.size?.height ?? 0) +
-                        (keyPresentation.currentContext?.size?.height ?? 0) +
-                        (keyCompetence.currentContext?.size?.height ?? 0) +
-                        (keyRealisation.currentContext?.size?.height ?? 0) +
-                        (keyExperience.currentContext?.size?.height ?? 0),
+                    positionContact,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear,
                   );
                 },
-                child: Text('Me contacter'),
+                child: const Text('Me contacter'),
               ),
             ],
           ),

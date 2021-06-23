@@ -3,39 +3,19 @@ import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cv_online_v2/constants/sections.dart';
 
 import 'custom_item_menu.dart';
 import 'custom_shared_icon.dart';
 
-enum Section {
-  HEADER,
-  PRESENTATION,
-  COMPETENTCE,
-  REALISATION,
-  EXPERIENCE,
-  CONTACT
-}
-
 class CustomDrawer extends StatefulWidget {
   final bool isShowDrawer;
   final ScrollController scrollController;
-  final GlobalKey keyHeader;
-  final GlobalKey keyPresentation;
-  final GlobalKey keyCompetence;
-  final GlobalKey keyRealisation;
-  final GlobalKey keyExperience;
-  final GlobalKey keyContact;
 
   const CustomDrawer({
     required this.scrollController,
     required this.isShowDrawer,
     Key? key,
-    required this.keyHeader,
-    required this.keyPresentation,
-    required this.keyCompetence,
-    required this.keyRealisation,
-    required this.keyExperience,
-    required this.keyContact,
   }) : super(key: key);
 
   @override
@@ -56,42 +36,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool hoverSeeMore = false;
 
   void _goTo(Section section) {
-    double offset;
-    switch (section) {
-      case Section.HEADER:
-        offset = 0;
-        break;
-      case Section.PRESENTATION:
-        offset = (widget.keyHeader.currentContext?.size?.height ?? 0);
-        break;
-      case Section.COMPETENTCE:
-        offset = (widget.keyHeader.currentContext?.size?.height ?? 0) +
-            (widget.keyPresentation.currentContext?.size?.height ?? 0);
-        break;
-      case Section.REALISATION:
-        offset = (widget.keyHeader.currentContext?.size?.height ?? 0) +
-            (widget.keyPresentation.currentContext?.size?.height ?? 0) +
-            (widget.keyCompetence.currentContext?.size?.height ?? 0);
-        break;
-      case Section.EXPERIENCE:
-        offset = (widget.keyHeader.currentContext?.size?.height ?? 0) +
-            (widget.keyPresentation.currentContext?.size?.height ?? 0) +
-            (widget.keyCompetence.currentContext?.size?.height ?? 0) +
-            (widget.keyRealisation.currentContext?.size?.height ?? 0);
-        break;
-      case Section.CONTACT:
-        offset = (widget.keyHeader.currentContext?.size?.height ?? 0) +
-            (widget.keyPresentation.currentContext?.size?.height ?? 0) +
-            (widget.keyCompetence.currentContext?.size?.height ?? 0) +
-            (widget.keyRealisation.currentContext?.size?.height ?? 0) +
-            (widget.keyExperience.currentContext?.size?.height ?? 0);
-        break;
-      default:
-        offset = 0;
-        break;
-    }
     widget.scrollController.animateTo(
-      offset,
+      positionToSection(section),
       duration: const Duration(milliseconds: 200),
       curve: Curves.linear,
     );
@@ -133,7 +79,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   height: 140,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               CustomItemMenu(
                 hover: hoverAccueil,
                 title: 'Accueil',
@@ -146,7 +92,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   _goTo(Section.HEADER);
                 },
               ),
-              Divider(height: 1),
+              const Divider(height: 1),
               CustomItemMenu(
                 hover: hoverAPropos,
                 title: 'Présenatation',
@@ -159,7 +105,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   _goTo(Section.PRESENTATION);
                 },
               ),
-              Divider(height: 1),
+              const Divider(height: 1),
               CustomItemMenu(
                 hover: hoverCompetences,
                 title: 'Compétences',
@@ -172,7 +118,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   _goTo(Section.COMPETENTCE);
                 },
               ),
-              Divider(height: 1),
+              const Divider(height: 1),
               CustomItemMenu(
                 hover: hoverRealisations,
                 title: 'Réalisations',
@@ -185,7 +131,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   _goTo(Section.REALISATION);
                 },
               ),
-              Divider(height: 1),
+              const Divider(height: 1),
               CustomItemMenu(
                 hover: hoverExperiences,
                 title: 'Expériences',
@@ -198,7 +144,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   _goTo(Section.EXPERIENCE);
                 },
               ),
-              Divider(height: 1),
+              const Divider(height: 1),
               CustomItemMenu(
                 hover: hoverContact,
                 title: 'Contact',
@@ -211,7 +157,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   _goTo(Section.CONTACT);
                 },
               ),
-              Spacer(),
+              const Spacer(),
               Visibility(
                 visible: MediaQuery.of(context).size.height > 400,
                 child: _buildSharedIcons(context),

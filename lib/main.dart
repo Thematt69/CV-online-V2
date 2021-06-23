@@ -6,13 +6,18 @@ import 'package:cv_online_v2/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'constants/colors.dart';
+import 'constants/sections.dart';
 import 'constants/sizes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,12 +25,15 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -36,20 +44,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late final Animation<double> _myAnimation;
   bool isShowDrawer = true;
 
-  final GlobalKey _keyHeader = GlobalKey();
-  final GlobalKey _keyPresentation = GlobalKey();
-  final GlobalKey _keyCompetence = GlobalKey();
-  final GlobalKey _keyRealisation = GlobalKey();
-  final GlobalKey _keyExperience = GlobalKey();
-  final GlobalKey _keyContact = GlobalKey();
-
   @override
   void initState() {
     super.initState();
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       value: 1,
     );
 
@@ -81,12 +82,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             CustomDrawer(
               isShowDrawer: isShowDrawer,
               scrollController: _scrollController,
-              keyHeader: _keyHeader,
-              keyPresentation: _keyPresentation,
-              keyCompetence: _keyCompetence,
-              keyContact: _keyContact,
-              keyExperience: _keyExperience,
-              keyRealisation: _keyRealisation,
             ),
           ],
         ),
@@ -101,14 +96,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       left: isShowDrawer ? 180 : 0,
       child: Material(
         elevation: 20,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topRight: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
         child: Container(
           width: 40,
           height: 40,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: whiteColor,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(20),
@@ -116,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
           ),
           child: InkWell(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(20),
               bottomRight: Radius.circular(20),
             ),
@@ -154,17 +149,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         child: Column(
           children: [
             Header(
-              key: _keyHeader,
+              key: keyHeader,
             ),
             Presentation(
-              key: _keyPresentation,
+              key: keyPresentation,
               scrollController: _scrollController,
-              keyHeader: _keyHeader,
-              keyPresentation: _keyPresentation,
-              keyCompetence: _keyCompetence,
-              keyContact: _keyContact,
-              keyExperience: _keyExperience,
-              keyRealisation: _keyRealisation,
             ),
           ],
         ),
