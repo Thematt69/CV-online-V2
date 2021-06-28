@@ -4,7 +4,8 @@ import 'colors.dart';
 import 'text_style.dart';
 
 final ThemeData lightTheme = ThemeData.light().copyWith(
-  hoverColor: orangeDarkColor,
+  hoverColor: Colors.transparent,
+  highlightColor: Colors.transparent,
   colorScheme: const ColorScheme.light(
     primary: orangeDarkColor,
     primaryVariant: orangeColor,

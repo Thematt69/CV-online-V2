@@ -1,9 +1,12 @@
 import 'package:cv_online_v2/constants/theme_datas.dart';
 import 'package:cv_online_v2/responsive.dart';
+import 'package:cv_online_v2/views/experience.dart';
 import 'package:cv_online_v2/views/header.dart';
 import 'package:cv_online_v2/views/presentation.dart';
+import 'package:cv_online_v2/views/reallisation.dart';
 import 'package:cv_online_v2/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'constants/colors.dart';
 import 'constants/sections.dart';
@@ -11,6 +14,7 @@ import 'constants/sizes.dart';
 import 'views/competence.dart';
 
 void main() {
+  initializeDateFormatting();
   runApp(
     const MyApp(),
   );
@@ -27,6 +31,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       home: const MyHomePage(),
+      locale: const Locale('fr', 'FR'),
     );
   }
 }
@@ -148,15 +153,21 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         controller: _scrollController,
         child: Column(
           children: [
-            Header(
+            HeaderSection(
               key: keyHeader,
             ),
-            Presentation(
+            PresentationSection(
               key: keyPresentation,
               scrollController: _scrollController,
             ),
-            Competence(
+            CompetenceSection(
               key: keyCompetence,
+            ),
+            RealisationSection(
+              key: keyRealisation,
+            ),
+            ExperienceSection(
+              key: keyExperience,
             ),
           ],
         ),
