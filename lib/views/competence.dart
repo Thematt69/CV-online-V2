@@ -1,32 +1,11 @@
 import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
-class Competence extends StatelessWidget {
-  const Competence({Key? key}) : super(key: key);
-
-  static List<String> listCompetences = [
-    'HTML 5',
-    'CSS 3',
-    'PHP 7',
-    'OBS Studio',
-    'Streamlabs OBS',
-    'Suite Office',
-    'Google Docs',
-    'Flutter',
-    'Dart',
-    'Adobe Photoshop',
-    'Sony Vegas Pro 17',
-    'Android Studio (Java)',
-    'Linux',
-    'SQL',
-    'PHPMyAdmin',
-    'Docker',
-    'Git',
-    'Jira',
-    'Figma',
-  ];
+class CompetenceSection extends StatelessWidget {
+  const CompetenceSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +28,7 @@ class Competence extends StatelessWidget {
                   ),
               children: <TextSpan>[
                 TextSpan(
-                  text: 'Compétences',
+                  text: 'compétences',
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
