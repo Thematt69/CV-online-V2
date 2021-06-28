@@ -7,10 +7,10 @@ import 'package:cv_online_v2/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Presentation extends StatelessWidget {
+class PresentationSection extends StatelessWidget {
   final ScrollController scrollController;
 
-  const Presentation({
+  const PresentationSection({
     Key? key,
     required this.scrollController,
   }) : super(key: key);
