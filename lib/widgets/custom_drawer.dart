@@ -27,7 +27,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool hoverAPropos = false;
   bool hoverCompetences = false;
   bool hoverRealisations = false;
-  bool hoverExperiences = false;
+  bool hoverEtudes = false;
+  bool hoverRecommandation = false;
+  bool hoverJobs = false;
   bool hoverContact = false;
 
   bool hoverMaps = false;
@@ -55,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         elevation: 20,
         child: Container(
           width: 180,
-          padding: const EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.all(defaultPadding30),
           color: whiteColor,
           child: _buildMenu(context),
         ),
@@ -89,7 +91,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.HEADER);
+                  _goTo(Section.header);
                 },
               ),
               const Divider(height: 1),
@@ -102,7 +104,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.PRESENTATION);
+                  _goTo(Section.presentation);
                 },
               ),
               const Divider(height: 1),
@@ -115,7 +117,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.COMPETENTCE);
+                  _goTo(Section.competence);
                 },
               ),
               const Divider(height: 1),
@@ -128,20 +130,46 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.REALISATION);
+                  _goTo(Section.realisation);
                 },
               ),
               const Divider(height: 1),
               CustomItemMenu(
-                hover: hoverExperiences,
-                title: 'Expériences',
+                hover: hoverEtudes,
+                title: 'Études',
                 onHover: (value) {
                   setState(() {
-                    hoverExperiences = !hoverExperiences;
+                    hoverEtudes = !hoverEtudes;
                   });
                 },
                 onTap: () {
-                  _goTo(Section.EXPERIENCE);
+                  _goTo(Section.etudes);
+                },
+              ),
+              const Divider(height: 1),
+              CustomItemMenu(
+                hover: hoverRecommandation,
+                title: 'Recommandation',
+                onHover: (value) {
+                  setState(() {
+                    hoverRecommandation = !hoverRecommandation;
+                  });
+                },
+                onTap: () {
+                  _goTo(Section.recommandation);
+                },
+              ),
+              const Divider(height: 1),
+              CustomItemMenu(
+                hover: hoverJobs,
+                title: 'Jobs',
+                onHover: (value) {
+                  setState(() {
+                    hoverJobs = !hoverJobs;
+                  });
+                },
+                onTap: () {
+                  _goTo(Section.jobs);
                 },
               ),
               const Divider(height: 1),
@@ -154,7 +182,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.CONTACT);
+                  _goTo(Section.contact);
                 },
               ),
               const Spacer(),
@@ -175,9 +203,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       children: [
         CustomSharedIcon(
           hover: hoverMaps,
-          onPressed: () async => await canLaunch(urlMaps)
-              ? await launch(urlMaps)
-              : debugPrint('Could not launch $urlMaps'),
+          onPressed: () async => await launch(urlMaps),
           title: 'Google Maps',
           iconData: Icons.location_pin,
           onEnter: (event) {
@@ -193,9 +219,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ),
         CustomSharedIcon(
           hover: hoverMail,
-          onPressed: () async => await canLaunch(urlMail)
-              ? await launch(urlMail)
-              : debugPrint('Could not launch $urlMail'),
+          onPressed: () async => await launch(urlMail),
           iconData: Icons.email,
           title: 'Adresse mail',
           onEnter: (event) {
@@ -211,9 +235,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ),
         CustomSharedIcon(
           title: 'Téléphone',
-          onPressed: () async => await canLaunch(urlTel)
-              ? await launch(urlTel)
-              : debugPrint('Could not launch $urlTel'),
+          onPressed: () async => await launch(urlTel),
           hover: hoverTel,
           iconData: Icons.phone,
           onEnter: (event) {
@@ -230,7 +252,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         CustomSharedIcon(
           title: 'En voir plus',
           onPressed: () {
-            _goTo(Section.CONTACT);
+            _goTo(Section.contact);
           },
           hover: hoverSeeMore,
           iconData: Icons.add_box_outlined,

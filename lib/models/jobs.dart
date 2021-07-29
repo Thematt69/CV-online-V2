@@ -1,68 +1,67 @@
 import 'package:flutter/material.dart';
 
-// ignore: constant_identifier_names
-enum TypeExperience { DIPLOME, ALTERNANCE, STAGE, INTERIMAIRE }
+enum TypeJobs { alternance, stage, interimaire, cdi }
 
-class Experience {
+class Jobs {
   DateTimeRange periode;
   String poste;
-  TypeExperience type;
   String lieu;
+  String description;
+  TypeJobs type;
   String? service;
-  String? description;
 
-  Experience({
+  Jobs({
     required this.periode,
     required this.poste,
-    required this.type,
     required this.lieu,
+    required this.description,
+    required this.type,
     this.service,
-    this.description,
   });
 
-  Experience copyWith({
+  Jobs copyWith({
     DateTimeRange? periode,
     String? poste,
-    TypeExperience? type,
     String? lieu,
-    String? service,
     String? description,
+    TypeJobs? type,
+    String? service,
   }) {
-    return Experience(
+    return Jobs(
       periode: periode ?? this.periode,
       poste: poste ?? this.poste,
-      type: type ?? this.type,
       lieu: lieu ?? this.lieu,
-      service: service ?? this.service,
       description: description ?? this.description,
+      type: type ?? this.type,
+      service: service ?? this.service,
     );
   }
 
   @override
   String toString() {
-    return 'Experience(periode: $periode, poste: $poste, type: $type, lieu: $lieu, service: $service, description: $description)';
+    return 'Jobs(periode: $periode, poste: $poste, lieu: $lieu, description: $description, type: $type, service: $service)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Experience &&
+    return other is Jobs &&
         other.periode == periode &&
         other.poste == poste &&
-        other.type == type &&
         other.lieu == lieu &&
-        other.service == service &&
-        other.description == description;
+        other.description == description &&
+        other.type == type &&
+        other.service == service;
   }
 
   @override
   int get hashCode {
     return periode.hashCode ^
         poste.hashCode ^
-        type.hashCode ^
         lieu.hashCode ^
-        service.hashCode ^
-        description.hashCode;
+        description.hashCode ^
+        type.hashCode ^
+        service.hashCode;
   }
 }

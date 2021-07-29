@@ -1,4 +1,5 @@
-import 'package:cv_online_v2/models/experience_card.dart';
+import 'package:cv_online_v2/models/etudes.dart';
+import 'package:cv_online_v2/models/jobs.dart';
 import 'package:cv_online_v2/models/realisation_card.dart';
 import 'package:flutter/material.dart';
 
@@ -65,134 +66,146 @@ List<Realisation> listRealisation = [
   ),
 ];
 
-List<Experience> listExperience = [
-  Experience(
+List<Jobs> listJobs = [
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2015, 01, 26),
       end: DateTime(2015, 01, 30),
     ),
     poste: 'Accueil clientèle',
-    type: TypeExperience.STAGE,
+    type: TypeJobs.stage,
     lieu: 'Gare SNCF Lyon Part-Dieu',
     service: 'Service accueil',
+    description: '', // TODO - A complété
   ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2016, 05, 23),
       end: DateTime(2016, 07, 01),
     ),
     poste: 'Technicien',
-    type: TypeExperience.STAGE,
+    type: TypeJobs.stage,
     lieu: 'Mobile Hut',
     description:
         'Accueil clientèle et vente des produits (téléphone, accessoires, réparation).',
   ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2017, 06, 06),
       end: DateTime(2017, 06, 30),
     ),
     poste: 'Technicien audiovisuel',
-    type: TypeExperience.STAGE,
+    type: TypeJobs.stage,
     lieu: 'Le Polaris',
     service: 'Complexe culturel',
     description:
         'Préparation sonore et éclairage pour différents spectacles, assistance au régisseur.',
   ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2016, 11, 21),
       end: DateTime(2016, 12, 16),
     ),
     poste: 'Technicien audiovisuel',
-    type: TypeExperience.STAGE,
+    type: TypeJobs.stage,
     lieu: 'Transit Melody',
     description: 'Prestataire technique en sonorisation, vidéo et éclairage.',
   ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2017, 10, 02),
       end: DateTime(2017, 10, 20),
     ),
     poste: 'Technicien audiovisuel',
-    type: TypeExperience.STAGE,
+    type: TypeJobs.stage,
     lieu: 'Transit Melody',
     description: 'Prestataire technique en sonorisation, vidéo et éclairage.',
   ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2018, 01, 29),
       end: DateTime(2018, 03, 16),
     ),
     poste: 'Technicien maintenance',
-    type: TypeExperience.STAGE,
+    type: TypeJobs.stage,
     lieu: 'Hub One',
     service: 'Service paramétrage',
     description:
         'Réglage d\'usine ou reconfiguration de masse de terminal mobile.',
   ),
-  Experience(
-    periode: DateTimeRange(
-      start: DateTime(2015, 09),
-      end: DateTime(2018, 06),
-    ),
-    poste: 'Bac Pro Système Electronique et Numérique',
-    type: TypeExperience.DIPLOME,
-    lieu: 'Mention Bien',
-    description: 'Lycée professionel Marc Seguin, Vénissieux.',
-  ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2018, 06, 25),
       end: DateTime(2018, 08, 24),
     ),
     poste: 'Agent logistique',
-    type: TypeExperience.INTERIMAIRE,
+    type: TypeJobs.interimaire,
     lieu: 'Hub One',
     service: 'Service logistique',
     description:
         'Réception, gestion logistique et remplacement des terminaux défectueux.',
   ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2019, 05, 27),
       end: DateTime(2019, 07, 05),
     ),
     poste: 'Développeur R&D',
-    type: TypeExperience.STAGE,
+    type: TypeJobs.stage,
     lieu: 'Renault Trucks St-Priest',
     service: 'Service Special Vehicle Development',
     description:
         'Intégration d\'un nouvel écran de bord pour des camions prototypes.',
   ),
-  Experience(
-    periode: DateTimeRange(
-      start: DateTime(2018, 09),
-      end: DateTime(2020, 06),
-    ),
-    poste: 'BTS Système Numérique',
-    type: TypeExperience.DIPLOME,
-    lieu: 'Option Informatique et Réseaux',
-    description: 'Lycée Marcel Sembat, Vénissieux.',
-  ),
-  Experience(
+  Jobs(
     periode: DateTimeRange(
       start: DateTime(2020, 08, 24),
       end: DateTime(2021, 09, 07),
     ),
     poste: 'Dévellopeur',
-    type: TypeExperience.ALTERNANCE,
+    type: TypeJobs.alternance,
     lieu: 'Groupe XEFI',
     service: 'XEFI Software',
+    description: '', // TODO - A complété
   ),
-  Experience(
+];
+
+List<Etudes> listEtudes = [
+  Etudes(
+    periode: DateTimeRange(
+      start: DateTime(2015, 09),
+      end: DateTime(2018, 06),
+    ),
+    nom: 'Bac Pro Système Electronique et Numérique',
+    ecole: 'Lycée professionel Marc Seguin, Vénissieux.',
+    description: '', // TODO - A complété
+  ),
+  Etudes(
+    periode: DateTimeRange(
+      start: DateTime(2018, 09),
+      end: DateTime(2020, 06),
+    ),
+    nom: 'BTS Système Numérique',
+    ecole: 'Lycée Marcel Sembat, Vénissieux.',
+    description: '', // TODO - A complété
+  ),
+  Etudes(
     periode: DateTimeRange(
       start: DateTime(2020, 08, 24),
       end: DateTime(2021, 09, 07),
     ),
-    poste: 'Licence Concepteur Dévellopeur d\'Application',
-    type: TypeExperience.DIPLOME,
-    lieu: 'XEFI ACADEMY',
-    service: 'En partenariat avec EPSI',
+    nom: "Licence Concepteur Dévellopeur d'Application",
+    ecole: 'XEFI ACADEMY',
+    description: '', // TODO - A complété
   ),
 ];
+
+String recommandation =
+    "Appliqué, sérieux, a le sens de l'écoute et ponctuel.\n"
+    "Respecte les consignes, s'intègre bien dans une équipe.\n"
+    "Sait répondre techniquement et faire des propositions.\n"
+    "En synthèse Matthieu a les capacités d'atteindre le niveau ingénieur.";
+
+String auteurRecommandation = 'Palmieri Serge';
+String posteRecommandation = 'Electronic pre-study leader';
+String entrepriseRecommandation = 'Renault Trucks St-Priest';

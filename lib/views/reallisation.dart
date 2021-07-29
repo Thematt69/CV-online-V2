@@ -1,11 +1,19 @@
+import 'package:flutter/material.dart';
+
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/models/realisation_card.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
-import 'package:flutter/material.dart';
+
+import '../responsive.dart';
 
 class RealisationSection extends StatefulWidget {
-  const RealisationSection({Key? key}) : super(key: key);
+  final bool isShowDrawer;
+
+  RealisationSection({
+    Key? key,
+    required this.isShowDrawer,
+  }) : super(key: key);
 
   @override
   _RealisationSectionState createState() => _RealisationSectionState();
@@ -25,14 +33,25 @@ class _RealisationSectionState extends State<RealisationSection> {
       )
       .toList();
 
-  double get widthCard =>
-      MediaQuery.of(context).size.width - defaultPadding > 1290
-          ? (MediaQuery.of(context).size.width - defaultPadding * 5) / 4
-          : MediaQuery.of(context).size.width - defaultPadding > 860
-              ? (MediaQuery.of(context).size.width - defaultPadding * 4) / 3
-              : MediaQuery.of(context).size.width - defaultPadding > 550
-                  ? (MediaQuery.of(context).size.width - defaultPadding * 3) / 2
-                  : (MediaQuery.of(context).size.width - defaultPadding * 2);
+  double get widthMediaQuery {
+    if (widget.isShowDrawer && Responsive.isDesktop(context)) {
+      return MediaQuery.of(context).size.width - 180;
+    } else {
+      return MediaQuery.of(context).size.width;
+    }
+  }
+
+  double get widthCard {
+    if (widthMediaQuery - defaultPadding30 > 1290) {
+      return (widthMediaQuery - defaultPadding30 * 5) / 4;
+    } else if (widthMediaQuery - defaultPadding30 > 860) {
+      return (widthMediaQuery - defaultPadding30 * 4) / 3;
+    } else if (widthMediaQuery - defaultPadding30 > 550) {
+      return (widthMediaQuery - defaultPadding30 * 3) / 2;
+    } else {
+      return widthMediaQuery - defaultPadding30 * 2;
+    }
+  }
 
   String selectedFilterToString(FilterRealisation value) {
     if (value == FilterRealisation.ONLINE) {
@@ -50,8 +69,8 @@ class _RealisationSectionState extends State<RealisationSection> {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding,
-        vertical: defaultPadding * 3,
+        horizontal: defaultPadding30,
+        vertical: defaultPadding30 * 3,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,12 +91,12 @@ class _RealisationSectionState extends State<RealisationSection> {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding30),
           _buildTabBar(context),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding30),
           Wrap(
-            spacing: defaultPadding,
-            runSpacing: defaultPadding,
+            spacing: defaultPadding30,
+            runSpacing: defaultPadding30,
             children: List.generate(
               list.length,
               (index) => CustomCardImage(
@@ -109,7 +128,7 @@ class _RealisationSectionState extends State<RealisationSection> {
             });
           },
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding / 2),
+            padding: const EdgeInsets.all(defaultPadding30 / 2),
             child: Text(
               'Tous',
               style: Theme.of(context).textTheme.button!.copyWith(
@@ -135,7 +154,7 @@ class _RealisationSectionState extends State<RealisationSection> {
             });
           },
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding / 2),
+            padding: const EdgeInsets.all(defaultPadding30 / 2),
             child: Text(
               'En ligne',
               style: Theme.of(context).textTheme.button!.copyWith(
@@ -162,7 +181,7 @@ class _RealisationSectionState extends State<RealisationSection> {
             });
           },
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding / 2),
+            padding: const EdgeInsets.all(defaultPadding30 / 2),
             child: Text(
               'Archive',
               style: Theme.of(context).textTheme.button!.copyWith(
