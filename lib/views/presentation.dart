@@ -143,9 +143,7 @@ class PresentationSection extends StatelessWidget {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () async => await canLaunch(urlCV)
-                    ? await launch(urlCV)
-                    : debugPrint('Could not launch $urlCV'),
+                onPressed: () async => await launch(urlCV),
                 child: const Text('Télécharger CV'),
               ),
               const SizedBox(width: defaultPadding30 * 2),
