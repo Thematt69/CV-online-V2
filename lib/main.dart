@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'CV en ligne - DEVILLIERS Matthieu',
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,
