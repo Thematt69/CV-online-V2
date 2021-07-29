@@ -203,9 +203,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       children: [
         CustomSharedIcon(
           hover: hoverMaps,
-          onPressed: () async => await canLaunch(urlMaps)
-              ? await launch(urlMaps)
-              : debugPrint('Could not launch $urlMaps'),
+          onPressed: () async => await launch(urlMaps),
           title: 'Google Maps',
           iconData: Icons.location_pin,
           onEnter: (event) {
@@ -221,9 +219,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ),
         CustomSharedIcon(
           hover: hoverMail,
-          onPressed: () async => await canLaunch(urlMail)
-              ? await launch(urlMail)
-              : debugPrint('Could not launch $urlMail'),
+          onPressed: () async => await launch(urlMail),
           iconData: Icons.email,
           title: 'Adresse mail',
           onEnter: (event) {
@@ -239,9 +235,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ),
         CustomSharedIcon(
           title: 'Téléphone',
-          onPressed: () async => await canLaunch(urlTel)
-              ? await launch(urlTel)
-              : debugPrint('Could not launch $urlTel'),
+          onPressed: () async => await launch(urlTel),
           hover: hoverTel,
           iconData: Icons.phone,
           onEnter: (event) {
