@@ -47,8 +47,8 @@ class CustomCardImage extends StatelessWidget {
               width: widthCard,
               color: darkColor.withOpacity(0.7),
               padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding / 2,
-                vertical: defaultPadding / 2,
+                horizontal: defaultPadding30 / 2,
+                vertical: defaultPadding30 / 2,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

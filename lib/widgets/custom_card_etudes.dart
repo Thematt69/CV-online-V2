@@ -24,9 +24,9 @@ class CustomCardEtudes extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
       width: widthCard,
       padding: const EdgeInsets.only(
-        top: defaultPadding,
-        left: defaultPadding,
-        bottom: defaultPadding,
+        top: defaultPadding30,
+        left: defaultPadding30,
+        bottom: defaultPadding30,
       ),
       decoration: const BoxDecoration(
         color: whiteColor,
@@ -41,7 +41,7 @@ class CustomCardEtudes extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(right: defaultPadding - 8),
+            padding: const EdgeInsets.only(right: defaultPadding30 - 8),
             child: Text(
               periode,
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
@@ -50,14 +50,14 @@ class CustomCardEtudes extends StatelessWidget {
                   ),
             ),
           ),
-          const SizedBox(height: defaultPadding / 2),
+          const SizedBox(height: defaultPadding30 / 2),
           const Divider(
             thickness: 8,
             color: orangeLightColor,
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding30),
           Padding(
-            padding: const EdgeInsets.only(right: defaultPadding - 8),
+            padding: const EdgeInsets.only(right: defaultPadding30 - 8),
             child: Text(
               nom,
               style: Theme.of(context).textTheme.headline3!.copyWith(
@@ -65,25 +65,25 @@ class CustomCardEtudes extends StatelessWidget {
                   ),
             ),
           ),
-          const SizedBox(height: defaultPadding / 2),
+          const SizedBox(height: defaultPadding30 / 2),
           Padding(
-            padding: const EdgeInsets.only(right: defaultPadding - 8),
+            padding: const EdgeInsets.only(right: defaultPadding30 - 8),
             child: Text(
               ecole,
               style: Theme.of(context).textTheme.headline6!.copyWith(
                     fontWeight: FontWeight.w700,
-                    color: greyColor,
+                    color: greyDarkColor,
                   ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: defaultPadding - 8),
+            padding: const EdgeInsets.only(right: defaultPadding30 - 8),
             child: Text(
               description,
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     letterSpacing: 0.5,
                     fontWeight: FontWeight.w400,
-                    color: greyColor,
+                    color: greyDarkColor,
                   ),
             ),
           ),

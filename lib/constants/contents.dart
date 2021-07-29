@@ -199,3 +199,13 @@ List<Etudes> listEtudes = [
     description: '', // TODO - A complété
   ),
 ];
+
+String recommandation =
+    "Appliqué, sérieux, a le sens de l'écoute et ponctuel.\n"
+    "Respecte les consignes, s'intègre bien dans une équipe.\n"
+    "Sait répondre techniquement et faire des propositions.\n"
+    "En synthèse Matthieu a les capacités d'atteindre le niveau ingénieur.";
+
+String auteurRecommandation = 'Palmieri Serge';
+String posteRecommandation = 'Electronic pre-study leader';
+String entrepriseRecommandation = 'Renault Trucks St-Priest';

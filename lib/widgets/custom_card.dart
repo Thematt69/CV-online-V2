@@ -69,7 +69,7 @@ class CustomCard extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: url != null
                             ? Theme.of(context).colorScheme.primary
-                            : greyColor,
+                            : greyDarkColor,
                         height: 1.6,
                       ),
                 ),

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../responsive.dart';
 
 class HeaderSection extends StatelessWidget {
-  const HeaderSection({Key? key}) : super(key: key);
+  HeaderSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class HeaderSection extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: defaultPadding * 2),
+          const SizedBox(width: defaultPadding30 * 2),
           Flexible(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +45,7 @@ class HeaderSection extends StatelessWidget {
                   child: Container(
                     width: 260,
                     height: 260,
-                    margin: const EdgeInsets.only(bottom: defaultPadding * 2),
+                    margin: const EdgeInsets.only(bottom: defaultPadding30 * 2),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(130),
                       image: const DecorationImage(
@@ -94,7 +94,7 @@ class HeaderSection extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: defaultPadding * 2),
+          const SizedBox(width: defaultPadding30 * 2),
         ],
       ),
     );

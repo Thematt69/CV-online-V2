@@ -5,6 +5,7 @@ import 'package:cv_online_v2/views/jobs.dart';
 import 'package:cv_online_v2/views/header.dart';
 import 'package:cv_online_v2/views/presentation.dart';
 import 'package:cv_online_v2/views/reallisation.dart';
+import 'package:cv_online_v2/views/recommandation.dart';
 import 'package:cv_online_v2/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -98,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget _buildCursorVisibleDrawer() {
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 200),
-      top: defaultPadding,
+      top: defaultPadding30,
       left: isShowDrawer ? 180 : 0,
       child: Material(
         elevation: 20,
@@ -168,12 +169,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               key: keyRealisation,
               isShowDrawer: isShowDrawer,
             ),
-            JobsSection(
-              key: keyJobs,
-              isShowDrawer: isShowDrawer,
-            ),
             EtudesSection(
               key: keyEtudes,
+              isShowDrawer: isShowDrawer,
+            ),
+            RecommandationSection(
+              key: keyRecommandation,
+            ),
+            JobsSection(
+              key: keyJobs,
               isShowDrawer: isShowDrawer,
             ),
           ],

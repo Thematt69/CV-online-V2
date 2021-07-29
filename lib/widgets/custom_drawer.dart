@@ -27,8 +27,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool hoverAPropos = false;
   bool hoverCompetences = false;
   bool hoverRealisations = false;
-  bool hoverJobs = false;
   bool hoverEtudes = false;
+  bool hoverRecommandation = false;
+  bool hoverJobs = false;
   bool hoverContact = false;
 
   bool hoverMaps = false;
@@ -56,7 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         elevation: 20,
         child: Container(
           width: 180,
-          padding: const EdgeInsets.all(defaultPadding),
+          padding: const EdgeInsets.all(defaultPadding30),
           color: whiteColor,
           child: _buildMenu(context),
         ),
@@ -134,19 +135,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               const Divider(height: 1),
               CustomItemMenu(
-                hover: hoverJobs,
-                title: 'Jobs',
-                onHover: (value) {
-                  setState(() {
-                    hoverJobs = !hoverJobs;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.jobs);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
                 hover: hoverEtudes,
                 title: 'Études',
                 onHover: (value) {
@@ -156,6 +144,32 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 },
                 onTap: () {
                   _goTo(Section.etudes);
+                },
+              ),
+              const Divider(height: 1),
+              CustomItemMenu(
+                hover: hoverRecommandation,
+                title: 'Recommandation',
+                onHover: (value) {
+                  setState(() {
+                    hoverRecommandation = !hoverRecommandation;
+                  });
+                },
+                onTap: () {
+                  _goTo(Section.recommandation);
+                },
+              ),
+              const Divider(height: 1),
+              CustomItemMenu(
+                hover: hoverJobs,
+                title: 'Jobs',
+                onHover: (value) {
+                  setState(() {
+                    hoverJobs = !hoverJobs;
+                  });
+                },
+                onTap: () {
+                  _goTo(Section.jobs);
                 },
               ),
               const Divider(height: 1),

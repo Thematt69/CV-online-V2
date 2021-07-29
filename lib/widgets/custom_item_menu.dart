@@ -22,8 +22,8 @@ class CustomItemMenu extends StatelessWidget {
       onHover: onHover,
       onTap: onTap,
       child: Container(
-        width: 180 - (defaultPadding * 2),
-        padding: const EdgeInsets.symmetric(vertical: defaultPadding / 3),
+        width: 180 - (defaultPadding30 * 2),
+        padding: const EdgeInsets.symmetric(vertical: defaultPadding30 / 3),
         child: Text(
           title,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(

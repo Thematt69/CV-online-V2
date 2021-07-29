@@ -10,7 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 class PresentationSection extends StatelessWidget {
   final ScrollController scrollController;
 
-  const PresentationSection({
+  PresentationSection({
     Key? key,
     required this.scrollController,
   }) : super(key: key);
@@ -21,8 +21,8 @@ class PresentationSection extends StatelessWidget {
       color: whiteColor,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding,
-        vertical: defaultPadding * 2,
+        horizontal: defaultPadding30,
+        vertical: defaultPadding30 * 2,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,12 +44,12 @@ class PresentationSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding30),
           RichText(
             text: TextSpan(
               text: 'Mon nom est ',
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                    color: greyColor,
+                    color: greyDarkColor,
                   ),
               children: <TextSpan>[
                 TextSpan(
@@ -62,7 +62,7 @@ class PresentationSection extends StatelessWidget {
                   text:
                       ". Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.",
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: greyColor,
+                        color: greyDarkColor,
                       ),
                 ),
               ],
@@ -148,7 +148,7 @@ class PresentationSection extends StatelessWidget {
                     : debugPrint('Could not launch $urlCV'),
                 child: const Text('Télécharger CV'),
               ),
-              const SizedBox(width: defaultPadding * 2),
+              const SizedBox(width: defaultPadding30 * 2),
               ElevatedButton(
                 onPressed: () {
                   scrollController.animateTo(

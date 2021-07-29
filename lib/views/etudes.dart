@@ -10,7 +10,7 @@ import '../responsive.dart';
 class EtudesSection extends StatefulWidget {
   final bool isShowDrawer;
 
-  const EtudesSection({
+  EtudesSection({
     Key? key,
     required this.isShowDrawer,
   }) : super(key: key);
@@ -31,12 +31,12 @@ class _EtudesSectionState extends State<EtudesSection> {
   }
 
   double get widthCard {
-    if (widthMediaQuery - defaultPadding > 1290) {
-      return (widthMediaQuery - defaultPadding * 4) / 3;
-    } else if (widthMediaQuery - defaultPadding > 860) {
-      return (widthMediaQuery - defaultPadding * 3) / 2;
+    if (widthMediaQuery - defaultPadding30 > 1290) {
+      return (widthMediaQuery - defaultPadding30 * 4) / 3;
+    } else if (widthMediaQuery - defaultPadding30 > 860) {
+      return (widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return (widthMediaQuery - defaultPadding * 2);
+      return (widthMediaQuery - defaultPadding30 * 2);
     }
   }
 
@@ -47,8 +47,8 @@ class _EtudesSectionState extends State<EtudesSection> {
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding,
-        vertical: defaultPadding * 3,
+        horizontal: defaultPadding30,
+        vertical: defaultPadding30 * 3,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,10 +69,10 @@ class _EtudesSectionState extends State<EtudesSection> {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding30),
           Wrap(
-            spacing: defaultPadding,
-            runSpacing: defaultPadding,
+            spacing: defaultPadding30,
+            runSpacing: defaultPadding30,
             alignment: WrapAlignment.spaceBetween,
             children: List.generate(
               listEtudes.length,

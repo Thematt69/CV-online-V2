@@ -4,8 +4,9 @@ final GlobalKey keyHeader = GlobalKey();
 final GlobalKey keyPresentation = GlobalKey();
 final GlobalKey keyCompetence = GlobalKey();
 final GlobalKey keyRealisation = GlobalKey();
-final GlobalKey keyJobs = GlobalKey();
 final GlobalKey keyEtudes = GlobalKey();
+final GlobalKey keyRecommandation = GlobalKey();
+final GlobalKey keyJobs = GlobalKey();
 final GlobalKey keyContact = GlobalKey();
 
 double get positionHeader => 0;
@@ -18,24 +19,32 @@ double get positionRealisation =>
     (keyHeader.currentContext?.size?.height ?? 0) +
     (keyPresentation.currentContext?.size?.height ?? 0) +
     (keyCompetence.currentContext?.size?.height ?? 0);
-double get positionJobs =>
-    (keyHeader.currentContext?.size?.height ?? 0) +
-    (keyPresentation.currentContext?.size?.height ?? 0) +
-    (keyCompetence.currentContext?.size?.height ?? 0) +
-    (keyRealisation.currentContext?.size?.height ?? 0);
 double get positionEtudes =>
     (keyHeader.currentContext?.size?.height ?? 0) +
     (keyPresentation.currentContext?.size?.height ?? 0) +
     (keyCompetence.currentContext?.size?.height ?? 0) +
+    (keyRealisation.currentContext?.size?.height ?? 0);
+double get positionRecommandation =>
+    (keyHeader.currentContext?.size?.height ?? 0) +
+    (keyPresentation.currentContext?.size?.height ?? 0) +
+    (keyCompetence.currentContext?.size?.height ?? 0) +
     (keyRealisation.currentContext?.size?.height ?? 0) +
-    (keyJobs.currentContext?.size?.height ?? 0);
+    (keyEtudes.currentContext?.size?.height ?? 0);
+double get positionJobs =>
+    (keyHeader.currentContext?.size?.height ?? 0) +
+    (keyPresentation.currentContext?.size?.height ?? 0) +
+    (keyCompetence.currentContext?.size?.height ?? 0) +
+    (keyRealisation.currentContext?.size?.height ?? 0) +
+    (keyEtudes.currentContext?.size?.height ?? 0) +
+    (keyRecommandation.currentContext?.size?.height ?? 0);
 double get positionContact =>
     (keyHeader.currentContext?.size?.height ?? 0) +
     (keyPresentation.currentContext?.size?.height ?? 0) +
     (keyCompetence.currentContext?.size?.height ?? 0) +
     (keyRealisation.currentContext?.size?.height ?? 0) +
-    (keyJobs.currentContext?.size?.height ?? 0) +
-    (keyEtudes.currentContext?.size?.height ?? 0);
+    (keyEtudes.currentContext?.size?.height ?? 0) +
+    (keyRecommandation.currentContext?.size?.height ?? 0) +
+    (keyJobs.currentContext?.size?.height ?? 0);
 
 /// Retourne la position X de la [section]
 double positionToSection(Section section) {
@@ -48,10 +57,12 @@ double positionToSection(Section section) {
       return positionCompetence;
     case Section.realisation:
       return positionRealisation;
-    case Section.jobs:
-      return positionJobs;
     case Section.etudes:
       return positionEtudes;
+    case Section.recommandation:
+      return positionRecommandation;
+    case Section.jobs:
+      return positionJobs;
     case Section.contact:
       return positionContact;
     default:
@@ -64,7 +75,8 @@ enum Section {
   presentation,
   competence,
   realisation,
-  jobs,
   etudes,
+  recommandation,
+  jobs,
   contact
 }

@@ -5,7 +5,7 @@ import 'package:cv_online_v2/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
 class CompetenceSection extends StatelessWidget {
-  const CompetenceSection({Key? key}) : super(key: key);
+  CompetenceSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,8 @@ class CompetenceSection extends StatelessWidget {
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding,
-        vertical: defaultPadding * 3,
+        horizontal: defaultPadding30,
+        vertical: defaultPadding30 * 3,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +36,7 @@ class CompetenceSection extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding),
+          const SizedBox(height: defaultPadding30),
           Wrap(
             spacing: 10,
             runSpacing: 10,
