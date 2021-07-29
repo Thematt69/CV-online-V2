@@ -20,7 +20,7 @@ class EtudesSection extends StatefulWidget {
 }
 
 class _EtudesSectionState extends State<EtudesSection> {
-  DateFormat dateFormat = DateFormat.yMMMd('fr');
+  DateFormat dateFormat = DateFormat.yMMM('fr');
 
   double get widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
