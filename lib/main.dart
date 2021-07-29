@@ -1,6 +1,7 @@
 import 'package:cv_online_v2/constants/theme_datas.dart';
 import 'package:cv_online_v2/responsive.dart';
-import 'package:cv_online_v2/views/experience.dart';
+import 'package:cv_online_v2/views/etudes.dart';
+import 'package:cv_online_v2/views/jobs.dart';
 import 'package:cv_online_v2/views/header.dart';
 import 'package:cv_online_v2/views/presentation.dart';
 import 'package:cv_online_v2/views/reallisation.dart';
@@ -167,8 +168,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               key: keyRealisation,
               isShowDrawer: isShowDrawer,
             ),
-            ExperienceSection(
-              key: keyExperience,
+            JobsSection(
+              key: keyJobs,
+              isShowDrawer: isShowDrawer,
+            ),
+            EtudesSection(
+              key: keyEtudes,
               isShowDrawer: isShowDrawer,
             ),
           ],

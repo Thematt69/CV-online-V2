@@ -1,26 +1,25 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/models/experience_card.dart';
-import 'package:cv_online_v2/widgets/custom_card_experience.dart';
+import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../responsive.dart';
 
-class ExperienceSection extends StatefulWidget {
+class EtudesSection extends StatefulWidget {
   final bool isShowDrawer;
 
-  const ExperienceSection({
+  const EtudesSection({
     Key? key,
     required this.isShowDrawer,
   }) : super(key: key);
 
   @override
-  _ExperienceSectionState createState() => _ExperienceSectionState();
+  _EtudesSectionState createState() => _EtudesSectionState();
 }
 
-class _ExperienceSectionState extends State<ExperienceSection> {
+class _EtudesSectionState extends State<EtudesSection> {
   DateFormat dateFormat = DateFormat.yMMMd('fr');
 
   double get widthMediaQuery {
@@ -41,23 +40,9 @@ class _ExperienceSectionState extends State<ExperienceSection> {
     }
   }
 
-  String selectedFilterToString(TypeExperience value) {
-    if (value == TypeExperience.DIPLOME) {
-      return 'Diplome';
-    } else if (value == TypeExperience.ALTERNANCE) {
-      return 'Alternance';
-    } else if (value == TypeExperience.STAGE) {
-      return 'Stage';
-    } else if (value == TypeExperience.INTERIMAIRE) {
-      return 'Intérimaire';
-    } else {
-      return 'Expérience';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    listExperience.sort((a, b) => a.periode.end.compareTo(b.periode.end));
+    listEtudes.sort((a, b) => a.periode.end.compareTo(b.periode.end));
     return Container(
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
@@ -76,7 +61,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
                   ),
               children: <TextSpan>[
                 TextSpan(
-                  text: 'expériences',
+                  text: 'Etudes',
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -90,16 +75,14 @@ class _ExperienceSectionState extends State<ExperienceSection> {
             runSpacing: defaultPadding,
             alignment: WrapAlignment.spaceBetween,
             children: List.generate(
-              listExperience.length,
-              (index) => CustomCardExperience(
+              listEtudes.length,
+              (index) => CustomCardEtudes(
                 periode:
-                    '${dateFormat.format(listExperience[index].periode.start)} - ${dateFormat.format(listExperience[index].periode.end)}',
-                lieu: listExperience[index].lieu,
-                poste: listExperience[index].poste,
+                    '${dateFormat.format(listEtudes[index].periode.start)} - ${dateFormat.format(listEtudes[index].periode.end)}',
+                ecole: listEtudes[index].ecole,
+                nom: listEtudes[index].nom,
+                description: listEtudes[index].description,
                 widthCard: widthCard,
-                description: listExperience[index].description,
-                service: listExperience[index].service,
-                type: selectedFilterToString(listExperience[index].type),
               ),
             ),
           )

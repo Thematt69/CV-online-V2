@@ -4,7 +4,8 @@ final GlobalKey keyHeader = GlobalKey();
 final GlobalKey keyPresentation = GlobalKey();
 final GlobalKey keyCompetence = GlobalKey();
 final GlobalKey keyRealisation = GlobalKey();
-final GlobalKey keyExperience = GlobalKey();
+final GlobalKey keyJobs = GlobalKey();
+final GlobalKey keyEtudes = GlobalKey();
 final GlobalKey keyContact = GlobalKey();
 
 double get positionHeader => 0;
@@ -17,32 +18,41 @@ double get positionRealisation =>
     (keyHeader.currentContext?.size?.height ?? 0) +
     (keyPresentation.currentContext?.size?.height ?? 0) +
     (keyCompetence.currentContext?.size?.height ?? 0);
-double get positionExperiance =>
+double get positionJobs =>
     (keyHeader.currentContext?.size?.height ?? 0) +
     (keyPresentation.currentContext?.size?.height ?? 0) +
     (keyCompetence.currentContext?.size?.height ?? 0) +
     (keyRealisation.currentContext?.size?.height ?? 0);
+double get positionEtudes =>
+    (keyHeader.currentContext?.size?.height ?? 0) +
+    (keyPresentation.currentContext?.size?.height ?? 0) +
+    (keyCompetence.currentContext?.size?.height ?? 0) +
+    (keyRealisation.currentContext?.size?.height ?? 0) +
+    (keyJobs.currentContext?.size?.height ?? 0);
 double get positionContact =>
     (keyHeader.currentContext?.size?.height ?? 0) +
     (keyPresentation.currentContext?.size?.height ?? 0) +
     (keyCompetence.currentContext?.size?.height ?? 0) +
     (keyRealisation.currentContext?.size?.height ?? 0) +
-    (keyExperience.currentContext?.size?.height ?? 0);
+    (keyJobs.currentContext?.size?.height ?? 0) +
+    (keyEtudes.currentContext?.size?.height ?? 0);
 
 /// Retourne la position X de la [section]
 double positionToSection(Section section) {
   switch (section) {
-    case Section.HEADER:
+    case Section.header:
       return positionHeader;
-    case Section.PRESENTATION:
+    case Section.presentation:
       return positionPresentation;
-    case Section.COMPETENTCE:
+    case Section.competence:
       return positionCompetence;
-    case Section.REALISATION:
+    case Section.realisation:
       return positionRealisation;
-    case Section.EXPERIENCE:
-      return positionExperiance;
-    case Section.CONTACT:
+    case Section.jobs:
+      return positionJobs;
+    case Section.etudes:
+      return positionEtudes;
+    case Section.contact:
       return positionContact;
     default:
       return positionHeader;
@@ -50,16 +60,11 @@ double positionToSection(Section section) {
 }
 
 enum Section {
-  // ignore: constant_identifier_names
-  HEADER,
-  // ignore: constant_identifier_names
-  PRESENTATION,
-  // ignore: constant_identifier_names
-  COMPETENTCE,
-  // ignore: constant_identifier_names
-  REALISATION,
-  // ignore: constant_identifier_names
-  EXPERIENCE,
-  // ignore: constant_identifier_names
-  CONTACT
+  header,
+  presentation,
+  competence,
+  realisation,
+  jobs,
+  etudes,
+  contact
 }

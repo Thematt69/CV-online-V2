@@ -27,7 +27,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool hoverAPropos = false;
   bool hoverCompetences = false;
   bool hoverRealisations = false;
-  bool hoverExperiences = false;
+  bool hoverJobs = false;
+  bool hoverEtudes = false;
   bool hoverContact = false;
 
   bool hoverMaps = false;
@@ -89,7 +90,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.HEADER);
+                  _goTo(Section.header);
                 },
               ),
               const Divider(height: 1),
@@ -102,7 +103,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.PRESENTATION);
+                  _goTo(Section.presentation);
                 },
               ),
               const Divider(height: 1),
@@ -115,7 +116,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.COMPETENTCE);
+                  _goTo(Section.competence);
                 },
               ),
               const Divider(height: 1),
@@ -128,20 +129,33 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.REALISATION);
+                  _goTo(Section.realisation);
                 },
               ),
               const Divider(height: 1),
               CustomItemMenu(
-                hover: hoverExperiences,
-                title: 'Expériences',
+                hover: hoverJobs,
+                title: 'Jobs',
                 onHover: (value) {
                   setState(() {
-                    hoverExperiences = !hoverExperiences;
+                    hoverJobs = !hoverJobs;
                   });
                 },
                 onTap: () {
-                  _goTo(Section.EXPERIENCE);
+                  _goTo(Section.jobs);
+                },
+              ),
+              const Divider(height: 1),
+              CustomItemMenu(
+                hover: hoverEtudes,
+                title: 'Etudes',
+                onHover: (value) {
+                  setState(() {
+                    hoverEtudes = !hoverEtudes;
+                  });
+                },
+                onTap: () {
+                  _goTo(Section.etudes);
                 },
               ),
               const Divider(height: 1),
@@ -154,7 +168,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   });
                 },
                 onTap: () {
-                  _goTo(Section.CONTACT);
+                  _goTo(Section.contact);
                 },
               ),
               const Spacer(),
@@ -230,7 +244,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         CustomSharedIcon(
           title: 'En voir plus',
           onPressed: () {
-            _goTo(Section.CONTACT);
+            _goTo(Section.contact);
           },
           hover: hoverSeeMore,
           iconData: Icons.add_box_outlined,
