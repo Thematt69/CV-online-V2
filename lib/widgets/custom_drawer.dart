@@ -148,7 +148,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               const Divider(height: 1),
               CustomItemMenu(
                 hover: hoverEtudes,
-                title: 'Etudes',
+                title: 'Études',
                 onHover: (value) {
                   setState(() {
                     hoverEtudes = !hoverEtudes;

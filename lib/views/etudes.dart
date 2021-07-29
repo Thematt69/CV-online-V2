@@ -61,7 +61,7 @@ class _EtudesSectionState extends State<EtudesSection> {
                   ),
               children: <TextSpan>[
                 TextSpan(
-                  text: 'Etudes',
+                  text: 'Études',
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
