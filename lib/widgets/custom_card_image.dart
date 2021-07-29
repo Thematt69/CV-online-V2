@@ -29,7 +29,8 @@ class CustomCardImage extends StatelessWidget {
               ? await launch(url!)
               : debugPrint('Could not launch $url')
           : null,
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
         width: widthCard,
         height: widthCard,
         decoration: BoxDecoration(

@@ -165,9 +165,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
             RealisationSection(
               key: keyRealisation,
+              isShowDrawer: isShowDrawer,
             ),
             ExperienceSection(
               key: keyExperience,
+              isShowDrawer: isShowDrawer,
             ),
           ],
         ),

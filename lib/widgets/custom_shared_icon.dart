@@ -10,6 +10,7 @@ class CustomSharedIcon extends StatelessWidget {
   final IconData iconData;
   final bool hover;
   final String title;
+  final double size;
 
   const CustomSharedIcon({
     Key? key,
@@ -19,22 +20,28 @@ class CustomSharedIcon extends StatelessWidget {
     required this.iconData,
     required this.hover,
     required this.title,
+    this.size = 30,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: onEnter,
-      onExit: onExit,
-      child: IconButton(
-        onPressed: onPressed,
-        icon: Icon(
-          iconData,
-          color: hover ? Theme.of(context).hoverColor : blackColor,
+    return SizedBox(
+      width: size,
+      height: size,
+      child: MouseRegion(
+        onEnter: onEnter,
+        onExit: onExit,
+        child: IconButton(
+          onPressed: onPressed,
+          icon: Icon(
+            iconData,
+            color: hover ? Theme.of(context).hoverColor : blackColor,
+          ),
+          splashRadius: defaultSplashRadius,
+          iconSize: defaultIconSize,
+          tooltip: title,
+          padding: const EdgeInsets.all(0),
         ),
-        splashRadius: defaultSplashRadius,
-        iconSize: defaultIconSize,
-        tooltip: title,
       ),
     );
   }

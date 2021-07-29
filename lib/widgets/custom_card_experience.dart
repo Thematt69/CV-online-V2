@@ -24,7 +24,8 @@ class CustomCardExperience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
       width: widthCard,
       padding: const EdgeInsets.only(
         top: defaultPadding,

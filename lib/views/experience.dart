@@ -6,9 +6,14 @@ import 'package:cv_online_v2/widgets/custom_card_experience.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../responsive.dart';
+
 class ExperienceSection extends StatefulWidget {
+  final bool isShowDrawer;
+
   const ExperienceSection({
     Key? key,
+    required this.isShowDrawer,
   }) : super(key: key);
 
   @override
@@ -18,12 +23,23 @@ class ExperienceSection extends StatefulWidget {
 class _ExperienceSectionState extends State<ExperienceSection> {
   DateFormat dateFormat = DateFormat.yMMMd('fr');
 
-  double get widthCard =>
-      MediaQuery.of(context).size.width - defaultPadding > 1290
-          ? (MediaQuery.of(context).size.width - defaultPadding * 4) / 3
-          : MediaQuery.of(context).size.width - defaultPadding > 860
-              ? (MediaQuery.of(context).size.width - defaultPadding * 3) / 2
-              : (MediaQuery.of(context).size.width - defaultPadding * 2);
+  double get widthMediaQuery {
+    if (widget.isShowDrawer && Responsive.isDesktop(context)) {
+      return MediaQuery.of(context).size.width - 180;
+    } else {
+      return MediaQuery.of(context).size.width;
+    }
+  }
+
+  double get widthCard {
+    if (widthMediaQuery - defaultPadding > 1290) {
+      return (widthMediaQuery - defaultPadding * 4) / 3;
+    } else if (widthMediaQuery - defaultPadding > 860) {
+      return (widthMediaQuery - defaultPadding * 3) / 2;
+    } else {
+      return (widthMediaQuery - defaultPadding * 2);
+    }
+  }
 
   String selectedFilterToString(TypeExperience value) {
     if (value == TypeExperience.DIPLOME) {
