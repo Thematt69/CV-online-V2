@@ -24,11 +24,7 @@ class CustomCardImage extends StatelessWidget {
     return InkWell(
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: url != null
-          ? () async => await canLaunch(url!)
-              ? await launch(url!)
-              : debugPrint('Could not launch $url')
-          : null,
+      onTap: url != null ? () async => await launch(url!) : null,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         width: widthCard,
@@ -43,7 +39,6 @@ class CustomCardImage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              // height: 100,
               width: widthCard,
               color: darkColor.withOpacity(0.7),
               padding: const EdgeInsets.symmetric(
@@ -55,11 +50,17 @@ class CustomCardImage extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline5
+                        ?.copyWith(color: whiteColor),
                   ),
                   Text(
                     tag,
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        ?.copyWith(color: whiteColor),
                   ),
                 ],
               ),
