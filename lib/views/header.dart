@@ -20,7 +20,8 @@ class HeaderSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Visibility(
-            visible: Responsive.isDesktop(context),
+            visible: Responsive.isDesktop(context) &&
+                MediaQuery.of(context).size.height > 450,
             child: Container(
               width: 260,
               height: 260,
@@ -34,18 +35,23 @@ class HeaderSection extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: defaultPadding30 * 2),
+          SizedBox(
+            width: Responsive.isDesktop(context)
+                ? defaultPadding60
+                : defaultPadding30,
+          ),
           Flexible(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Visibility(
-                  visible: !Responsive.isDesktop(context),
+                  visible: Responsive.isTablet(context) &&
+                      MediaQuery.of(context).size.height > 450,
                   child: Container(
                     width: 260,
                     height: 260,
-                    margin: const EdgeInsets.only(bottom: defaultPadding30 * 2),
+                    margin: const EdgeInsets.only(bottom: defaultPadding60),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(130),
                       image: const DecorationImage(
@@ -60,41 +66,39 @@ class HeaderSection extends StatelessWidget {
                   alignment: WrapAlignment.center,
                   children: [
                     Text(
-                      'DEVILLIERS ',
+                      'DEVILLIERS',
+                      overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.headline1!.copyWith(
                             color: Theme.of(context).colorScheme.onSecondary,
+                            fontSize: Responsive.isDesktop(context) ? 72 : 50,
                           ),
                     ),
+                    const SizedBox(width: defaultPadding6),
                     Text(
                       'Matthieu',
+                      overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.headline1!.copyWith(
                             color: Theme.of(context).colorScheme.onSecondary,
+                            fontSize: Responsive.isDesktop(context) ? 72 : 50,
                           ),
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Text(
-                      'Je suis ',
-                      style: Theme.of(context).textTheme.headline2!.copyWith(
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                    ),
-                    DefaultTextStyle(
-                      style: Theme.of(context).textTheme.headline2!.copyWith(
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
-                      overflow: TextOverflow.ellipsis,
-                      child: const CustomAnimatedTextKit(),
-                    ),
-                  ],
+                CustomAnimatedTextKit(
+                  prefix: 'Je suis ',
+                  textStyle: Theme.of(context).textTheme.headline2!.copyWith(
+                        color: Theme.of(context).colorScheme.onSecondary,
+                        fontSize: Responsive.isDesktop(context) ? 30 : 24,
+                      ),
                 ),
               ],
             ),
           ),
-          const SizedBox(width: defaultPadding30 * 2),
+          SizedBox(
+            width: Responsive.isDesktop(context)
+                ? defaultPadding60
+                : defaultPadding30,
+          ),
         ],
       ),
     );
