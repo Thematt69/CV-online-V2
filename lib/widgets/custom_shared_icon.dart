@@ -35,7 +35,7 @@ class CustomSharedIcon extends StatelessWidget {
           onPressed: onPressed,
           icon: Icon(
             iconData,
-            color: hover ? Theme.of(context).hoverColor : blackColor,
+            color: hover ? Theme.of(context).colorScheme.primary : blackColor,
           ),
           splashRadius: defaultSplashRadius,
           iconSize: defaultIconSize,
