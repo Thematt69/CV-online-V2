@@ -47,6 +47,7 @@ class CustomCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             label!,
@@ -59,11 +60,7 @@ class CustomCard extends StatelessWidget {
           if (value != null && value!.isNotEmpty)
             Flexible(
               child: InkWell(
-                onTap: url != null
-                    ? () async => await canLaunch(url!)
-                        ? await launch(url!)
-                        : debugPrint('Could not launch ${url!}')
-                    : null,
+                onTap: url != null ? () async => await launch(url!) : null,
                 child: Text(
                   value!,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(

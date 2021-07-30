@@ -3,6 +3,9 @@ import 'package:cv_online_v2/models/jobs.dart';
 import 'package:cv_online_v2/models/realisation_card.dart';
 import 'package:flutter/material.dart';
 
+String description =
+    "Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.";
+
 List<String> listCompetences = [
   'HTML 5',
   'CSS 3',

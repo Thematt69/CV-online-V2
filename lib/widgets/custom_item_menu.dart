@@ -23,7 +23,11 @@ class CustomItemMenu extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 180 - (defaultPadding30 * 2),
-        padding: const EdgeInsets.symmetric(vertical: defaultPadding30 / 3),
+        padding: EdgeInsets.symmetric(
+          vertical: MediaQuery.of(context).size.height > 338
+              ? defaultPadding10
+              : defaultPadding6,
+        ),
         child: Text(
           title,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(

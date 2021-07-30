@@ -14,8 +14,12 @@ import 'constants/colors.dart';
 import 'constants/sections.dart';
 import 'constants/sizes.dart';
 import 'views/competence.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  // Here we set the URL strategy for our web app.
+  // It is safe to call this function when running on mobile or desktop as well.
+  setPathUrlStrategy();
   initializeDateFormatting();
   runApp(
     const MyApp(),
@@ -28,7 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'CV en ligne - DEVILLIERS Matthieu',
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,

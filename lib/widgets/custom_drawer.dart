@@ -57,7 +57,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
         elevation: 20,
         child: Container(
           width: 180,
-          padding: const EdgeInsets.all(defaultPadding30),
+          padding: EdgeInsets.symmetric(
+            horizontal: defaultPadding30,
+            vertical: MediaQuery.of(context).size.height > 390
+                ? defaultPadding30
+                : defaultPadding10,
+          ),
           color: whiteColor,
           child: _buildMenu(context),
         ),
@@ -187,7 +192,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               const Spacer(),
               Visibility(
-                visible: MediaQuery.of(context).size.height > 400,
+                visible: MediaQuery.of(context).size.height > 445,
                 child: _buildSharedIcons(context),
               ),
             ],

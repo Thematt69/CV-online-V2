@@ -1,7 +1,9 @@
 import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sections.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
+import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
 import 'package:cv_online_v2/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
@@ -27,22 +29,20 @@ class PresentationSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Text(
-                'Je suis DEVILLIERS Matthieu et ',
-                style: Theme.of(context).textTheme.headline2?.copyWith(
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
-              ),
-              DefaultTextStyle(
-                style: Theme.of(context).textTheme.headline2!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                overflow: TextOverflow.ellipsis,
-                child: const CustomAnimatedTextKit(),
-              ),
-            ],
+          Text(
+            'Je suis DEVILLIERS Matthieu',
+            style: Theme.of(context).textTheme.headline2?.copyWith(
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
+          ),
+          CustomAnimatedTextKit(
+            textAlign: TextAlign.start,
+            textStyle: Theme.of(context).textTheme.headline2!.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 26,
+                  height: 1,
+                  fontWeight: FontWeight.w300,
+                ),
           ),
           const SizedBox(height: defaultPadding30),
           RichText(
@@ -53,14 +53,13 @@ class PresentationSection extends StatelessWidget {
                   ),
               children: <TextSpan>[
                 TextSpan(
-                  text: 'DEVILLIERS Matthieu',
+                  text: 'DEVILLIERS Matthieu. ',
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 ),
                 TextSpan(
-                  text:
-                      ". Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.",
+                  text: description,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: greyDarkColor,
                       ),
@@ -143,12 +142,12 @@ class PresentationSection extends StatelessWidget {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () async => await canLaunch(urlCV)
-                    ? await launch(urlCV)
-                    : debugPrint('Could not launch $urlCV'),
+                onPressed: () async => await launch(urlCV),
                 child: const Text('Télécharger CV'),
               ),
-              const SizedBox(width: defaultPadding30 * 2),
+              Responsive.isMobile(context)
+                  ? const Spacer()
+                  : const SizedBox(width: defaultPadding60),
               ElevatedButton(
                 onPressed: () {
                   scrollController.animateTo(

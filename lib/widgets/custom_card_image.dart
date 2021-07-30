@@ -22,6 +22,8 @@ class CustomCardImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      mouseCursor:
+          url != null ? SystemMouseCursors.click : SystemMouseCursors.forbidden,
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: url != null ? () async => await launch(url!) : null,
