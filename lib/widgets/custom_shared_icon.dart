@@ -4,14 +4,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class CustomSharedIcon extends StatelessWidget {
-  final void Function(PointerEnterEvent)? onEnter;
-  final void Function(PointerExitEvent)? onExit;
-  final void Function()? onPressed;
-  final IconData iconData;
-  final bool hover;
-  final String title;
-  final double size;
-
   const CustomSharedIcon({
     Key? key,
     required this.onEnter,
@@ -22,6 +14,14 @@ class CustomSharedIcon extends StatelessWidget {
     required this.title,
     this.size = 30,
   }) : super(key: key);
+
+  final void Function(PointerEnterEvent event)? onEnter;
+  final void Function(PointerExitEvent event)? onExit;
+  final void Function()? onPressed;
+  final bool hover;
+  final IconData iconData;
+  final double size;
+  final String title;
 
   @override
   Widget build(BuildContext context) {

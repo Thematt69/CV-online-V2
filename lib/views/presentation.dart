@@ -10,12 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PresentationSection extends StatelessWidget {
-  final ScrollController scrollController;
-
   PresentationSection({
     Key? key,
     required this.scrollController,
   }) : super(key: key);
+
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class PresentationSection extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
         horizontal: defaultPadding30,
-        vertical: defaultPadding30 * 2,
+        vertical: defaultPadding60,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +68,7 @@ class PresentationSection extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
+            padding: const EdgeInsets.symmetric(vertical: defaultPadding30),
             child: Wrap(
               spacing: 10,
               runSpacing: 10,

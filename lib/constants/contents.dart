@@ -1,7 +1,12 @@
+import 'package:cv_online_v2/constants/urls.dart';
+import 'package:cv_online_v2/models/contact.dart';
 import 'package:cv_online_v2/models/etudes.dart';
 import 'package:cv_online_v2/models/jobs.dart';
 import 'package:cv_online_v2/models/realisation_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'colors.dart';
 
 String description =
     "Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.";
@@ -28,7 +33,7 @@ List<String> listCompetences = [
   'Figma',
 ];
 
-List<Realisation> listRealisation = [
+List<Realisation> listRealisations = [
   Realisation(
     assetImage: 'images/project/canhumanitaire.webp',
     tag: FilterRealisation.ARCHIVE,
@@ -212,3 +217,118 @@ String recommandation =
 String auteurRecommandation = 'Palmieri Serge';
 String posteRecommandation = 'Electronic pre-study leader';
 String entrepriseRecommandation = 'Renault Trucks St-Priest';
+
+List<Contact> listContacts = [
+  Contact(
+    icon: const Icon(
+      Icons.place,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Localisation",
+    name: "2 Rue Jean Jacques Rousseau, Corbas, 69960, France",
+    url: urlMaps,
+  ),
+  Contact(
+    icon: const Icon(
+      Icons.email,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Mail",
+    name: "devilliers.matthieu@gmail.com",
+    url: urlMail,
+  ),
+  Contact(
+    icon: const Icon(
+      Icons.phone,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Téléphone",
+    name: '06 45 56 48 45',
+    url: urlTel,
+  ),
+  Contact(
+    icon: const FaIcon(
+      FontAwesomeIcons.linkedinIn,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Linkedin",
+    name: 'Matthieu Devilliers',
+    url: urlLinkedin,
+  ),
+  Contact(
+    icon: const FaIcon(
+      FontAwesomeIcons.instagram,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Instagram",
+    name: "thematt69",
+    url: urlInstagram,
+  ),
+  Contact(
+    icon: const FaIcon(
+      FontAwesomeIcons.twitter,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Twitter",
+    name: "@DevilliersMatt",
+    url: urlTwitter,
+  ),
+  Contact(
+    icon: const FaIcon(
+      FontAwesomeIcons.twitch,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Twitch",
+    name: "TheMatt69",
+    url: urlTwitch,
+  ),
+  Contact(
+    icon: const FaIcon(
+      FontAwesomeIcons.youtube,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Youtube",
+    name: 'Matthieu Devilliers',
+    url: urlYoutube,
+  ),
+  Contact(
+    icon: const FaIcon(
+      FontAwesomeIcons.discord,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "Discord",
+    name: "Thematt69#9999",
+    url: urlDiscord,
+  ),
+  Contact(
+    icon: const FaIcon(
+      FontAwesomeIcons.github,
+      color: greyDarkColor,
+      size: 16,
+    ),
+    label: "GitHub",
+    name: "Matthieu Devilliers",
+    url: urlGithub,
+  ),
+];
+
+Row copyrightFooter = Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: const [
+    Text('Matthieu Devilliers'),
+    Text(' | '),
+    Text('Copyright ©2021 All rights reserved'),
+    Text(' | '),
+    Text('Made with Flutter'),
+    FlutterLogo(),
+  ],
+);

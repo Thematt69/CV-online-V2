@@ -1,5 +1,6 @@
 import 'package:cv_online_v2/constants/theme_datas.dart';
 import 'package:cv_online_v2/responsive.dart';
+import 'package:cv_online_v2/views/contact.dart';
 import 'package:cv_online_v2/views/etudes.dart';
 import 'package:cv_online_v2/views/jobs.dart';
 import 'package:cv_online_v2/views/header.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'constants/colors.dart';
+import 'constants/contents.dart';
 import 'constants/sections.dart';
 import 'constants/sizes.dart';
 import 'views/competence.dart';
@@ -50,10 +52,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  final ScrollController _scrollController = ScrollController();
+  bool isShowDrawer = true;
+
   late final AnimationController _controller;
   late final Animation<double> _myAnimation;
-  bool isShowDrawer = true;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -68,35 +71,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     _myAnimation = CurvedAnimation(
       curve: Curves.linear,
       parent: _controller,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Row(
-              children: [
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  width:
-                      isShowDrawer && Responsive.isDesktop(context) ? 180 : 0,
-                ),
-                Expanded(
-                  child: _buildContents(context),
-                ),
-              ],
-            ),
-            _buildCursorVisibleDrawer(),
-            CustomDrawer(
-              isShowDrawer: isShowDrawer,
-              scrollController: _scrollController,
-            ),
-          ],
-        ),
-      ),
     );
   }
 
@@ -183,6 +157,46 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             JobsSection(
               key: keyJobs,
               isShowDrawer: isShowDrawer,
+            ),
+            ContactSection(
+              key: keyContact,
+            ),
+            Container(
+              color: darkLightColor,
+              padding: const EdgeInsets.symmetric(
+                vertical: defaultPadding60,
+                horizontal: defaultPadding16,
+              ),
+              child: copyrightFooter,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Row(
+              children: [
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  width:
+                      isShowDrawer && Responsive.isDesktop(context) ? 180 : 0,
+                ),
+                Expanded(
+                  child: _buildContents(context),
+                ),
+              ],
+            ),
+            _buildCursorVisibleDrawer(),
+            CustomDrawer(
+              isShowDrawer: isShowDrawer,
+              scrollController: _scrollController,
             ),
           ],
         ),

@@ -4,12 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomCardImage extends StatelessWidget {
-  final double widthCard;
-  final String assetImage;
-  final String title;
-  final String tag;
-  final String? url;
-
   const CustomCardImage({
     Key? key,
     required this.widthCard,
@@ -18,6 +12,12 @@ class CustomCardImage extends StatelessWidget {
     required this.tag,
     this.url,
   }) : super(key: key);
+
+  final String assetImage;
+  final String tag;
+  final String title;
+  final String? url;
+  final double widthCard;
 
   @override
   Widget build(BuildContext context) {
