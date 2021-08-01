@@ -47,6 +47,7 @@ class ContactSection extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: defaultPadding16),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       contact.icon,
                       const SizedBox(width: defaultPadding6),
@@ -58,20 +59,21 @@ class ContactSection extends StatelessWidget {
                               height: 1,
                             ),
                       ),
-                      InkWell(
-                        onTap: () async => await launch(contact.url),
-                        child: Text(
-                          contact.name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                color: Theme.of(context).colorScheme.primary,
-                                height: 1,
-                              ),
+                      Expanded(
+                        child: InkWell(
+                          onTap: () async => await launch(contact.url),
+                          child: Text(
+                            contact.name,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .copyWith(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  height: 1,
+                                ),
+                          ),
                         ),
                       ),
-                      const Spacer(),
                     ],
                   ),
                 );
