@@ -320,15 +320,3 @@ List<Contact> listContacts = [
     url: urlGithub,
   ),
 ];
-
-Row copyrightFooter = Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: const [
-    Text('Matthieu Devilliers'),
-    Text(' | '),
-    Text('Copyright ©2021 All rights reserved'),
-    Text(' | '),
-    Text('Made with Flutter'),
-    FlutterLogo(),
-  ],
-);
