@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Etudes {
-  DateTimeRange periode;
-  String nom;
-  String description;
-  String ecole;
-
   Etudes({
     required this.periode,
     required this.nom,
@@ -13,24 +8,10 @@ class Etudes {
     required this.ecole,
   });
 
-  Etudes copyWith({
-    DateTimeRange? periode,
-    String? nom,
-    String? description,
-    String? ecole,
-  }) {
-    return Etudes(
-      periode: periode ?? this.periode,
-      nom: nom ?? this.nom,
-      description: description ?? this.description,
-      ecole: ecole ?? this.ecole,
-    );
-  }
-
-  @override
-  String toString() {
-    return 'Etudes(periode: $periode, nom: $nom, description: $description, ecole: $ecole)';
-  }
+  String description;
+  String ecole;
+  String nom;
+  DateTimeRange periode;
 
   @override
   bool operator ==(Object other) {
@@ -49,5 +30,24 @@ class Etudes {
         nom.hashCode ^
         description.hashCode ^
         ecole.hashCode;
+  }
+
+  @override
+  String toString() {
+    return 'Etudes(periode: $periode, nom: $nom, description: $description, ecole: $ecole)';
+  }
+
+  Etudes copyWith({
+    DateTimeRange? periode,
+    String? nom,
+    String? description,
+    String? ecole,
+  }) {
+    return Etudes(
+      periode: periode ?? this.periode,
+      nom: nom ?? this.nom,
+      description: description ?? this.description,
+      ecole: ecole ?? this.ecole,
+    );
   }
 }

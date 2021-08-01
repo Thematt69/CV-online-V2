@@ -2,11 +2,6 @@
 enum FilterRealisation { ALL, ONLINE, ARCHIVE }
 
 class Realisation {
-  String assetImage;
-  String title;
-  String? url;
-  FilterRealisation tag;
-
   Realisation({
     required this.assetImage,
     required this.title,
@@ -14,24 +9,10 @@ class Realisation {
     required this.tag,
   });
 
-  Realisation copyWith({
-    String? assetImage,
-    String? title,
-    String? url,
-    FilterRealisation? tag,
-  }) {
-    return Realisation(
-      assetImage: assetImage ?? this.assetImage,
-      title: title ?? this.title,
-      url: url ?? this.url,
-      tag: tag ?? this.tag,
-    );
-  }
-
-  @override
-  String toString() {
-    return 'Realisation(assetImage: $assetImage, title: $title, url: $url, tag: $tag)';
-  }
+  String assetImage;
+  FilterRealisation tag;
+  String title;
+  String? url;
 
   @override
   bool operator ==(Object other) {
@@ -47,5 +28,24 @@ class Realisation {
   @override
   int get hashCode {
     return assetImage.hashCode ^ title.hashCode ^ url.hashCode ^ tag.hashCode;
+  }
+
+  @override
+  String toString() {
+    return 'Realisation(assetImage: $assetImage, title: $title, url: $url, tag: $tag)';
+  }
+
+  Realisation copyWith({
+    String? assetImage,
+    String? title,
+    String? url,
+    FilterRealisation? tag,
+  }) {
+    return Realisation(
+      assetImage: assetImage ?? this.assetImage,
+      title: title ?? this.title,
+      url: url ?? this.url,
+      tag: tag ?? this.tag,
+    );
   }
 }

@@ -8,12 +8,12 @@ import 'package:intl/intl.dart';
 import '../responsive.dart';
 
 class JobsSection extends StatefulWidget {
-  final bool isShowDrawer;
-
   JobsSection({
     Key? key,
     required this.isShowDrawer,
   }) : super(key: key);
+
+  final bool isShowDrawer;
 
   @override
   _JobsSectionState createState() => _JobsSectionState();

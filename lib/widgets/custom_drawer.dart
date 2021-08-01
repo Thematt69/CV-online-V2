@@ -9,64 +9,38 @@ import 'custom_item_menu.dart';
 import 'custom_shared_icon.dart';
 
 class CustomDrawer extends StatefulWidget {
-  final bool isShowDrawer;
-  final ScrollController scrollController;
-
   const CustomDrawer({
     required this.scrollController,
     required this.isShowDrawer,
     Key? key,
   }) : super(key: key);
 
+  final bool isShowDrawer;
+  final ScrollController scrollController;
+
   @override
   _CustomDrawerState createState() => _CustomDrawerState();
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
-  bool hoverAccueil = false;
   bool hoverAPropos = false;
+  bool hoverAccueil = false;
   bool hoverCompetences = false;
-  bool hoverRealisations = false;
-  bool hoverEtudes = false;
-  bool hoverRecommandation = false;
-  bool hoverJobs = false;
   bool hoverContact = false;
-
-  bool hoverMaps = false;
+  bool hoverEtudes = false;
+  bool hoverJobs = false;
   bool hoverMail = false;
-  bool hoverTel = false;
+  bool hoverMaps = false;
+  bool hoverRealisations = false;
+  bool hoverRecommandation = false;
   bool hoverSeeMore = false;
+  bool hoverTel = false;
 
   void _goTo(Section section) {
     widget.scrollController.animateTo(
       positionToSection(section),
       duration: const Duration(milliseconds: 200),
       curve: Curves.linear,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedPositioned(
-      duration: const Duration(milliseconds: 200),
-      left: 0,
-      top: 0,
-      bottom: 0,
-      width: widget.isShowDrawer ? 180 : 0,
-      child: Material(
-        elevation: 20,
-        child: Container(
-          width: 180,
-          padding: EdgeInsets.symmetric(
-            horizontal: defaultPadding30,
-            vertical: MediaQuery.of(context).size.height > 390
-                ? defaultPadding30
-                : defaultPadding10,
-          ),
-          color: whiteColor,
-          child: _buildMenu(context),
-        ),
-      ),
     );
   }
 
@@ -273,6 +247,31 @@ class _CustomDrawerState extends State<CustomDrawer> {
           },
         ),
       ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedPositioned(
+      duration: const Duration(milliseconds: 200),
+      left: 0,
+      top: 0,
+      bottom: 0,
+      width: widget.isShowDrawer ? 180 : 0,
+      child: Material(
+        elevation: 20,
+        child: Container(
+          width: 180,
+          padding: EdgeInsets.symmetric(
+            horizontal: defaultPadding30,
+            vertical: MediaQuery.of(context).size.height > 390
+                ? defaultPadding30
+                : defaultPadding10,
+          ),
+          color: whiteColor,
+          child: _buildMenu(context),
+        ),
+      ),
     );
   }
 }

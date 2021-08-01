@@ -8,22 +8,22 @@ import 'package:cv_online_v2/widgets/custom_card_image.dart';
 import '../responsive.dart';
 
 class RealisationSection extends StatefulWidget {
-  final bool isShowDrawer;
-
   RealisationSection({
     Key? key,
     required this.isShowDrawer,
   }) : super(key: key);
+
+  final bool isShowDrawer;
 
   @override
   _RealisationSectionState createState() => _RealisationSectionState();
 }
 
 class _RealisationSectionState extends State<RealisationSection> {
-  FilterRealisation selectedFilter = FilterRealisation.ALL;
   bool hoverAll = false;
-  bool hoverOnline = false;
   bool hoverArchive = false;
+  bool hoverOnline = false;
+  FilterRealisation selectedFilter = FilterRealisation.ALL;
 
   List<Realisation> get list => listRealisations
       .where(
@@ -61,56 +61,6 @@ class _RealisationSectionState extends State<RealisationSection> {
     } else {
       return 'Tous';
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    list.sort((a, b) => a.title.compareTo(b.title));
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding30,
-        vertical: defaultPadding30 * 3,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          RichText(
-            text: TextSpan(
-              text: 'Mes différentes ',
-              style: Theme.of(context).textTheme.headline2?.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
-                  ),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'réalisations',
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: defaultPadding30),
-          _buildTabBar(context),
-          const SizedBox(height: defaultPadding30),
-          Wrap(
-            spacing: defaultPadding30,
-            runSpacing: defaultPadding30,
-            children: List.generate(
-              list.length,
-              (index) => CustomCardImage(
-                widthCard: widthCard,
-                assetImage: list[index].assetImage,
-                title: list[index].title,
-                tag: selectedFilterToString(list[index].tag),
-                url: list[index].url,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 
   Widget _buildTabBar(BuildContext context) {
@@ -197,6 +147,56 @@ class _RealisationSectionState extends State<RealisationSection> {
           ),
         ),
       ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    list.sort((a, b) => a.title.compareTo(b.title));
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.symmetric(
+        horizontal: defaultPadding30,
+        vertical: defaultPadding30 * 3,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          RichText(
+            text: TextSpan(
+              text: 'Mes différentes ',
+              style: Theme.of(context).textTheme.headline2?.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: 'réalisations',
+                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: defaultPadding30),
+          _buildTabBar(context),
+          const SizedBox(height: defaultPadding30),
+          Wrap(
+            spacing: defaultPadding30,
+            runSpacing: defaultPadding30,
+            children: List.generate(
+              list.length,
+              (index) => CustomCardImage(
+                widthCard: widthCard,
+                assetImage: list[index].assetImage,
+                title: list[index].title,
+                tag: selectedFilterToString(list[index].tag),
+                url: list[index].url,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

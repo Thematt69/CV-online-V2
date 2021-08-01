@@ -2,11 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class CustomAnimatedTextKit extends StatelessWidget {
-  final String prefix;
-  final TextStyle textStyle;
-  final TextAlign textAlign;
-  final Duration duration;
-
   const CustomAnimatedTextKit({
     Key? key,
     this.prefix = '',
@@ -14,6 +9,11 @@ class CustomAnimatedTextKit extends StatelessWidget {
     this.textAlign = TextAlign.center,
     this.duration = const Duration(milliseconds: 100),
   }) : super(key: key);
+
+  final Duration duration;
+  final String prefix;
+  final TextAlign textAlign;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {

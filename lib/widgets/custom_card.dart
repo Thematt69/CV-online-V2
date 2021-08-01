@@ -3,11 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomCard extends StatelessWidget {
-  final BuildContext? context;
-  final String? label;
-  final String? value;
-  final String? url;
-
   const CustomCard._({
     this.context,
     this.label,
@@ -15,6 +10,16 @@ class CustomCard extends StatelessWidget {
     this.url,
     Key? key,
   }) : super(key: key);
+
+  factory CustomCard.competence({
+    required BuildContext context,
+    required String label,
+  }) {
+    return CustomCard._(
+      context: context,
+      label: label,
+    );
+  }
 
   factory CustomCard.presentation({
     required BuildContext context,
@@ -30,15 +35,10 @@ class CustomCard extends StatelessWidget {
     );
   }
 
-  factory CustomCard.competence({
-    required BuildContext context,
-    required String label,
-  }) {
-    return CustomCard._(
-      context: context,
-      label: label,
-    );
-  }
+  final BuildContext? context;
+  final String? label;
+  final String? url;
+  final String? value;
 
   @override
   Widget build(BuildContext context) {
