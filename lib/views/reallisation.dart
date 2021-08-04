@@ -25,13 +25,16 @@ class _RealisationSectionState extends State<RealisationSection> {
   bool hoverOnline = false;
   FilterRealisation selectedFilter = FilterRealisation.ALL;
 
-  List<Realisation> get list => listRealisations
-      .where(
-        (element) =>
-            element.tag == selectedFilter ||
-            selectedFilter == FilterRealisation.ALL,
-      )
-      .toList();
+  List<Realisation> get list {
+    listRealisations.sort((a, b) => a.title.compareTo(b.title));
+    return listRealisations
+        .where(
+          (element) =>
+              element.tag == selectedFilter ||
+              selectedFilter == FilterRealisation.ALL,
+        )
+        .toList();
+  }
 
   double get widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
@@ -152,7 +155,6 @@ class _RealisationSectionState extends State<RealisationSection> {
 
   @override
   Widget build(BuildContext context) {
-    list.sort((a, b) => a.title.compareTo(b.title));
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
@@ -192,6 +194,7 @@ class _RealisationSectionState extends State<RealisationSection> {
                 title: list[index].title,
                 tag: selectedFilterToString(list[index].tag),
                 url: list[index].url,
+                urlGitHub: list[index].urlGitHub,
               ),
             ),
           ),
