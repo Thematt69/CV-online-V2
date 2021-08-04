@@ -2,6 +2,7 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cv_online_v2/constants/sections.dart';
 
@@ -30,11 +31,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool hoverEtudes = false;
   bool hoverJobs = false;
   bool hoverMail = false;
-  bool hoverMaps = false;
+  bool hoverGitHub = false;
   bool hoverRealisations = false;
   bool hoverRecommandation = false;
   bool hoverSeeMore = false;
-  bool hoverTel = false;
+  bool hoverLinkedin = false;
 
   void _goTo(Section section) {
     widget.scrollController.animateTo(
@@ -181,22 +182,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
       alignment: WrapAlignment.spaceBetween,
       children: [
         CustomSharedIcon(
-          hover: hoverMaps,
-          onPressed: () async => await launch(urlMaps),
-          title: 'Google Maps',
-          iconData: Icons.location_pin,
-          onEnter: (event) {
-            setState(() {
-              hoverMaps = true;
-            });
-          },
-          onExit: (event) {
-            setState(() {
-              hoverMaps = false;
-            });
-          },
-        ),
-        CustomSharedIcon(
           hover: hoverMail,
           onPressed: () async => await launch(urlMail),
           iconData: Icons.email,
@@ -213,18 +198,34 @@ class _CustomDrawerState extends State<CustomDrawer> {
           },
         ),
         CustomSharedIcon(
-          title: 'Téléphone',
-          onPressed: () async => await launch(urlTel),
-          hover: hoverTel,
-          iconData: Icons.phone,
+          title: 'Linkedin',
+          onPressed: () async => await launch(urlLinkedin),
+          hover: hoverLinkedin,
+          iconData: FontAwesomeIcons.linkedinIn,
           onEnter: (event) {
             setState(() {
-              hoverTel = true;
+              hoverLinkedin = true;
             });
           },
           onExit: (event) {
             setState(() {
-              hoverTel = false;
+              hoverLinkedin = false;
+            });
+          },
+        ),
+        CustomSharedIcon(
+          title: 'GitHub',
+          onPressed: () async => await launch(urlGithub),
+          hover: hoverGitHub,
+          iconData: FontAwesomeIcons.github,
+          onEnter: (event) {
+            setState(() {
+              hoverGitHub = true;
+            });
+          },
+          onExit: (event) {
+            setState(() {
+              hoverGitHub = false;
             });
           },
         ),
