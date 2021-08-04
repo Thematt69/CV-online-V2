@@ -1,11 +1,9 @@
 {
-    "name": "cv_online_v2",
-    "short_name": "cv_online_v2",
+    "name": "CV en ligne - DEVILLIERS Matthieu",
+    "short_name": "CV en ligne",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Ce CV en ligne me permet de me présenter plus facilement et avec toutes mes expériences professionnelles ainsi que mes différentes réalisations et réseaux sociaux.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -2,6 +2,7 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSharedIcon extends StatelessWidget {
   const CustomSharedIcon({
@@ -33,7 +34,7 @@ class CustomSharedIcon extends StatelessWidget {
         onExit: onExit,
         child: IconButton(
           onPressed: onPressed,
-          icon: Icon(
+          icon: FaIcon(
             iconData,
             color: hover ? Theme.of(context).colorScheme.primary : blackColor,
           ),

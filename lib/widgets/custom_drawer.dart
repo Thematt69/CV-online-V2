@@ -2,6 +2,7 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cv_online_v2/constants/sections.dart';
 
@@ -30,11 +31,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool hoverEtudes = false;
   bool hoverJobs = false;
   bool hoverMail = false;
-  bool hoverMaps = false;
+  bool hoverGitHub = false;
   bool hoverRealisations = false;
   bool hoverRecommandation = false;
   bool hoverSeeMore = false;
-  bool hoverTel = false;
+  bool hoverLinkedin = false;
 
   void _goTo(Section section) {
     widget.scrollController.animateTo(
@@ -45,134 +46,127 @@ class _CustomDrawerState extends State<CustomDrawer> {
   }
 
   Widget _buildMenu(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Visibility(
-          visible: constraints.maxWidth > 36,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Visibility(
-                visible: MediaQuery.of(context).size.height > 550,
-                child: Image.asset(
-                  'images/Google_Assistant_logo.webp',
-                  width: 140,
-                  height: 140,
-                ),
-              ),
-              const Spacer(),
-              CustomItemMenu(
-                hover: hoverAccueil,
-                title: 'Accueil',
-                onHover: (value) {
-                  setState(() {
-                    hoverAccueil = !hoverAccueil;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.header);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
-                hover: hoverAPropos,
-                title: 'Présentation',
-                onHover: (value) {
-                  setState(() {
-                    hoverAPropos = !hoverAPropos;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.presentation);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
-                hover: hoverCompetences,
-                title: 'Compétences',
-                onHover: (value) {
-                  setState(() {
-                    hoverCompetences = !hoverCompetences;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.competence);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
-                hover: hoverRealisations,
-                title: 'Réalisations',
-                onHover: (value) {
-                  setState(() {
-                    hoverRealisations = !hoverRealisations;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.realisation);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
-                hover: hoverEtudes,
-                title: 'Études',
-                onHover: (value) {
-                  setState(() {
-                    hoverEtudes = !hoverEtudes;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.etudes);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
-                hover: hoverRecommandation,
-                title: 'Recommandation',
-                onHover: (value) {
-                  setState(() {
-                    hoverRecommandation = !hoverRecommandation;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.recommandation);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
-                hover: hoverJobs,
-                title: 'Jobs',
-                onHover: (value) {
-                  setState(() {
-                    hoverJobs = !hoverJobs;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.jobs);
-                },
-              ),
-              const Divider(height: 1),
-              CustomItemMenu(
-                hover: hoverContact,
-                title: 'Contact',
-                onHover: (value) {
-                  setState(() {
-                    hoverContact = !hoverContact;
-                  });
-                },
-                onTap: () {
-                  _goTo(Section.contact);
-                },
-              ),
-              const Spacer(),
-              Visibility(
-                visible: MediaQuery.of(context).size.height > 445,
-                child: _buildSharedIcons(context),
-              ),
-            ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Visibility(
+          visible: MediaQuery.of(context).size.height > 550,
+          child: Image.asset(
+            'images/Google_Assistant_logo.webp',
+            width: 140,
+            height: 140,
           ),
-        );
-      },
+        ),
+        const Spacer(),
+        CustomItemMenu(
+          hover: hoverAccueil,
+          title: 'Accueil',
+          onHover: (value) {
+            setState(() {
+              hoverAccueil = !hoverAccueil;
+            });
+          },
+          onTap: () {
+            _goTo(Section.header);
+          },
+        ),
+        const Divider(height: 1),
+        CustomItemMenu(
+          hover: hoverAPropos,
+          title: 'Présentation',
+          onHover: (value) {
+            setState(() {
+              hoverAPropos = !hoverAPropos;
+            });
+          },
+          onTap: () {
+            _goTo(Section.presentation);
+          },
+        ),
+        const Divider(height: 1),
+        CustomItemMenu(
+          hover: hoverCompetences,
+          title: 'Compétences',
+          onHover: (value) {
+            setState(() {
+              hoverCompetences = !hoverCompetences;
+            });
+          },
+          onTap: () {
+            _goTo(Section.competence);
+          },
+        ),
+        const Divider(height: 1),
+        CustomItemMenu(
+          hover: hoverRealisations,
+          title: 'Réalisations',
+          onHover: (value) {
+            setState(() {
+              hoverRealisations = !hoverRealisations;
+            });
+          },
+          onTap: () {
+            _goTo(Section.realisation);
+          },
+        ),
+        const Divider(height: 1),
+        CustomItemMenu(
+          hover: hoverEtudes,
+          title: 'Études',
+          onHover: (value) {
+            setState(() {
+              hoverEtudes = !hoverEtudes;
+            });
+          },
+          onTap: () {
+            _goTo(Section.etudes);
+          },
+        ),
+        const Divider(height: 1),
+        CustomItemMenu(
+          hover: hoverRecommandation,
+          title: 'Recommandation',
+          onHover: (value) {
+            setState(() {
+              hoverRecommandation = !hoverRecommandation;
+            });
+          },
+          onTap: () {
+            _goTo(Section.recommandation);
+          },
+        ),
+        const Divider(height: 1),
+        CustomItemMenu(
+          hover: hoverJobs,
+          title: 'Jobs',
+          onHover: (value) {
+            setState(() {
+              hoverJobs = !hoverJobs;
+            });
+          },
+          onTap: () {
+            _goTo(Section.jobs);
+          },
+        ),
+        const Divider(height: 1),
+        CustomItemMenu(
+          hover: hoverContact,
+          title: 'Contact',
+          onHover: (value) {
+            setState(() {
+              hoverContact = !hoverContact;
+            });
+          },
+          onTap: () {
+            _goTo(Section.contact);
+          },
+        ),
+        const Spacer(),
+        Visibility(
+          visible: MediaQuery.of(context).size.height > 445,
+          child: _buildSharedIcons(context),
+        ),
+      ],
     );
   }
 
@@ -180,22 +174,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Wrap(
       alignment: WrapAlignment.spaceBetween,
       children: [
-        CustomSharedIcon(
-          hover: hoverMaps,
-          onPressed: () async => await launch(urlMaps),
-          title: 'Google Maps',
-          iconData: Icons.location_pin,
-          onEnter: (event) {
-            setState(() {
-              hoverMaps = true;
-            });
-          },
-          onExit: (event) {
-            setState(() {
-              hoverMaps = false;
-            });
-          },
-        ),
         CustomSharedIcon(
           hover: hoverMail,
           onPressed: () async => await launch(urlMail),
@@ -213,18 +191,34 @@ class _CustomDrawerState extends State<CustomDrawer> {
           },
         ),
         CustomSharedIcon(
-          title: 'Téléphone',
-          onPressed: () async => await launch(urlTel),
-          hover: hoverTel,
-          iconData: Icons.phone,
+          title: 'Linkedin',
+          onPressed: () async => await launch(urlLinkedin),
+          hover: hoverLinkedin,
+          iconData: FontAwesomeIcons.linkedinIn,
           onEnter: (event) {
             setState(() {
-              hoverTel = true;
+              hoverLinkedin = true;
             });
           },
           onExit: (event) {
             setState(() {
-              hoverTel = false;
+              hoverLinkedin = false;
+            });
+          },
+        ),
+        CustomSharedIcon(
+          title: 'GitHub',
+          onPressed: () async => await launch(urlGithub),
+          hover: hoverGitHub,
+          iconData: FontAwesomeIcons.github,
+          onEnter: (event) {
+            setState(() {
+              hoverGitHub = true;
+            });
+          },
+          onExit: (event) {
+            setState(() {
+              hoverGitHub = false;
             });
           },
         ),
@@ -254,10 +248,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 200),
-      left: 0,
+      left: widget.isShowDrawer ? 0 : -180,
       top: 0,
       bottom: 0,
-      width: widget.isShowDrawer ? 180 : 0,
+      width: 180,
       child: Material(
         elevation: 20,
         child: Container(
