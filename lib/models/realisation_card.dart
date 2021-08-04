@@ -4,15 +4,38 @@ enum FilterRealisation { ALL, ONLINE, ARCHIVE }
 class Realisation {
   Realisation({
     required this.assetImage,
+    required this.tag,
     required this.title,
     this.url,
-    required this.tag,
+    this.urlGitHub,
   });
 
-  String assetImage;
-  FilterRealisation tag;
-  String title;
-  String? url;
+  final String assetImage;
+  final FilterRealisation tag;
+  final String title;
+  final String? url;
+  final String? urlGitHub;
+
+  Realisation copyWith({
+    String? assetImage,
+    FilterRealisation? tag,
+    String? title,
+    String? url,
+    String? urlGitHub,
+  }) {
+    return Realisation(
+      assetImage: assetImage ?? this.assetImage,
+      tag: tag ?? this.tag,
+      title: title ?? this.title,
+      url: url ?? this.url,
+      urlGitHub: urlGitHub ?? this.urlGitHub,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Realisation(assetImage: $assetImage, tag: $tag, title: $title, url: $url, urlGitHub: $urlGitHub)';
+  }
 
   @override
   bool operator ==(Object other) {
@@ -20,32 +43,18 @@ class Realisation {
 
     return other is Realisation &&
         other.assetImage == assetImage &&
+        other.tag == tag &&
         other.title == title &&
         other.url == url &&
-        other.tag == tag;
+        other.urlGitHub == urlGitHub;
   }
 
   @override
   int get hashCode {
-    return assetImage.hashCode ^ title.hashCode ^ url.hashCode ^ tag.hashCode;
-  }
-
-  @override
-  String toString() {
-    return 'Realisation(assetImage: $assetImage, title: $title, url: $url, tag: $tag)';
-  }
-
-  Realisation copyWith({
-    String? assetImage,
-    String? title,
-    String? url,
-    FilterRealisation? tag,
-  }) {
-    return Realisation(
-      assetImage: assetImage ?? this.assetImage,
-      title: title ?? this.title,
-      url: url ?? this.url,
-      tag: tag ?? this.tag,
-    );
+    return assetImage.hashCode ^
+        tag.hashCode ^
+        title.hashCode ^
+        url.hashCode ^
+        urlGitHub.hashCode;
   }
 }

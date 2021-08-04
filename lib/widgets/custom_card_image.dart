@@ -1,6 +1,7 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomCardImage extends StatelessWidget {
@@ -11,19 +12,19 @@ class CustomCardImage extends StatelessWidget {
     required this.title,
     required this.tag,
     this.url,
+    this.urlGitHub,
   }) : super(key: key);
 
   final String assetImage;
   final String tag;
   final String title;
   final String? url;
+  final String? urlGitHub;
   final double widthCard;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      mouseCursor:
-          url != null ? SystemMouseCursors.click : SystemMouseCursors.forbidden,
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: url != null ? () async => await launch(url!) : null,
@@ -42,7 +43,10 @@ class CustomCardImage extends StatelessWidget {
           children: [
             Container(
               width: widthCard,
-              color: darkColor.withOpacity(0.7),
+              color: Theme.of(context)
+                  .colorScheme
+                  .secondaryVariant
+                  .withOpacity(0.7),
               padding: const EdgeInsets.symmetric(
                 horizontal: defaultPadding30 / 2,
                 vertical: defaultPadding30 / 2,
@@ -57,12 +61,28 @@ class CustomCardImage extends StatelessWidget {
                         .headline5
                         ?.copyWith(color: whiteColor),
                   ),
-                  Text(
-                    tag,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.copyWith(color: whiteColor),
+                  Row(
+                    children: [
+                      Text(
+                        tag,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            ?.copyWith(color: whiteColor),
+                      ),
+                      const Spacer(),
+                      Visibility(
+                        visible: urlGitHub != null,
+                        child: IconButton(
+                          tooltip: 'Aller sur GitHub',
+                          onPressed: () async => await launch(urlGitHub!),
+                          icon: FaIcon(
+                            FontAwesomeIcons.github,
+                            color: Theme.of(context).colorScheme.onSecondary,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),

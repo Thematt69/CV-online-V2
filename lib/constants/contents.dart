@@ -35,15 +35,62 @@ List<String> listCompetences = [
 
 List<Realisation> listRealisations = [
   Realisation(
-    assetImage: 'images/project/canhumanitaire.webp',
-    tag: FilterRealisation.ARCHIVE,
-    title: 'Canhumanitaire - Association humanitaire',
+    assetImage: 'images/project/Google_logo.webp',
+    tag: FilterRealisation.ONLINE,
+    title: 'CV en ligne V1',
+    url: 'https://matthieudevilliers.fr',
   ),
   Realisation(
     assetImage: 'images/project/Google_logo.webp',
     tag: FilterRealisation.ONLINE,
-    title: 'CV en ligne',
-    url: 'https://matthieudevilliers.fr',
+    title: 'CV en ligne V2',
+    url: 'https://flutter.matthieudevilliers.fr',
+    urlGitHub: 'https://github.com/Thematt69/CV-online-V2',
+  ),
+  Realisation(
+    assetImage: 'images/project/Minecraft_logo.webp',
+    tag: FilterRealisation.ARCHIVE,
+    title: 'Serveur minecraft sur Raspberry',
+    urlGitHub: 'https://github.com/Thematt69/minecraft/tree/1.14',
+  ),
+  Realisation(
+    assetImage: 'images/project/ldc.webp',
+    tag: FilterRealisation.ONLINE,
+    title: "Liste d'idée cadeaux - Projet personel",
+    url: 'https://family.matthieudevilliers.fr',
+    urlGitHub: 'https://github.com/Thematt69/Liste-d-idee-cadeaux',
+  ),
+  Realisation(
+    assetImage: 'images/project/games.webp',
+    tag: FilterRealisation.ARCHIVE,
+    title: "Librairie de jeux - TP Scolaire",
+    urlGitHub: 'https://github.com/Thematt69/games-librairies',
+  ),
+  Realisation(
+    assetImage: 'images/project/Google_logo.webp',
+    tag: FilterRealisation.ARCHIVE,
+    title: "Listing client FRONT - TP Scolaire",
+    urlGitHub: 'https://github.com/Thematt69/clients-front',
+  ),
+  Realisation(
+    assetImage: 'images/project/Google_logo.webp',
+    tag: FilterRealisation.ARCHIVE,
+    title: "Listing client API - TP Scolaire",
+    urlGitHub: 'https://github.com/Thematt69/clients-api',
+  ),
+  Realisation(
+    assetImage: 'images/project/Octocat.webp',
+    tag: FilterRealisation.ONLINE,
+    title: "Flutter DropdownSearch - Contribution",
+    url: 'https://pub.dev/packages/dropdown_search',
+    urlGitHub: 'https://github.com/salim-lachdhaf/searchable_dropdown/pull/189',
+  ),
+  Realisation(
+    assetImage: 'images/project/canhumanitaire.webp',
+    tag: FilterRealisation.ARCHIVE,
+    title: 'Canhumanitaire - Association humanitaire',
+    urlGitHub:
+        'https://github.com/Thematt69/Canhumanitaire/tree/master/Canhumanitaire',
   ),
   Realisation(
     assetImage: 'images/project/Göteborg.webp',
@@ -52,14 +99,14 @@ List<Realisation> listRealisations = [
   ),
   Realisation(
     assetImage: 'images/project/jdr.webp',
-    tag: FilterRealisation.ONLINE,
+    tag: FilterRealisation.ARCHIVE,
     title: 'World: Become Human - Jeu de rôle',
-    url: 'https://sites.google.com/view/jdrdufutur',
   ),
   Realisation(
     assetImage: 'images/project/lsrpfr.webp',
     tag: FilterRealisation.ARCHIVE,
     title: 'Los Santos RolePlay FR - Projet GTA V',
+    urlGitHub: 'https://github.com/Thematt69/LSRP/tree/master/LSRP',
   ),
   Realisation(
     assetImage: 'images/project/sn.webp',
@@ -71,6 +118,7 @@ List<Realisation> listRealisations = [
     tag: FilterRealisation.ONLINE,
     title: 'PureSpa Corbas - Projet personel',
     url: 'https://spa.matthieudevilliers.fr',
+    urlGitHub: 'https://github.com/Thematt69/PureSpa-Corbas',
   ),
 ];
 
