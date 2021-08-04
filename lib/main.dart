@@ -2,6 +2,7 @@ import 'package:cv_online_v2/constants/theme_datas.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/views/contact.dart';
 import 'package:cv_online_v2/views/etudes.dart';
+import 'package:cv_online_v2/views/footer.dart';
 import 'package:cv_online_v2/views/jobs.dart';
 import 'package:cv_online_v2/views/header.dart';
 import 'package:cv_online_v2/views/presentation.dart';
@@ -12,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'constants/colors.dart';
-import 'constants/contents.dart';
 import 'constants/sections.dart';
 import 'constants/sizes.dart';
 import 'views/competence.dart';
@@ -52,7 +52,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  bool isShowDrawer = true;
+  bool isShowDrawer = false;
 
   late final AnimationController _controller;
   late final Animation<double> _myAnimation;
@@ -161,95 +161,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ContactSection(
               key: keyContact,
             ),
-            Container(
-              color: darkLightColor,
-              padding: const EdgeInsets.symmetric(
-                vertical: defaultPadding60,
-                horizontal: defaultPadding16,
-              ),
-              width: double.infinity,
-              child: MediaQuery.of(context).size.width > 650
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          'Matthieu Devilliers',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary,
-                              ),
-                        ),
-                        Text(
-                          ' | Copyright ©2021 All rights reserved | ',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary,
-                              ),
-                        ),
-                        Text(
-                          'Made with Flutter',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary,
-                              ),
-                        ),
-                        const FlutterLogo(),
-                      ],
-                    )
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Matthieu Devilliers',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary,
-                              ),
-                        ),
-                        Text(
-                          'Copyright ©2021 All rights reserved',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1!
-                              .copyWith(
-                                color:
-                                    Theme.of(context).colorScheme.onSecondary,
-                              ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Made with Flutter',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .copyWith(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onSecondary,
-                                  ),
-                            ),
-                            const FlutterLogo(),
-                          ],
-                        ),
-                      ],
-                    ),
-            ),
+            FooterSection(),
           ],
         ),
       ),
