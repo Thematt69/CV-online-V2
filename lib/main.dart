@@ -9,6 +9,7 @@ import 'package:cv_online_v2/views/presentation.dart';
 import 'package:cv_online_v2/views/reallisation.dart';
 import 'package:cv_online_v2/views/recommandation.dart';
 import 'package:cv_online_v2/widgets/custom_drawer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -52,7 +53,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  bool isShowDrawer = false;
+  bool isShowDrawer = kIsWeb;
 
   late final AnimationController _controller;
   late final Animation<double> _myAnimation;
@@ -60,18 +61,18 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    super.initState();
-
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
-      value: 1,
+      value: 0,
     );
 
     _myAnimation = CurvedAnimation(
       curve: Curves.linear,
       parent: _controller,
     );
+
+    super.initState();
   }
 
   Widget _buildCursorVisibleDrawer() {
