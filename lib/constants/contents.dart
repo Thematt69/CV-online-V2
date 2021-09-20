@@ -137,7 +137,7 @@ List<Jobs> listJobs = [
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2016, 05, 23),
-      end: DateTime(2016, 07, 01),
+      end: DateTime(2016, 07),
     ),
     poste: 'Technicien',
     type: TypeJobs.stage,
@@ -187,7 +187,7 @@ List<Jobs> listJobs = [
     lieu: 'Hub One',
     service: 'Service paramétrage',
     description:
-        'Réglage d\'usine ou reconfiguration de masse de terminal mobile.',
+        "Réglage d'usine ou reconfiguration de masse de terminal mobile.",
   ),
   Jobs(
     periode: DateTimeRange(
@@ -211,7 +211,7 @@ List<Jobs> listJobs = [
     lieu: 'Renault Trucks St-Priest',
     service: 'Service Special Vehicle Development',
     description:
-        'Intégration d\'un nouvel écran de bord pour des camions prototypes.',
+        "Intégration d'un nouvel écran de bord pour des camions prototypes.",
   ),
   Jobs(
     periode: DateTimeRange(

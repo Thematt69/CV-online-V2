@@ -18,7 +18,6 @@ class CustomCardRecommandationWeb extends StatelessWidget {
         bottom: defaultPadding60,
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(

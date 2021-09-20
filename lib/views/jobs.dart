@@ -36,7 +36,7 @@ class _JobsSectionState extends State<JobsSection> {
     } else if (widthMediaQuery - defaultPadding30 > 860) {
       return (widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return (widthMediaQuery - defaultPadding30 * 2);
+      return widthMediaQuery - defaultPadding30 * 2;
     }
   }
 

@@ -142,12 +142,13 @@ class PresentationSection extends StatelessWidget {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () async => await launch(urlCV),
+                onPressed: () async => launch(urlCV),
                 child: const Text('Télécharger CV'),
               ),
-              Responsive.isMobile(context)
-                  ? const Spacer()
-                  : const SizedBox(width: defaultPadding60),
+              if (Responsive.isMobile(context))
+                const Spacer()
+              else
+                const SizedBox(width: defaultPadding60),
               ElevatedButton(
                 onPressed: () {
                   scrollController.animateTo(

@@ -1,10 +1,10 @@
 import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sections.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:cv_online_v2/constants/sections.dart';
 
 import 'custom_item_menu.dart';
 import 'custom_shared_icon.dart';
@@ -176,7 +176,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       children: [
         CustomSharedIcon(
           hover: hoverMail,
-          onPressed: () async => await launch(urlMail),
+          onPressed: () async =>  launch(urlMail),
           iconData: Icons.email,
           title: 'Adresse mail',
           onEnter: (event) {
@@ -192,7 +192,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ),
         CustomSharedIcon(
           title: 'Linkedin',
-          onPressed: () async => await launch(urlLinkedin),
+          onPressed: () async =>  launch(urlLinkedin),
           hover: hoverLinkedin,
           iconData: FontAwesomeIcons.linkedinIn,
           onEnter: (event) {
@@ -208,7 +208,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ),
         CustomSharedIcon(
           title: 'GitHub',
-          onPressed: () async => await launch(urlGithub),
+          onPressed: () async =>  launch(urlGithub),
           hover: hoverGitHub,
           iconData: FontAwesomeIcons.github,
           onEnter: (event) {
