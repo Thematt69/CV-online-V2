@@ -42,7 +42,7 @@ class _JobsSectionState extends State<JobsSection> {
 
   @override
   Widget build(BuildContext context) {
-    listJobs.sort((a, b) => a.periode.end.compareTo(b.periode.end));
+    listJobs.sort((a, b) => b.periode.end.compareTo(a.periode.end));
     return Container(
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
