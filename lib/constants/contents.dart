@@ -224,6 +224,18 @@ List<Jobs> listJobs = [
     service: 'XEFI Software',
     description: '', // TODO - A complété
   ),
+  Jobs(
+    periode: DateTimeRange(
+      start: DateTime(2021, 09, 08),
+      end: DateTime.now(),
+    ),
+    poste: 'Dévellopeur',
+    type: TypeJobs.cdi,
+    lieu: 'Sully Group',
+    service: 'CDS MAPP',
+    description:
+        "Développement d'applications mobile ou web pour les cients.", // TODO - A complété
+  ),
 ];
 
 List<Etudes> listEtudes = [
@@ -274,7 +286,7 @@ List<Contact> listContacts = [
       size: 16,
     ),
     label: "Localisation",
-    name: "2 Rue Jean Jacques Rousseau, Corbas, 69960, France",
+    name: "Corbas, 69960, France",
     url: urlMaps,
   ),
   Contact(
@@ -287,16 +299,16 @@ List<Contact> listContacts = [
     name: "devilliers.matthieu@gmail.com",
     url: urlMail,
   ),
-  Contact(
-    icon: const Icon(
-      Icons.phone,
-      color: greyDarkColor,
-      size: 16,
-    ),
-    label: "Téléphone",
-    name: '06 45 56 48 45',
-    url: urlTel,
-  ),
+  // Contact(
+  //   icon: const Icon(
+  //     Icons.phone,
+  //     color: greyDarkColor,
+  //     size: 16,
+  //   ),
+  //   label: "Téléphone",
+  //   name: '06 45 56 48 45',
+  //   url: urlTel,
+  // ),
   Contact(
     icon: const FaIcon(
       FontAwesomeIcons.linkedinIn,
