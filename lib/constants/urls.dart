@@ -1,5 +1,5 @@
 const String urlCV = 'https://matthieudevilliers.fr/CV.pdf';
-const String urlMaps = 'https://goo.gl/maps/ztW1mKDHgxkn43B79';
+const String urlMaps = 'https://goo.gl/maps/LcAw8Hm7CA1rnism9';
 const String urlMail = 'mailto:devilliers.matthieu@gmail.com';
 const String urlTel = 'tel:+33645564845';
 const String urlTwitch = 'https://www.twitch.tv/thematt69';

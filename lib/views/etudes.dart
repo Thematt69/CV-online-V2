@@ -36,13 +36,13 @@ class _EtudesSectionState extends State<EtudesSection> {
     } else if (widthMediaQuery - defaultPadding30 > 860) {
       return (widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return (widthMediaQuery - defaultPadding30 * 2);
+      return widthMediaQuery - defaultPadding30 * 2;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    listEtudes.sort((a, b) => a.periode.end.compareTo(b.periode.end));
+    listEtudes.sort((a, b) => b.periode.end.compareTo(a.periode.end));
     return Container(
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,

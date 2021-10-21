@@ -16,14 +16,10 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
     error: redColor,
     onError: blackColor,
     surface: whiteDarkerColor,
-    onSurface: blackColor,
     background: whiteDarkerColor,
-    onBackground: blackColor,
   ),
   cardTheme: const CardTheme(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.zero),
-    ),
+    shape: RoundedRectangleBorder(),
   ),
   textTheme: const TextTheme(
     bodyText1: bodyText1,

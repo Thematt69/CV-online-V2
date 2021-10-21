@@ -27,7 +27,7 @@ class CustomCardImage extends StatelessWidget {
     return InkWell(
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: url != null ? () async => await launch(url!) : null,
+      onTap: url != null ? () async =>  launch(url!) : null,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         width: widthCard,
@@ -75,7 +75,7 @@ class CustomCardImage extends StatelessWidget {
                         visible: urlGitHub != null,
                         child: IconButton(
                           tooltip: 'Aller sur GitHub',
-                          onPressed: () async => await launch(urlGitHub!),
+                          onPressed: () async =>  launch(urlGitHub!),
                           icon: FaIcon(
                             FontAwesomeIcons.github,
                             color: Theme.of(context).colorScheme.onSecondary,

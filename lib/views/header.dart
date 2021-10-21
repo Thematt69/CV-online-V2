@@ -17,7 +17,6 @@ class HeaderSection extends StatelessWidget {
       color: darkLightColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Visibility(
             visible: Responsive.isDesktop(context) &&
@@ -43,7 +42,6 @@ class HeaderSection extends StatelessWidget {
           Flexible(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Visibility(
                   visible: Responsive.isTablet(context) &&

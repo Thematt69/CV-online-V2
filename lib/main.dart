@@ -3,8 +3,8 @@ import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/views/contact.dart';
 import 'package:cv_online_v2/views/etudes.dart';
 import 'package:cv_online_v2/views/footer.dart';
-import 'package:cv_online_v2/views/jobs.dart';
 import 'package:cv_online_v2/views/header.dart';
+import 'package:cv_online_v2/views/jobs.dart';
 import 'package:cv_online_v2/views/presentation.dart';
 import 'package:cv_online_v2/views/reallisation.dart';
 import 'package:cv_online_v2/views/recommandation.dart';
@@ -12,12 +12,12 @@ import 'package:cv_online_v2/widgets/custom_drawer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'constants/colors.dart';
 import 'constants/sections.dart';
 import 'constants/sizes.dart';
 import 'views/competence.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   // Here we set the URL strategy for our web app.

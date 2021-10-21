@@ -41,7 +41,7 @@ class CustomSharedIcon extends StatelessWidget {
           splashRadius: defaultSplashRadius,
           iconSize: defaultIconSize,
           tooltip: title,
-          padding: const EdgeInsets.all(0),
+          padding: EdgeInsets.zero,
         ),
       ),
     );

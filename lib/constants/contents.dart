@@ -137,7 +137,7 @@ List<Jobs> listJobs = [
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2016, 05, 23),
-      end: DateTime(2016, 07, 01),
+      end: DateTime(2016, 07),
     ),
     poste: 'Technicien',
     type: TypeJobs.stage,
@@ -187,7 +187,7 @@ List<Jobs> listJobs = [
     lieu: 'Hub One',
     service: 'Service paramétrage',
     description:
-        'Réglage d\'usine ou reconfiguration de masse de terminal mobile.',
+        "Réglage d'usine ou reconfiguration de masse de terminal mobile.",
   ),
   Jobs(
     periode: DateTimeRange(
@@ -211,7 +211,7 @@ List<Jobs> listJobs = [
     lieu: 'Renault Trucks St-Priest',
     service: 'Service Special Vehicle Development',
     description:
-        'Intégration d\'un nouvel écran de bord pour des camions prototypes.',
+        "Intégration d'un nouvel écran de bord pour des camions prototypes.",
   ),
   Jobs(
     periode: DateTimeRange(
@@ -223,6 +223,18 @@ List<Jobs> listJobs = [
     lieu: 'Groupe XEFI',
     service: 'XEFI Software',
     description: '', // TODO - A complété
+  ),
+  Jobs(
+    periode: DateTimeRange(
+      start: DateTime(2021, 09, 08),
+      end: DateTime.now(),
+    ),
+    poste: 'Dévellopeur',
+    type: TypeJobs.cdi,
+    lieu: 'Sully Group',
+    service: 'CDS MAPP',
+    description:
+        "Développement d'applications mobile ou web pour les cients.", // TODO - A complété
   ),
 ];
 
@@ -274,7 +286,7 @@ List<Contact> listContacts = [
       size: 16,
     ),
     label: "Localisation",
-    name: "2 Rue Jean Jacques Rousseau, Corbas, 69960, France",
+    name: "Corbas, 69960, France",
     url: urlMaps,
   ),
   Contact(
@@ -287,16 +299,16 @@ List<Contact> listContacts = [
     name: "devilliers.matthieu@gmail.com",
     url: urlMail,
   ),
-  Contact(
-    icon: const Icon(
-      Icons.phone,
-      color: greyDarkColor,
-      size: 16,
-    ),
-    label: "Téléphone",
-    name: '06 45 56 48 45',
-    url: urlTel,
-  ),
+  // Contact(
+  //   icon: const Icon(
+  //     Icons.phone,
+  //     color: greyDarkColor,
+  //     size: 16,
+  //   ),
+  //   label: "Téléphone",
+  //   name: '06 45 56 48 45',
+  //   url: urlTel,
+  // ),
   Contact(
     icon: const FaIcon(
       FontAwesomeIcons.linkedinIn,

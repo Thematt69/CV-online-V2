@@ -10,8 +10,7 @@ final GlobalKey keyJobs = GlobalKey();
 final GlobalKey keyContact = GlobalKey();
 
 double get positionHeader => 0;
-double get positionPresentation =>
-    (keyHeader.currentContext?.size?.height ?? 0);
+double get positionPresentation => keyHeader.currentContext?.size?.height ?? 0;
 double get positionCompetence =>
     (keyHeader.currentContext?.size?.height ?? 0) +
     (keyPresentation.currentContext?.size?.height ?? 0);
