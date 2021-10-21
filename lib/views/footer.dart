@@ -1,11 +1,23 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
-class FooterSection extends StatelessWidget {
-  FooterSection({
+class FooterSection extends StatefulWidget {
+  const FooterSection({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<FooterSection> createState() => _FooterSectionState();
+}
+
+class _FooterSectionState extends State<FooterSection> {
+  late PackageInfo _packageInfo;
+
+  Future<void> getPackageInfo() async {
+    _packageInfo = await PackageInfo.fromPlatform();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +51,30 @@ class FooterSection extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
                 ),
-                const FlutterLogo(),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4),
+                  child: FlutterLogo(),
+                ),
+                FutureBuilder(
+                  future: getPackageInfo(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      return Text(
+                        '| Version ${_packageInfo.version}',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
+                      );
+                    } else {
+                      return Text(
+                        'Récupération de la version...',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
+                      );
+                    }
+                  },
+                ),
               ],
             )
           : Column(
@@ -67,8 +102,31 @@ class FooterSection extends StatelessWidget {
                             color: Theme.of(context).colorScheme.onSecondary,
                           ),
                     ),
-                    const FlutterLogo(),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 4),
+                      child: FlutterLogo(),
+                    ),
                   ],
+                ),
+                FutureBuilder(
+                  future: getPackageInfo(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      return Text(
+                        'Version ${_packageInfo.version}',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
+                      );
+                    } else {
+                      return Text(
+                        'Récupération de la version...',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                            ),
+                      );
+                    }
+                  },
                 ),
               ],
             ),

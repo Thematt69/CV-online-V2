@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import '../responsive.dart';
 
 class JobsSection extends StatefulWidget {
-  JobsSection({
+  const JobsSection({
     Key? key,
     required this.isShowDrawer,
   }) : super(key: key);

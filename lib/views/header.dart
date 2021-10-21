@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../responsive.dart';
 
 class HeaderSection extends StatelessWidget {
-  HeaderSection({Key? key}) : super(key: key);
+  const HeaderSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

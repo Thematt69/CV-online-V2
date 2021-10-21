@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import '../responsive.dart';
 
 class EtudesSection extends StatefulWidget {
-  EtudesSection({
+  const EtudesSection({
     Key? key,
     required this.isShowDrawer,
   }) : super(key: key);

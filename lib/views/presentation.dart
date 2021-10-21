@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PresentationSection extends StatelessWidget {
-  PresentationSection({
+  const PresentationSection({
     Key? key,
     required this.scrollController,
   }) : super(key: key);

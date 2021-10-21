@@ -286,7 +286,7 @@ List<Contact> listContacts = [
       size: 16,
     ),
     label: "Localisation",
-    name: "Corbas, 69960, France",
+    name: "Corbas, 69960 France",
     url: urlMaps,
   ),
   Contact(
@@ -319,16 +319,16 @@ List<Contact> listContacts = [
     name: 'Matthieu Devilliers',
     url: urlLinkedin,
   ),
-  Contact(
-    icon: const FaIcon(
-      FontAwesomeIcons.instagram,
-      color: greyDarkColor,
-      size: 16,
-    ),
-    label: "Instagram",
-    name: "thematt69",
-    url: urlInstagram,
-  ),
+  // Contact(
+  //   icon: const FaIcon(
+  //     FontAwesomeIcons.instagram,
+  //     color: greyDarkColor,
+  //     size: 16,
+  //   ),
+  //   label: "Instagram",
+  //   name: "thematt69",
+  //   url: urlInstagram,
+  // ),
   Contact(
     icon: const FaIcon(
       FontAwesomeIcons.twitter,

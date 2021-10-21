@@ -5,7 +5,7 @@ import 'package:cv_online_v2/responsive.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardRecommandationMobile extends StatelessWidget {
-  CustomCardRecommandationMobile({
+  const CustomCardRecommandationMobile({
     Key? key,
   }) : super(key: key);
 

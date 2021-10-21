@@ -162,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ContactSection(
               key: keyContact,
             ),
-            FooterSection(),
+            const FooterSection(),
           ],
         ),
       ),
