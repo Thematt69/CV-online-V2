@@ -131,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       controller: _scrollController,
       isAlwaysShown: Responsive.isDesktop(context),
       child: SingleChildScrollView(
+        physics: kIsWeb ? const NeverScrollableScrollPhysics() : null,
         controller: _scrollController,
         child: Column(
           children: [
@@ -162,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ContactSection(
               key: keyContact,
             ),
-            FooterSection(),
+            const FooterSection(),
           ],
         ),
       ),

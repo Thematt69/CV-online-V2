@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatelessWidget {
-  ContactSection({
+  const ContactSection({
     Key? key,
   }) : super(key: key);
 
@@ -59,6 +59,7 @@ class ContactSection extends StatelessWidget {
                               height: 1,
                             ),
                       ),
+                      // TODO - Cacher et afficher au clic (pour le mail uniquement) - Eviter le spam robot
                       Expanded(
                         child: InkWell(
                           onTap: () async => launch(contact.url),
