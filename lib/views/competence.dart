@@ -5,7 +5,7 @@ import 'package:cv_online_v2/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
 class CompetenceSection extends StatelessWidget {
-  CompetenceSection({Key? key}) : super(key: key);
+  const CompetenceSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

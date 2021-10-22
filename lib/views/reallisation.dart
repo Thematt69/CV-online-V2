@@ -1,14 +1,13 @@
-import 'package:flutter/material.dart';
-
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/models/realisation_card.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
+import 'package:flutter/material.dart';
 
 import '../responsive.dart';
 
 class RealisationSection extends StatefulWidget {
-  RealisationSection({
+  const RealisationSection({
     Key? key,
     required this.isShowDrawer,
   }) : super(key: key);

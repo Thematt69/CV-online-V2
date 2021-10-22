@@ -1,8 +1,10 @@
-include: package:flutter_lints/flutter.yaml
+include: package:lint/analysis_options.yaml
 
-linter:
-  rules:
-    omit_local_variable_types: false
-    avoid_print: false
-    prefer_final_fields: true
-    prefer_const_constructors_in_immutables: false
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "lib/generated_plugin_registrant.dart"
+
+  errors:
+    depend_on_referenced_packages: ignore

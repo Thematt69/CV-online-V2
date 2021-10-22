@@ -19,34 +19,33 @@ class CustomAnimatedTextKit extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedTextKit(
       repeatForever: true,
-      pause: const Duration(seconds: 1),
       animatedTexts: [
         TypewriterAnimatedText(
-          prefix + 'Développeur Flutter',
+          '${prefix}Développeur Flutter',
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + 'Joueur amateur',
+          '${prefix}Joueur amateur',
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + 'Développeur Web',
+          '${prefix}Développeur Web',
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + 'Photographe amateur',
+          '${prefix}Photographe amateur',
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + 'Développeur Android',
+          '${prefix}Développeur Android',
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,

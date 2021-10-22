@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../responsive.dart';
 
 class HeaderSection extends StatelessWidget {
-  HeaderSection({Key? key}) : super(key: key);
+  const HeaderSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,6 @@ class HeaderSection extends StatelessWidget {
       color: darkLightColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Visibility(
             visible: Responsive.isDesktop(context) &&
@@ -43,7 +42,6 @@ class HeaderSection extends StatelessWidget {
           Flexible(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Visibility(
                   visible: Responsive.isTablet(context) &&

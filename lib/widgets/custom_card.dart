@@ -60,7 +60,7 @@ class CustomCard extends StatelessWidget {
           if (value != null && value!.isNotEmpty)
             Flexible(
               child: InkWell(
-                onTap: url != null ? () async => await launch(url!) : null,
+                onTap: url != null ? () async => launch(url!) : null,
                 child: Text(
                   value!,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(

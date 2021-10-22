@@ -4,7 +4,7 @@ import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardRecommandationWeb extends StatelessWidget {
-  CustomCardRecommandationWeb({
+  const CustomCardRecommandationWeb({
     Key? key,
   }) : super(key: key);
 
@@ -18,7 +18,6 @@ class CustomCardRecommandationWeb extends StatelessWidget {
         bottom: defaultPadding60,
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(

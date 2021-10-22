@@ -6,7 +6,7 @@ import 'package:cv_online_v2/widgets/custom_card_recommandation_web.dart';
 import 'package:flutter/material.dart';
 
 class RecommandationSection extends StatefulWidget {
-  RecommandationSection({
+  const RecommandationSection({
     Key? key,
   }) : super(key: key);
 
@@ -31,7 +31,7 @@ class _RecommandationSectionState extends State<RecommandationSection> {
           horizontal: defaultPadding40,
           vertical: defaultPadding150,
         ),
-        child: Responsive(
+        child: const Responsive(
           desktop: CustomCardRecommandationWeb(),
           tablet: CustomCardRecommandationMobile(),
           mobile: CustomCardRecommandationMobile(),
