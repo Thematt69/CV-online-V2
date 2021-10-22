@@ -92,7 +92,7 @@ class PresentationSection extends StatelessWidget {
                 CustomCard.presentation(
                   context: context,
                   label: 'Localisation : ',
-                  value: '2 Rue Jean Jacques Rousseau, Corbas 69960, France',
+                  value: 'Corbas, 69960 France',
                   url: urlMaps,
                 ),
                 CustomCard.presentation(
@@ -101,41 +101,42 @@ class PresentationSection extends StatelessWidget {
                   value:
                       'Jeux vidéo, Photographie, Streaming & Vidéo, Musique, Rollers, Vélo, Informatique',
                 ),
-                CustomCard.presentation(
-                  context: context,
-                  label: 'Diplôme : ',
-                  value:
-                      'BAC Système Electronique et Numérique & BTS Système Numérique, option Informatique et Réseaux',
-                ),
+                // CustomCard.presentation(
+                //   context: context,
+                //   label: 'Diplôme : ',
+                //   value:
+                //       'BAC Système Electronique et Numérique & BTS Système Numérique, option Informatique et Réseaux',
+                // ),
                 CustomCard.presentation(
                   context: context,
                   label: 'École : ',
-                  value: 'XEFI ACADEMY en partenariat avec EPSI',
+                  value: listEtudes.last.ecole,
                   url: urlXefiAcademy,
                 ),
                 CustomCard.presentation(
                   context: context,
                   label: 'Formation : ',
-                  value: "Concepteur Développeur d'Application",
+                  value: listEtudes.last.nom,
                 ),
                 CustomCard.presentation(
                   context: context,
                   label: 'Entreprise : ',
-                  value: 'XEFI Software',
+                  value: listJobs.last.lieu,
                   url: urlXefi,
                 ),
+                // TODO - Cacher et afficher au clic - Eviter le spam robot
                 CustomCard.presentation(
                   context: context,
                   label: 'Adresse mail : ',
                   value: 'devilliers.matthieu@gmail.com',
                   url: urlMail,
                 ),
-                CustomCard.presentation(
-                  context: context,
-                  label: 'Téléphone : ',
-                  value: '06 45 56 48 45',
-                  url: urlTel,
-                ),
+                // CustomCard.presentation(
+                //   context: context,
+                //   label: 'Téléphone : ',
+                //   value: '06 45 56 48 45',
+                //   url: urlTel,
+                // ),
               ],
             ),
           ),

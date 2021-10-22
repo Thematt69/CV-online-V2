@@ -229,7 +229,7 @@ List<Jobs> listJobs = [
       start: DateTime(2021, 09, 08),
       end: DateTime.now(),
     ),
-    poste: 'Dévellopeur',
+    poste: 'Dévellopeur Cross-Platform',
     type: TypeJobs.cdi,
     lieu: 'Sully Group',
     service: 'CDS MAPP',
@@ -262,8 +262,8 @@ List<Etudes> listEtudes = [
       start: DateTime(2020, 08, 24),
       end: DateTime(2021, 09, 07),
     ),
-    nom: "Licence Concepteur Dévellopeur d'Application",
-    ecole: 'XEFI ACADEMY',
+    nom: "Titre Concepteur Dévellopeur d'Application",
+    ecole: 'XEFI ACADEMY - EPSI Lyon',
     description: '', // TODO - A complété
   ),
 ];

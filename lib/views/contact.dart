@@ -59,6 +59,7 @@ class ContactSection extends StatelessWidget {
                               height: 1,
                             ),
                       ),
+                      // TODO - Cacher et afficher au clic (pour le mail uniquement) - Eviter le spam robot
                       Expanded(
                         child: InkWell(
                           onTap: () async => launch(contact.url),
