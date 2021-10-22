@@ -9,6 +9,9 @@ import 'package:cv_online_v2/views/presentation.dart';
 import 'package:cv_online_v2/views/reallisation.dart';
 import 'package:cv_online_v2/views/recommandation.dart';
 import 'package:cv_online_v2/widgets/custom_drawer.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -19,11 +22,12 @@ import 'constants/sections.dart';
 import 'constants/sizes.dart';
 import 'views/competence.dart';
 
-void main() {
-  // Here we set the URL strategy for our web app.
-  // It is safe to call this function when running on mobile or desktop as well.
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting();
   setPathUrlStrategy();
-  initializeDateFormatting();
+  await Firebase.initializeApp();
+
   runApp(
     const MyApp(),
   );
@@ -31,6 +35,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  static FirebaseAnalytics analytics = FirebaseAnalytics();
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +48,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       home: const MyHomePage(),
       locale: const Locale('fr', 'FR'),
+      navigatorObservers: <NavigatorObserver>[observer],
     );
   }
 }
