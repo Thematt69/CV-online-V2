@@ -3,7 +3,7 @@ description: CV en ligne de DEVILLIERS Matthieu
 
 publish_to: "none"
 
-version: 0.7.0+12
+version: 0.7.1+13
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -27,7 +27,7 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#121212"
-  image: images\icons\ms-icon-310x310.png
+  image: images/512px-Google_Assistant_logo.png
 
 flutter:
   uses-material-design: true

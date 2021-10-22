@@ -38,12 +38,13 @@
     <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
 
-    <!-- splash screen -->
+    <!-- Splash screen -->
     <link rel="stylesheet" type="text/css" href="splash/style.css">
   </head>
 
   <body
     style="position: fixed; inset: 0px; overflow: hidden; padding: 0px; margin: 0px; user-select: none; touch-action: none; font: 14px sans-serif; color: red;">
+    <!-- Flutter -->
     <script>
       var serviceWorkerVersion = null;
       var scriptLoaded = false;
@@ -53,7 +54,7 @@
         }
         scriptLoaded = true;
         var scriptTag = document.createElement('script');
-        scriptTag.src = 'main.dart.js?version=0.7.0';
+        scriptTag.src = 'main.dart.js?version=0.7.1';
         scriptTag.type = 'application/javascript';
         document.body.append(scriptTag);
       }
@@ -108,6 +109,7 @@
         loadMainDartJs();
       }
     </script>
+    <!-- Splash screen -->
     <picture id="splash">
       <source
         srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x"
