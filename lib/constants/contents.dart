@@ -2,7 +2,7 @@ import 'package:cv_online_v2/constants/urls.dart';
 import 'package:cv_online_v2/models/contact.dart';
 import 'package:cv_online_v2/models/etudes.dart';
 import 'package:cv_online_v2/models/jobs.dart';
-import 'package:cv_online_v2/models/realisation_card.dart';
+import 'package:cv_online_v2/models/realisation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
