@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "725384983636",
+    "project_id": "cv-en-ligne-d3d4e",
+    "storage_bucket": "cv-en-ligne-d3d4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725384983636:android:e37f91d18293656f3269c1",
+        "android_client_info": {
+          "package_name": "fr.thematt69.cv_online_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725384983636-7mi5oun18hluc0tmtsua6i5ahfpt157d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_b13QSsZigTdaVSM65AmlaLRTrNofeVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725384983636-7mi5oun18hluc0tmtsua6i5ahfpt157d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
