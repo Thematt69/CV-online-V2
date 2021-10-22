@@ -8,7 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'colors.dart';
 
-String description =
+const String description =
     "Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.";
 
 List<String> listCompetences = [
@@ -268,17 +268,17 @@ List<Etudes> listEtudes = [
   ),
 ];
 
-String recommandation =
+const String recommandation =
     "Appliqué, sérieux, a le sens de l'écoute et ponctuel.\n"
     "Respecte les consignes, s'intègre bien dans une équipe.\n"
     "Sait répondre techniquement et faire des propositions.\n"
     "En synthèse Matthieu a les capacités d'atteindre le niveau ingénieur.";
 
-String auteurRecommandation = 'Palmieri Serge';
-String posteRecommandation = 'Electronic pre-study leader';
-String entrepriseRecommandation = 'Renault Trucks St-Priest';
+const String auteurRecommandation = 'Palmieri Serge';
+const String posteRecommandation = 'Electronic pre-study leader';
+const String entrepriseRecommandation = 'Renault Trucks St-Priest';
 
-List<Contact> listContacts = [
+ List<Contact> listContacts = [
   Contact(
     icon: const Icon(
       Icons.place,
