@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
       title: 'CV en ligne - DEVILLIERS Matthieu',
       themeMode: ThemeMode.light,
       theme: lightTheme,
-      darkTheme: darkTheme,
       home: const MyHomePage(),
       locale: const Locale('fr', 'FR'),
     );

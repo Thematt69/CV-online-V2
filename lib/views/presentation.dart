@@ -122,7 +122,7 @@ class PresentationSection extends StatelessWidget {
                   context: context,
                   label: 'Entreprise : ',
                   value: listJobs.last.lieu,
-                  url: urlXefi,
+                  url: urlSullyGroup,
                 ),
                 // TODO - Cacher et afficher au clic - Eviter le spam robot
                 CustomCard.presentation(

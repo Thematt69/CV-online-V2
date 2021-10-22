@@ -13,4 +13,4 @@ const String urlTwitter = 'https://twitter.com/DevilliersMatt';
 const String urlDiscord = 'https://discord.com/';
 const String urlGithub = 'https://github.com/Thematt69';
 const String urlXefiAcademy = 'https://carriere.xefi.fr/xefi-academy';
-const String urlXefi = 'https://xefi.fr';
+const String urlSullyGroup = 'https://www.sully-group.fr/';

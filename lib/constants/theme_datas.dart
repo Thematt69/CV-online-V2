@@ -42,5 +42,3 @@ final ThemeData lightTheme = ThemeData.light().copyWith(
     showTrackOnHover: true,
   ),
 );
-
-final ThemeData darkTheme = ThemeData.dark().copyWith();
