@@ -1,8 +1,8 @@
 import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sections.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
 import 'package:cv_online_v2/widgets/custom_card.dart';
@@ -30,7 +30,7 @@ class PresentationSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Je suis DEVILLIERS Matthieu',
+            translations.text('views_presentation.i_am'),
             style: Theme.of(context).textTheme.headline2?.copyWith(
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
@@ -47,19 +47,21 @@ class PresentationSection extends StatelessWidget {
           const SizedBox(height: defaultPadding30),
           RichText(
             text: TextSpan(
-              text: 'Mon nom est ',
+              text: translations.text('views_presentation.my_name_is'),
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: greyDarkColor,
                   ),
               children: <TextSpan>[
+                const TextSpan(text: ' '),
                 TextSpan(
-                  text: 'DEVILLIERS Matthieu. ',
+                  text: "DEVILLIERS Matthieu.",
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 ),
+                const TextSpan(text: ' '),
                 TextSpan(
-                  text: description,
+                  text: translations.text('contents.description'),
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: greyDarkColor,
                       ),
@@ -75,65 +77,67 @@ class PresentationSection extends StatelessWidget {
               children: [
                 CustomCard.presentation(
                   context: context,
-                  label: 'Date de naissance : ',
-                  value: '29/09/2000',
-                ),
-                CustomCard.presentation(
-                  context: context,
-                  label: 'Age : ',
+                  label: translations.text('views_presentation.date_birth'),
                   value:
-                      '${DateTime.now().difference(DateTime(2000, 09, 29)).inDays ~/ 365.25} ans',
+                      translations.text('views_presentation.date_birth_value'),
                 ),
                 CustomCard.presentation(
                   context: context,
-                  label: 'Mobilité : ',
-                  value: 'Permis B',
+                  label: translations.text('views_presentation.age'),
+                  value:
+                      '${DateTime.now().difference(DateTime(2000, 09, 29)).inDays ~/ 365.25} ${translations.text('views_presentation.years')}',
                 ),
                 CustomCard.presentation(
                   context: context,
-                  label: 'Localisation : ',
+                  label: translations.text('views_presentation.mobility'),
+                  value: translations.text('views_presentation.permit_b'),
+                ),
+                CustomCard.presentation(
+                  context: context,
+                  label: translations.text('views_presentation.location'),
                   value: 'Corbas, 69960 France',
                   url: urlMaps,
                 ),
+                // TODO - Cacher et afficher au clic - Eviter le spam robot
                 CustomCard.presentation(
                   context: context,
-                  label: 'Intérêts : ',
+                  label: translations.text('views_presentation.email'),
+                  value: 'devilliers.matthieu@gmail.com',
+                  url: urlMail,
+                ),
+                CustomCard.presentation(
+                  context: context,
+                  label: translations.text('views_presentation.interests'),
                   value:
-                      'Jeux vidéo, Photographie, Streaming & Vidéo, Musique, Rollers, Vélo, Informatique',
+                      translations.text('views_presentation.interests_value'),
                 ),
                 // CustomCard.presentation(
                 //   context: context,
-                //   label: 'Diplôme : ',
+                //   label: 'Diplôme',
                 //   value:
                 //       'BAC Système Electronique et Numérique & BTS Système Numérique, option Informatique et Réseaux',
                 // ),
                 CustomCard.presentation(
                   context: context,
-                  label: 'École : ',
-                  value: listEtudes.last.ecole,
+                  label: translations.text('views_presentation.school'),
+                  value: "XEFI ACADEMY - EPSI Lyon",
                   url: urlXefiAcademy,
                 ),
                 CustomCard.presentation(
                   context: context,
-                  label: 'Formation : ',
-                  value: listEtudes.last.nom,
+                  label: translations.text('views_presentation.formation'),
+                  value:
+                      translations.text('views_presentation.formation_value'),
                 ),
                 CustomCard.presentation(
                   context: context,
-                  label: 'Entreprise : ',
-                  value: listJobs.last.lieu,
+                  label: translations.text('views_presentation.company'),
+                  value: "Sully Group",
                   url: urlSullyGroup,
-                ),
-                // TODO - Cacher et afficher au clic - Eviter le spam robot
-                CustomCard.presentation(
-                  context: context,
-                  label: 'Adresse mail : ',
-                  value: 'devilliers.matthieu@gmail.com',
-                  url: urlMail,
                 ),
                 // CustomCard.presentation(
                 //   context: context,
-                //   label: 'Téléphone : ',
+                //   label: 'Téléphone',
                 //   value: '06 45 56 48 45',
                 //   url: urlTel,
                 // ),
@@ -144,7 +148,8 @@ class PresentationSection extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () async => launch(urlCV),
-                child: const Text('Télécharger CV'),
+                child:
+                    Text(translations.text('views_presentation.download_cv')),
               ),
               if (Responsive.isMobile(context))
                 const Spacer()
@@ -158,7 +163,7 @@ class PresentationSection extends StatelessWidget {
                     curve: Curves.linear,
                   );
                 },
-                child: const Text('Me contacter'),
+                child: Text(translations.text('views_presentation.contact_me')),
               ),
             ],
           ),

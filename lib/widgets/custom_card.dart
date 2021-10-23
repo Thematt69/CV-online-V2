@@ -29,7 +29,7 @@ class CustomCard extends StatelessWidget {
   }) {
     return CustomCard._(
       context: context,
-      label: label,
+      label: '$label : ',
       value: value,
       url: url,
     );
