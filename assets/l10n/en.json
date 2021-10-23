@@ -1,0 +1,181 @@
+{
+    "drawer": {
+        "show_menu": "Show menu",
+        "hide_menu": "Hide menu",
+        "home": "Home",
+        "presentation": "Presentation",
+        "competence": "Skills",
+        "realisation": "Production",
+        "etudes": "Studies",
+        "recommandation": "Recommendation",
+        "jobs": "Jobs",
+        "contact": "Contact",
+        "email": "Mail address",
+        "linkedin": "Linkedin",
+        "github": "GitHub",
+        "see_more": "See more"
+    },
+    "error": {
+        "no_init": "It seems that the application could not launch correctly.",
+        "contact": "Contact support by mentioning the message below."
+    },
+    "splash": {
+        "get_data": "Data recovery in progress ..."
+    },
+    "popup_menu_button_language": {
+        "change_langue": "Change the language",
+        "refresh_recommend": "Refreshment recommended",
+        "refresh_recommend_content": "To take your modification into account, this page will need to be refreshed."
+    },
+    "custom_animated_text_kit": {
+        "dev_flutter": "Flutter Developer",
+        "gamers": "Amateur player",
+        "dev_web": "Web developer",
+        "photographer": "Amateur photographer",
+        "dev_android": "Android Developer"
+    },
+    "custom_card_image": {
+        "go_github": "Go to GitHub"
+    },
+    "views_realisation": {
+        "online": "Online",
+        "archive": "Archive",
+        "all": "All",
+        "my_different": "My different",
+        "realisation": "production"
+    },
+    "views_presentation": {
+        "i_am": "I am DEVILLIERS Matthieu",
+        "my_name_is": "My name is",
+        "date_birth": "Date of Birth",
+        "date_birth_value": "09/29/2000",
+        "age": "Age",
+        "years": "years",
+        "mobility": "Mobility",
+        "permit_b": "B permit",
+        "location": "Location",
+        "interests": "Interests",
+        "interests_value": "Video games, Photography, Streaming & Video, Music, Rollers, Cycling, Computers",
+        "school": "School",
+        "formation": "Training",
+        "formation_value": "Degree Designer Application Developer",
+        "company": "Business",
+        "email": "Mail address",
+        "download_cv": "Download CV",
+        "contact_me": "Contact me"
+    },
+    "views_jobs": {
+        "my": "My",
+        "jobs": "jobs"
+    },
+    "views_header": {
+        "i_am": "I am"
+    },
+    "views_footer": {
+        "all_rights_reserved": "All rights reserved",
+        "develop_flutter": "Develop with Flutter",
+        "get_version": "Version recovery ..."
+    },
+    "views_etudes": {
+        "my": "My",
+        "etudes": "studies"
+    },
+    "views_contact": {
+        "contact": "Contact",
+        "me": "me"
+    },
+    "views_competence": {
+        "my": "My",
+        "competence": "skills"
+    },
+    "contents": {
+        "description": "I am a web and Android developer, passionate and dedicated to my studies and my future. With 29 weeks of internship in a company, I acquired the skills and knowledge necessary to finalize my studies and integrate the world of work through work-study or apprenticeship.",
+        "recommandation": "Applied, serious, attentive and punctual.\nRespect the instructions, integrate well into a team.\nKnows how to respond technically and make proposals.\nIn summary, Matthieu has the capacity to reach the engineer level.",
+        "poste_recommandation": "Electronic pre-study leader",
+        "realisations": {
+            "cv_online_v1": "Online CV V1",
+            "cv_online_v2": "Online CV V2",
+            "server_minecraft": "Minecraft server on Raspberry",
+            "gift_idea_list": "Gift Idea List - Personal Project",
+            "game_library": "Games library - School work",
+            "front_customer_list": "FRONT customer listing - School work",
+            "api_customer_list": "API customer listing - School work",
+            "dropdownSearch_flutter": "Flutter DropdownSearch - Contribution",
+            "canhumanitaire": "Canhumanitaire - Humanitarian Association",
+            "frero_goteborg": "Summary site of my brother's stay in Gothenburg",
+            "world_become_human": "World: Become Human - Role-playing game",
+            "los_santos_rp": "Los Santos RolePlay FR - Project GTA V ",
+            "class_council": "Class Council - BTS SN",
+            "purespa_corbas": "PureSpa Corbas - Personal project"
+        },
+        "jobs": {
+            "sncf": {
+                "poste": "Customer reception",
+                "lieu": "Lyon Part-Dieu train station",
+                "service": "Welcome service"
+            },
+            "mobile_hub": {
+                "poste": "Technician",
+                "description": "Customer reception and sale of products (telephone, accessories, repair)."
+            },
+            "polaris": {
+                "poste": "Audiovisual technician",
+                "lieu": "Le Polaris",
+                "service": "Cultural complex",
+                "description": "Sound preparation and lighting for various shows, assistance to the general director."
+            },
+            "transit_melody": {
+                "poste": "Technicien audiovisuel",
+                "lieu": "Transit Melody",
+                "description": "Technical service provider in sound, video and lighting."
+            },
+            "hub_one": {
+                "poste": "Maintenance technician",
+                "lieu": "Hub One",
+                "service": "Parameterization service",
+                "description": "Factory setting or mobile terminal mass reconfiguration."
+            },
+            "hub_one_1": {
+                "poste": "Logistics officer",
+                "lieu": "Hub One",
+                "service": "Logistic service",
+                "description": "Reception, logistics management and replacement of defective terminals."
+            },
+            "renault_trucks": {
+                "poste": "R&D Developer",
+                "lieu": "Renault Trucks St-Priest",
+                "service": "Special Vehicle Development Service",
+                "description": "Integration of a new on-board screen for prototype trucks."
+            },
+            "xefi": {
+                "poste": "Developer",
+                "lieu": "XEFI Group",
+                "service": "XEFI Software"
+            },
+            "sully_group": {
+                "poste": "Cross-Platform Developer",
+                "lieu": "Sully Group",
+                "service": "Service center - MAPP",
+                "description": "Development of mobile or web applications for clients."
+            }
+        },
+        "etudes": {
+            "bac_pro": {
+                "nom": "Electronic and Digital System  professionnel baccalaureate",
+                "ecole": "Marc Seguin technical college, Vénissieux."
+            },
+            "bts": {
+                "nom": "HND Digital System",
+                "ecole": "Marcel Sembat High School, Vénissieux."
+            },
+            "epsi": {
+                "nom": "Degree Designer Application Developer",
+                "ecole": "XEFI ACADEMY - EPSI Lyon"
+            }
+        },
+        "contacts": {
+            "location": "Location",
+            "email": "Mail address"
+        }
+    }
+}
