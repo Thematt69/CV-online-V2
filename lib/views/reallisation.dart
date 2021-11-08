@@ -20,19 +20,27 @@ class RealisationSection extends StatefulWidget {
 }
 
 class _RealisationSectionState extends State<RealisationSection> {
-  bool hoverAll = false;
-  bool hoverArchive = false;
-  bool hoverOnline = false;
-  bool? online;
+  final ValueNotifier<bool> _hoverAll = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _hoverArchive = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _hoverOnline = ValueNotifier<bool>(false);
+  final ValueNotifier<bool?> _online = ValueNotifier<bool?>(null);
 
-  List<Realisation> get list {
+  @override
+  void dispose() {
+    _online.dispose();
+    _hoverAll.dispose();
+    _hoverArchive.dispose();
+    _hoverOnline.dispose();
+    super.dispose();
+  }
+
+  // FIXME - Trigger si changement de _online
+  List<Realisation> get _list {
     listRealisations
         .sort((a, b) => a.name.currentLang.compareTo(b.name.currentLang));
     return listRealisations
         .where(
-          (element) => online == null || online!
-              ? element.url != null
-              : element.url == null,
+          (element) => _online.value == null || _online.value == element.online,
         )
         .toList();
   }
@@ -72,79 +80,85 @@ class _RealisationSectionState extends State<RealisationSection> {
       children: <Widget>[
         InkWell(
           onTap: () {
-            setState(() {
-              online = null;
-            });
+            _online.value = null;
           },
           onHover: (bool value) {
-            setState(() {
-              hoverAll = value;
-            });
+            _hoverAll.value = value;
           },
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: Text(
-              translations.text('views_realisation.all'),
-              style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverAll || online == null
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: online == null
-                        ? FontWeight.w600
-                        : Theme.of(context).textTheme.button?.fontWeight,
-                  ),
+            child: ValueListenableBuilder<bool?>(
+              valueListenable: _online,
+              builder: (context, online, child) => ValueListenableBuilder<bool>(
+                valueListenable: _hoverAll,
+                builder: (context, hover, child) => Text(
+                  translations.text('views_realisation.all'),
+                  style: Theme.of(context).textTheme.button!.copyWith(
+                        color: hover || online == null
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onBackground,
+                        fontWeight: online == null
+                            ? FontWeight.w600
+                            : Theme.of(context).textTheme.button?.fontWeight,
+                      ),
+                ),
+              ),
             ),
           ),
         ),
         InkWell(
           onTap: () {
-            setState(() {
-              online = true;
-            });
+            _online.value = true;
           },
           onHover: (bool value) {
-            setState(() {
-              hoverOnline = value;
-            });
+            _hoverOnline.value = value;
           },
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: Text(
-              translations.text('views_realisation.online'),
-              style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverOnline || online == true
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: online == true
-                        ? FontWeight.w600
-                        : Theme.of(context).textTheme.button?.fontWeight,
-                  ),
+            child: ValueListenableBuilder<bool?>(
+              valueListenable: _online,
+              builder: (context, online, child) => ValueListenableBuilder<bool>(
+                valueListenable: _hoverOnline,
+                builder: (context, hover, child) => Text(
+                  translations.text('views_realisation.online'),
+                  style: Theme.of(context).textTheme.button!.copyWith(
+                        color: hover || online == true
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onBackground,
+                        fontWeight: online == true
+                            ? FontWeight.w600
+                            : Theme.of(context).textTheme.button?.fontWeight,
+                      ),
+                ),
+              ),
             ),
           ),
         ),
         InkWell(
           onTap: () {
-            setState(() {
-              online = false;
-            });
+            _online.value = false;
           },
           onHover: (bool value) {
-            setState(() {
-              hoverArchive = value;
-            });
+            _hoverArchive.value = value;
           },
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: Text(
-              translations.text('views_realisation.archive'),
-              style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverArchive || online == false
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: online == false
-                        ? FontWeight.w600
-                        : Theme.of(context).textTheme.button?.fontWeight,
-                  ),
+            child: ValueListenableBuilder<bool?>(
+              valueListenable: _online,
+              builder: (context, online, child) => ValueListenableBuilder<bool>(
+                valueListenable: _hoverArchive,
+                builder: (context, hover, child) => Text(
+                  translations.text('views_realisation.archive'),
+                  style: Theme.of(context).textTheme.button!.copyWith(
+                        color: hover || online == false
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onBackground,
+                        fontWeight: online == false
+                            ? FontWeight.w600
+                            : Theme.of(context).textTheme.button?.fontWeight,
+                      ),
+                ),
+              ),
             ),
           ),
         ),
@@ -183,18 +197,21 @@ class _RealisationSectionState extends State<RealisationSection> {
           const SizedBox(height: defaultPadding30),
           _buildTabBar(context),
           const SizedBox(height: defaultPadding30),
-          Wrap(
-            spacing: defaultPadding30,
-            runSpacing: defaultPadding30,
-            children: List.generate(
-              list.length,
-              (index) => CustomCardImage(
-                widthCard: widthCard,
-                assetImage: list[index].assetImage,
-                title: list[index].name.currentLang,
-                tag: selectedFilterToString(value: list[index].online),
-                url: list[index].url,
-                urlGitHub: list[index].urlGitHub,
+          ValueListenableBuilder<bool?>(
+            valueListenable: _online,
+            builder: (context, online, child) => Wrap(
+              spacing: defaultPadding30,
+              runSpacing: defaultPadding30,
+              children: List.generate(
+                _list.length,
+                (index) => CustomCardImage(
+                  widthCard: widthCard,
+                  assetImage: _list[index].assetImage,
+                  title: _list[index].name.currentLang,
+                  tag: selectedFilterToString(value: _list[index].online),
+                  url: _list[index].url,
+                  urlGitHub: _list[index].urlGitHub,
+                ),
               ),
             ),
           ),

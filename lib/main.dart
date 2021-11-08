@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
             title: 'CV en ligne - DEVILLIERS Matthieu',
             themeMode: ThemeMode.light,
             theme: lightTheme,
-            home: Test(),
+            home: const MainPage(),
             navigatorObservers: <NavigatorObserver>[MyApp.observer],
             supportedLocales: translations.supportedLocales,
             localizationsDelegates: const [

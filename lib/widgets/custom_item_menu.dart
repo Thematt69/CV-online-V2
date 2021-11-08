@@ -3,6 +3,11 @@ import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemMenu extends StatelessWidget {
+  final void Function(bool value)? onHover;
+  final void Function()? onTap;
+  final bool hover;
+  final String title;
+
   const CustomItemMenu({
     required this.onHover,
     required this.onTap,
@@ -10,11 +15,6 @@ class CustomItemMenu extends StatelessWidget {
     required this.title,
     Key? key,
   }) : super(key: key);
-
-  final void Function(bool value)? onHover;
-  final void Function()? onTap;
-  final bool hover;
-  final String title;
 
   @override
   Widget build(BuildContext context) {

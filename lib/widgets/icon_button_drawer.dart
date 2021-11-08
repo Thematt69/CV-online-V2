@@ -5,7 +5,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class IconButtonDrawer extends StatefulWidget {
-  const IconButtonDrawer({Key? key}) : super(key: key);
+  final bool isShowDrawer;
+  final Function(bool isShowDrawer) onShowDrawer;
+
+  const IconButtonDrawer({
+    Key? key,
+    required this.isShowDrawer,
+    required this.onShowDrawer,
+  }) : super(key: key);
 
   @override
   State<IconButtonDrawer> createState() => _IconButtonDrawerState();
@@ -13,7 +20,6 @@ class IconButtonDrawer extends StatefulWidget {
 
 class _IconButtonDrawerState extends State<IconButtonDrawer>
     with TickerProviderStateMixin {
-  bool _isShowDrawer = kIsWeb;
   late final AnimationController _controller;
   late final Animation<double> _myAnimation;
 
@@ -38,7 +44,7 @@ class _IconButtonDrawerState extends State<IconButtonDrawer>
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 200),
       top: defaultPadding30,
-      left: _isShowDrawer ? 180 : 0,
+      left: widget.isShowDrawer ? 180 : 0,
       child: Material(
         elevation: 20,
         borderRadius: const BorderRadius.only(
@@ -61,18 +67,16 @@ class _IconButtonDrawerState extends State<IconButtonDrawer>
               bottomRight: Radius.circular(20),
             ),
             onTap: () {
-              setState(() {
-                if (_isShowDrawer) {
-                  _controller.reverse();
-                } else {
-                  _controller.forward();
-                }
-                _isShowDrawer = !_isShowDrawer;
-              });
+              if (widget.isShowDrawer) {
+                _controller.reverse();
+              } else {
+                _controller.forward();
+              }
+              widget.onShowDrawer(!widget.isShowDrawer);
             },
             child: Center(
               child: Tooltip(
-                message: _isShowDrawer
+                message: widget.isShowDrawer
                     ? translations.text('drawer.hide_menu')
                     : translations.text('drawer.show_menu'),
                 child: AnimatedIcon(

@@ -328,7 +328,7 @@ List<Contact> listContacts = [
     url: urlMaps,
   ),
   Contact(
-    icon: FontAwesomeIcons.envelope,
+    icon: FontAwesomeIcons.solidEnvelope,
     label: TradMapModel(frFR: "Mail"),
     value: "devilliers.matthieu@gmail.com",
     url: urlMail,

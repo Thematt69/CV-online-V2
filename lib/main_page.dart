@@ -22,10 +22,16 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
-  final bool _isShowDrawer = kIsWeb;
-
+class _MainPageState extends State<MainPage> {
+  final ValueNotifier<bool> _isShowDrawer = ValueNotifier<bool>(kIsWeb);
   final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _isShowDrawer.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +41,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           children: [
             Row(
               children: [
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  width:
-                      _isShowDrawer && Responsive.isDesktop(context) ? 180 : 0,
+                ValueListenableBuilder<bool>(
+                  valueListenable: _isShowDrawer,
+                  builder: (context, isShowDrawer, child) => AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    width:
+                        isShowDrawer && Responsive.isDesktop(context) ? 180 : 0,
+                  ),
                 ),
                 Expanded(
                   child: Scrollbar(
@@ -58,20 +67,32 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                           CompetenceSection(
                             key: keyCompetence,
                           ),
-                          RealisationSection(
-                            key: keyRealisation,
-                            isShowDrawer: _isShowDrawer,
+                          ValueListenableBuilder<bool>(
+                            valueListenable: _isShowDrawer,
+                            builder: (context, isShowDrawer, child) =>
+                                RealisationSection(
+                              key: keyRealisation,
+                              isShowDrawer: isShowDrawer,
+                            ),
                           ),
-                          EtudesSection(
-                            key: keyEtudes,
-                            isShowDrawer: _isShowDrawer,
+                          ValueListenableBuilder<bool>(
+                            valueListenable: _isShowDrawer,
+                            builder: (context, isShowDrawer, child) =>
+                                EtudesSection(
+                              key: keyEtudes,
+                              isShowDrawer: isShowDrawer,
+                            ),
                           ),
                           RecommandationSection(
                             key: keyRecommandation,
                           ),
-                          JobsSection(
-                            key: keyJobs,
-                            isShowDrawer: _isShowDrawer,
+                          ValueListenableBuilder<bool>(
+                            valueListenable: _isShowDrawer,
+                            builder: (context, isShowDrawer, child) =>
+                                JobsSection(
+                              key: keyJobs,
+                              isShowDrawer: isShowDrawer,
+                            ),
                           ),
                           ContactSection(
                             key: keyContact,
@@ -84,10 +105,21 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 ),
               ],
             ),
-            const IconButtonDrawer(),
-            CustomDrawer(
-              isShowDrawer: _isShowDrawer,
-              scrollController: _scrollController,
+            ValueListenableBuilder<bool>(
+              valueListenable: _isShowDrawer,
+              builder: (context, isShowDrawer, child) => IconButtonDrawer(
+                isShowDrawer: isShowDrawer,
+                onShowDrawer: (isShowDrawer) {
+                  _isShowDrawer.value = isShowDrawer;
+                },
+              ),
+            ),
+            ValueListenableBuilder<bool>(
+              valueListenable: _isShowDrawer,
+              builder: (context, isShowDrawer, child) => CustomDrawer(
+                isShowDrawer: isShowDrawer,
+                scrollController: _scrollController,
+              ),
             ),
             const PopupMenuButtonLanguage(),
           ],
