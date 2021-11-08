@@ -4,7 +4,6 @@ import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/main_page.dart';
 import 'package:cv_online_v2/splash_page.dart';
-import 'package:cv_online_v2/test.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';

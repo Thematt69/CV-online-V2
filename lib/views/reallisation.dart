@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
@@ -20,6 +21,8 @@ class RealisationSection extends StatefulWidget {
 }
 
 class _RealisationSectionState extends State<RealisationSection> {
+  final Stream<QuerySnapshot<Map<String, dynamic>>> _realisationsStream =
+      FirebaseFirestore.instance.collection('realisations').snapshots();
   final ValueNotifier<bool> _hoverAll = ValueNotifier<bool>(false);
   final ValueNotifier<bool> _hoverArchive = ValueNotifier<bool>(false);
   final ValueNotifier<bool> _hoverOnline = ValueNotifier<bool>(false);
@@ -32,17 +35,6 @@ class _RealisationSectionState extends State<RealisationSection> {
     _hoverArchive.dispose();
     _hoverOnline.dispose();
     super.dispose();
-  }
-
-  // FIXME - Trigger si changement de _online
-  List<Realisation> get _list {
-    listRealisations
-        .sort((a, b) => a.name.currentLang.compareTo(b.name.currentLang));
-    return listRealisations
-        .where(
-          (element) => _online.value == null || _online.value == element.online,
-        )
-        .toList();
   }
 
   double get widthMediaQuery {
@@ -199,20 +191,77 @@ class _RealisationSectionState extends State<RealisationSection> {
           const SizedBox(height: defaultPadding30),
           ValueListenableBuilder<bool?>(
             valueListenable: _online,
-            builder: (context, online, child) => Wrap(
-              spacing: defaultPadding30,
-              runSpacing: defaultPadding30,
-              children: List.generate(
-                _list.length,
-                (index) => CustomCardImage(
-                  widthCard: widthCard,
-                  assetImage: _list[index].assetImage,
-                  title: _list[index].name.currentLang,
-                  tag: selectedFilterToString(value: _list[index].online),
-                  url: _list[index].url,
-                  urlGitHub: _list[index].urlGitHub,
-                ),
-              ),
+            builder: (context, online, child) =>
+                StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+              stream: _realisationsStream,
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  debugPrint(snapshot.error.toString());
+                  debugPrintStack(stackTrace: snapshot.stackTrace);
+                  return Text(
+                    'Erreur lors de la récupération des réalisations',
+                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          color: Theme.of(context).colorScheme.onBackground,
+                          fontWeight: FontWeight.w500,
+                          height: 1,
+                        ),
+                  );
+                }
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Row(
+                    children: [
+                      Container(
+                        width: 20,
+                        height: 20,
+                        margin: const EdgeInsets.all(4),
+                        child: const CircularProgressIndicator(),
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Récupération des réalisations en cours...',
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              color: Theme.of(context).colorScheme.onBackground,
+                              fontWeight: FontWeight.w500,
+                              height: 1,
+                            ),
+                      ),
+                    ],
+                  );
+                }
+
+                final List<Realisation> listRealisation = snapshot.data!.docs
+                    .map(
+                      (document) => Realisation.fromFireStore(document.data()),
+                    )
+                    .toList();
+
+                listRealisation.sort(
+                  (a, b) => a.name.currentLang.compareTo(b.name.currentLang),
+                );
+
+                final List<Realisation> list = listRealisation
+                    .where(
+                      (element) => online == null || online == element.online,
+                    )
+                    .toList();
+
+                return Wrap(
+                  spacing: defaultPadding30,
+                  runSpacing: defaultPadding30,
+                  children: List.generate(
+                    list.length,
+                    (index) => CustomCardImage(
+                      widthCard: widthCard,
+                      assetImage: list[index].assetImage,
+                      title: list[index].name.currentLang,
+                      tag: selectedFilterToString(value: list[index].online),
+                      url: list[index].url,
+                      urlGitHub: list[index].urlGitHub,
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ],

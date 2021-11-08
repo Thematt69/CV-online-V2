@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
+import 'package:cv_online_v2/models/jobs.dart';
 import 'package:cv_online_v2/widgets/custom_card_jobs.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -21,6 +23,12 @@ class JobsSection extends StatefulWidget {
 }
 
 class _JobsSectionState extends State<JobsSection> {
+  final Stream<QuerySnapshot<Map<String, dynamic>>> _jobsStream =
+      FirebaseFirestore.instance
+          .collection('jobs')
+          .orderBy('periode.end', descending: true)
+          .snapshots();
+
   DateFormat dateFormat = DateFormat.yMMMd('fr');
 
   double get widthMediaQuery {
@@ -43,7 +51,6 @@ class _JobsSectionState extends State<JobsSection> {
 
   @override
   Widget build(BuildContext context) {
-    listJobs.sort((a, b) => b.periode.end.compareTo(a.periode.end));
     return Container(
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
@@ -72,23 +79,67 @@ class _JobsSectionState extends State<JobsSection> {
             ),
           ),
           const SizedBox(height: defaultPadding30),
-          Wrap(
-            spacing: defaultPadding30,
-            runSpacing: defaultPadding30,
-            alignment: WrapAlignment.spaceBetween,
-            children: List.generate(
-              listJobs.length,
-              (index) => CustomCardJobs(
-                periode:
-                    '${dateFormat.format(listJobs[index].periode.start)} - ${dateFormat.format(listJobs[index].periode.end)}',
-                lieu: listJobs[index].lieu.currentLang,
-                poste: listJobs[index].poste.currentLang,
-                widthCard: widthCard,
-                description: listJobs[index].description.currentLang,
-                service: listJobs[index].service?.currentLang,
-              ),
-            ),
-          )
+          StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+            stream: _jobsStream,
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                debugPrint(snapshot.error.toString());
+                debugPrintStack(stackTrace: snapshot.stackTrace);
+                return Text(
+                  'Erreur lors de la récupération des jobs',
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontWeight: FontWeight.w500,
+                        height: 1,
+                      ),
+                );
+              }
+
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Row(
+                  children: [
+                    Container(
+                      width: 20,
+                      height: 20,
+                      margin: const EdgeInsets.all(4),
+                      child: const CircularProgressIndicator(),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'Récupération des jobs en cours...',
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontWeight: FontWeight.w500,
+                            height: 1,
+                          ),
+                    ),
+                  ],
+                );
+              }
+
+              final List<Jobs> listJobs = snapshot.data!.docs
+                  .map((document) => Jobs.fromFireStore(document.data()))
+                  .toList();
+
+              return Wrap(
+                spacing: defaultPadding30,
+                runSpacing: defaultPadding30,
+                alignment: WrapAlignment.spaceBetween,
+                children: List.generate(
+                  listJobs.length,
+                  (index) => CustomCardJobs(
+                    periode:
+                        '${dateFormat.format(listJobs[index].periode.start)} - ${dateFormat.format(listJobs[index].periode.end)}',
+                    lieu: listJobs[index].lieu.currentLang,
+                    poste: listJobs[index].poste.currentLang,
+                    widthCard: widthCard,
+                    description: listJobs[index].description.currentLang,
+                    service: listJobs[index].service?.currentLang,
+                  ),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
