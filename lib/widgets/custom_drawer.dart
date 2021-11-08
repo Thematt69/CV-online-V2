@@ -1,3 +1,4 @@
+import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sections.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
@@ -53,7 +54,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         Visibility(
           visible: MediaQuery.of(context).size.height > 550,
           child: Image.asset(
-            'assets/images/Google_Assistant_logo.webp',
+            assetLogo1833,
             width: 140,
             height: 140,
           ),

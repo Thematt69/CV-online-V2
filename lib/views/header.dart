@@ -1,3 +1,4 @@
+import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
@@ -28,9 +29,7 @@ class HeaderSection extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(130),
                 image: const DecorationImage(
-                  image: AssetImage(
-                    'assets/images/IMG_20180831_004109_835.webp',
-                  ),
+                  image: AssetImage(assetPhoto3056),
                 ),
               ),
             ),
@@ -54,9 +53,7 @@ class HeaderSection extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(130),
                       image: const DecorationImage(
-                        image: AssetImage(
-                          'assets/images/IMG_20180831_004109_835.webp',
-                        ),
+                        image: AssetImage(assetPhoto3056),
                       ),
                     ),
                   ),

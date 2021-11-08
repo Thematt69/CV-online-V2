@@ -1,3 +1,4 @@
+import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
@@ -22,7 +23,7 @@ class CustomCardRecommandationWeb extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
-            'assets/images/double_quote.png',
+            assetDoubleQuote,
             width: 60,
             cacheWidth: 60,
             errorBuilder: (context, error, stackTrace) => const SizedBox(

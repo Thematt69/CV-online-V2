@@ -1,3 +1,4 @@
+import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +54,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                   return Transform.rotate(
                     angle: animationController.value * 6.3,
                     child: Image.asset(
-                      'assets/images/512px-Google_Assistant_logo.png',
+                      assetLogoTr512,
                       fit: BoxFit.cover,
                       width: size,
                       height: size,

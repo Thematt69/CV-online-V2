@@ -1,3 +1,4 @@
+import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
@@ -63,7 +64,7 @@ class CustomCardRecommandationMobile extends StatelessWidget {
               Visibility(
                 visible: Responsive.isTablet(context),
                 child: Image.asset(
-                  'assets/images/double_quote.png',
+                  assetDoubleQuote,
                   width: 60,
                   cacheWidth: 60,
                   errorBuilder: (context, error, stackTrace) => const SizedBox(
