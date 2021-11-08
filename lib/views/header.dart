@@ -1,5 +1,6 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class HeaderSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(130),
                 image: const DecorationImage(
                   image: AssetImage(
-                    'images/IMG_20180831_004109_835.webp',
+                    'assets/images/IMG_20180831_004109_835.webp',
                   ),
                 ),
               ),
@@ -54,7 +55,7 @@ class HeaderSection extends StatelessWidget {
                       borderRadius: BorderRadius.circular(130),
                       image: const DecorationImage(
                         image: AssetImage(
-                          'images/IMG_20180831_004109_835.webp',
+                          'assets/images/IMG_20180831_004109_835.webp',
                         ),
                       ),
                     ),
@@ -83,7 +84,7 @@ class HeaderSection extends StatelessWidget {
                   ],
                 ),
                 CustomAnimatedTextKit(
-                  prefix: 'Je suis ',
+                  prefix: '${translations.text('views_header.i_am')} ',
                   textStyle: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                         fontSize: Responsive.isDesktop(context) ? 30 : 24,

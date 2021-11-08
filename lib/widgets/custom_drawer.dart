@@ -2,6 +2,7 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sections.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -52,7 +53,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         Visibility(
           visible: MediaQuery.of(context).size.height > 550,
           child: Image.asset(
-            'images/Google_Assistant_logo.webp',
+            'assets/images/Google_Assistant_logo.webp',
             width: 140,
             height: 140,
           ),
@@ -60,7 +61,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Spacer(),
         CustomItemMenu(
           hover: hoverAccueil,
-          title: 'Accueil',
+          title: translations.text('drawer.home'),
           onHover: (value) {
             setState(() {
               hoverAccueil = !hoverAccueil;
@@ -73,7 +74,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Divider(height: 1),
         CustomItemMenu(
           hover: hoverAPropos,
-          title: 'Présentation',
+          title: translations.text('drawer.presentation'),
           onHover: (value) {
             setState(() {
               hoverAPropos = !hoverAPropos;
@@ -86,7 +87,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Divider(height: 1),
         CustomItemMenu(
           hover: hoverCompetences,
-          title: 'Compétences',
+          title: translations.text('drawer.competence'),
           onHover: (value) {
             setState(() {
               hoverCompetences = !hoverCompetences;
@@ -99,7 +100,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Divider(height: 1),
         CustomItemMenu(
           hover: hoverRealisations,
-          title: 'Réalisations',
+          title: translations.text('drawer.realisation'),
           onHover: (value) {
             setState(() {
               hoverRealisations = !hoverRealisations;
@@ -112,7 +113,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Divider(height: 1),
         CustomItemMenu(
           hover: hoverEtudes,
-          title: 'Études',
+          title: translations.text('drawer.etudes'),
           onHover: (value) {
             setState(() {
               hoverEtudes = !hoverEtudes;
@@ -125,7 +126,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Divider(height: 1),
         CustomItemMenu(
           hover: hoverRecommandation,
-          title: 'Recommandation',
+          title: translations.text('drawer.recommandation'),
           onHover: (value) {
             setState(() {
               hoverRecommandation = !hoverRecommandation;
@@ -138,7 +139,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Divider(height: 1),
         CustomItemMenu(
           hover: hoverJobs,
-          title: 'Jobs',
+          title: translations.text('drawer.jobs'),
           onHover: (value) {
             setState(() {
               hoverJobs = !hoverJobs;
@@ -151,7 +152,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         const Divider(height: 1),
         CustomItemMenu(
           hover: hoverContact,
-          title: 'Contact',
+          title: translations.text('drawer.contact'),
           onHover: (value) {
             setState(() {
               hoverContact = !hoverContact;
@@ -176,9 +177,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
       children: [
         CustomSharedIcon(
           hover: hoverMail,
-          onPressed: () async =>  launch(urlMail),
+          onPressed: () async => launch(urlMail),
           iconData: Icons.email,
-          title: 'Adresse mail',
+          title: translations.text('drawer.email'),
           onEnter: (event) {
             setState(() {
               hoverMail = true;
@@ -191,8 +192,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
           },
         ),
         CustomSharedIcon(
-          title: 'Linkedin',
-          onPressed: () async =>  launch(urlLinkedin),
+          title: translations.text('drawer.linkedin'),
+          onPressed: () async => launch(urlLinkedin),
           hover: hoverLinkedin,
           iconData: FontAwesomeIcons.linkedinIn,
           onEnter: (event) {
@@ -207,8 +208,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
           },
         ),
         CustomSharedIcon(
-          title: 'GitHub',
-          onPressed: () async =>  launch(urlGithub),
+          title: translations.text('drawer.github'),
+          onPressed: () async => launch(urlGithub),
           hover: hoverGitHub,
           iconData: FontAwesomeIcons.github,
           onEnter: (event) {
@@ -223,7 +224,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           },
         ),
         CustomSharedIcon(
-          title: 'En voir plus',
+          title: translations.text('drawer.see_more'),
           onPressed: () {
             _goTo(Section.contact);
           },

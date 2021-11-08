@@ -1,6 +1,7 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -55,13 +56,14 @@ class _EtudesSectionState extends State<EtudesSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: 'Mes ',
+              text: translations.text('views_etudes.my'),
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
+                const TextSpan(text: ' '),
                 TextSpan(
-                  text: 'Études',
+                  text: translations.text('views_etudes.etudes'),
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),

@@ -1,5 +1,6 @@
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/realisation.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
 import 'package:flutter/material.dart';
@@ -57,11 +58,11 @@ class _RealisationSectionState extends State<RealisationSection> {
 
   String selectedFilterToString(FilterRealisation value) {
     if (value == FilterRealisation.ONLINE) {
-      return 'En ligne';
+      return translations.text('views_realisation.online');
     } else if (value == FilterRealisation.ARCHIVE) {
-      return 'Archive';
+      return translations.text('views_realisation.archive');
     } else {
-      return 'Tous';
+      return translations.text('views_realisation.all');
     }
   }
 
@@ -82,7 +83,7 @@ class _RealisationSectionState extends State<RealisationSection> {
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
             child: Text(
-              'Tous',
+              translations.text('views_realisation.all'),
               style: Theme.of(context).textTheme.button!.copyWith(
                     color: hoverAll || selectedFilter == FilterRealisation.ALL
                         ? Theme.of(context).colorScheme.primary
@@ -108,7 +109,7 @@ class _RealisationSectionState extends State<RealisationSection> {
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
             child: Text(
-              'En ligne',
+              translations.text('views_realisation.online'),
               style: Theme.of(context).textTheme.button!.copyWith(
                     color: hoverOnline ||
                             selectedFilter == FilterRealisation.ONLINE
@@ -135,7 +136,7 @@ class _RealisationSectionState extends State<RealisationSection> {
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
             child: Text(
-              'Archive',
+              translations.text('views_realisation.archive'),
               style: Theme.of(context).textTheme.button!.copyWith(
                     color: hoverArchive ||
                             selectedFilter == FilterRealisation.ARCHIVE
@@ -165,13 +166,14 @@ class _RealisationSectionState extends State<RealisationSection> {
         children: <Widget>[
           RichText(
             text: TextSpan(
-              text: 'Mes différentes ',
+              text: translations.text('views_realisation.my_different'),
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
+                const TextSpan(text: ' '),
                 TextSpan(
-                  text: 'réalisations',
+                  text: translations.text('views_realisation.realisation'),
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),

@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
 
 class CustomAnimatedTextKit extends StatelessWidget {
@@ -21,31 +22,31 @@ class CustomAnimatedTextKit extends StatelessWidget {
       repeatForever: true,
       animatedTexts: [
         TypewriterAnimatedText(
-          '${prefix}Développeur Flutter',
+          prefix + translations.text('custom_animated_text_kit.dev_flutter'),
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          '${prefix}Joueur amateur',
+          prefix + translations.text('custom_animated_text_kit.gamers'),
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          '${prefix}Développeur Web',
+          prefix + translations.text('custom_animated_text_kit.dev_web'),
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          '${prefix}Photographe amateur',
+          prefix + translations.text('custom_animated_text_kit.photographer'),
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          '${prefix}Développeur Android',
+          prefix + translations.text('custom_animated_text_kit.dev_android'),
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,

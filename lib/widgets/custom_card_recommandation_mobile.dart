@@ -1,6 +1,7 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class CustomCardRecommandationMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            recommandation,
+            translations.text('contents.recommandation'),
             style: Theme.of(context).textTheme.headline6?.copyWith(
                   letterSpacing: 0,
                   height: 1.6,
@@ -43,7 +44,7 @@ class CustomCardRecommandationMobile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      posteRecommandation,
+                      translations.text('contents.poste_recommandation'),
                       style: Theme.of(context).textTheme.headline5?.copyWith(
                             color: orangeColor,
                             fontSize: 18,
@@ -62,7 +63,7 @@ class CustomCardRecommandationMobile extends StatelessWidget {
               Visibility(
                 visible: Responsive.isTablet(context),
                 child: Image.asset(
-                  'images/double_quote.png',
+                  'assets/images/double_quote.png',
                   width: 60,
                   cacheWidth: 60,
                   errorBuilder: (context, error, stackTrace) => const SizedBox(

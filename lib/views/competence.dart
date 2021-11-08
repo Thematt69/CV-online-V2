@@ -1,6 +1,7 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
@@ -22,13 +23,14 @@ class CompetenceSection extends StatelessWidget {
         children: [
           RichText(
             text: TextSpan(
-              text: 'Mes ',
+              text: translations.text('views_competence.my'),
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
+                const TextSpan(text: ' '),
                 TextSpan(
-                  text: 'compétences',
+                  text: translations.text('views_competence.competence'),
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),

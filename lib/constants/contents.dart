@@ -1,4 +1,5 @@
 import 'package:cv_online_v2/constants/urls.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/contact.dart';
 import 'package:cv_online_v2/models/etudes.dart';
 import 'package:cv_online_v2/models/jobs.dart';
@@ -7,9 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'colors.dart';
-
-const String description =
-    "Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.";
 
 List<String> listCompetences = [
   'HTML 5',
@@ -35,88 +33,88 @@ List<String> listCompetences = [
 
 List<Realisation> listRealisations = [
   Realisation(
-    assetImage: 'images/project/Google_logo.webp',
+    assetImage: 'assets/images/project/Google_logo.webp',
     tag: FilterRealisation.ONLINE,
-    title: 'CV en ligne V1',
+    title: translations.text('contents.realisations.cv_online_v1'),
     url: 'https://matthieudevilliers.fr',
   ),
   Realisation(
-    assetImage: 'images/project/Google_logo.webp',
+    assetImage: 'assets/images/project/Google_logo.webp',
     tag: FilterRealisation.ONLINE,
-    title: 'CV en ligne V2',
+    title: translations.text('contents.realisations.cv_online_v2'),
     url: 'https://flutter.matthieudevilliers.fr',
     urlGitHub: 'https://github.com/Thematt69/CV-online-V2',
   ),
   Realisation(
-    assetImage: 'images/project/Minecraft_logo.webp',
+    assetImage: 'assets/images/project/Minecraft_logo.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: 'Serveur minecraft sur Raspberry',
+    title: translations.text('contents.realisations.server_minecraft'),
     urlGitHub: 'https://github.com/Thematt69/minecraft/tree/1.14',
   ),
   Realisation(
-    assetImage: 'images/project/ldc.webp',
+    assetImage: 'assets/images/project/ldc.webp',
     tag: FilterRealisation.ONLINE,
-    title: "Liste d'idée cadeaux - Projet personel",
+    title: translations.text('contents.realisations.gift_idea_list'),
     url: 'https://family.matthieudevilliers.fr',
     urlGitHub: 'https://github.com/Thematt69/Liste-d-idee-cadeaux',
   ),
   Realisation(
-    assetImage: 'images/project/games.webp',
+    assetImage: 'assets/images/project/games.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: "Librairie de jeux - TP Scolaire",
+    title: translations.text('contents.realisations.game_library'),
     urlGitHub: 'https://github.com/Thematt69/games-librairies',
   ),
   Realisation(
-    assetImage: 'images/project/Google_logo.webp',
+    assetImage: 'assets/images/project/Google_logo.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: "Listing client FRONT - TP Scolaire",
+    title: translations.text('contents.realisations.front_customer_list'),
     urlGitHub: 'https://github.com/Thematt69/clients-front',
   ),
   Realisation(
-    assetImage: 'images/project/Google_logo.webp',
+    assetImage: 'assets/images/project/Google_logo.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: "Listing client API - TP Scolaire",
+    title: translations.text('contents.realisations.api_customer_list'),
     urlGitHub: 'https://github.com/Thematt69/clients-api',
   ),
   Realisation(
-    assetImage: 'images/project/Octocat.webp',
+    assetImage: 'assets/images/project/Octocat.webp',
     tag: FilterRealisation.ONLINE,
-    title: "Flutter DropdownSearch - Contribution",
+    title: translations.text('contents.realisations.dropdownSearch_flutter'),
     url: 'https://pub.dev/packages/dropdown_search',
     urlGitHub: 'https://github.com/salim-lachdhaf/searchable_dropdown/pull/189',
   ),
   Realisation(
-    assetImage: 'images/project/canhumanitaire.webp',
+    assetImage: 'assets/images/project/canhumanitaire.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: 'Canhumanitaire - Association humanitaire',
+    title: translations.text('contents.realisations.canhumanitaire'),
     urlGitHub:
         'https://github.com/Thematt69/Canhumanitaire/tree/master/Canhumanitaire',
   ),
   Realisation(
-    assetImage: 'images/project/Göteborg.webp',
+    assetImage: 'assets/images/project/Göteborg.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: 'Site récapitulatif du séjour de mon frère à Göteborg',
+    title: translations.text('contents.realisations.frero_goteborg'),
   ),
   Realisation(
-    assetImage: 'images/project/jdr.webp',
+    assetImage: 'assets/images/project/jdr.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: 'World: Become Human - Jeu de rôle',
+    title: translations.text('contents.realisations.world_become_human'),
   ),
   Realisation(
-    assetImage: 'images/project/lsrpfr.webp',
+    assetImage: 'assets/images/project/lsrpfr.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: 'Los Santos RolePlay FR - Projet GTA V',
+    title: translations.text('contents.realisations.los_santos_rp'),
     urlGitHub: 'https://github.com/Thematt69/LSRP/tree/master/LSRP',
   ),
   Realisation(
-    assetImage: 'images/project/sn.webp',
+    assetImage: 'assets/images/project/sn.webp',
     tag: FilterRealisation.ARCHIVE,
-    title: 'Conseil de classe - BTS SN',
+    title: translations.text('contents.realisations.class_council'),
   ),
   Realisation(
-    assetImage: 'images/project/Spa.webp',
+    assetImage: 'assets/images/project/Spa.webp',
     tag: FilterRealisation.ONLINE,
-    title: 'PureSpa Corbas - Projet personel',
+    title: translations.text('contents.realisations.purespa_corbas'),
     url: 'https://spa.matthieudevilliers.fr',
     urlGitHub: 'https://github.com/Thematt69/PureSpa-Corbas',
   ),
@@ -128,10 +126,10 @@ List<Jobs> listJobs = [
       start: DateTime(2015, 01, 26),
       end: DateTime(2015, 01, 30),
     ),
-    poste: 'Accueil clientèle',
+    poste: translations.text('contents.jobs.sncf.poste'),
     type: TypeJobs.stage,
-    lieu: 'Gare SNCF Lyon Part-Dieu',
-    service: 'Service accueil',
+    lieu: translations.text('contents.jobs.sncf.lieu'),
+    service: translations.text('contents.jobs.sncf.service'),
     description: '', // TODO - A complété
   ),
   Jobs(
@@ -139,89 +137,84 @@ List<Jobs> listJobs = [
       start: DateTime(2016, 05, 23),
       end: DateTime(2016, 07),
     ),
-    poste: 'Technicien',
+    poste: translations.text('contents.jobs.mobile_hub.poste'),
     type: TypeJobs.stage,
     lieu: 'Mobile Hut',
-    description:
-        'Accueil clientèle et vente des produits (téléphone, accessoires, réparation).',
+    description: translations.text('contents.jobs.mobile_hub.description'),
   ),
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2017, 06, 06),
       end: DateTime(2017, 06, 30),
     ),
-    poste: 'Technicien audiovisuel',
+    poste: translations.text('contents.jobs.polaris.poste'),
     type: TypeJobs.stage,
-    lieu: 'Le Polaris',
-    service: 'Complexe culturel',
-    description:
-        'Préparation sonore et éclairage pour différents spectacles, assistance au régisseur.',
+    lieu: translations.text('contents.jobs.polaris.lieu'),
+    service: translations.text('contents.jobs.polaris.service'),
+    description: translations.text('contents.jobs.polaris.description'),
   ),
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2016, 11, 21),
       end: DateTime(2016, 12, 16),
     ),
-    poste: 'Technicien audiovisuel',
+    poste: translations.text('contents.jobs.transit_melody.poste'),
     type: TypeJobs.stage,
-    lieu: 'Transit Melody',
-    description: 'Prestataire technique en sonorisation, vidéo et éclairage.',
+    lieu: translations.text('contents.jobs.transit_melody.lieu'),
+    description: translations.text('contents.jobs.transit_melody.description'),
   ),
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2017, 10, 02),
       end: DateTime(2017, 10, 20),
     ),
-    poste: 'Technicien audiovisuel',
+    poste: translations.text('contents.jobs.transit_melody.poste'),
     type: TypeJobs.stage,
-    lieu: 'Transit Melody',
-    description: 'Prestataire technique en sonorisation, vidéo et éclairage.',
+    lieu: translations.text('contents.jobs.transit_melody.lieu'),
+    description: translations.text('contents.jobs.transit_melody.description'),
   ),
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2018, 01, 29),
       end: DateTime(2018, 03, 16),
     ),
-    poste: 'Technicien maintenance',
+    poste: translations.text('contents.jobs.hub_one.poste'),
     type: TypeJobs.stage,
-    lieu: 'Hub One',
-    service: 'Service paramétrage',
-    description:
-        "Réglage d'usine ou reconfiguration de masse de terminal mobile.",
+    lieu: translations.text('contents.jobs.hub_one.lieu'),
+    service: translations.text('contents.jobs.hub_one.service'),
+    description: translations.text('contents.jobs.hub_one.description'),
   ),
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2018, 06, 25),
       end: DateTime(2018, 08, 24),
     ),
-    poste: 'Agent logistique',
+    poste: translations.text('contents.jobs.hub_one_1.poste'),
     type: TypeJobs.interimaire,
-    lieu: 'Hub One',
-    service: 'Service logistique',
-    description:
-        'Réception, gestion logistique et remplacement des terminaux défectueux.',
+    lieu: translations.text('contents.jobs.hub_one_1.lieu'),
+    service: translations.text('contents.jobs.hub_one_1.service'),
+    description: translations.text('contents.jobs.hub_one_1.description'),
   ),
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2019, 05, 27),
       end: DateTime(2019, 07, 05),
     ),
-    poste: 'Développeur R&D',
+    poste: translations.text('contents.jobs.renault_trucks.poste'),
     type: TypeJobs.stage,
-    lieu: 'Renault Trucks St-Priest',
-    service: 'Service Special Vehicle Development',
-    description:
-        "Intégration d'un nouvel écran de bord pour des camions prototypes.",
+    lieu: translations.text('contents.jobs.renault_trucks.lieu'),
+    service: translations.text('contents.jobs.renault_trucks.service'),
+    description: translations.text('contents.jobs.renault_trucks.description'),
   ),
   Jobs(
     periode: DateTimeRange(
       start: DateTime(2020, 08, 24),
       end: DateTime(2021, 09, 07),
     ),
-    poste: 'Dévellopeur',
+    poste: translations.text('contents.jobs.xefi.poste'),
     type: TypeJobs.alternance,
-    lieu: 'Groupe XEFI',
-    service: 'XEFI Software',
+    lieu: translations.text('contents.jobs.xefi.lieu'),
+    service: translations.text('contents.jobs.xefi.service'),
     description: '', // TODO - A complété
   ),
   Jobs(
@@ -229,12 +222,12 @@ List<Jobs> listJobs = [
       start: DateTime(2021, 09, 08),
       end: DateTime.now(),
     ),
-    poste: 'Dévellopeur Cross-Platform',
+    poste: translations.text('contents.jobs.sully_group.poste'),
     type: TypeJobs.cdi,
-    lieu: 'Sully Group',
-    service: 'CDS MAPP',
-    description:
-        "Développement d'applications mobile ou web pour les cients.", // TODO - A complété
+    lieu: translations.text('contents.jobs.sully_group.lieu'),
+    service: translations.text('contents.jobs.sully_group.service'),
+    description: translations
+        .text('contents.jobs.sully_group.description'), // TODO - A complété
   ),
 ];
 
@@ -244,8 +237,8 @@ List<Etudes> listEtudes = [
       start: DateTime(2015, 09),
       end: DateTime(2018, 06),
     ),
-    nom: 'Bac Pro Système Electronique et Numérique',
-    ecole: 'Lycée professionel Marc Seguin, Vénissieux.',
+    nom: translations.text('contents.etudes.bac_pro.nom'),
+    ecole: translations.text('contents.etudes.bac_pro.ecole'),
     description: '', // TODO - A complété
   ),
   Etudes(
@@ -253,8 +246,8 @@ List<Etudes> listEtudes = [
       start: DateTime(2018, 09),
       end: DateTime(2020, 06),
     ),
-    nom: 'BTS Système Numérique',
-    ecole: 'Lycée Marcel Sembat, Vénissieux.',
+    nom: translations.text('contents.etudes.bts.nom'),
+    ecole: translations.text('contents.etudes.bts.ecole'),
     description: '', // TODO - A complété
   ),
   Etudes(
@@ -262,23 +255,16 @@ List<Etudes> listEtudes = [
       start: DateTime(2020, 08, 24),
       end: DateTime(2021, 09, 07),
     ),
-    nom: "Titre Concepteur Dévellopeur d'Application",
-    ecole: 'XEFI ACADEMY - EPSI Lyon',
+    nom: translations.text('contents.etudes.epsi.nom'),
+    ecole: translations.text('contents.etudes.epsi.ecole'),
     description: '', // TODO - A complété
   ),
 ];
 
-const String recommandation =
-    "Appliqué, sérieux, a le sens de l'écoute et ponctuel.\n"
-    "Respecte les consignes, s'intègre bien dans une équipe.\n"
-    "Sait répondre techniquement et faire des propositions.\n"
-    "En synthèse Matthieu a les capacités d'atteindre le niveau ingénieur.";
-
-const String auteurRecommandation = 'Palmieri Serge';
-const String posteRecommandation = 'Electronic pre-study leader';
+const String auteurRecommandation = 'PALMIERI Serge';
 const String entrepriseRecommandation = 'Renault Trucks St-Priest';
 
- List<Contact> listContacts = [
+List<Contact> listContacts = [
   Contact(
     icon: const Icon(
       Icons.place,
