@@ -81,11 +81,11 @@ class _JobsSectionState extends State<JobsSection> {
               (index) => CustomCardJobs(
                 periode:
                     '${dateFormat.format(listJobs[index].periode.start)} - ${dateFormat.format(listJobs[index].periode.end)}',
-                lieu: listJobs[index].lieu,
-                poste: listJobs[index].poste,
+                lieu: listJobs[index].lieu.currentLang,
+                poste: listJobs[index].poste.currentLang,
                 widthCard: widthCard,
-                description: listJobs[index].description,
-                service: listJobs[index].service,
+                description: listJobs[index].description.currentLang,
+                service: listJobs[index].service?.currentLang,
               ),
             ),
           )

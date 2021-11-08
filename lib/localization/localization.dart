@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io' show Platform;
 
+import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const List<String> _kSupportedLanguages = ['fr', 'en'];
 const Locale defaultLocale = Locale('en');
@@ -24,9 +24,7 @@ class CustomLocalizations {
   CustomLocalizations._internal();
 
   Future<void> init() async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
-    String language = sharedPreferences.getString("language") ?? "";
+    String language = SharedPrefsHelper.currentLang ?? "";
     if (language.isEmpty) language = deviceLang;
     await setNewLanguage(
       isLangSupported(language) ? language : defaultLocale.languageCode,
@@ -103,14 +101,12 @@ class CustomLocalizations {
   }
 
   Future<void> setNewLanguage(String language) async {
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
     final jsonContent =
         await rootBundle.loadString('assets/l10n/$language.json', cache: false);
     _localizedValues = jsonDecode(jsonContent) as Map<String, dynamic>?;
 
     _cache.clear();
-    await sharedPreferences.setString("language", language);
+    await SharedPrefsHelper.setCurrentLang(language);
 
     currentLanguage = language;
   }

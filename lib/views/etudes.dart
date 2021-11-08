@@ -81,9 +81,9 @@ class _EtudesSectionState extends State<EtudesSection> {
               (index) => CustomCardEtudes(
                 periode:
                     '${dateFormat.format(listEtudes[index].periode.start)} - ${dateFormat.format(listEtudes[index].periode.end)}',
-                ecole: listEtudes[index].ecole,
-                nom: listEtudes[index].nom,
-                description: listEtudes[index].description,
+                ecole: listEtudes[index].ecole.currentLang,
+                nom: listEtudes[index].diplome.currentLang,
+                description: listEtudes[index].description.currentLang,
                 widthCard: widthCard,
               ),
             ),

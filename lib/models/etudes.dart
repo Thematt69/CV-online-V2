@@ -1,17 +1,26 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:flutter/material.dart';
 
 class Etudes {
+  static const entryDescription = 'description';
+  static const entryEcole = 'ecole';
+  static const entryDiplome = 'diplome';
+  static const entryPeriode = 'periode';
+  static const entryPeriodeStart = 'start';
+  static const entryPeriodeEnd = 'end';
+
+  final TradMapModel description;
+  final TradMapModel ecole;
+  final TradMapModel diplome;
+  final DateTimeRange periode;
+
   Etudes({
     required this.periode,
-    required this.nom,
+    required this.diplome,
     required this.description,
     required this.ecole,
   });
-
-  String description;
-  String ecole;
-  String nom;
-  DateTimeRange periode;
 
   @override
   bool operator ==(Object other) {
@@ -19,7 +28,7 @@ class Etudes {
 
     return other is Etudes &&
         other.periode == periode &&
-        other.nom == nom &&
+        other.diplome == diplome &&
         other.description == description &&
         other.ecole == ecole;
   }
@@ -27,27 +36,55 @@ class Etudes {
   @override
   int get hashCode {
     return periode.hashCode ^
-        nom.hashCode ^
+        diplome.hashCode ^
         description.hashCode ^
         ecole.hashCode;
   }
 
   @override
   String toString() {
-    return 'Etudes(periode: $periode, nom: $nom, description: $description, ecole: $ecole)';
+    return 'Etudes(periode: $periode, nom: $diplome, description: $description, ecole: $ecole)';
   }
 
   Etudes copyWith({
     DateTimeRange? periode,
-    String? nom,
-    String? description,
-    String? ecole,
+    TradMapModel? diplome,
+    TradMapModel? description,
+    TradMapModel? ecole,
   }) {
     return Etudes(
       periode: periode ?? this.periode,
-      nom: nom ?? this.nom,
+      diplome: diplome ?? this.diplome,
       description: description ?? this.description,
       ecole: ecole ?? this.ecole,
     );
   }
+
+  factory Etudes.fromFireStore(Map<String, dynamic> json) => Etudes(
+        diplome: json[entryDiplome] is String
+            ? TradMapModel.fromJsonString(json[entryDiplome] as String)
+            : TradMapModel.fromJson(json[entryDiplome] as Map<String, dynamic>),
+        description: json[entryDescription] is String
+            ? TradMapModel.fromJsonString(json[entryDescription] as String)
+            : TradMapModel.fromJson(
+                json[entryDescription] as Map<String, dynamic>,
+              ),
+        ecole: json[entryEcole] is String
+            ? TradMapModel.fromJsonString(json[entryEcole] as String)
+            : TradMapModel.fromJson(json[entryEcole] as Map<String, dynamic>),
+        periode: DateTimeRange(
+          start: (json[entryPeriode][entryPeriodeStart] as Timestamp).toDate(),
+          end: (json[entryPeriode][entryPeriodeEnd] as Timestamp).toDate(),
+        ),
+      );
+
+  Map<String, dynamic> toJson() => {
+        entryDiplome: diplome.toJson(),
+        entryDescription: description.toJson(),
+        entryEcole: ecole.toJson(),
+        entryPeriode: {
+          entryPeriodeStart: Timestamp.fromDate(periode.start),
+          entryPeriodeEnd: Timestamp.fromDate(periode.end),
+        }
+      };
 }

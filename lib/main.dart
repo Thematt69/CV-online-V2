@@ -1,8 +1,10 @@
 import 'package:cv_online_v2/constants/theme_datas.dart';
 import 'package:cv_online_v2/error_page.dart';
+import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/main_page.dart';
 import 'package:cv_online_v2/splash_page.dart';
+import 'package:cv_online_v2/test.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -39,6 +41,7 @@ class _MyAppState extends State<MyApp> {
       WidgetsFlutterBinding.ensureInitialized();
       setPathUrlStrategy();
       await Firebase.initializeApp();
+      await SharedPrefsHelper.initPreferences();
       await translations.init();
       Intl.defaultLocale = translations.deviceLang;
     } catch (e) {
@@ -67,7 +70,7 @@ class _MyAppState extends State<MyApp> {
             title: 'CV en ligne - DEVILLIERS Matthieu',
             themeMode: ThemeMode.light,
             theme: lightTheme,
-            home: const MainPage(),
+            home: Test(),
             navigatorObservers: <NavigatorObserver>[MyApp.observer],
             supportedLocales: translations.supportedLocales,
             localizationsDelegates: const [

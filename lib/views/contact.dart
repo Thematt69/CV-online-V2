@@ -4,6 +4,7 @@ import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/contact.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatelessWidget {
@@ -51,10 +52,14 @@ class ContactSection extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      contact.icon,
+                      FaIcon(
+                        contact.icon,
+                        color: greyDarkColor,
+                        size: 16,
+                      ),
                       const SizedBox(width: defaultPadding6),
                       Text(
-                        "${contact.label} : ",
+                        "${contact.label.currentLang} : ",
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.w500,
@@ -66,7 +71,7 @@ class ContactSection extends StatelessWidget {
                         child: InkWell(
                           onTap: () async => launch(contact.url),
                           child: Text(
-                            contact.name,
+                            contact.value,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1!

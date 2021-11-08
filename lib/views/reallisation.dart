@@ -23,15 +23,16 @@ class _RealisationSectionState extends State<RealisationSection> {
   bool hoverAll = false;
   bool hoverArchive = false;
   bool hoverOnline = false;
-  FilterRealisation selectedFilter = FilterRealisation.ALL;
+  bool? online;
 
   List<Realisation> get list {
-    listRealisations.sort((a, b) => a.title.compareTo(b.title));
+    listRealisations
+        .sort((a, b) => a.name.currentLang.compareTo(b.name.currentLang));
     return listRealisations
         .where(
-          (element) =>
-              element.tag == selectedFilter ||
-              selectedFilter == FilterRealisation.ALL,
+          (element) => online == null || online!
+              ? element.url != null
+              : element.url == null,
         )
         .toList();
   }
@@ -56,13 +57,13 @@ class _RealisationSectionState extends State<RealisationSection> {
     }
   }
 
-  String selectedFilterToString(FilterRealisation value) {
-    if (value == FilterRealisation.ONLINE) {
-      return translations.text('views_realisation.online');
-    } else if (value == FilterRealisation.ARCHIVE) {
-      return translations.text('views_realisation.archive');
-    } else {
+  String selectedFilterToString({bool? value}) {
+    if (value == null) {
       return translations.text('views_realisation.all');
+    } else if (value) {
+      return translations.text('views_realisation.online');
+    } else {
+      return translations.text('views_realisation.archive');
     }
   }
 
@@ -72,7 +73,7 @@ class _RealisationSectionState extends State<RealisationSection> {
         InkWell(
           onTap: () {
             setState(() {
-              selectedFilter = FilterRealisation.ALL;
+              online = null;
             });
           },
           onHover: (bool value) {
@@ -85,10 +86,10 @@ class _RealisationSectionState extends State<RealisationSection> {
             child: Text(
               translations.text('views_realisation.all'),
               style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverAll || selectedFilter == FilterRealisation.ALL
+                    color: hoverAll || online == null
                         ? Theme.of(context).colorScheme.primary
                         : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: selectedFilter == FilterRealisation.ALL
+                    fontWeight: online == null
                         ? FontWeight.w600
                         : Theme.of(context).textTheme.button?.fontWeight,
                   ),
@@ -98,7 +99,7 @@ class _RealisationSectionState extends State<RealisationSection> {
         InkWell(
           onTap: () {
             setState(() {
-              selectedFilter = FilterRealisation.ONLINE;
+              online = true;
             });
           },
           onHover: (bool value) {
@@ -111,11 +112,10 @@ class _RealisationSectionState extends State<RealisationSection> {
             child: Text(
               translations.text('views_realisation.online'),
               style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverOnline ||
-                            selectedFilter == FilterRealisation.ONLINE
+                    color: hoverOnline || online == true
                         ? Theme.of(context).colorScheme.primary
                         : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: selectedFilter == FilterRealisation.ONLINE
+                    fontWeight: online == true
                         ? FontWeight.w600
                         : Theme.of(context).textTheme.button?.fontWeight,
                   ),
@@ -125,7 +125,7 @@ class _RealisationSectionState extends State<RealisationSection> {
         InkWell(
           onTap: () {
             setState(() {
-              selectedFilter = FilterRealisation.ARCHIVE;
+              online = false;
             });
           },
           onHover: (bool value) {
@@ -138,11 +138,10 @@ class _RealisationSectionState extends State<RealisationSection> {
             child: Text(
               translations.text('views_realisation.archive'),
               style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverArchive ||
-                            selectedFilter == FilterRealisation.ARCHIVE
+                    color: hoverArchive || online == false
                         ? Theme.of(context).colorScheme.primary
                         : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: selectedFilter == FilterRealisation.ARCHIVE
+                    fontWeight: online == false
                         ? FontWeight.w600
                         : Theme.of(context).textTheme.button?.fontWeight,
                   ),
@@ -192,8 +191,8 @@ class _RealisationSectionState extends State<RealisationSection> {
               (index) => CustomCardImage(
                 widthCard: widthCard,
                 assetImage: list[index].assetImage,
-                title: list[index].title,
-                tag: selectedFilterToString(list[index].tag),
+                title: list[index].name.currentLang,
+                tag: selectedFilterToString(value: list[index].online),
                 url: list[index].url,
                 urlGitHub: list[index].urlGitHub,
               ),
