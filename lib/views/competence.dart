@@ -3,7 +3,7 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/competence.dart';
-import 'package:cv_online_v2/widgets/custom_card.dart';
+import 'package:cv_online_v2/widgets/custom_card_competence.dart';
 import 'package:flutter/material.dart';
 
 class CompetenceSection extends StatefulWidget {
@@ -97,9 +97,8 @@ class _CompetenceSectionState extends State<CompetenceSection> {
                 runSpacing: 10,
                 children: List.generate(
                   listCompetences.length,
-                  (index) => CustomCard.competence(
-                    context: context,
-                    label: listCompetences[index].label.currentLang,
+                  (index) => CustomCardCompetence(
+                    competence: listCompetences[index],
                   ),
                 ),
               );

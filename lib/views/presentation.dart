@@ -5,7 +5,7 @@ import 'package:cv_online_v2/constants/urls.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
-import 'package:cv_online_v2/widgets/custom_card.dart';
+import 'package:cv_online_v2/widgets/custom_card_presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -75,68 +75,59 @@ class PresentationSection extends StatelessWidget {
               spacing: 10,
               runSpacing: 10,
               children: [
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.date_birth'),
                   value:
                       translations.text('views_presentation.date_birth_value'),
                 ),
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.age'),
                   value:
                       '${DateTime.now().difference(DateTime(2000, 09, 29)).inDays ~/ 365.25} ${translations.text('views_presentation.years')}',
                 ),
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.mobility'),
                   value: translations.text('views_presentation.permit_b'),
                 ),
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.location'),
                   value: 'Corbas, 69960 France',
                   url: urlMaps,
                 ),
                 // TODO - Cacher et afficher au clic - Eviter le spam robot
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.email'),
                   value: 'devilliers.matthieu@gmail.com',
                   url: urlMail,
                 ),
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.interests'),
                   value:
                       translations.text('views_presentation.interests_value'),
                 ),
-                // CustomCard.presentation(
-                //   context: context,
+                // CustomCardPresentation(
+                //
                 //   label: 'Diplôme',
                 //   value:
                 //       'BAC Système Electronique et Numérique & BTS Système Numérique, option Informatique et Réseaux',
                 // ),
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.school'),
                   value: "XEFI ACADEMY - EPSI Lyon",
                   url: urlXefiAcademy,
                 ),
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.formation'),
                   value:
                       translations.text('views_presentation.formation_value'),
                 ),
-                CustomCard.presentation(
-                  context: context,
+                CustomCardPresentation(
                   label: translations.text('views_presentation.company'),
                   value: "Sully Group",
                   url: urlSullyGroup,
                 ),
-                // CustomCard.presentation(
-                //   context: context,
+                // CustomCardPresentation(
+                //
                 //   label: 'Téléphone',
                 //   value: '06 45 56 48 45',
                 //   url: urlTel,

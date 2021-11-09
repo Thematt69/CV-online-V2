@@ -5,7 +5,7 @@ class Competence {
   static const entryUrl = 'url';
 
   final TradMapModel label;
-  final TradMapModel? url;
+  final String? url;
 
   Competence({
     required this.label,
@@ -27,7 +27,7 @@ class Competence {
 
   Competence copyWith({
     TradMapModel? label,
-    TradMapModel? url,
+    String? url,
   }) {
     return Competence(
       label: label ?? this.label,
@@ -39,15 +39,11 @@ class Competence {
         label: json[entryLabel] is String
             ? TradMapModel.fromJsonString(json[entryLabel] as String)
             : TradMapModel.fromJson(json[entryLabel] as Map<String, dynamic>),
-        url: json[entryUrl] != null
-            ? json[entryUrl] is String
-                ? TradMapModel.fromJsonString(json[entryUrl] as String)
-                : TradMapModel.fromJson(json[entryUrl] as Map<String, dynamic>)
-            : null,
+        url: json[entryUrl] != null ? json[entryUrl] as String : null,
       );
 
   Map<String, dynamic> toJson() => {
         entryLabel: label.toJson(),
-        entryUrl: url?.toJson(),
+        entryUrl: url,
       };
 }
