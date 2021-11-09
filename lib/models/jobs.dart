@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Jobs {
   static const entryDescription = 'description';
@@ -27,6 +29,19 @@ class Jobs {
     required this.type,
     this.service,
   });
+
+  String get periodeString {
+    final DateFormat dateFormat = DateFormat.yMMMd('fr');
+    String value = '${dateFormat.format(periode.start)} - ';
+    if (periode.end.day == DateTime.now().day &&
+        periode.end.month == DateTime.now().month &&
+        periode.end.year == DateTime.now().year) {
+      value += translations.text('contents.today');
+    } else {
+      value += dateFormat.format(periode.end);
+    }
+    return value;
+  }
 
   @override
   bool operator ==(Object other) {
@@ -75,17 +90,21 @@ class Jobs {
   }
 
   factory Jobs.fromFireStore(Map<String, dynamic> json) => Jobs(
-        description: json[entryDescription] is String
-            ? TradMapModel.fromJsonString(json[entryDescription] as String)
-            : TradMapModel.fromJson(
-                json[entryDescription] as Map<String, dynamic>,
-              ),
+        description: json[entryDescription] != null
+            ? json[entryDescription] is String
+                ? TradMapModel.fromJsonString(json[entryDescription] as String)
+                : TradMapModel.fromJson(
+                    json[entryDescription] as Map<String, dynamic>,
+                  )
+            : null,
         lieu: json[entryLieu] is String
             ? TradMapModel.fromJsonString(json[entryLieu] as String)
             : TradMapModel.fromJson(json[entryLieu] as Map<String, dynamic>),
         periode: DateTimeRange(
           start: (json[entryPeriode][entryPeriodeStart] as Timestamp).toDate(),
-          end: (json[entryPeriode][entryPeriodeEnd] as Timestamp).toDate(),
+          end: json[entryPeriode][entryPeriodeEnd] != null
+              ? (json[entryPeriode][entryPeriodeEnd] as Timestamp).toDate()
+              : DateTime.now(),
         ),
         poste: json[entryPoste] is String
             ? TradMapModel.fromJsonString(json[entryPoste] as String)

@@ -23,12 +23,7 @@ class JobsSection extends StatefulWidget {
 
 class _JobsSectionState extends State<JobsSection> {
   final Stream<QuerySnapshot<Map<String, dynamic>>> _jobsStream =
-      FirebaseFirestore.instance
-          .collection('jobs')
-          .orderBy('periode.end', descending: true)
-          .snapshots();
-
-  DateFormat dateFormat = DateFormat.yMMMd('fr');
+      FirebaseFirestore.instance.collection('jobs').snapshots();
 
   double get widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
@@ -120,6 +115,8 @@ class _JobsSectionState extends State<JobsSection> {
                   .map((document) => Jobs.fromFireStore(document.data()))
                   .toList();
 
+              listJobs.sort((a, b) => b.periode.end.compareTo(a.periode.end));
+
               return Wrap(
                 spacing: defaultPadding30,
                 runSpacing: defaultPadding30,
@@ -127,8 +124,7 @@ class _JobsSectionState extends State<JobsSection> {
                 children: List.generate(
                   listJobs.length,
                   (index) => CustomCardJobs(
-                    periode:
-                        '${dateFormat.format(listJobs[index].periode.start)} - ${dateFormat.format(listJobs[index].periode.end)}',
+                    periode: listJobs[index].periodeString,
                     lieu: listJobs[index].lieu.currentLang,
                     poste: listJobs[index].poste.currentLang,
                     widthCard: widthCard,
