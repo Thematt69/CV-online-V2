@@ -70,9 +70,12 @@ class Contact {
       );
 
   Map<String, dynamic> toJson() => {
-        "icon": icon.codePoint,
-        "label": label.toJson(),
-        "value": value,
-        "url": url,
+        entryIcon: {
+          entryIconCodePoint: icon.codePoint,
+          entryIconFontFamily: icon.fontFamily,
+        },
+        entryLabel: label.toJson(),
+        entryValue: value,
+        entryUrl: url,
       };
 }

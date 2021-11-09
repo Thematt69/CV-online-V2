@@ -32,10 +32,10 @@ class TradMapModel {
       'fr': frFR,
     };
     return tradMap[languageCode] != null && tradMap[languageCode]!.isNotEmpty
-        ? tradMap[languageCode]!
+        ? tradMap[languageCode]!.replaceAll('<br>', '\n')
         : enUS != null && enUS!.isNotEmpty
-            ? enUS!
-            : frFR;
+            ? enUS!.replaceAll('<br>', '\n')
+            : frFR.replaceAll('<br>', '\n');
   }
 
   @override
