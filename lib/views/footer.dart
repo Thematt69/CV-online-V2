@@ -29,7 +29,7 @@ class _FooterSectionState extends State<FooterSection> {
         horizontal: defaultPadding16,
       ),
       width: double.infinity,
-      child: MediaQuery.of(context).size.width > 1000
+      child: MediaQuery.of(context).size.width > 900
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -66,14 +66,8 @@ class _FooterSectionState extends State<FooterSection> {
                               color: Theme.of(context).colorScheme.onSecondary,
                             ),
                       );
-                    } else {
-                      return Text(
-                        '| ${translations.text('views_footer.get_version')}',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
                     }
+                    return const SizedBox();
                   },
                 ),
               ],
@@ -119,14 +113,8 @@ class _FooterSectionState extends State<FooterSection> {
                               color: Theme.of(context).colorScheme.onSecondary,
                             ),
                       );
-                    } else {
-                      return Text(
-                        translations.text('views_footer.get_version'),
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
                     }
+                    return const SizedBox();
                   },
                 ),
               ],

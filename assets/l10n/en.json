@@ -73,8 +73,7 @@
     },
     "views_footer": {
         "all_rights_reserved": "All rights reserved",
-        "develop_flutter": "Develop with Flutter",
-        "get_version": "Version recovery ..."
+        "develop_flutter": "Develop with Flutter"
     },
     "views_etudes": {
         "my": "My",
