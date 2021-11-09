@@ -12,7 +12,7 @@ class Jobs {
   static const entryService = 'service';
   static const entryType = 'type';
 
-  final TradMapModel description;
+  final TradMapModel? description;
   final TradMapModel lieu;
   final DateTimeRange periode;
   final TradMapModel poste;
@@ -103,7 +103,7 @@ class Jobs {
       );
 
   Map<String, dynamic> toJson() => {
-        entryDescription: description.toJson(),
+        entryDescription: description?.toJson(),
         entryLieu: lieu.toJson(),
         entryPeriode: {
           entryPeriodeStart: Timestamp.fromDate(periode.start),

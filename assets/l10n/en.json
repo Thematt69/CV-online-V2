@@ -104,7 +104,7 @@
             "canhumanitaire": "Canhumanitaire - Humanitarian Association",
             "frero_goteborg": "Summary site of my brother's stay in Gothenburg",
             "world_become_human": "World: Become Human - Role-playing game",
-            "los_santos_rp": "Los Santos RolePlay FR - Project GTA V ",
+            "los_santos_rp": "Los Santos RolePlay FR - Project GTA V",
             "class_council": "Class Council - BTS SN",
             "purespa_corbas": "PureSpa Corbas - Personal project"
         },
@@ -125,7 +125,7 @@
                 "description": "Sound preparation and lighting for various shows, assistance to the general director."
             },
             "transit_melody": {
-                "poste": "Technicien audiovisuel",
+                "poste": "Audiovisual technician",
                 "lieu": "Transit Melody",
                 "description": "Technical service provider in sound, video and lighting."
             },
@@ -148,20 +148,20 @@
                 "description": "Integration of a new on-board screen for prototype trucks."
             },
             "xefi": {
-                "poste": "Developer",
+                "poste": "Front Flutter Developer",
                 "lieu": "XEFI Group",
                 "service": "XEFI Software"
             },
             "sully_group": {
                 "poste": "Cross-Platform Developer",
-                "lieu": "Sully Group",
+                "lieu": "Sully Group - Saint Priest",
                 "service": "Service center - MAPP",
                 "description": "Development of mobile or web applications for clients."
             }
         },
         "etudes": {
             "bac_pro": {
-                "nom": "Electronic and Digital System  professionnel baccalaureate",
+                "nom": "Electronic and Digital System professionnel baccalaureate",
                 "ecole": "Marc Seguin technical college, Vénissieux."
             },
             "bts": {
@@ -169,7 +169,7 @@
                 "ecole": "Marcel Sembat High School, Vénissieux."
             },
             "epsi": {
-                "nom": "Degree Designer Application Developer",
+                "nom": "Degree BAC+3 Designer Application Developer",
                 "ecole": "XEFI ACADEMY - EPSI Lyon"
             }
         },

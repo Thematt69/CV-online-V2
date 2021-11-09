@@ -132,7 +132,7 @@ class _JobsSectionState extends State<JobsSection> {
                     lieu: listJobs[index].lieu.currentLang,
                     poste: listJobs[index].poste.currentLang,
                     widthCard: widthCard,
-                    description: listJobs[index].description.currentLang,
+                    description: listJobs[index].description?.currentLang,
                     service: listJobs[index].service?.currentLang,
                   ),
                 ),

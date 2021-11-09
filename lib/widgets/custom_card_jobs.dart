@@ -10,10 +10,10 @@ class CustomCardJobs extends StatefulWidget {
     required this.poste,
     required this.lieu,
     this.service,
-    required this.description,
+    this.description,
   }) : super(key: key);
 
-  final String description;
+  final String? description;
   final String lieu;
   final String periode;
   final String poste;
@@ -116,17 +116,18 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                         ),
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsets.only(right: defaultPadding30 - 8),
-                child: Text(
-                  widget.description,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        letterSpacing: 0.5,
-                        fontWeight: FontWeight.w400,
-                        color: greyDarkColor,
-                      ),
+              if (widget.description != null)
+                Padding(
+                  padding: const EdgeInsets.only(right: defaultPadding30 - 8),
+                  child: Text(
+                    widget.description!,
+                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          letterSpacing: 0.5,
+                          fontWeight: FontWeight.w400,
+                          color: greyDarkColor,
+                        ),
+                  ),
                 ),
-              ),
             ],
           ),
         ),

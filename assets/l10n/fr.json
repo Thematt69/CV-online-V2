@@ -148,13 +148,13 @@
                 "description": "Intégration d'un nouvel écran de bord pour des camions prototypes."
             },
             "xefi": {
-                "poste": "Développeur",
+                "poste": "Développeur Front Flutter",
                 "lieu": "Groupe XEFI",
                 "service": "XEFI Software"
             },
             "sully_group": {
                 "poste": "Développeur Cross-Platform",
-                "lieu": "Sully Group",
+                "lieu": "Sully Group - Saint Priest",
                 "service": "Centre de service - MAPP",
                 "description": "Développement d'applications mobile ou web pour les clients."
             }
