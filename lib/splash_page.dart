@@ -58,6 +58,19 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       fit: BoxFit.cover,
                       width: size,
                       height: size,
+                      frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
+                        if (wasSynchronouslyLoaded) {
+                          return SizedBox(
+                            width: size,
+                            height: size,
+                            child: const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        }
+                        return child;
+                      },
+                      errorBuilder: (_, __, ___) => const SizedBox(),
                     ),
                   );
                 },

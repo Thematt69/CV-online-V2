@@ -36,9 +36,17 @@ class _CustomCardRecommandationWebState
             assetDoubleQuote,
             width: 60,
             cacheWidth: 60,
-            errorBuilder: (context, error, stackTrace) => const SizedBox(
-              width: 60,
-            ),
+            frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
+              if (wasSynchronouslyLoaded) {
+                return const SizedBox(
+                  width: 60,
+                  height: 60,
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
+              return child;
+            },
+            errorBuilder: (_, __, ___) => const SizedBox(width: 60),
           ),
           const SizedBox(width: defaultPadding30),
           Expanded(

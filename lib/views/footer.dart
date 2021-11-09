@@ -29,7 +29,7 @@ class _FooterSectionState extends State<FooterSection> {
         horizontal: defaultPadding16,
       ),
       width: double.infinity,
-      child: MediaQuery.of(context).size.width > 900
+      child: MediaQuery.of(context).size.width > 1000
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,

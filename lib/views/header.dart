@@ -23,14 +23,26 @@ class HeaderSection extends StatelessWidget {
           Visibility(
             visible: Responsive.isDesktop(context) &&
                 MediaQuery.of(context).size.height > 450,
-            child: Container(
-              width: 260,
-              height: 260,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(130),
-                image: const DecorationImage(
-                  image: AssetImage(assetPhoto3056),
-                ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(130),
+              child: Image.asset(
+                assetPhoto3056,
+                fit: BoxFit.cover,
+                width: 260,
+                height: 260,
+                frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
+                  if (wasSynchronouslyLoaded) {
+                    return const SizedBox(
+                      width: 260,
+                      height: 260,
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    );
+                  }
+                  return child;
+                },
+                errorBuilder: (_, __, ___) => const SizedBox(),
               ),
             ),
           ),
@@ -46,15 +58,26 @@ class HeaderSection extends StatelessWidget {
                 Visibility(
                   visible: Responsive.isTablet(context) &&
                       MediaQuery.of(context).size.height > 450,
-                  child: Container(
-                    width: 260,
-                    height: 260,
-                    margin: const EdgeInsets.only(bottom: defaultPadding60),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(130),
-                      image: const DecorationImage(
-                        image: AssetImage(assetPhoto3056),
-                      ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(130),
+                    child: Image.asset(
+                      assetPhoto3056,
+                      fit: BoxFit.cover,
+                      width: 260,
+                      height: 260,
+                      frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
+                        if (wasSynchronouslyLoaded) {
+                          return const SizedBox(
+                            width: 260,
+                            height: 260,
+                            child: Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        }
+                        return child;
+                      },
+                      errorBuilder: (_, __, ___) => const SizedBox(),
                     ),
                   ),
                 ),
