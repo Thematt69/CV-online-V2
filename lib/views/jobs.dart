@@ -5,7 +5,6 @@ import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/jobs.dart';
 import 'package:cv_online_v2/widgets/custom_card_jobs.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../responsive.dart';
 

@@ -1,24 +1,12 @@
-List<String> listCompetences = [
-  'HTML 5',
-  'CSS 3',
-  'PHP 7',
-  'OBS Studio',
-  'Streamlabs OBS',
-  'Suite Office',
-  'Google Docs',
-  'Flutter',
-  'Dart',
-  'Adobe Photoshop',
-  'Sony Vegas Pro 17',
-  'Android Studio (Java)',
-  'Linux',
-  'SQL',
-  'PHPMyAdmin',
-  'Docker',
-  'Git',
-  'Jira',
-  'Figma',
-];
+import 'package:cv_online_v2/models/recommandation.dart';
+import 'package:cv_online_v2/models/trap_map_model.dart';
 
-const String auteurRecommandation = 'PALMIERI Serge';
-const String entrepriseRecommandation = 'Renault Trucks St-Priest';
+Recommandation recommandation = Recommandation(
+  auteur: TradMapModel(frFR: 'PALMIERI Serge'),
+  entreprise: TradMapModel(frFR: 'Renault Trucks St-Priest'),
+  poste: TradMapModel(frFR: 'Responsable pré-étude électronique'),
+  texte: TradMapModel(
+    frFR:
+        "Appliqué, sérieux, a le sens de l'écoute et ponctuel.\nRespecte les consignes, s'intègre bien dans une équipe.\nSait répondre techniquement et faire des propositions.\nEn synthèse Matthieu a les capacités d'atteindre le niveau ingénieur.",
+  ),
+);
