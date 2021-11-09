@@ -136,6 +136,7 @@ class _ContactSectionState extends State<ContactSection> {
                                       color:
                                           Theme.of(context).colorScheme.primary,
                                       height: 1,
+                                      decoration: TextDecoration.underline,
                                     ),
                               ),
                             ),
