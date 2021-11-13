@@ -20,12 +20,12 @@ class FirestoreBloc extends BlocBase {
   // !SECTION - Stream
   // SECTION - Référence
 
-  late final CollectionReference<Competence> _competencesReference;
-  late final CollectionReference<Contact> _contactsReference;
-  late final CollectionReference<Etude> _etudesReference;
-  late final CollectionReference<Job> _jobsReference;
-  late final CollectionReference<Realisation> _realisationsReference;
-  late final CollectionReference<Recommandation> _recommandationsReference;
+  late CollectionReference<Competence> _competencesReference;
+  late CollectionReference<Contact> _contactsReference;
+  late CollectionReference<Etude> _etudesReference;
+  late CollectionReference<Job> _jobsReference;
+  late CollectionReference<Realisation> _realisationsReference;
+  late CollectionReference<Recommandation> _recommandationsReference;
 
   // !SECTION - Référence
   // SECTION - QuerySnapshot & List
