@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cv_online_v2/extensions/date_time_extension.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class Job {
   static const entryDescription = 'description';
@@ -31,14 +31,13 @@ class Job {
   });
 
   String get periodeString {
-    final DateFormat dateFormat = DateFormat.yMMMd('fr');
-    String value = '${dateFormat.format(periode.start)} - ';
+    String value = '${periode.start.yMMMd} - ';
     if (periode.end.day == DateTime.now().day &&
         periode.end.month == DateTime.now().month &&
         periode.end.year == DateTime.now().year) {
       value += translations.text('contents.today');
     } else {
-      value += dateFormat.format(periode.end);
+      value += periode.end.yMMMd;
     }
     return value;
   }

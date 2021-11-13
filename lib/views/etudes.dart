@@ -2,12 +2,11 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
+import 'package:cv_online_v2/extensions/date_time_extension.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/etudes.dart';
 import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../responsive.dart';
 
@@ -25,9 +24,6 @@ class EtudesSection extends StatefulWidget {
 
 class _EtudesSectionState extends State<EtudesSection> {
   late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
-
-  // TODO - Mettre dans une extension de DateTime
-  DateFormat get _dateFormat => DateFormat.yMMM(SharedPrefsHelper.currentLang);
 
   double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
@@ -93,7 +89,7 @@ class _EtudesSectionState extends State<EtudesSection> {
                 final Etude _etude = _firestoreBloc.etudes[index];
                 return CustomCardEtudes(
                   periode:
-                      '${_dateFormat.format(_etude.periode.start)} - ${_dateFormat.format(_etude.periode.end)}',
+                      '${_etude.periode.start.yMMM} - ${_etude.periode.end.yMMM}',
                   ecole: _etude.ecole.currentLang,
                   nom: _etude.diplome.currentLang,
                   description: _etude.description.currentLang,
