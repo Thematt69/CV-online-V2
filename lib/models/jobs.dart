@@ -4,7 +4,7 @@ import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class Jobs {
+class Job {
   static const entryDescription = 'description';
   static const entryLieu = 'lieu';
   static const entryPeriode = 'periode';
@@ -21,7 +21,7 @@ class Jobs {
   final TradMapModel? service;
   final TradMapModel type;
 
-  Jobs({
+  Job({
     required this.periode,
     required this.poste,
     required this.lieu,
@@ -47,7 +47,7 @@ class Jobs {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Jobs &&
+    return other is Job &&
         other.periode == periode &&
         other.poste == poste &&
         other.lieu == lieu &&
@@ -71,7 +71,7 @@ class Jobs {
     return 'Jobs(periode: $periode, poste: $poste, lieu: $lieu, description: $description, type: $type, service: $service)';
   }
 
-  Jobs copyWith({
+  Job copyWith({
     TradMapModel? description,
     TradMapModel? lieu,
     DateTimeRange? periode,
@@ -79,7 +79,7 @@ class Jobs {
     TradMapModel? service,
     TradMapModel? type,
   }) {
-    return Jobs(
+    return Job(
       description: description ?? this.description,
       lieu: lieu ?? this.lieu,
       periode: periode ?? this.periode,
@@ -89,7 +89,7 @@ class Jobs {
     );
   }
 
-  factory Jobs.fromFireStore(Map<String, dynamic> json) => Jobs(
+  factory Job.fromFireStore(Map<String, dynamic> json) => Job(
         description: json[entryDescription] != null
             ? json[entryDescription] is String
                 ? TradMapModel.fromJsonString(json[entryDescription] as String)

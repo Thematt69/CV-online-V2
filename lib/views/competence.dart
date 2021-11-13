@@ -1,8 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/localization/localization.dart';
-import 'package:cv_online_v2/models/competence.dart';
 import 'package:cv_online_v2/widgets/custom_card_competence.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +14,13 @@ class CompetenceSection extends StatefulWidget {
 }
 
 class _CompetenceSectionState extends State<CompetenceSection> {
-  final Stream<QuerySnapshot<Map<String, dynamic>>> _competencesStream =
-      FirebaseFirestore.instance
-          .collection('competences')
-          .orderBy('label')
-          .snapshots();
+  late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
+
+  @override
+  void dispose() {
+    _firestoreBloc.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,59 +52,15 @@ class _CompetenceSectionState extends State<CompetenceSection> {
             ),
           ),
           const SizedBox(height: defaultPadding30),
-          StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-            stream: _competencesStream,
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                debugPrint(snapshot.error.toString());
-                debugPrintStack(stackTrace: snapshot.stackTrace);
-                return Text(
-                  'Erreur lors de la récupération des compétences',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontWeight: FontWeight.w500,
-                        height: 1,
-                      ),
-                );
-              }
-
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Row(
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      margin: const EdgeInsets.all(4),
-                      child: const CircularProgressIndicator(),
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      'Récupération des compétences en cours...',
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                            color: Theme.of(context).colorScheme.onBackground,
-                            fontWeight: FontWeight.w500,
-                            height: 1,
-                          ),
-                    ),
-                  ],
-                );
-              }
-
-              final List<Competence> listCompetences = snapshot.data!.docs
-                  .map((document) => Competence.fromFireStore(document.data()))
-                  .toList();
-
-              return Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: List.generate(
-                  listCompetences.length,
-                  (index) => CustomCardCompetence(
-                    competence: listCompetences[index],
-                  ),
-                ),
-              );
-            },
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: List.generate(
+              _firestoreBloc.competences.length,
+              (index) => CustomCardCompetence(
+                competence: _firestoreBloc.competences[index],
+              ),
+            ),
           ),
         ],
       ),

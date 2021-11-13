@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/realisation.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
@@ -20,8 +21,7 @@ class RealisationSection extends StatefulWidget {
 }
 
 class _RealisationSectionState extends State<RealisationSection> {
-  final Stream<QuerySnapshot<Map<String, dynamic>>> _realisationsStream =
-      FirebaseFirestore.instance.collection('realisations').snapshots();
+  late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
   final ValueNotifier<bool> _hoverAll = ValueNotifier<bool>(false);
   final ValueNotifier<bool> _hoverArchive = ValueNotifier<bool>(false);
   final ValueNotifier<bool> _hoverOnline = ValueNotifier<bool>(false);
@@ -33,10 +33,11 @@ class _RealisationSectionState extends State<RealisationSection> {
     _hoverAll.dispose();
     _hoverArchive.dispose();
     _hoverOnline.dispose();
+    _firestoreBloc.dispose();
     super.dispose();
   }
 
-  double get widthMediaQuery {
+  double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
       return MediaQuery.of(context).size.width - 180;
     } else {
@@ -44,19 +45,19 @@ class _RealisationSectionState extends State<RealisationSection> {
     }
   }
 
-  double get widthCard {
-    if (widthMediaQuery - defaultPadding30 > 1290) {
-      return (widthMediaQuery - defaultPadding30 * 5) / 4;
-    } else if (widthMediaQuery - defaultPadding30 > 860) {
-      return (widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (widthMediaQuery - defaultPadding30 > 550) {
-      return (widthMediaQuery - defaultPadding30 * 3) / 2;
+  double get _widthCard {
+    if (_widthMediaQuery - defaultPadding30 > 1290) {
+      return (_widthMediaQuery - defaultPadding30 * 5) / 4;
+    } else if (_widthMediaQuery - defaultPadding30 > 860) {
+      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
+    } else if (_widthMediaQuery - defaultPadding30 > 550) {
+      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - defaultPadding30 * 2;
     }
   }
 
-  String selectedFilterToString({bool? value}) {
+  String _selectedFilterToString({bool? value}) {
     if (value == null) {
       return translations.text('views_realisation.all');
     } else if (value) {
@@ -190,78 +191,31 @@ class _RealisationSectionState extends State<RealisationSection> {
           const SizedBox(height: defaultPadding30),
           ValueListenableBuilder<bool?>(
             valueListenable: _online,
-            builder: (context, online, child) =>
-                StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-              stream: _realisationsStream,
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  debugPrint(snapshot.error.toString());
-                  debugPrintStack(stackTrace: snapshot.stackTrace);
-                  return Text(
-                    'Erreur lors de la récupération des réalisations',
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontWeight: FontWeight.w500,
-                          height: 1,
-                        ),
-                  );
-                }
-
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Row(
-                    children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        margin: const EdgeInsets.all(4),
-                        child: const CircularProgressIndicator(),
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        'Récupération des réalisations en cours...',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onBackground,
-                              fontWeight: FontWeight.w500,
-                              height: 1,
-                            ),
-                      ),
-                    ],
-                  );
-                }
-
-                final List<Realisation> listRealisation = snapshot.data!.docs
-                    .map(
-                      (document) => Realisation.fromFireStore(document.data()),
-                    )
-                    .toList();
-
-                listRealisation.sort(
-                  (a, b) => a.name.currentLang.compareTo(b.name.currentLang),
-                );
-
-                final List<Realisation> list = listRealisation
-                    .where(
-                      (element) => online == null || online == element.online,
-                    )
-                    .toList();
-
-                return Wrap(
-                  spacing: defaultPadding30,
-                  runSpacing: defaultPadding30,
-                  children: List.generate(
-                    list.length,
-                    (index) => CustomCardImage(
-                      widthCard: widthCard,
-                      assetImage: list[index].assetImage,
-                      title: list[index].name.currentLang,
-                      tag: selectedFilterToString(value: list[index].online),
-                      url: list[index].url,
-                      urlGitHub: list[index].urlGitHub,
-                    ),
-                  ),
-                );
-              },
-            ),
+            builder: (context, online, child) {
+              final List<Realisation> _list = _firestoreBloc.realisations
+                  .where(
+                    (element) => online == null || online == element.online,
+                  )
+                  .toList();
+              return Wrap(
+                spacing: defaultPadding30,
+                runSpacing: defaultPadding30,
+                children: List.generate(
+                  _list.length,
+                  (index) {
+                    final Realisation _realisation = _list[index];
+                    return CustomCardImage(
+                      widthCard: _widthCard,
+                      assetImage: _realisation.assetImage,
+                      title: _realisation.name.currentLang,
+                      tag: _selectedFilterToString(value: _realisation.online),
+                      url: _realisation.url,
+                      urlGitHub: _realisation.urlGitHub,
+                    );
+                  },
+                ),
+              );
+            },
           ),
         ],
       ),

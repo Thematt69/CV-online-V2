@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:flutter/material.dart';
 
-class Etudes {
+class Etude {
   static const entryDescription = 'description';
   static const entryEcole = 'ecole';
   static const entryDiplome = 'diplome';
@@ -15,7 +15,7 @@ class Etudes {
   final TradMapModel diplome;
   final DateTimeRange periode;
 
-  Etudes({
+  Etude({
     required this.periode,
     required this.diplome,
     required this.description,
@@ -26,7 +26,7 @@ class Etudes {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Etudes &&
+    return other is Etude &&
         other.periode == periode &&
         other.diplome == diplome &&
         other.description == description &&
@@ -46,13 +46,13 @@ class Etudes {
     return 'Etudes(periode: $periode, nom: $diplome, description: $description, ecole: $ecole)';
   }
 
-  Etudes copyWith({
+  Etude copyWith({
     DateTimeRange? periode,
     TradMapModel? diplome,
     TradMapModel? description,
     TradMapModel? ecole,
   }) {
-    return Etudes(
+    return Etude(
       periode: periode ?? this.periode,
       diplome: diplome ?? this.diplome,
       description: description ?? this.description,
@@ -60,7 +60,7 @@ class Etudes {
     );
   }
 
-  factory Etudes.fromFireStore(Map<String, dynamic> json) => Etudes(
+  factory Etude.fromFireStore(Map<String, dynamic> json) => Etude(
         diplome: json[entryDiplome] is String
             ? TradMapModel.fromJsonString(json[entryDiplome] as String)
             : TradMapModel.fromJson(json[entryDiplome] as Map<String, dynamic>),

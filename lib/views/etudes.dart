@@ -1,6 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/etudes.dart';
 import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
@@ -22,15 +24,12 @@ class EtudesSection extends StatefulWidget {
 }
 
 class _EtudesSectionState extends State<EtudesSection> {
-  final Stream<QuerySnapshot<Map<String, dynamic>>> _etudesStream =
-      FirebaseFirestore.instance
-          .collection('etudes')
-          .orderBy('periode.end', descending: true)
-          .snapshots();
+  late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
 
-  DateFormat dateFormat = DateFormat.yMMM('fr');
+  // TODO - Mettre dans une extension de DateTime
+  DateFormat get _dateFormat => DateFormat.yMMM(SharedPrefsHelper.currentLang);
 
-  double get widthMediaQuery {
+  double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
       return MediaQuery.of(context).size.width - 180;
     } else {
@@ -38,14 +37,20 @@ class _EtudesSectionState extends State<EtudesSection> {
     }
   }
 
-  double get widthCard {
-    if (widthMediaQuery - defaultPadding30 > 1290) {
-      return (widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (widthMediaQuery - defaultPadding30 > 860) {
-      return (widthMediaQuery - defaultPadding30 * 3) / 2;
+  double get _widthCard {
+    if (_widthMediaQuery - defaultPadding30 > 1290) {
+      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
+    } else if (_widthMediaQuery - defaultPadding30 > 860) {
+      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - defaultPadding30 * 2;
     }
+  }
+
+  @override
+  void dispose() {
+    _firestoreBloc.dispose();
+    super.dispose();
   }
 
   @override
@@ -78,65 +83,24 @@ class _EtudesSectionState extends State<EtudesSection> {
             ),
           ),
           const SizedBox(height: defaultPadding30),
-          StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-            stream: _etudesStream,
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                debugPrint(snapshot.error.toString());
-                debugPrintStack(stackTrace: snapshot.stackTrace);
-                return Text(
-                  'Erreur lors de la récupération des études',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontWeight: FontWeight.w500,
-                        height: 1,
-                      ),
+          Wrap(
+            spacing: defaultPadding30,
+            runSpacing: defaultPadding30,
+            alignment: WrapAlignment.spaceBetween,
+            children: List.generate(
+              _firestoreBloc.etudes.length,
+              (index) {
+                final Etude _etude = _firestoreBloc.etudes[index];
+                return CustomCardEtudes(
+                  periode:
+                      '${_dateFormat.format(_etude.periode.start)} - ${_dateFormat.format(_etude.periode.end)}',
+                  ecole: _etude.ecole.currentLang,
+                  nom: _etude.diplome.currentLang,
+                  description: _etude.description.currentLang,
+                  widthCard: _widthCard,
                 );
-              }
-
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Row(
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      margin: const EdgeInsets.all(4),
-                      child: const CircularProgressIndicator(),
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      'Récupération des études en cours...',
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                            color: Theme.of(context).colorScheme.onBackground,
-                            fontWeight: FontWeight.w500,
-                            height: 1,
-                          ),
-                    ),
-                  ],
-                );
-              }
-
-              final List<Etudes> listEtudes = snapshot.data!.docs
-                  .map((document) => Etudes.fromFireStore(document.data()))
-                  .toList();
-
-              return Wrap(
-                spacing: defaultPadding30,
-                runSpacing: defaultPadding30,
-                alignment: WrapAlignment.spaceBetween,
-                children: List.generate(
-                  listEtudes.length,
-                  (index) => CustomCardEtudes(
-                    periode:
-                        '${dateFormat.format(listEtudes[index].periode.start)} - ${dateFormat.format(listEtudes[index].periode.end)}',
-                    ecole: listEtudes[index].ecole.currentLang,
-                    nom: listEtudes[index].diplome.currentLang,
-                    description: listEtudes[index].description.currentLang,
-                    widthCard: widthCard,
-                  ),
-                ),
-              );
-            },
+              },
+            ),
           ),
         ],
       ),

@@ -1,6 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/jobs.dart';
 import 'package:cv_online_v2/widgets/custom_card_jobs.dart';
@@ -21,10 +22,9 @@ class JobsSection extends StatefulWidget {
 }
 
 class _JobsSectionState extends State<JobsSection> {
-  final Stream<QuerySnapshot<Map<String, dynamic>>> _jobsStream =
-      FirebaseFirestore.instance.collection('jobs').snapshots();
+  late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
 
-  double get widthMediaQuery {
+  double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
       return MediaQuery.of(context).size.width - 180;
     } else {
@@ -32,14 +32,20 @@ class _JobsSectionState extends State<JobsSection> {
     }
   }
 
-  double get widthCard {
-    if (widthMediaQuery - defaultPadding30 > 1290) {
-      return (widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (widthMediaQuery - defaultPadding30 > 860) {
-      return (widthMediaQuery - defaultPadding30 * 3) / 2;
+  double get _widthCard {
+    if (_widthMediaQuery - defaultPadding30 > 1290) {
+      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
+    } else if (_widthMediaQuery - defaultPadding30 > 860) {
+      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - defaultPadding30 * 2;
     }
+  }
+
+  @override
+  void dispose() {
+    _firestoreBloc.dispose();
+    super.dispose();
   }
 
   @override
@@ -72,67 +78,24 @@ class _JobsSectionState extends State<JobsSection> {
             ),
           ),
           const SizedBox(height: defaultPadding30),
-          StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-            stream: _jobsStream,
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                debugPrint(snapshot.error.toString());
-                debugPrintStack(stackTrace: snapshot.stackTrace);
-                return Text(
-                  'Erreur lors de la récupération des jobs',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontWeight: FontWeight.w500,
-                        height: 1,
-                      ),
+          Wrap(
+            spacing: defaultPadding30,
+            runSpacing: defaultPadding30,
+            alignment: WrapAlignment.spaceBetween,
+            children: List.generate(
+              _firestoreBloc.jobs.length,
+              (index) {
+                final Job _job = _firestoreBloc.jobs[index];
+                return CustomCardJobs(
+                  periode: _job.periodeString,
+                  lieu: _job.lieu.currentLang,
+                  poste: _job.poste.currentLang,
+                  widthCard: _widthCard,
+                  description: _job.description?.currentLang,
+                  service: _job.service?.currentLang,
                 );
-              }
-
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Row(
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      margin: const EdgeInsets.all(4),
-                      child: const CircularProgressIndicator(),
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      'Récupération des jobs en cours...',
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                            color: Theme.of(context).colorScheme.onBackground,
-                            fontWeight: FontWeight.w500,
-                            height: 1,
-                          ),
-                    ),
-                  ],
-                );
-              }
-
-              final List<Jobs> listJobs = snapshot.data!.docs
-                  .map((document) => Jobs.fromFireStore(document.data()))
-                  .toList();
-
-              listJobs.sort((a, b) => b.periode.end.compareTo(a.periode.end));
-
-              return Wrap(
-                spacing: defaultPadding30,
-                runSpacing: defaultPadding30,
-                alignment: WrapAlignment.spaceBetween,
-                children: List.generate(
-                  listJobs.length,
-                  (index) => CustomCardJobs(
-                    periode: listJobs[index].periodeString,
-                    lieu: listJobs[index].lieu.currentLang,
-                    poste: listJobs[index].poste.currentLang,
-                    widthCard: widthCard,
-                    description: listJobs[index].description?.currentLang,
-                    service: listJobs[index].service?.currentLang,
-                  ),
-                ),
-              );
-            },
+              },
+            ),
           ),
         ],
       ),
