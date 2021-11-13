@@ -1,4 +1,3 @@
-import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
 
