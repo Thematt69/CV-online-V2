@@ -1,9 +1,27 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cv_online_v2/extensions/date_time_extension.dart';
+import 'package:cv_online_v2/localization/localization.dart';
+import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:flutter/material.dart';
 
-enum TypeJobs { alternance, stage, interimaire, cdi }
+class Job {
+  static const entryDescription = 'description';
+  static const entryLieu = 'lieu';
+  static const entryPeriode = 'periode';
+  static const entryPeriodeStart = 'start';
+  static const entryPeriodeEnd = 'end';
+  static const entryPoste = 'poste';
+  static const entryService = 'service';
+  static const entryType = 'type';
 
-class Jobs {
-  Jobs({
+  final TradMapModel? description;
+  final TradMapModel lieu;
+  final DateTimeRange periode;
+  final TradMapModel poste;
+  final TradMapModel? service;
+  final TradMapModel type;
+
+  Job({
     required this.periode,
     required this.poste,
     required this.lieu,
@@ -12,18 +30,23 @@ class Jobs {
     this.service,
   });
 
-  String description;
-  String lieu;
-  DateTimeRange periode;
-  String poste;
-  String? service;
-  TypeJobs type;
+  String get periodeString {
+    String value = '${periode.start.yMMMd} - ';
+    if (periode.end.day == DateTime.now().day &&
+        periode.end.month == DateTime.now().month &&
+        periode.end.year == DateTime.now().year) {
+      value += translations.text('contents.today');
+    } else {
+      value += periode.end.yMMMd;
+    }
+    return value;
+  }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Jobs &&
+    return other is Job &&
         other.periode == periode &&
         other.poste == poste &&
         other.lieu == lieu &&
@@ -47,21 +70,65 @@ class Jobs {
     return 'Jobs(periode: $periode, poste: $poste, lieu: $lieu, description: $description, type: $type, service: $service)';
   }
 
-  Jobs copyWith({
+  Job copyWith({
+    TradMapModel? description,
+    TradMapModel? lieu,
     DateTimeRange? periode,
-    String? poste,
-    String? lieu,
-    String? description,
-    TypeJobs? type,
-    String? service,
+    TradMapModel? poste,
+    TradMapModel? service,
+    TradMapModel? type,
   }) {
-    return Jobs(
+    return Job(
+      description: description ?? this.description,
+      lieu: lieu ?? this.lieu,
       periode: periode ?? this.periode,
       poste: poste ?? this.poste,
-      lieu: lieu ?? this.lieu,
-      description: description ?? this.description,
-      type: type ?? this.type,
       service: service ?? this.service,
+      type: type ?? this.type,
     );
   }
+
+  factory Job.fromFireStore(Map<String, dynamic> json) => Job(
+        description: json[entryDescription] != null
+            ? json[entryDescription] is String
+                ? TradMapModel.fromJsonString(json[entryDescription] as String)
+                : TradMapModel.fromJson(
+                    json[entryDescription] as Map<String, dynamic>,
+                  )
+            : null,
+        lieu: json[entryLieu] is String
+            ? TradMapModel.fromJsonString(json[entryLieu] as String)
+            : TradMapModel.fromJson(json[entryLieu] as Map<String, dynamic>),
+        periode: DateTimeRange(
+          start: (json[entryPeriode][entryPeriodeStart] as Timestamp).toDate(),
+          end: json[entryPeriode][entryPeriodeEnd] != null
+              ? (json[entryPeriode][entryPeriodeEnd] as Timestamp).toDate()
+              : DateTime.now(),
+        ),
+        poste: json[entryPoste] is String
+            ? TradMapModel.fromJsonString(json[entryPoste] as String)
+            : TradMapModel.fromJson(json[entryPoste] as Map<String, dynamic>),
+        service: json[entryService] != null
+            ? json[entryService] is String
+                ? TradMapModel.fromJsonString(json[entryService] as String)
+                : TradMapModel.fromJson(
+                    json[entryService] as Map<String, dynamic>,
+                  )
+            : null,
+        type: json[entryType] is String
+            ? TradMapModel.fromJsonString(json[entryType] as String)
+            : TradMapModel.fromJson(json[entryType] as Map<String, dynamic>),
+      );
+
+  Map<String, dynamic> toJson() => {
+        entryDescription: description?.toJson(),
+        entryLieu: lieu.toJson(),
+        entryPeriode: {
+          entryPeriodeStart: Timestamp.fromDate(periode.start),
+          entryPeriodeEnd: Timestamp.fromDate(periode.end),
+        },
+        entryPoste: poste.toJson(),
+        entryService: service?.toJson(),
+        entryType: type.toJson(),
+      };
 }

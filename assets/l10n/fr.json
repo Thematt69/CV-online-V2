@@ -73,8 +73,7 @@
     },
     "views_footer": {
         "all_rights_reserved": "Tous droits réservés",
-        "develop_flutter": "Developpé avec Flutter",
-        "get_version": "Récupération de la version..."
+        "develop_flutter": "Developpé avec Flutter"
     },
     "views_etudes": {
         "my": "Mes",
@@ -90,92 +89,6 @@
     },
     "contents": {
         "description": "Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.",
-        "recommandation": "Appliqué, sérieux, a le sens de l'écoute et ponctuel.\nRespecte les consignes, s'intègre bien dans une équipe.\nSait répondre techniquement et faire des propositions.\nEn synthèse Matthieu a les capacités d'atteindre le niveau ingénieur.",
-        "poste_recommandation": "Responsable pré-étude électronique",
-        "realisations": {
-            "cv_online_v1": "CV en ligne V1",
-            "cv_online_v2": "CV en ligne V2",
-            "server_minecraft": "Serveur minecraft sur Raspberry",
-            "gift_idea_list": "Liste d'idée cadeaux - Projet personnel",
-            "game_library": "Librairie de jeux - TP Scolaire",
-            "front_customer_list": "Listing client FRONT - TP Scolaire",
-            "api_customer_list": "Listing client API - TP Scolaire",
-            "dropdownSearch_flutter": "Flutter DropdownSearch - Contribution",
-            "canhumanitaire": "Canhumanitaire - Association humanitaire",
-            "frero_goteborg": "Site récapitulatif du séjour de mon frère à Göteborg",
-            "world_become_human": "World: Become Human - Jeu de rôle",
-            "los_santos_rp": "Los Santos RolePlay FR - Projet GTA V",
-            "class_council": "Conseil de classe - BTS SN",
-            "purespa_corbas": "PureSpa Corbas - Projet personnel"
-        },
-        "jobs": {
-            "sncf": {
-                "poste": "Accueil clientèle",
-                "lieu": "Gare SNCF Lyon Part-Dieu",
-                "service": "Service accueil"
-            },
-            "mobile_hub": {
-                "poste": "Technicien",
-                "description": "Accueil clientèle et vente des produits (téléphone, accessoires, réparation)."
-            },
-            "polaris": {
-                "poste": "Technicien audiovisuel",
-                "lieu": "Le Polaris",
-                "service": "Complexe culturel",
-                "description": "Préparation sonore et éclairage pour différents spectacles, assistance au régisseur."
-            },
-            "transit_melody": {
-                "poste": "Technicien audiovisuel",
-                "lieu": "Transit Melody",
-                "description": "Prestataire technique en sonorisation, vidéo et éclairage."
-            },
-            "hub_one": {
-                "poste": "Technicien maintenance",
-                "lieu": "Hub One",
-                "service": "Service paramétrage",
-                "description": "Réglage d'usine ou reconfiguration de masse de terminal mobile."
-            },
-            "hub_one_1": {
-                "poste": "Agent logistique",
-                "lieu": "Hub One",
-                "service": "Service logistique",
-                "description": "Réception, gestion logistique et remplacement des terminaux défectueux."
-            },
-            "renault_trucks": {
-                "poste": "Développeur R&D",
-                "lieu": "Renault Trucks St-Priest",
-                "service": "Service Special Vehicle Development",
-                "description": "Intégration d'un nouvel écran de bord pour des camions prototypes."
-            },
-            "xefi": {
-                "poste": "Développeur",
-                "lieu": "Groupe XEFI",
-                "service": "XEFI Software"
-            },
-            "sully_group": {
-                "poste": "Développeur Cross-Platform",
-                "lieu": "Sully Group",
-                "service": "Centre de service - MAPP",
-                "description": "Développement d'applications mobile ou web pour les clients."
-            }
-        },
-        "etudes": {
-            "bac_pro": {
-                "nom": "Bac Pro Système Electronique et Numérique",
-                "ecole": "Lycée professionnel Marc Seguin, Vénissieux."
-            },
-            "bts": {
-                "nom": "BTS Système Numérique",
-                "ecole": "Lycée Marcel Sembat, Vénissieux."
-            },
-            "epsi": {
-                "nom": "Titre Concepteur Dévellopeur d'Application",
-                "ecole": "XEFI ACADEMY - EPSI Lyon"
-            }
-        },
-        "contacts": {
-            "location": "Localisation",
-            "email": "Adresse mail"
-        }
+        "today":"Aujourd'hui"
     }
 }

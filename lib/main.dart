@@ -1,5 +1,8 @@
 import 'package:cv_online_v2/constants/theme_datas.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/error_page.dart';
+import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/main_page.dart';
 import 'package:cv_online_v2/splash_page.dart';
@@ -14,7 +17,11 @@ import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
   runApp(
-    const MyApp(),
+    BlocProvider(
+      key: GlobalKey(),
+      blocs: [FirestoreBloc()],
+      child: const MyApp(),
+    ),
   );
 }
 
@@ -39,8 +46,10 @@ class _MyAppState extends State<MyApp> {
       WidgetsFlutterBinding.ensureInitialized();
       setPathUrlStrategy();
       await Firebase.initializeApp();
+      await SharedPrefsHelper.initPreferences();
       await translations.init();
       Intl.defaultLocale = translations.deviceLang;
+      await BlocProvider.master<FirestoreBloc>().initFirebase();
     } catch (e) {
       return e.toString();
     }

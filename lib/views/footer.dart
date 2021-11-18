@@ -66,14 +66,8 @@ class _FooterSectionState extends State<FooterSection> {
                               color: Theme.of(context).colorScheme.onSecondary,
                             ),
                       );
-                    } else {
-                      return Text(
-                        '| ${translations.text('views_footer.get_version')}',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
                     }
+                    return const SizedBox();
                   },
                 ),
               ],
@@ -119,14 +113,8 @@ class _FooterSectionState extends State<FooterSection> {
                               color: Theme.of(context).colorScheme.onSecondary,
                             ),
                       );
-                    } else {
-                      return Text(
-                        translations.text('views_footer.get_version'),
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
                     }
+                    return const SizedBox();
                   },
                 ),
               ],

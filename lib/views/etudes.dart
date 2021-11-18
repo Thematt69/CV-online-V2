@@ -1,10 +1,12 @@
 import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/extensions/date_time_extension.dart';
 import 'package:cv_online_v2/localization/localization.dart';
+import 'package:cv_online_v2/models/etudes.dart';
 import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../responsive.dart';
 
@@ -21,9 +23,9 @@ class EtudesSection extends StatefulWidget {
 }
 
 class _EtudesSectionState extends State<EtudesSection> {
-  DateFormat dateFormat = DateFormat.yMMM('fr');
+  late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
 
-  double get widthMediaQuery {
+  double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
       return MediaQuery.of(context).size.width - 180;
     } else {
@@ -31,19 +33,24 @@ class _EtudesSectionState extends State<EtudesSection> {
     }
   }
 
-  double get widthCard {
-    if (widthMediaQuery - defaultPadding30 > 1290) {
-      return (widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (widthMediaQuery - defaultPadding30 > 860) {
-      return (widthMediaQuery - defaultPadding30 * 3) / 2;
+  double get _widthCard {
+    if (_widthMediaQuery - defaultPadding30 > 1290) {
+      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
+    } else if (_widthMediaQuery - defaultPadding30 > 860) {
+      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - defaultPadding30 * 2;
     }
   }
 
   @override
+  void dispose() {
+    _firestoreBloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    listEtudes.sort((a, b) => b.periode.end.compareTo(a.periode.end));
     return Container(
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
@@ -77,17 +84,20 @@ class _EtudesSectionState extends State<EtudesSection> {
             runSpacing: defaultPadding30,
             alignment: WrapAlignment.spaceBetween,
             children: List.generate(
-              listEtudes.length,
-              (index) => CustomCardEtudes(
-                periode:
-                    '${dateFormat.format(listEtudes[index].periode.start)} - ${dateFormat.format(listEtudes[index].periode.end)}',
-                ecole: listEtudes[index].ecole,
-                nom: listEtudes[index].nom,
-                description: listEtudes[index].description,
-                widthCard: widthCard,
-              ),
+              _firestoreBloc.etudes.length,
+              (index) {
+                final Etude _etude = _firestoreBloc.etudes[index];
+                return CustomCardEtudes(
+                  periode:
+                      '${_etude.periode.start.yMMM} - ${_etude.periode.end.yMMM}',
+                  ecole: _etude.ecole.currentLang,
+                  nom: _etude.diplome.currentLang,
+                  description: _etude.description.currentLang,
+                  widthCard: _widthCard,
+                );
+              },
             ),
-          )
+          ),
         ],
       ),
     );

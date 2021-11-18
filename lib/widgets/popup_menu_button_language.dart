@@ -25,15 +25,22 @@ class PopupMenuButtonLanguage extends StatelessWidget {
               await translations.setNewLanguage(value.languageCode);
               showDialog(
                 context: context,
+                barrierDismissible: false,
                 builder: (context) => AlertDialog(
                   title: Text(
                     translations
                         .text('popup_menu_button_language.refresh_recommend'),
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                          color: Theme.of(context).colorScheme.onBackground,
+                        ),
                   ),
                   content: Text(
                     translations.text(
                       'popup_menu_button_language.refresh_recommend_content',
                     ),
+                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          color: Theme.of(context).colorScheme.onBackground,
+                        ),
                   ),
                   actions: [
                     TextButton(
@@ -55,11 +62,13 @@ class PopupMenuButtonLanguage extends StatelessWidget {
                       .toUpperCase(),
                   style: translations.currentLanguage ==
                           translations.supportedLocales[index].languageCode
-                      ? const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )
-                      : null,
+                      ? Theme.of(context).textTheme.headline6!.copyWith(
+                            color: Theme.of(context).colorScheme.onBackground,
+                          )
+                      : Theme.of(context).textTheme.headline6!.copyWith(
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontWeight: FontWeight.w500,
+                          ),
                 ),
               ),
             );
