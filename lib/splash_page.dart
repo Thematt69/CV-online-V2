@@ -1,5 +1,5 @@
-import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 import 'localization/localization.dart';
@@ -11,31 +11,13 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
-  late AnimationController animationController;
-
-  @override
-  void initState() {
-    super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 4),
-    );
-    animationController.repeat();
-  }
-
-  @override
-  void dispose() {
-    animationController.dispose();
-    super.dispose();
-  }
-
+class _SplashPageState extends State<SplashPage> {
   double get size {
     if (MediaQuery.of(context).size.width <
         MediaQuery.of(context).size.height) {
-      return MediaQuery.of(context).size.width / 2;
+      return MediaQuery.of(context).size.width / 3;
     } else {
-      return MediaQuery.of(context).size.height / 2;
+      return MediaQuery.of(context).size.height / 3;
     }
   }
 
@@ -48,33 +30,12 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AnimatedBuilder(
-                animation: animationController,
-                builder: (BuildContext context, Widget? _widget) {
-                  return Transform.rotate(
-                    angle: animationController.value * 6.3,
-                    child: Image.asset(
-                      assetLogoTr512,
-                      fit: BoxFit.cover,
-                      width: size,
-                      height: size,
-                      frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
-                        if (wasSynchronouslyLoaded) {
-                          return SizedBox(
-                            width: size,
-                            height: size,
-                            child: const Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          );
-                        }
-                        return child;
-                      },
-                      errorBuilder: (_, __, ___) => const SizedBox(),
-                    ),
-                  );
-                },
+              SizedBox(
+                height: size,
+                width: size,
+                child: const CircularProgressIndicator(),
               ),
+              const SizedBox(height: defaultPadding30),
               Text(
                 translations.text(
                   'splash.get_data',
