@@ -1,5 +1,6 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -28,7 +29,7 @@ class _FooterSectionState extends State<FooterSection> {
         horizontal: defaultPadding16,
       ),
       width: double.infinity,
-      child: MediaQuery.of(context).size.width > 650
+      child: MediaQuery.of(context).size.width > 900
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -40,13 +41,13 @@ class _FooterSectionState extends State<FooterSection> {
                       ),
                 ),
                 Text(
-                  ' | Copyright ©2021 All rights reserved | ',
+                  ' | Copyright ©2021 ${translations.text('views_footer.all_rights_reserved')} | ',
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
                 ),
                 Text(
-                  'Made with Flutter',
+                  translations.text('views_footer.develop_flutter'),
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
@@ -65,14 +66,8 @@ class _FooterSectionState extends State<FooterSection> {
                               color: Theme.of(context).colorScheme.onSecondary,
                             ),
                       );
-                    } else {
-                      return Text(
-                        'Récupération de la version...',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
                     }
+                    return const SizedBox();
                   },
                 ),
               ],
@@ -87,7 +82,7 @@ class _FooterSectionState extends State<FooterSection> {
                       ),
                 ),
                 Text(
-                  'Copyright ©2021 All rights reserved',
+                  'Copyright ©2021 ${translations.text('views_footer.all_rights_reserved')}',
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
@@ -97,7 +92,7 @@ class _FooterSectionState extends State<FooterSection> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'Made with Flutter',
+                      translations.text('views_footer.develop_flutter'),
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
                             color: Theme.of(context).colorScheme.onSecondary,
                           ),
@@ -118,14 +113,8 @@ class _FooterSectionState extends State<FooterSection> {
                               color: Theme.of(context).colorScheme.onSecondary,
                             ),
                       );
-                    } else {
-                      return Text(
-                        'Récupération de la version...',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
                     }
+                    return const SizedBox();
                   },
                 ),
               ],

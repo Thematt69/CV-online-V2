@@ -1,5 +1,7 @@
+import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,15 +23,16 @@ class HeaderSection extends StatelessWidget {
           Visibility(
             visible: Responsive.isDesktop(context) &&
                 MediaQuery.of(context).size.height > 450,
-            child: Container(
-              width: 260,
-              height: 260,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(130),
-                image: const DecorationImage(
-                  image: AssetImage(
-                    'images/IMG_20180831_004109_835.webp',
-                  ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(130),
+              child: Image.asset(
+                assetPhoto3056,
+                fit: BoxFit.cover,
+                width: 260,
+                height: 260,
+                errorBuilder: (_, __, ___) => const SizedBox(
+                  width: 260,
+                  height: 260,
                 ),
               ),
             ),
@@ -46,17 +49,26 @@ class HeaderSection extends StatelessWidget {
                 Visibility(
                   visible: Responsive.isTablet(context) &&
                       MediaQuery.of(context).size.height > 450,
-                  child: Container(
-                    width: 260,
-                    height: 260,
-                    margin: const EdgeInsets.only(bottom: defaultPadding60),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(130),
-                      image: const DecorationImage(
-                        image: AssetImage(
-                          'images/IMG_20180831_004109_835.webp',
-                        ),
-                      ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(130),
+                    child: Image.asset(
+                      assetPhoto3056,
+                      fit: BoxFit.cover,
+                      width: 260,
+                      height: 260,
+                      frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
+                        if (wasSynchronouslyLoaded) {
+                          return const SizedBox(
+                            width: 260,
+                            height: 260,
+                            child: Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          );
+                        }
+                        return child;
+                      },
+                      errorBuilder: (_, __, ___) => const SizedBox(),
                     ),
                   ),
                 ),
@@ -83,7 +95,7 @@ class HeaderSection extends StatelessWidget {
                   ],
                 ),
                 CustomAnimatedTextKit(
-                  prefix: 'Je suis ',
+                  prefix: '${translations.text('views_header.i_am')} ',
                   textStyle: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                         fontSize: Responsive.isDesktop(context) ? 30 : 24,

@@ -23,20 +23,20 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="cv_online_v2">
-    <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+    <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.webp">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.webp">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.webp">
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.webp">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.webp">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.webp">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.webp">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.webp">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.webp">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.webp">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.webp">
 
     <!-- Splash screen -->
     <link rel="stylesheet" type="text/css" href="splash/style.css">
@@ -48,6 +48,7 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
     <script src="firebase-config.js"></script>
 
     <!-- Flutter -->
@@ -60,7 +61,7 @@
         }
         scriptLoaded = true;
         var scriptTag = document.createElement('script');
-        scriptTag.src = 'main.dart.js?version=0.7.4';
+        scriptTag.src = 'main.dart.js?version=0.8.1';
         scriptTag.type = 'application/javascript';
         document.body.append(scriptTag);
       }
@@ -118,12 +119,12 @@
     <!-- Splash screen -->
     <picture id="splash">
       <source
-        srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x"
+        srcset="splash/img/light-1x.webp 1x, splash/img/light-2x.webp 2x, splash/img/light-3x.webp 3x, splash/img/light-4x.webp 4x"
         media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)">
       <source
-        srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x"
+        srcset="splash/img/dark-1x.webp 1x, splash/img/dark-2x.webp 2x, splash/img/dark-3x.webp 3x, splash/img/dark-4x.webp 4x"
         media="(prefers-color-scheme: dark)">
-      <img class="center" src="splash/img/light-1x.png" />
+      <img class="center" src="splash/img/light-1x.webp" />
     </picture>
   </body>
 

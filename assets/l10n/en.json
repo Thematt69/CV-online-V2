@@ -1,0 +1,94 @@
+{
+    "drawer": {
+        "show_menu": "Show menu",
+        "hide_menu": "Hide menu",
+        "home": "Home",
+        "presentation": "Presentation",
+        "competence": "Skills",
+        "realisation": "Production",
+        "etudes": "Studies",
+        "recommandation": "Recommendation",
+        "jobs": "Jobs",
+        "contact": "Contact",
+        "email": "Mail address",
+        "linkedin": "Linkedin",
+        "github": "GitHub",
+        "see_more": "See more"
+    },
+    "error": {
+        "no_init": "It seems that the application could not launch correctly.",
+        "contact": "Contact support by mentioning the message below."
+    },
+    "splash": {
+        "get_data": "Data recovery in progress ..."
+    },
+    "popup_menu_button_language": {
+        "change_langue": "Change the language",
+        "refresh_recommend": "Refreshment recommended",
+        "refresh_recommend_content": "To take your modification into account, this page will need to be refreshed."
+    },
+    "custom_animated_text_kit": {
+        "dev_flutter": "Flutter Developer",
+        "gamers": "Amateur player",
+        "dev_web": "Web developer",
+        "photographer": "Amateur photographer",
+        "dev_android": "Android Developer"
+    },
+    "custom_card_image": {
+        "go_github": "Go to GitHub"
+    },
+    "views_realisation": {
+        "online": "Online",
+        "archive": "Archive",
+        "all": "All",
+        "my_different": "My different",
+        "realisation": "production"
+    },
+    "views_presentation": {
+        "i_am": "I am DEVILLIERS Matthieu",
+        "my_name_is": "My name is",
+        "date_birth": "Date of Birth",
+        "date_birth_value": "09/29/2000",
+        "age": "Age",
+        "years": "years",
+        "mobility": "Mobility",
+        "permit_b": "B permit",
+        "location": "Location",
+        "interests": "Interests",
+        "interests_value": "Video games, Photography, Streaming & Video, Music, Rollers, Cycling, Computers",
+        "school": "School",
+        "formation": "Training",
+        "formation_value": "Degree Designer Application Developer",
+        "company": "Business",
+        "email": "Mail address",
+        "download_cv": "Download CV",
+        "contact_me": "Contact me"
+    },
+    "views_jobs": {
+        "my": "My",
+        "jobs": "jobs"
+    },
+    "views_header": {
+        "i_am": "I am"
+    },
+    "views_footer": {
+        "all_rights_reserved": "All rights reserved",
+        "develop_flutter": "Develop with Flutter"
+    },
+    "views_etudes": {
+        "my": "My",
+        "etudes": "studies"
+    },
+    "views_contact": {
+        "contact": "Contact",
+        "me": "me"
+    },
+    "views_competence": {
+        "my": "My",
+        "competence": "skills"
+    },
+    "contents": {
+        "description": "I am a web and Android developer, passionate and dedicated to my studies and my future. With 29 weeks of internship in a company, I acquired the skills and knowledge necessary to finalize my studies and integrate the world of work through work-study or apprenticeship.",
+        "today": "Today"
+    }
+}

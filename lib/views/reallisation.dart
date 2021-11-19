@@ -1,5 +1,7 @@
-import 'package:cv_online_v2/constants/contents.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/realisation.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
 import 'package:flutter/material.dart';
@@ -19,23 +21,23 @@ class RealisationSection extends StatefulWidget {
 }
 
 class _RealisationSectionState extends State<RealisationSection> {
-  bool hoverAll = false;
-  bool hoverArchive = false;
-  bool hoverOnline = false;
-  FilterRealisation selectedFilter = FilterRealisation.ALL;
+  late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
+  final ValueNotifier<bool> _hoverAll = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _hoverArchive = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _hoverOnline = ValueNotifier<bool>(false);
+  final ValueNotifier<bool?> _online = ValueNotifier<bool?>(null);
 
-  List<Realisation> get list {
-    listRealisations.sort((a, b) => a.title.compareTo(b.title));
-    return listRealisations
-        .where(
-          (element) =>
-              element.tag == selectedFilter ||
-              selectedFilter == FilterRealisation.ALL,
-        )
-        .toList();
+  @override
+  void dispose() {
+    _online.dispose();
+    _hoverAll.dispose();
+    _hoverArchive.dispose();
+    _hoverOnline.dispose();
+    _firestoreBloc.dispose();
+    super.dispose();
   }
 
-  double get widthMediaQuery {
+  double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
       return MediaQuery.of(context).size.width - 180;
     } else {
@@ -43,25 +45,25 @@ class _RealisationSectionState extends State<RealisationSection> {
     }
   }
 
-  double get widthCard {
-    if (widthMediaQuery - defaultPadding30 > 1290) {
-      return (widthMediaQuery - defaultPadding30 * 5) / 4;
-    } else if (widthMediaQuery - defaultPadding30 > 860) {
-      return (widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (widthMediaQuery - defaultPadding30 > 550) {
-      return (widthMediaQuery - defaultPadding30 * 3) / 2;
+  double get _widthCard {
+    if (_widthMediaQuery - defaultPadding30 > 1290) {
+      return (_widthMediaQuery - defaultPadding30 * 5) / 4;
+    } else if (_widthMediaQuery - defaultPadding30 > 860) {
+      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
+    } else if (_widthMediaQuery - defaultPadding30 > 550) {
+      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
     } else {
-      return widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - defaultPadding30 * 2;
     }
   }
 
-  String selectedFilterToString(FilterRealisation value) {
-    if (value == FilterRealisation.ONLINE) {
-      return 'En ligne';
-    } else if (value == FilterRealisation.ARCHIVE) {
-      return 'Archive';
+  String _selectedFilterToString({bool? value}) {
+    if (value == null) {
+      return translations.text('views_realisation.all');
+    } else if (value) {
+      return translations.text('views_realisation.online');
     } else {
-      return 'Tous';
+      return translations.text('views_realisation.archive');
     }
   }
 
@@ -70,81 +72,85 @@ class _RealisationSectionState extends State<RealisationSection> {
       children: <Widget>[
         InkWell(
           onTap: () {
-            setState(() {
-              selectedFilter = FilterRealisation.ALL;
-            });
+            _online.value = null;
           },
           onHover: (bool value) {
-            setState(() {
-              hoverAll = value;
-            });
+            _hoverAll.value = value;
           },
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: Text(
-              'Tous',
-              style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverAll || selectedFilter == FilterRealisation.ALL
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: selectedFilter == FilterRealisation.ALL
-                        ? FontWeight.w600
-                        : Theme.of(context).textTheme.button?.fontWeight,
-                  ),
+            child: ValueListenableBuilder<bool?>(
+              valueListenable: _online,
+              builder: (context, online, child) => ValueListenableBuilder<bool>(
+                valueListenable: _hoverAll,
+                builder: (context, hover, child) => Text(
+                  translations.text('views_realisation.all'),
+                  style: Theme.of(context).textTheme.button!.copyWith(
+                        color: hover || online == null
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onBackground,
+                        fontWeight: online == null
+                            ? FontWeight.w600
+                            : Theme.of(context).textTheme.button?.fontWeight,
+                      ),
+                ),
+              ),
             ),
           ),
         ),
         InkWell(
           onTap: () {
-            setState(() {
-              selectedFilter = FilterRealisation.ONLINE;
-            });
+            _online.value = true;
           },
           onHover: (bool value) {
-            setState(() {
-              hoverOnline = value;
-            });
+            _hoverOnline.value = value;
           },
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: Text(
-              'En ligne',
-              style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverOnline ||
-                            selectedFilter == FilterRealisation.ONLINE
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: selectedFilter == FilterRealisation.ONLINE
-                        ? FontWeight.w600
-                        : Theme.of(context).textTheme.button?.fontWeight,
-                  ),
+            child: ValueListenableBuilder<bool?>(
+              valueListenable: _online,
+              builder: (context, online, child) => ValueListenableBuilder<bool>(
+                valueListenable: _hoverOnline,
+                builder: (context, hover, child) => Text(
+                  translations.text('views_realisation.online'),
+                  style: Theme.of(context).textTheme.button!.copyWith(
+                        color: hover || online == true
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onBackground,
+                        fontWeight: online == true
+                            ? FontWeight.w600
+                            : Theme.of(context).textTheme.button?.fontWeight,
+                      ),
+                ),
+              ),
             ),
           ),
         ),
         InkWell(
           onTap: () {
-            setState(() {
-              selectedFilter = FilterRealisation.ARCHIVE;
-            });
+            _online.value = false;
           },
           onHover: (bool value) {
-            setState(() {
-              hoverArchive = value;
-            });
+            _hoverArchive.value = value;
           },
           child: Padding(
             padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: Text(
-              'Archive',
-              style: Theme.of(context).textTheme.button!.copyWith(
-                    color: hoverArchive ||
-                            selectedFilter == FilterRealisation.ARCHIVE
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onBackground,
-                    fontWeight: selectedFilter == FilterRealisation.ARCHIVE
-                        ? FontWeight.w600
-                        : Theme.of(context).textTheme.button?.fontWeight,
-                  ),
+            child: ValueListenableBuilder<bool?>(
+              valueListenable: _online,
+              builder: (context, online, child) => ValueListenableBuilder<bool>(
+                valueListenable: _hoverArchive,
+                builder: (context, hover, child) => Text(
+                  translations.text('views_realisation.archive'),
+                  style: Theme.of(context).textTheme.button!.copyWith(
+                        color: hover || online == false
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onBackground,
+                        fontWeight: online == false
+                            ? FontWeight.w600
+                            : Theme.of(context).textTheme.button?.fontWeight,
+                      ),
+                ),
+              ),
             ),
           ),
         ),
@@ -165,13 +171,14 @@ class _RealisationSectionState extends State<RealisationSection> {
         children: <Widget>[
           RichText(
             text: TextSpan(
-              text: 'Mes différentes ',
+              text: translations.text('views_realisation.my_different'),
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
+                const TextSpan(text: ' '),
                 TextSpan(
-                  text: 'réalisations',
+                  text: translations.text('views_realisation.realisation'),
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -182,20 +189,33 @@ class _RealisationSectionState extends State<RealisationSection> {
           const SizedBox(height: defaultPadding30),
           _buildTabBar(context),
           const SizedBox(height: defaultPadding30),
-          Wrap(
-            spacing: defaultPadding30,
-            runSpacing: defaultPadding30,
-            children: List.generate(
-              list.length,
-              (index) => CustomCardImage(
-                widthCard: widthCard,
-                assetImage: list[index].assetImage,
-                title: list[index].title,
-                tag: selectedFilterToString(list[index].tag),
-                url: list[index].url,
-                urlGitHub: list[index].urlGitHub,
-              ),
-            ),
+          ValueListenableBuilder<bool?>(
+            valueListenable: _online,
+            builder: (context, online, child) {
+              final List<Realisation> _list = _firestoreBloc.realisations
+                  .where(
+                    (element) => online == null || online == element.online,
+                  )
+                  .toList();
+              return Wrap(
+                spacing: defaultPadding30,
+                runSpacing: defaultPadding30,
+                children: List.generate(
+                  _list.length,
+                  (index) {
+                    final Realisation _realisation = _list[index];
+                    return CustomCardImage(
+                      widthCard: _widthCard,
+                      assetImage: _realisation.imageUrl,
+                      title: _realisation.name.currentLang,
+                      tag: _selectedFilterToString(value: _realisation.online),
+                      url: _realisation.url,
+                      urlGitHub: _realisation.urlGitHub,
+                    );
+                  },
+                ),
+              );
+            },
           ),
         ],
       ),

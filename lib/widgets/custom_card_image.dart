@@ -1,5 +1,6 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,14 +28,14 @@ class CustomCardImage extends StatelessWidget {
     return InkWell(
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: url != null ? () async =>  launch(url!) : null,
+      onTap: url != null ? () async => launch(url!) : null,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         width: widthCard,
         height: widthCard,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(assetImage),
+            image: NetworkImage(assetImage),
             fit: BoxFit.cover,
           ),
         ),
@@ -74,8 +75,9 @@ class CustomCardImage extends StatelessWidget {
                       Visibility(
                         visible: urlGitHub != null,
                         child: IconButton(
-                          tooltip: 'Aller sur GitHub',
-                          onPressed: () async =>  launch(urlGitHub!),
+                          tooltip:
+                              translations.text('custom_card_image.go_github'),
+                          onPressed: () async => launch(urlGitHub!),
                           icon: FaIcon(
                             FontAwesomeIcons.github,
                             color: Theme.of(context).colorScheme.onSecondary,
