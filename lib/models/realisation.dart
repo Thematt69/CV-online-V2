@@ -1,18 +1,18 @@
 import 'package:cv_online_v2/models/trap_map_model.dart';
 
 class Realisation {
-  static const entryAssetImage = 'assetImage';
+  static const entryImageUrl = 'imageUrl';
   static const entryName = 'name';
   static const entryUrl = 'url';
   static const entryUrlGitHub = 'urlGitHub';
 
-  final String assetImage;
+  final String imageUrl;
   final TradMapModel name;
   final String? url;
   final String? urlGitHub;
 
   Realisation({
-    required this.assetImage,
+    required this.imageUrl,
     required this.name,
     this.url,
     this.urlGitHub,
@@ -22,7 +22,7 @@ class Realisation {
 
   @override
   String toString() {
-    return 'Realisation(assetImage: $assetImage, name: $name, url: $url, urlGitHub: $urlGitHub)';
+    return 'Realisation(imageUrl: $imageUrl, name: $name, url: $url, urlGitHub: $urlGitHub)';
   }
 
   @override
@@ -30,7 +30,7 @@ class Realisation {
     if (identical(this, other)) return true;
 
     return other is Realisation &&
-        other.assetImage == assetImage &&
+        other.imageUrl == imageUrl &&
         other.name == name &&
         other.url == url &&
         other.urlGitHub == urlGitHub;
@@ -38,20 +38,20 @@ class Realisation {
 
   @override
   int get hashCode {
-    return assetImage.hashCode ^
+    return imageUrl.hashCode ^
         name.hashCode ^
         url.hashCode ^
         urlGitHub.hashCode;
   }
 
   Realisation copyWith({
-    String? assetImage,
+    String? imageUrl,
     TradMapModel? name,
     String? url,
     String? urlGitHub,
   }) {
     return Realisation(
-      assetImage: assetImage ?? this.assetImage,
+      imageUrl: imageUrl ?? this.imageUrl,
       name: name ?? this.name,
       url: url ?? this.url,
       urlGitHub: urlGitHub ?? this.urlGitHub,
@@ -59,7 +59,7 @@ class Realisation {
   }
 
   factory Realisation.fromFireStore(Map<String, dynamic> json) => Realisation(
-        assetImage: json[entryAssetImage] as String,
+        imageUrl: json[entryImageUrl] as String,
         name: json[entryName] is String
             ? TradMapModel.fromJsonString(json[entryName] as String)
             : TradMapModel.fromJson(json[entryName] as Map<String, dynamic>),
@@ -68,7 +68,7 @@ class Realisation {
       );
 
   Map<String, dynamic> toJson() => {
-        entryAssetImage: assetImage,
+        entryImageUrl: imageUrl,
         entryName: name.toJson(),
         entryUrl: url,
         entryUrlGitHub: urlGitHub,

@@ -35,7 +35,7 @@ class CustomCardImage extends StatelessWidget {
         height: widthCard,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(assetImage),
+            image: NetworkImage(assetImage),
             fit: BoxFit.cover,
           ),
         ),

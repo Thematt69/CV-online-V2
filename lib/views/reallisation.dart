@@ -206,7 +206,7 @@ class _RealisationSectionState extends State<RealisationSection> {
                     final Realisation _realisation = _list[index];
                     return CustomCardImage(
                       widthCard: _widthCard,
-                      assetImage: _realisation.assetImage,
+                      assetImage: _realisation.imageUrl,
                       title: _realisation.name.currentLang,
                       tag: _selectedFilterToString(value: _realisation.online),
                       url: _realisation.url,

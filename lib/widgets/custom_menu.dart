@@ -59,17 +59,10 @@ class _CustomMenuState extends State<CustomMenu> {
             assetLogo1833,
             width: 140,
             height: 140,
-            frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
-              if (wasSynchronouslyLoaded) {
-                return const SizedBox(
-                  width: 140,
-                  height: 140,
-                  child: Center(child: CircularProgressIndicator()),
-                );
-              }
-              return child;
-            },
-            errorBuilder: (_, __, ___) => const SizedBox(),
+            errorBuilder: (_, __, ___) => const SizedBox(
+              width: 140,
+              height: 140,
+            ),
           ),
         ),
         const Spacer(),
