@@ -43,7 +43,6 @@ flutter:
     - assets/
     - assets/l10n/
     - assets/images/
-    - assets/images/project/
 
   fonts:
     - family: KaushanScript
