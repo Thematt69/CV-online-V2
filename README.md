@@ -1,5 +1,8 @@
 # CV en ligne - DEVILLIERS Matthieu
 
+Site de production (master) : https://matthieudevilliers.fr/   
+Site de test (develop) : https://flutter.matthieudevilliers.fr/
+
 ## Build APK
 
 `flutter build apk --no-tree-shake-icons`
