@@ -54,7 +54,7 @@ class PresentationSection extends StatelessWidget {
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: "DEVILLIERS Matthieu.",
+                  text: translations.text('views_presentation.name'),
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),

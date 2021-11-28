@@ -160,8 +160,6 @@ class _RealisationSectionState extends State<RealisationSection> {
 
   @override
   Widget build(BuildContext context) {
-    _firestoreBloc.realisations
-        .sort((a, b) => a.name.currentLang.compareTo(b.name.currentLang));
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
@@ -199,6 +197,9 @@ class _RealisationSectionState extends State<RealisationSection> {
                     (element) => online == null || online == element.online,
                   )
                   .toList();
+              _list.sort(
+                (a, b) => a.name.currentLang.compareTo(b.name.currentLang),
+              );
               return Wrap(
                 spacing: defaultPadding30,
                 runSpacing: defaultPadding30,

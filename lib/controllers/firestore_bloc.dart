@@ -53,10 +53,7 @@ class FirestoreBloc extends BlocBase {
         .snapshots();
     contactsStream =
         FirebaseFirestore.instance.collection('contacts').snapshots();
-    etudesStream = FirebaseFirestore.instance
-        .collection('etudes')
-        .orderBy('periode.end', descending: true)
-        .snapshots();
+    etudesStream = FirebaseFirestore.instance.collection('etudes').snapshots();
     jobsStream = FirebaseFirestore.instance.collection('jobs').snapshots();
     realisationsStream =
         FirebaseFirestore.instance.collection('realisations').snapshots();
@@ -115,8 +112,7 @@ class FirestoreBloc extends BlocBase {
     competences = queryCompetences.docs.map((e) => e.data()).toList();
     final QuerySnapshot<Contact> queryContacts = await _contactsReference.get();
     contacts = queryContacts.docs.map((e) => e.data()).toList();
-    final QuerySnapshot<Etude> queryEtudes =
-        await _etudesReference.orderBy('periode.end', descending: true).get();
+    final QuerySnapshot<Etude> queryEtudes = await _etudesReference.get();
     etudes = queryEtudes.docs.map((e) => e.data()).toList();
     final QuerySnapshot<Job> queryJobs = await _jobsReference.get();
     jobs = queryJobs.docs.map((e) => e.data()).toList();
