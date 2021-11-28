@@ -37,6 +37,7 @@ class PresentationSection extends StatelessWidget {
           ),
           CustomAnimatedTextKit(
             textAlign: TextAlign.start,
+            prefix: '${translations.text('views_header.i_am')} ',
             textStyle: Theme.of(context).textTheme.headline2!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 26,
