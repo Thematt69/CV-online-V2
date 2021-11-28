@@ -51,6 +51,8 @@ class _EtudesSectionState extends State<EtudesSection> {
 
   @override
   Widget build(BuildContext context) {
+    _firestoreBloc.etudes
+        .sort((a, b) => b.periode.end.compareTo(a.periode.end));
     return Container(
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
