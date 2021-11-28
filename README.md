@@ -1,6 +1,8 @@
 # CV en ligne - DEVILLIERS Matthieu
 
-Site de production (master) : https://matthieudevilliers.fr/   
+[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
+
+Site de production (master) : https://matthieudevilliers.fr/  
 Site de test (develop) : https://flutter.matthieudevilliers.fr/
 
 ## Build APK

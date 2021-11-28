@@ -1,94 +1,95 @@
 {
-    "drawer": {
-        "show_menu": "Afficher le menu",
-        "hide_menu": "Cacher le menu",
-        "home": "Accueil",
-        "presentation": "Présentation",
-        "competence": "Compétences",
-        "realisation": "Réalisations",
-        "etudes": "Études",
-        "recommandation": "Recommandation",
-        "jobs": "Jobs",
-        "contact": "Contact",
-        "email": "Adresse mail",
-        "linkedin": "Linkedin",
-        "github": "GitHub",
-        "see_more": "En voir plus"
-    },
-    "error": {
-        "no_init": "Il semblerait que l'application n'ait pas pu se lancer correctement.",
-        "contact": "Contactez le support en mentionnant le message inscrit ci-dessous."
-    },
-    "splash": {
-        "get_data": "Récupération des données en cours..."
-    },
-    "popup_menu_button_language": {
-        "change_langue": "Changer la langue",
-        "refresh_recommend": "Rafraîchissement recommandé",
-        "refresh_recommend_content": "Pour prendre en compte votre modification, il faudra que cette page soit rafraîchie."
-    },
-    "custom_animated_text_kit": {
-        "dev_flutter": "Développeur Flutter",
-        "gamers": "Joueur amateur",
-        "dev_web": "Développeur Web",
-        "photographer": "Photographe amateur",
-        "dev_android": "Développeur Android"
-    },
-    "custom_card_image": {
-        "go_github": "Aller sur GitHub"
-    },
-    "views_realisation": {
-        "online": "En ligne",
-        "archive": "Archive",
-        "all": "Tous",
-        "my_different": "Mes différentes",
-        "realisation": "réalisations"
-    },
-    "views_presentation": {
-        "i_am": "Je suis DEVILLIERS Matthieu",
-        "my_name_is": "Mon nom est",
-        "date_birth": "Date de naissance",
-        "date_birth_value": "29/09/2000",
-        "age": "Age",
-        "years": "ans",
-        "mobility": "Mobilité",
-        "permit_b": "Permis B",
-        "location": "Localisation",
-        "interests": "Intérêts",
-        "interests_value": "Jeux vidéo, Photographie, Streaming & Vidéo, Musique, Rollers, Vélo, Informatique",
-        "school": "École",
-        "formation": "Formation",
-        "formation_value": "Titre Concepteur Développeur d'Application",
-        "company": "Entreprise",
-        "email": "Adresse mail",
-        "download_cv": "Télécharger CV",
-        "contact_me": "Me contacter"
-    },
-    "views_jobs": {
-        "my": "Mes",
-        "jobs": "jobs"
-    },
-    "views_header": {
-        "i_am": "Je suis"
-    },
-    "views_footer": {
-        "all_rights_reserved": "Tous droits réservés",
-        "develop_flutter": "Developpé avec Flutter"
-    },
-    "views_etudes": {
-        "my": "Mes",
-        "etudes": "études"
-    },
-    "views_contact": {
-        "contact": "Prenez contact avec",
-        "me": "moi"
-    },
-    "views_competence": {
-        "my": "Mes",
-        "competence": "compétences"
-    },
-    "contents": {
-        "description": "Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.",
-        "today":"Aujourd'hui"
-    }
+  "drawer": {
+    "show_menu": "Afficher le menu",
+    "hide_menu": "Cacher le menu",
+    "home": "Accueil",
+    "presentation": "Présentation",
+    "competence": "Compétences",
+    "realisation": "Réalisations",
+    "etudes": "Études",
+    "recommandation": "Recommandation",
+    "jobs": "Jobs",
+    "contact": "Contact",
+    "email": "Adresse mail",
+    "linkedin": "Linkedin",
+    "github": "GitHub",
+    "see_more": "En voir plus"
+  },
+  "error": {
+    "no_init": "Il semblerait que l'application n'ait pas pu se lancer correctement.",
+    "contact": "Contactez le support en mentionnant le message inscrit ci-dessous."
+  },
+  "splash": {
+    "get_data": "Récupération des données en cours..."
+  },
+  "popup_menu_button_language": {
+    "change_langue": "Changer la langue",
+    "refresh_recommend": "Rafraîchissement recommandé",
+    "refresh_recommend_content": "Pour prendre en compte votre modification, il faudra que cette page soit rafraîchie."
+  },
+  "custom_animated_text_kit": {
+    "dev_flutter": "développeur Flutter",
+    "gamers": "joueur amateur",
+    "dev_web": "développeur Web",
+    "photographer": "photographe amateur",
+    "dev_android": "développeur Android"
+  },
+  "custom_card_image": {
+    "go_github": "Aller sur GitHub"
+  },
+  "views_realisation": {
+    "online": "En ligne",
+    "archive": "Archive",
+    "all": "Tous",
+    "my_different": "Mes différentes",
+    "realisation": "réalisations"
+  },
+  "views_presentation": {
+    "i_am": "Je suis DEVILLIERS Matthieu",
+    "my_name_is": "Mon nom est",
+    "name": "DEVILLIERS Matthieu.",
+    "date_birth": "Date de naissance",
+    "date_birth_value": "29/09/2000",
+    "age": "Age",
+    "years": "ans",
+    "mobility": "Mobilité",
+    "permit_b": "Permis B",
+    "location": "Localisation",
+    "interests": "Intérêts",
+    "interests_value": "Jeux vidéo, Photographie, Streaming & Vidéo, Musique, Rollers, Vélo, Informatique",
+    "school": "École",
+    "formation": "Formation",
+    "formation_value": "Titre Concepteur Développeur d'Application",
+    "company": "Entreprise actuelle",
+    "email": "Adresse mail",
+    "download_cv": "Télécharger CV",
+    "contact_me": "Me contacter"
+  },
+  "views_jobs": {
+    "my": "Mes",
+    "jobs": "jobs"
+  },
+  "views_header": {
+    "i_am": "Je suis"
+  },
+  "views_footer": {
+    "all_rights_reserved": "Tous droits réservés",
+    "develop_flutter": "Developpé avec Flutter"
+  },
+  "views_etudes": {
+    "my": "Mes",
+    "etudes": "études"
+  },
+  "views_contact": {
+    "contact": "Prenez contact avec",
+    "me": "moi"
+  },
+  "views_competence": {
+    "my": "Mes",
+    "competence": "compétences"
+  },
+  "contents": {
+    "description": "Je suis développeur web et Android, passionné et dévoué pour mes études et mon avenir. Avec 29 semaines de stage en entreprise, j'ai acquis les compétences et les connaissances nécessaires pour finaliser mes études et intégrer le monde du travail via l'alternance ou l'apprentissage.",
+    "today": "Aujourd'hui"
+  }
 }

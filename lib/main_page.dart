@@ -7,7 +7,7 @@ import 'package:cv_online_v2/views/footer.dart';
 import 'package:cv_online_v2/views/header.dart';
 import 'package:cv_online_v2/views/jobs.dart';
 import 'package:cv_online_v2/views/presentation.dart';
-import 'package:cv_online_v2/views/reallisation.dart';
+import 'package:cv_online_v2/views/realisation.dart';
 import 'package:cv_online_v2/views/recommandation.dart';
 import 'package:cv_online_v2/widgets/custom_drawer.dart';
 import 'package:cv_online_v2/widgets/icon_button_drawer.dart';

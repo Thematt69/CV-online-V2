@@ -37,6 +37,7 @@ class PresentationSection extends StatelessWidget {
           ),
           CustomAnimatedTextKit(
             textAlign: TextAlign.start,
+            prefix: '${translations.text('views_header.i_am')} ',
             textStyle: Theme.of(context).textTheme.headline2!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 26,
@@ -54,7 +55,7 @@ class PresentationSection extends StatelessWidget {
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: "DEVILLIERS Matthieu.",
+                  text: translations.text('views_presentation.name'),
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),

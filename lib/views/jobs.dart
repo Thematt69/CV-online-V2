@@ -50,6 +50,7 @@ class _JobsSectionState extends State<JobsSection> {
 
   @override
   Widget build(BuildContext context) {
+    _firestoreBloc.jobs.sort((a, b) => b.periode.end.compareTo(a.periode.end));
     return Container(
       color: greyLightColor,
       width: MediaQuery.of(context).size.width,
