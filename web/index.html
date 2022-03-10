@@ -2,7 +2,7 @@
 <html lang="fr-FR">
 
   <head>
-    <base href="/">
+    <base href="$FLUTTER_BASE_HREF">
 
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -40,10 +40,20 @@
 
     <!-- Splash screen -->
     <link rel="stylesheet" type="text/css" href="splash/style.css">
+    <script src="splash/splash.js"></script>
   </head>
 
-  <body
-    style="position: fixed; inset: 0px; overflow: hidden; padding: 0px; margin: 0px; user-select: none; touch-action: none; font: 14px sans-serif; color: red;">
+  <body>
+    <!-- Splash screen -->
+    <picture id="splash">
+      <source
+        srcset="splash/img/light-1x.webp 1x, splash/img/light-2x.webp 2x, splash/img/light-3x.webp 3x, splash/img/light-4x.webp 4x"
+        media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)">
+      <source
+        srcset="splash/img/dark-1x.webp 1x, splash/img/dark-2x.webp 2x, splash/img/dark-3x.webp 3x, splash/img/dark-4x.webp 4x"
+        media="(prefers-color-scheme: dark)">
+      <img class="center" aria-hidden="true" src="splash/img/light-1x.webp" />
+    </picture>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -87,7 +97,7 @@
               if (!reg.active && (reg.installing || reg.waiting)) {
                 // No active web worker and we have installed or are installing
                 // one for the first time. Simply wait for it to activate.
-                waitForActivation(reg.installing ?? reg.waiting);
+                waitForActivation(reg.installing || reg.waiting);
               } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
                 // When the app updates the serviceWorkerVersion changes, so we
                 // need to ask the service worker to update.
@@ -117,16 +127,6 @@
         loadMainDartJs();
       }
     </script>
-    <!-- Splash screen -->
-    <picture id="splash">
-      <source
-        srcset="splash/img/light-1x.webp 1x, splash/img/light-2x.webp 2x, splash/img/light-3x.webp 3x, splash/img/light-4x.webp 4x"
-        media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)">
-      <source
-        srcset="splash/img/dark-1x.webp 1x, splash/img/dark-2x.webp 2x, splash/img/dark-3x.webp 3x, splash/img/dark-4x.webp 4x"
-        media="(prefers-color-scheme: dark)">
-      <img class="center" src="splash/img/light-1x.webp" />
-    </picture>
   </body>
 
 </html>
