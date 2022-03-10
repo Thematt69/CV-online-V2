@@ -39,12 +39,19 @@ class _MyAppState extends State<MyApp> {
     try {
       WidgetsFlutterBinding.ensureInitialized();
       setPathUrlStrategy();
+
       await Firebase.initializeApp();
+
       await FirebaseAuth.instance.signInAnonymously();
+
       await SharedPrefsHelper.initPreferences();
+
       await translations.init();
       Intl.defaultLocale = translations.deviceLang;
-      await BlocProvider.master<FirestoreBloc>().initFirebase();
+
+      await BlocProvider.master<FirestoreBloc>().initFirestore();
+
+      return null;
     } catch (e) {
       return e.toString();
     }

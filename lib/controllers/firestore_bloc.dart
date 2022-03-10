@@ -45,7 +45,7 @@ class FirestoreBloc extends BlocBase {
   @override
   void initState() {}
 
-  Future<void> initFirebase() async {
+  Future<void> initFirestore() async {
     // SECTION - Stream
     competencesStream = FirebaseFirestore.instance
         .collection('competences')
