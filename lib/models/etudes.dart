@@ -73,8 +73,12 @@ class Etude {
             ? TradMapModel.fromJsonString(json[entryEcole] as String)
             : TradMapModel.fromJson(json[entryEcole] as Map<String, dynamic>),
         periode: DateTimeRange(
-          start: (json[entryPeriode][entryPeriodeStart] as Timestamp).toDate(),
-          end: (json[entryPeriode][entryPeriodeEnd] as Timestamp).toDate(),
+          start: ((json[entryPeriode]
+                  as Map<String, dynamic>)[entryPeriodeStart] as Timestamp)
+              .toDate(),
+          end: ((json[entryPeriode] as Map<String, dynamic>)[entryPeriodeEnd]
+                  as Timestamp)
+              .toDate(),
         ),
       );
 

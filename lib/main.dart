@@ -6,11 +6,8 @@ import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/main_page.dart';
 import 'package:cv_online_v2/splash_page.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
@@ -29,10 +26,6 @@ Future<void> main() async {
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static FirebaseAnalytics analytics = FirebaseAnalytics();
-  static FirebaseAnalyticsObserver observer =
-      FirebaseAnalyticsObserver(analytics: analytics);
-
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -46,12 +39,19 @@ class _MyAppState extends State<MyApp> {
     try {
       WidgetsFlutterBinding.ensureInitialized();
       setPathUrlStrategy();
+
       await Firebase.initializeApp();
+
       await FirebaseAuth.instance.signInAnonymously();
+
       await SharedPrefsHelper.initPreferences();
+
       await translations.init();
       Intl.defaultLocale = translations.deviceLang;
-      await BlocProvider.master<FirestoreBloc>().initFirebase();
+
+      await BlocProvider.master<FirestoreBloc>().initFirestore();
+
+      return null;
     } catch (e) {
       return e.toString();
     }
@@ -79,11 +79,11 @@ class _MyAppState extends State<MyApp> {
             themeMode: ThemeMode.light,
             theme: lightTheme,
             home: const MainPage(),
-            navigatorObservers: <NavigatorObserver>[MyApp.observer],
             supportedLocales: translations.supportedLocales,
             localizationsDelegates: const [
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
             ],
             locale: Locale(translations.deviceLang),
             localeResolutionCallback:

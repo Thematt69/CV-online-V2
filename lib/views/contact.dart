@@ -73,7 +73,7 @@ class _ContactSectionState extends State<ContactSection> {
                       ),
                       const SizedBox(width: defaultPadding6),
                       Text(
-                        "${_contact.label.currentLang} : ",
+                        '${_contact.label.currentLang} : ',
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.w500,

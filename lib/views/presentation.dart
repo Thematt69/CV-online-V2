@@ -114,7 +114,7 @@ class PresentationSection extends StatelessWidget {
                 // ),
                 CustomCardPresentation(
                   label: translations.text('views_presentation.school'),
-                  value: "XEFI ACADEMY - EPSI Lyon",
+                  value: 'XEFI ACADEMY - EPSI Lyon',
                   url: urlXefiAcademy,
                 ),
                 CustomCardPresentation(
@@ -124,7 +124,7 @@ class PresentationSection extends StatelessWidget {
                 ),
                 CustomCardPresentation(
                   label: translations.text('views_presentation.company'),
-                  value: "Sully Group",
+                  value: 'Sully Group',
                   url: urlSullyGroup,
                 ),
                 // CustomCardPresentation(

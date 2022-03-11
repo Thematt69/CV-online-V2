@@ -5,10 +5,9 @@ import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/extensions/date_time_extension.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/etudes.dart';
+import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
 import 'package:flutter/material.dart';
-
-import '../responsive.dart';
 
 class EtudesSection extends StatefulWidget {
   const EtudesSection({

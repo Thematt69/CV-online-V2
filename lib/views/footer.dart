@@ -14,11 +14,7 @@ class FooterSection extends StatefulWidget {
 }
 
 class _FooterSectionState extends State<FooterSection> {
-  late PackageInfo _packageInfo;
-
-  Future<void> getPackageInfo() async {
-    _packageInfo = await PackageInfo.fromPlatform();
-  }
+  Future<PackageInfo> _getPackageInfo() async => PackageInfo.fromPlatform();
 
   @override
   Widget build(BuildContext context) {
@@ -29,96 +25,52 @@ class _FooterSectionState extends State<FooterSection> {
         horizontal: defaultPadding16,
       ),
       width: double.infinity,
-      child: MediaQuery.of(context).size.width > 900
-          ? Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  'Matthieu Devilliers',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                ),
-                Text(
-                  ' | Copyright ©2021 ${translations.text('views_footer.all_rights_reserved')} | ',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                ),
-                Text(
-                  translations.text('views_footer.develop_flutter'),
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 4),
-                  child: FlutterLogo(),
-                ),
-                FutureBuilder(
-                  future: getPackageInfo(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      return Text(
-                        '| Version ${_packageInfo.version}',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
-                    }
-                    return const SizedBox();
-                  },
-                ),
-              ],
-            )
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Matthieu Devilliers',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                ),
-                Text(
-                  'Copyright ©2021 ${translations.text('views_footer.all_rights_reserved')}',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                      ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      translations.text('views_footer.develop_flutter'),
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Matthieu Devilliers ©2022',
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 4),
-                      child: FlutterLogo(),
+              ),
+              const SizedBox(width: 4),
+              Text(
+                '|',
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                  ],
-                ),
-                FutureBuilder(
-                  future: getPackageInfo(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      return Text(
-                        'Version ${_packageInfo.version}',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: Theme.of(context).colorScheme.onSecondary,
-                            ),
-                      );
-                    }
-                    return const SizedBox();
-                  },
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(width: 4),
+              Text(
+                translations.text('views_footer.develop_flutter'),
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
+              ),
+              const SizedBox(width: 4),
+              const FlutterLogo(),
+            ],
+          ),
+          FutureBuilder<PackageInfo>(
+            future: _getPackageInfo(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done &&
+                  snapshot.data != null) {
+                return Text(
+                  'v${snapshot.data!.version}',
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                );
+              }
+              return const SizedBox();
+            },
+          )
+        ],
+      ),
     );
   }
 }

@@ -100,9 +100,14 @@ class Job {
             ? TradMapModel.fromJsonString(json[entryLieu] as String)
             : TradMapModel.fromJson(json[entryLieu] as Map<String, dynamic>),
         periode: DateTimeRange(
-          start: (json[entryPeriode][entryPeriodeStart] as Timestamp).toDate(),
-          end: json[entryPeriode][entryPeriodeEnd] != null
-              ? (json[entryPeriode][entryPeriodeEnd] as Timestamp).toDate()
+          start: ((json[entryPeriode]
+                  as Map<String, dynamic>)[entryPeriodeStart] as Timestamp)
+              .toDate(),
+          end: (json[entryPeriode] as Map<String, dynamic>)[entryPeriodeEnd] !=
+                  null
+              ? ((json[entryPeriode] as Map<String, dynamic>)[entryPeriodeEnd]
+                      as Timestamp)
+                  .toDate()
               : DateTime.now(),
         ),
         poste: json[entryPoste] is String

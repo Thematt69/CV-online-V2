@@ -3,10 +3,9 @@ import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/realisation.dart';
+import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
 import 'package:flutter/material.dart';
-
-import '../responsive.dart';
 
 class RealisationSection extends StatefulWidget {
   const RealisationSection({
