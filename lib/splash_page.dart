@@ -1,8 +1,7 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
-
-import 'localization/localization.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -39,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
               Text(
                 translations.text(
                   'splash.get_data',
-                  defaultText: "Récupération des données en cours...",
+                  defaultText: 'Récupération des données en cours...',
                 ),
                 style: Theme.of(context).textTheme.headline2?.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,

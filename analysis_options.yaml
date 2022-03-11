@@ -5,6 +5,16 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "lib/generated_plugin_registrant.dart"
-
   errors:
-    depend_on_referenced_packages: ignore
+    avoid_print: ignore
+    todo: info
+
+linter:
+  rules:
+    use_key_in_widget_constructors: true
+    prefer_single_quotes: true
+    require_trailing_commas: true
+    close_sinks: true
+    cancel_subscriptions: true
+    unnecessary_late: true
+    use_decorated_box: true

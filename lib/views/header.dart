@@ -2,11 +2,9 @@ import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
+import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../responsive.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({Key? key}) : super(key: key);
@@ -56,19 +54,10 @@ class HeaderSection extends StatelessWidget {
                       fit: BoxFit.cover,
                       width: 260,
                       height: 260,
-                      frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
-                        if (wasSynchronouslyLoaded) {
-                          return const SizedBox(
-                            width: 260,
-                            height: 260,
-                            child: Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          );
-                        }
-                        return child;
-                      },
-                      errorBuilder: (_, __, ___) => const SizedBox(),
+                      errorBuilder: (_, __, ___) => const SizedBox(
+                        width: 260,
+                        height: 260,
+                      ),
                     ),
                   ),
                 ),

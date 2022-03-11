@@ -46,7 +46,7 @@ class CustomCardImage extends StatelessWidget {
               width: widthCard,
               color: Theme.of(context)
                   .colorScheme
-                  .secondaryVariant
+                  .secondaryContainer
                   .withOpacity(0.7),
               padding: const EdgeInsets.symmetric(
                 horizontal: defaultPadding30 / 2,

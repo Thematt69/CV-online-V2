@@ -36,7 +36,7 @@ class ErrorPage extends StatelessWidget {
                 translations.text(
                   'error.contact',
                   defaultText:
-                      "Contactez le support en mentionnant le message inscrit ci-dessous.",
+                      'Contactez le support en mentionnant le message inscrit ci-dessous.',
                 ),
                 style: Theme.of(context).textTheme.headline4?.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,

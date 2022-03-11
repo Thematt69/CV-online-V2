@@ -1,7 +1,6 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class IconButtonDrawer extends StatefulWidget {

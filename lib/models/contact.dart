@@ -58,8 +58,9 @@ class Contact {
 
   factory Contact.fromFireStore(Map<String, dynamic> json) => Contact(
         icon: IconData(
-          json[entryIcon][entryIconCodePoint] as int,
-          fontFamily: json[entryIcon][entryIconFontFamily] as String,
+          (json[entryIcon] as Map<String, dynamic>)[entryIconCodePoint] as int,
+          fontFamily: (json[entryIcon]
+              as Map<String, dynamic>)[entryIconFontFamily] as String,
           fontPackage: 'font_awesome_flutter',
         ),
         label: json[entryLabel] is String

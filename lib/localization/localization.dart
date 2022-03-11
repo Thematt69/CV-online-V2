@@ -24,7 +24,7 @@ class CustomLocalizations {
   CustomLocalizations._internal();
 
   Future<void> init() async {
-    String language = SharedPrefsHelper.currentLang ?? "";
+    String language = SharedPrefsHelper.currentLang ?? '';
     if (language.isEmpty) language = deviceLang;
     await setNewLanguage(
       isLangSupported(language) ? language : defaultLocale.languageCode,
@@ -87,7 +87,7 @@ class CustomLocalizations {
           WidgetsBinding.instance?.window.locales ?? [];
       if (systemLocales.isNotEmpty) {
         currentLocale =
-            "${systemLocales.first.languageCode}_${systemLocales.first.countryCode}";
+            '${systemLocales.first.languageCode}_${systemLocales.first.countryCode}';
       }
       debugPrint('DEVICE LANGUAGE: $currentLocale');
       if (currentLocale.length > 2) return currentLocale.substring(0, 2);
