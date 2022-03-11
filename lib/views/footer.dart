@@ -21,34 +21,28 @@ class _FooterSectionState extends State<FooterSection> {
     return Container(
       color: darkLightColor,
       padding: const EdgeInsets.symmetric(
-        vertical: defaultPadding60,
+        vertical: defaultPadding30,
         horizontal: defaultPadding16,
       ),
       width: double.infinity,
       child: Column(
         children: [
+          Text(
+            'Matthieu Devilliers ©2022',
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+          ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                'Matthieu Devilliers ©2022',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: Theme.of(context).colorScheme.onSecondary,
-                    ),
-              ),
-              const SizedBox(width: 4),
-              Text(
-                '|',
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: Theme.of(context).colorScheme.onSecondary,
-                    ),
-              ),
-              const SizedBox(width: 4),
-              Text(
-                translations.text('views_footer.develop_flutter'),
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: Theme.of(context).colorScheme.onSecondary,
-                    ),
+              Flexible(
+                child: Text(
+                  translations.text('views_footer.develop_flutter'),
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                ),
               ),
               const SizedBox(width: 4),
               const FlutterLogo(),
