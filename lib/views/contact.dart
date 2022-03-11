@@ -57,14 +57,14 @@ class _ContactSectionState extends State<ContactSection> {
           ),
           const SizedBox(height: defaultPadding30),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: List.generate(
               _firestoreBloc.contacts.length,
               (index) {
                 final Contact _contact = _firestoreBloc.contacts[index];
                 return Padding(
                   padding: const EdgeInsets.only(bottom: defaultPadding16),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Wrap(
                     children: [
                       FaIcon(
                         _contact.icon,
@@ -81,20 +81,18 @@ class _ContactSectionState extends State<ContactSection> {
                             ),
                       ),
                       // TODO - Cacher et afficher au clic (pour le mail uniquement) - Eviter le spam robot
-                      Expanded(
-                        child: InkWell(
-                          onTap: () async => launch(_contact.url),
-                          child: Text(
-                            _contact.value,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  height: 1,
-                                  decoration: TextDecoration.underline,
-                                ),
-                          ),
+                      InkWell(
+                        onTap: () async => launch(_contact.url),
+                        child: Text(
+                          _contact.value,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                color: Theme.of(context).colorScheme.primary,
+                                height: 1,
+                                decoration: TextDecoration.underline,
+                              ),
                         ),
                       ),
                     ],
