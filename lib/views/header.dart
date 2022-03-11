@@ -54,19 +54,10 @@ class HeaderSection extends StatelessWidget {
                       fit: BoxFit.cover,
                       width: 260,
                       height: 260,
-                      frameBuilder: (_, child, __, wasSynchronouslyLoaded) {
-                        if (wasSynchronouslyLoaded) {
-                          return const SizedBox(
-                            width: 260,
-                            height: 260,
-                            child: Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          );
-                        }
-                        return child;
-                      },
-                      errorBuilder: (_, __, ___) => const SizedBox(),
+                      errorBuilder: (_, __, ___) => const SizedBox(
+                        width: 260,
+                        height: 260,
+                      ),
                     ),
                   ),
                 ),
