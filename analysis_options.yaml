@@ -7,7 +7,7 @@ analyzer:
     - "lib/generated_plugin_registrant.dart"
   errors:
     avoid_print: ignore
-    todo: ignore
+    todo: info
 
 linter:
   rules:
