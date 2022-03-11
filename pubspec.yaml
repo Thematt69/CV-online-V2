@@ -16,6 +16,8 @@ dependencies:
   firebase_core: ^1.13.1
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   font_awesome_flutter: ^9.2.0
   intl: ^0.17.0
   package_info_plus: ^1.4.0
@@ -24,8 +26,6 @@ dependencies:
   url_strategy: ^0.2.0
 
 dev_dependencies:
-  flutter_localizations:
-    sdk: flutter
   flutter_native_splash: ^2.1.0
   flutter_test:
     sdk: flutter

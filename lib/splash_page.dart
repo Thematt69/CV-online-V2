@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
               Text(
                 translations.text(
                   'splash.get_data',
-                  defaultText: "Récupération des données en cours...",
+                  defaultText: 'Récupération des données en cours...',
                 ),
                 style: Theme.of(context).textTheme.headline2?.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,
