@@ -26,19 +26,19 @@ class _EtudesSectionState extends State<EtudesSection> {
 
   double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
-      return MediaQuery.of(context).size.width - 180;
+      return MediaQuery.of(context).size.width - CvSizes.px180;
     } else {
       return MediaQuery.of(context).size.width;
     }
   }
 
   double get _widthCard {
-    if (_widthMediaQuery - defaultPadding30 > 1290) {
-      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (_widthMediaQuery - defaultPadding30 > 860) {
-      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
+    if (_widthMediaQuery - CvSizes.px30 > CvSizes.px1290) {
+      return (_widthMediaQuery - CvSizes.px120) / 3;
+    } else if (_widthMediaQuery - CvSizes.px30 > CvSizes.px860) {
+      return (_widthMediaQuery - CvSizes.px90) / 2;
     } else {
-      return _widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - CvSizes.px60;
     }
   }
 
@@ -53,12 +53,9 @@ class _EtudesSectionState extends State<EtudesSection> {
     _firestoreBloc.etudes
         .sort((a, b) => b.periode.end.compareTo(a.periode.end));
     return Container(
-      color: greyLightColor,
+      color: CvColors.greyLight,
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding30,
-        vertical: defaultPadding30 * 3,
-      ),
+      padding: CvSizes.hor30ver90,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -79,10 +76,10 @@ class _EtudesSectionState extends State<EtudesSection> {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
           Wrap(
-            spacing: defaultPadding30,
-            runSpacing: defaultPadding30,
+            spacing: CvSizes.px30,
+            runSpacing: CvSizes.px30,
             alignment: WrapAlignment.spaceBetween,
             children: List.generate(
               _firestoreBloc.etudes.length,

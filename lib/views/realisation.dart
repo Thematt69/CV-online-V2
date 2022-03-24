@@ -5,6 +5,7 @@ import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/realisation.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
+import 'package:cv_online_v2/widgets/realisation_tab_bar.dart';
 import 'package:flutter/material.dart';
 
 class RealisationSection extends StatefulWidget {
@@ -38,21 +39,21 @@ class _RealisationSectionState extends State<RealisationSection> {
 
   double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
-      return MediaQuery.of(context).size.width - 180;
+      return MediaQuery.of(context).size.width - CvSizes.px180;
     } else {
       return MediaQuery.of(context).size.width;
     }
   }
 
   double get _widthCard {
-    if (_widthMediaQuery - defaultPadding30 > 1290) {
-      return (_widthMediaQuery - defaultPadding30 * 5) / 4;
-    } else if (_widthMediaQuery - defaultPadding30 > 860) {
-      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (_widthMediaQuery - defaultPadding30 > 550) {
-      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
+    if (_widthMediaQuery - CvSizes.px30 > CvSizes.px1290) {
+      return (_widthMediaQuery - CvSizes.px150) / 4;
+    } else if (_widthMediaQuery - CvSizes.px30 > CvSizes.px860) {
+      return (_widthMediaQuery - CvSizes.px120) / 3;
+    } else if (_widthMediaQuery - CvSizes.px30 > CvSizes.px550) {
+      return (_widthMediaQuery - CvSizes.px90) / 2;
     } else {
-      return _widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - CvSizes.px60;
     }
   }
 
@@ -66,105 +67,11 @@ class _RealisationSectionState extends State<RealisationSection> {
     }
   }
 
-  Widget _buildTabBar(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        InkWell(
-          onTap: () {
-            _online.value = null;
-          },
-          onHover: (bool value) {
-            _hoverAll.value = value;
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: ValueListenableBuilder<bool?>(
-              valueListenable: _online,
-              builder: (context, online, child) => ValueListenableBuilder<bool>(
-                valueListenable: _hoverAll,
-                builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.all'),
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                        color: hover || online == null
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
-                        fontWeight: online == null
-                            ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
-                      ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            _online.value = true;
-          },
-          onHover: (bool value) {
-            _hoverOnline.value = value;
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: ValueListenableBuilder<bool?>(
-              valueListenable: _online,
-              builder: (context, online, child) => ValueListenableBuilder<bool>(
-                valueListenable: _hoverOnline,
-                builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.online'),
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                        color: hover || online == true
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
-                        fontWeight: online == true
-                            ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
-                      ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            _online.value = false;
-          },
-          onHover: (bool value) {
-            _hoverArchive.value = value;
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(defaultPadding30 / 2),
-            child: ValueListenableBuilder<bool?>(
-              valueListenable: _online,
-              builder: (context, online, child) => ValueListenableBuilder<bool>(
-                valueListenable: _hoverArchive,
-                builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.archive'),
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                        color: hover || online == false
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
-                        fontWeight: online == false
-                            ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
-                      ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding30,
-        vertical: defaultPadding30 * 3,
-      ),
+      padding: CvSizes.hor30ver90,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -185,9 +92,14 @@ class _RealisationSectionState extends State<RealisationSection> {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding30),
-          _buildTabBar(context),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
+          RealisationTabBar(
+            online: _online,
+            hoverAll: _hoverAll,
+            hoverOnline: _hoverOnline,
+            hoverArchive: _hoverArchive,
+          ),
+          const SizedBox(height: CvSizes.px30),
           ValueListenableBuilder<bool?>(
             valueListenable: _online,
             builder: (context, online, child) {
@@ -200,8 +112,8 @@ class _RealisationSectionState extends State<RealisationSection> {
                 (a, b) => a.name.currentLang.compareTo(b.name.currentLang),
               );
               return Wrap(
-                spacing: defaultPadding30,
-                runSpacing: defaultPadding30,
+                spacing: CvSizes.px30,
+                runSpacing: CvSizes.px30,
                 children: List.generate(
                   _list.length,
                   (index) {

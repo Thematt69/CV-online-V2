@@ -48,10 +48,7 @@ class CustomCardImage extends StatelessWidget {
                   .colorScheme
                   .secondaryContainer
                   .withOpacity(0.7),
-              padding: const EdgeInsets.symmetric(
-                horizontal: defaultPadding30 / 2,
-                vertical: defaultPadding30 / 2,
-              ),
+              padding: CvSizes.hor15ver15,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -60,7 +57,7 @@ class CustomCardImage extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline5
-                        ?.copyWith(color: whiteColor),
+                        ?.copyWith(color: CvColors.white),
                   ),
                   Row(
                     children: [
@@ -69,7 +66,7 @@ class CustomCardImage extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1
-                            ?.copyWith(color: whiteColor),
+                            ?.copyWith(color: CvColors.white),
                       ),
                       const Spacer(),
                       Visibility(
@@ -80,7 +77,9 @@ class CustomCardImage extends StatelessWidget {
                           onPressed: () async => launch(urlGitHub!),
                           icon: FaIcon(
                             FontAwesomeIcons.github,
-                            color: Theme.of(context).colorScheme.onSecondary,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                           ),
                         ),
                       )

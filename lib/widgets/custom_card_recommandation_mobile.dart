@@ -25,7 +25,7 @@ class _CustomCardRecommandationMobileState
   Widget build(BuildContext context) {
     final Recommandation _recommandation = _firestoreBloc.recommandations.first;
     return Padding(
-      padding: const EdgeInsets.all(defaultPadding30),
+      padding: CvSizes.all30,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,20 +35,20 @@ class _CustomCardRecommandationMobileState
                   letterSpacing: 0,
                   height: 1.6,
                   fontWeight: FontWeight.w300,
-                  color: whiteDarkerColor,
+                  color: Theme.of(context).colorScheme.onSecondary,
                 ),
           ),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
           Text(
             _recommandation.auteur.currentLang,
             style: Theme.of(context).textTheme.headline3?.copyWith(
                   letterSpacing: 0,
                   fontWeight: FontWeight.w300,
                   fontSize: 18,
-                  color: greyColor,
+                  color: CvColors.grey,
                 ),
           ),
-          const SizedBox(height: defaultPadding6),
+          const SizedBox(height: CvSizes.px6),
           Row(
             children: [
               Expanded(
@@ -58,14 +58,16 @@ class _CustomCardRecommandationMobileState
                     Text(
                       _recommandation.poste.currentLang,
                       style: Theme.of(context).textTheme.headline5?.copyWith(
-                            color: orangeColor,
+                            color:
+                                Theme.of(context).colorScheme.primaryContainer,
                             fontSize: 18,
                           ),
                     ),
                     Text(
                       _recommandation.entreprise.currentLang,
                       style: Theme.of(context).textTheme.headline5?.copyWith(
-                            color: orangeColor,
+                            color:
+                                Theme.of(context).colorScheme.primaryContainer,
                             fontSize: 18,
                           ),
                     ),
@@ -75,7 +77,7 @@ class _CustomCardRecommandationMobileState
               Visibility(
                 visible: Responsive.isTablet(context),
                 child: Image.asset(
-                  assetDoubleQuote,
+                  CvAssets.doubleQuote,
                   width: 60,
                   errorBuilder: (_, __, ___) => const SizedBox(width: 60),
                 ),

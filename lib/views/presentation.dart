@@ -20,12 +20,9 @@ class PresentationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: whiteColor,
+      color: CvColors.white,
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding30,
-        vertical: defaultPadding60,
-      ),
+      padding: CvSizes.hor30ver60,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,12 +42,12 @@ class PresentationSection extends StatelessWidget {
                   fontWeight: FontWeight.w300,
                 ),
           ),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
           RichText(
             text: TextSpan(
               text: translations.text('views_presentation.my_name_is'),
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                    color: greyDarkColor,
+                    color: CvColors.greyDark,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
@@ -64,17 +61,17 @@ class PresentationSection extends StatelessWidget {
                 TextSpan(
                   text: translations.text('contents.description'),
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: greyDarkColor,
+                        color: CvColors.greyDark,
                       ),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: defaultPadding30),
+            padding: CvSizes.ver30,
             child: Wrap(
-              spacing: 10,
-              runSpacing: 10,
+              spacing: CvSizes.px10,
+              runSpacing: CvSizes.px10,
               children: [
                 CustomCardPresentation(
                   label: translations.text('views_presentation.date_birth'),
@@ -93,13 +90,13 @@ class PresentationSection extends StatelessWidget {
                 CustomCardPresentation(
                   label: translations.text('views_presentation.location'),
                   value: 'Corbas, 69960 France',
-                  url: urlMaps,
+                  url: CvUrls.urlMaps,
                 ),
                 // TODO - Cacher et afficher au clic - Eviter le spam robot
                 CustomCardPresentation(
                   label: translations.text('views_presentation.email'),
                   value: 'devilliers.matthieu@gmail.com',
-                  url: urlMail,
+                  url: CvUrls.urlMail,
                 ),
                 CustomCardPresentation(
                   label: translations.text('views_presentation.interests'),
@@ -115,7 +112,7 @@ class PresentationSection extends StatelessWidget {
                 CustomCardPresentation(
                   label: translations.text('views_presentation.school'),
                   value: 'XEFI ACADEMY - EPSI Lyon',
-                  url: urlXefiAcademy,
+                  url: CvUrls.urlXefiAcademy,
                 ),
                 CustomCardPresentation(
                   label: translations.text('views_presentation.formation'),
@@ -125,7 +122,7 @@ class PresentationSection extends StatelessWidget {
                 CustomCardPresentation(
                   label: translations.text('views_presentation.company'),
                   value: 'Sully Group',
-                  url: urlSullyGroup,
+                  url: CvUrls.urlSullyGroup,
                 ),
                 // CustomCardPresentation(
                 //
@@ -139,18 +136,18 @@ class PresentationSection extends StatelessWidget {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () async => launch(urlCV),
+                onPressed: () async => launch(CvUrls.urlCV),
                 child:
                     Text(translations.text('views_presentation.download_cv')),
               ),
               if (Responsive.isMobile(context))
                 const Spacer()
               else
-                const SizedBox(width: defaultPadding60),
+                const SizedBox(width: CvSizes.px60),
               ElevatedButton(
                 onPressed: () {
                   scrollController.animateTo(
-                    positionContact,
+                    CvSections.positionContact,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear,
                   );
