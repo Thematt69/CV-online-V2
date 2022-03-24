@@ -1,5 +1,4 @@
 import 'package:cv_online_v2/constants/assets.dart';
-import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/responsive.dart';
@@ -14,7 +13,7 @@ class HeaderSection extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color: darkLightColor,
+      color: Theme.of(context).colorScheme.secondary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -24,7 +23,7 @@ class HeaderSection extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(130),
               child: Image.asset(
-                assetPhoto3056,
+                CvAssets.photo3056,
                 fit: BoxFit.cover,
                 width: 260,
                 height: 260,
@@ -36,9 +35,7 @@ class HeaderSection extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: Responsive.isDesktop(context)
-                ? defaultPadding60
-                : defaultPadding30,
+            width: Responsive.isDesktop(context) ? CvSizes.px60 : CvSizes.px30,
           ),
           Flexible(
             child: Column(
@@ -50,7 +47,7 @@ class HeaderSection extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(130),
                     child: Image.asset(
-                      assetPhoto3056,
+                      CvAssets.photo3056,
                       fit: BoxFit.cover,
                       width: 260,
                       height: 260,
@@ -72,7 +69,7 @@ class HeaderSection extends StatelessWidget {
                             fontSize: Responsive.isDesktop(context) ? 72 : 50,
                           ),
                     ),
-                    const SizedBox(width: defaultPadding6),
+                    const SizedBox(width: CvSizes.px6),
                     Text(
                       'Matthieu',
                       overflow: TextOverflow.ellipsis,
@@ -94,9 +91,7 @@ class HeaderSection extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: Responsive.isDesktop(context)
-                ? defaultPadding60
-                : defaultPadding30,
+            width: Responsive.isDesktop(context) ? CvSizes.px60 : CvSizes.px30,
           ),
         ],
       ),

@@ -26,12 +26,12 @@ class CustomDrawer extends StatelessWidget {
         child: Container(
           width: 180,
           padding: EdgeInsets.symmetric(
-            horizontal: defaultPadding30,
-            vertical: MediaQuery.of(context).size.height > 390
-                ? defaultPadding30
-                : defaultPadding10,
+            horizontal: CvSizes.px30,
+            vertical: MediaQuery.of(context).size.height > CvSizes.px390
+                ? CvSizes.px30
+                : CvSizes.px10,
           ),
-          color: whiteColor,
+          color: CvColors.white,
           child: CustomMenu(scrollController: scrollController),
         ),
       ),

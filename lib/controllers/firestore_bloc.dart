@@ -8,16 +8,6 @@ import 'package:cv_online_v2/models/realisation.dart';
 import 'package:cv_online_v2/models/recommandation.dart';
 
 class FirestoreBloc extends BlocBase {
-  // SECTION - Stream
-
-  late Stream<QuerySnapshot<Map<String, dynamic>>> competencesStream;
-  late Stream<QuerySnapshot<Map<String, dynamic>>> contactsStream;
-  late Stream<QuerySnapshot<Map<String, dynamic>>> etudesStream;
-  late Stream<QuerySnapshot<Map<String, dynamic>>> jobsStream;
-  late Stream<QuerySnapshot<Map<String, dynamic>>> realisationsStream;
-  late Stream<QuerySnapshot<Map<String, dynamic>>> recommandationsStream;
-
-  // !SECTION - Stream
   // SECTION - Référence
 
   late CollectionReference<Competence> _competencesReference;
@@ -46,21 +36,6 @@ class FirestoreBloc extends BlocBase {
   void initState() {}
 
   Future<void> initFirestore() async {
-    // SECTION - Stream
-    competencesStream = FirebaseFirestore.instance
-        .collection('competences')
-        .orderBy('label')
-        .snapshots();
-    contactsStream =
-        FirebaseFirestore.instance.collection('contacts').snapshots();
-    etudesStream = FirebaseFirestore.instance.collection('etudes').snapshots();
-    jobsStream = FirebaseFirestore.instance.collection('jobs').snapshots();
-    realisationsStream =
-        FirebaseFirestore.instance.collection('realisations').snapshots();
-    recommandationsStream =
-        FirebaseFirestore.instance.collection('recommandations').snapshots();
-
-    // !SECTION - Stream
     // SECTION - Référence
 
     _competencesReference = FirebaseFirestore.instance

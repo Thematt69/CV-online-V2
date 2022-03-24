@@ -35,9 +35,9 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
           children: [
             Row(
               children: [
@@ -58,20 +58,20 @@ class _MainPageState extends State<MainPage> {
                       child: Column(
                         children: [
                           HeaderSection(
-                            key: keyHeader,
+                            key: CvSections.keyHeader,
                           ),
                           PresentationSection(
-                            key: keyPresentation,
+                            key: CvSections.keyPresentation,
                             scrollController: _scrollController,
                           ),
                           CompetenceSection(
-                            key: keyCompetence,
+                            key: CvSections.keyCompetence,
                           ),
                           ValueListenableBuilder<bool>(
                             valueListenable: _isShowDrawer,
                             builder: (context, isShowDrawer, child) =>
                                 RealisationSection(
-                              key: keyRealisation,
+                              key: CvSections.keyRealisation,
                               isShowDrawer: isShowDrawer,
                             ),
                           ),
@@ -79,23 +79,23 @@ class _MainPageState extends State<MainPage> {
                             valueListenable: _isShowDrawer,
                             builder: (context, isShowDrawer, child) =>
                                 EtudesSection(
-                              key: keyEtudes,
+                              key: CvSections.keyEtudes,
                               isShowDrawer: isShowDrawer,
                             ),
                           ),
                           RecommandationSection(
-                            key: keyRecommandation,
+                            key: CvSections.keyRecommandation,
                           ),
                           ValueListenableBuilder<bool>(
                             valueListenable: _isShowDrawer,
                             builder: (context, isShowDrawer, child) =>
                                 JobsSection(
-                              key: keyJobs,
+                              key: CvSections.keyJobs,
                               isShowDrawer: isShowDrawer,
                             ),
                           ),
                           ContactSection(
-                            key: keyContact,
+                            key: CvSections.keyContact,
                           ),
                           const FooterSection(),
                         ],

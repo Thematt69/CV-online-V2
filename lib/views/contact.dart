@@ -29,12 +29,9 @@ class _ContactSectionState extends State<ContactSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: whiteColor,
+      color: CvColors.white,
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding30,
-        vertical: defaultPadding60,
-      ),
+      padding: CvSizes.hor30ver60,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -55,7 +52,7 @@ class _ContactSectionState extends State<ContactSection> {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: List.generate(
@@ -63,15 +60,15 @@ class _ContactSectionState extends State<ContactSection> {
               (index) {
                 final Contact _contact = _firestoreBloc.contacts[index];
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: defaultPadding16),
+                  padding: CvSizes.bottom16,
                   child: Wrap(
                     children: [
                       FaIcon(
                         _contact.icon,
-                        color: greyDarkColor,
+                        color: CvColors.greyDark,
                         size: 16,
                       ),
-                      const SizedBox(width: defaultPadding6),
+                      const SizedBox(width: CvSizes.px6),
                       Text(
                         '${_contact.label.currentLang} : ',
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(

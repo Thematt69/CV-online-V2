@@ -42,7 +42,7 @@ class _CustomMenuState extends State<CustomMenu> {
 
   void _goTo(Section section) {
     widget.scrollController.animateTo(
-      positionToSection(section),
+      CvSections.positionToSection(section),
       duration: const Duration(milliseconds: 200),
       curve: Curves.linear,
     );
@@ -56,7 +56,7 @@ class _CustomMenuState extends State<CustomMenu> {
         Visibility(
           visible: MediaQuery.of(context).size.height > 550,
           child: Image.asset(
-            assetLogo1833,
+            CvAssets.logo1833,
             width: 140,
             height: 140,
             errorBuilder: (_, __, ___) => const SizedBox(

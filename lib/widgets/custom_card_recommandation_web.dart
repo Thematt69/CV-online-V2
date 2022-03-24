@@ -24,21 +24,16 @@ class _CustomCardRecommandationWebState
   Widget build(BuildContext context) {
     final Recommandation recommandation = _firestoreBloc.recommandations.first;
     return Padding(
-      padding: const EdgeInsets.only(
-        left: defaultPadding60,
-        right: defaultPadding150,
-        top: defaultPadding60,
-        bottom: defaultPadding60,
-      ),
+      padding: CvSizes.left60Top60Bottom60Right150,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
-            assetDoubleQuote,
+            CvAssets.doubleQuote,
             width: 60,
             errorBuilder: (_, __, ___) => const SizedBox(width: 60),
           ),
-          const SizedBox(width: defaultPadding30),
+          const SizedBox(width: CvSizes.px30),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,31 +44,31 @@ class _CustomCardRecommandationWebState
                         letterSpacing: 0,
                         height: 1.6,
                         fontWeight: FontWeight.w300,
-                        color: whiteDarkerColor,
+                        color: Theme.of(context).colorScheme.onSecondary,
                       ),
                 ),
-                const SizedBox(height: defaultPadding30),
+                const SizedBox(height: CvSizes.px30),
                 Text(
                   recommandation.auteur.currentLang,
                   style: Theme.of(context).textTheme.headline3?.copyWith(
                         letterSpacing: 0,
                         fontWeight: FontWeight.w300,
                         fontSize: 18,
-                        color: greyColor,
+                        color: CvColors.grey,
                       ),
                 ),
-                const SizedBox(height: defaultPadding6),
+                const SizedBox(height: CvSizes.px6),
                 Text(
                   recommandation.poste.currentLang,
                   style: Theme.of(context).textTheme.headline5?.copyWith(
-                        color: orangeColor,
+                        color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,
                       ),
                 ),
                 Text(
                   recommandation.entreprise.currentLang,
                   style: Theme.of(context).textTheme.headline5?.copyWith(
-                        color: orangeColor,
+                        color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,
                       ),
                 ),

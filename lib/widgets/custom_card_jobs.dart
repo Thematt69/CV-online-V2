@@ -43,16 +43,12 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
         builder: (context, hover, child) => AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           width: widget.widthCard,
-          padding: const EdgeInsets.only(
-            top: defaultPadding30,
-            left: defaultPadding30,
-            bottom: defaultPadding30,
-          ),
+          padding: CvSizes.top30Left30Bottom30,
           decoration: BoxDecoration(
-            color: whiteColor,
+            color: CvColors.white,
             border: const Border(
               right: BorderSide(
-                color: orangeLightColor,
+                color: CvColors.orangeLight,
                 width: 8,
               ),
             ),
@@ -69,7 +65,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: defaultPadding30 - 8),
+                padding: CvSizes.right22,
                 child: Text(
                   widget.periode,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
@@ -78,14 +74,14 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                       ),
                 ),
               ),
-              const SizedBox(height: defaultPadding30 / 2),
+              const SizedBox(height: CvSizes.px15),
               const Divider(
                 thickness: 8,
-                color: orangeLightColor,
+                color: CvColors.orangeLight,
               ),
-              const SizedBox(height: defaultPadding30),
+              const SizedBox(height: CvSizes.px30),
               Padding(
-                padding: const EdgeInsets.only(right: defaultPadding30 - 8),
+                padding: CvSizes.right22,
                 child: Text(
                   widget.poste,
                   style: Theme.of(context).textTheme.headline3!.copyWith(
@@ -93,38 +89,38 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                       ),
                 ),
               ),
-              const SizedBox(height: defaultPadding30 / 2),
+              const SizedBox(height: CvSizes.px15),
               Padding(
-                padding: const EdgeInsets.only(right: defaultPadding30 - 8),
+                padding: CvSizes.right22,
                 child: Text(
                   widget.lieu,
                   style: Theme.of(context).textTheme.headline6!.copyWith(
                         fontWeight: FontWeight.w700,
-                        color: greyDarkColor,
+                        color: CvColors.greyDark,
                       ),
                 ),
               ),
               if (widget.service != null)
                 Padding(
-                  padding: const EdgeInsets.only(right: defaultPadding30 - 8),
+                  padding: CvSizes.right22,
                   child: Text(
                     widget.service!,
                     style: Theme.of(context).textTheme.headline6!.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: greyDarkColor,
+                          color: CvColors.greyDark,
                         ),
                   ),
                 ),
               if (widget.description != null)
                 Padding(
-                  padding: const EdgeInsets.only(right: defaultPadding30 - 8),
+                  padding: CvSizes.right22,
                   child: Text(
                     widget.description!,
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.w400,
-                          color: greyDarkColor,
+                          color: CvColors.greyDark,
                         ),
                   ),
                 ),

@@ -14,7 +14,7 @@ class CustomCardCompetence extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: orangeLightColor,
+      color: CvColors.orangeLight,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: InkWell(
         onTap:

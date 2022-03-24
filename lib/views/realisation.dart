@@ -38,21 +38,21 @@ class _RealisationSectionState extends State<RealisationSection> {
 
   double get _widthMediaQuery {
     if (widget.isShowDrawer && Responsive.isDesktop(context)) {
-      return MediaQuery.of(context).size.width - 180;
+      return MediaQuery.of(context).size.width - CvSizes.px180;
     } else {
       return MediaQuery.of(context).size.width;
     }
   }
 
   double get _widthCard {
-    if (_widthMediaQuery - defaultPadding30 > 1290) {
-      return (_widthMediaQuery - defaultPadding30 * 5) / 4;
-    } else if (_widthMediaQuery - defaultPadding30 > 860) {
-      return (_widthMediaQuery - defaultPadding30 * 4) / 3;
-    } else if (_widthMediaQuery - defaultPadding30 > 550) {
-      return (_widthMediaQuery - defaultPadding30 * 3) / 2;
+    if (_widthMediaQuery - CvSizes.px30 > CvSizes.px1290) {
+      return (_widthMediaQuery - CvSizes.px150) / 4;
+    } else if (_widthMediaQuery - CvSizes.px30 > CvSizes.px860) {
+      return (_widthMediaQuery - CvSizes.px120) / 3;
+    } else if (_widthMediaQuery - CvSizes.px30 > CvSizes.px550) {
+      return (_widthMediaQuery - CvSizes.px90) / 2;
     } else {
-      return _widthMediaQuery - defaultPadding30 * 2;
+      return _widthMediaQuery - CvSizes.px60;
     }
   }
 
@@ -77,7 +77,7 @@ class _RealisationSectionState extends State<RealisationSection> {
             _hoverAll.value = value;
           },
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding30 / 2),
+            padding: CvSizes.all15,
             child: ValueListenableBuilder<bool?>(
               valueListenable: _online,
               builder: (context, online, child) => ValueListenableBuilder<bool>(
@@ -105,7 +105,7 @@ class _RealisationSectionState extends State<RealisationSection> {
             _hoverOnline.value = value;
           },
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding30 / 2),
+            padding: CvSizes.all15,
             child: ValueListenableBuilder<bool?>(
               valueListenable: _online,
               builder: (context, online, child) => ValueListenableBuilder<bool>(
@@ -133,7 +133,7 @@ class _RealisationSectionState extends State<RealisationSection> {
             _hoverArchive.value = value;
           },
           child: Padding(
-            padding: const EdgeInsets.all(defaultPadding30 / 2),
+            padding: CvSizes.all15,
             child: ValueListenableBuilder<bool?>(
               valueListenable: _online,
               builder: (context, online, child) => ValueListenableBuilder<bool>(
@@ -161,10 +161,7 @@ class _RealisationSectionState extends State<RealisationSection> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding30,
-        vertical: defaultPadding30 * 3,
-      ),
+      padding: CvSizes.hor30ver90,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -185,9 +182,9 @@ class _RealisationSectionState extends State<RealisationSection> {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
           _buildTabBar(context),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
           ValueListenableBuilder<bool?>(
             valueListenable: _online,
             builder: (context, online, child) {
@@ -200,8 +197,8 @@ class _RealisationSectionState extends State<RealisationSection> {
                 (a, b) => a.name.currentLang.compareTo(b.name.currentLang),
               );
               return Wrap(
-                spacing: defaultPadding30,
-                runSpacing: defaultPadding30,
+                spacing: CvSizes.px30,
+                runSpacing: CvSizes.px30,
                 children: List.generate(
                   _list.length,
                   (index) {
