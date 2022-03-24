@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/models/trap_map_model.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class Etude {
+class Etude extends Equatable {
   static const entryDescription = 'description';
   static const entryEcole = 'ecole';
   static const entryDiplome = 'diplome';
@@ -15,31 +16,12 @@ class Etude {
   final TradMapModel diplome;
   final DateTimeRange periode;
 
-  Etude({
+  const Etude({
     required this.periode,
     required this.diplome,
     required this.description,
     required this.ecole,
   });
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Etude &&
-        other.periode == periode &&
-        other.diplome == diplome &&
-        other.description == description &&
-        other.ecole == ecole;
-  }
-
-  @override
-  int get hashCode {
-    return periode.hashCode ^
-        diplome.hashCode ^
-        description.hashCode ^
-        ecole.hashCode;
-  }
 
   @override
   String toString() {
@@ -91,4 +73,7 @@ class Etude {
           entryPeriodeEnd: Timestamp.fromDate(periode.end),
         }
       };
+
+  @override
+  List<Object> get props => [description, ecole, diplome, periode];
 }

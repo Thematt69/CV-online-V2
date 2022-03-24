@@ -2,9 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/extensions/date_time_extension.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/trap_map_model.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class Job {
+class Job extends Equatable {
   static const entryDescription = 'description';
   static const entryLieu = 'lieu';
   static const entryPeriode = 'periode';
@@ -21,7 +22,7 @@ class Job {
   final TradMapModel? service;
   final TradMapModel type;
 
-  Job({
+  const Job({
     required this.periode,
     required this.poste,
     required this.lieu,
@@ -42,28 +43,6 @@ class Job {
     return value;
   }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Job &&
-        other.periode == periode &&
-        other.poste == poste &&
-        other.lieu == lieu &&
-        other.description == description &&
-        other.type == type &&
-        other.service == service;
-  }
-
-  @override
-  int get hashCode {
-    return periode.hashCode ^
-        poste.hashCode ^
-        lieu.hashCode ^
-        description.hashCode ^
-        type.hashCode ^
-        service.hashCode;
-  }
 
   @override
   String toString() {
@@ -136,4 +115,16 @@ class Job {
         entryService: service?.toJson(),
         entryType: type.toJson(),
       };
+
+  @override
+  List<Object?> get props {
+    return [
+      description,
+      lieu,
+      periode,
+      poste,
+      service,
+      type,
+    ];
+  }
 }

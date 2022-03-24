@@ -5,6 +5,7 @@ import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/realisation.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
+import 'package:cv_online_v2/widgets/realisation_tab_bar.dart';
 import 'package:flutter/material.dart';
 
 class RealisationSection extends StatefulWidget {
@@ -66,97 +67,6 @@ class _RealisationSectionState extends State<RealisationSection> {
     }
   }
 
-  Widget _buildTabBar(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        InkWell(
-          onTap: () {
-            _online.value = null;
-          },
-          onHover: (bool value) {
-            _hoverAll.value = value;
-          },
-          child: Padding(
-            padding: CvSizes.all15,
-            child: ValueListenableBuilder<bool?>(
-              valueListenable: _online,
-              builder: (context, online, child) => ValueListenableBuilder<bool>(
-                valueListenable: _hoverAll,
-                builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.all'),
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                        color: hover || online == null
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
-                        fontWeight: online == null
-                            ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
-                      ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            _online.value = true;
-          },
-          onHover: (bool value) {
-            _hoverOnline.value = value;
-          },
-          child: Padding(
-            padding: CvSizes.all15,
-            child: ValueListenableBuilder<bool?>(
-              valueListenable: _online,
-              builder: (context, online, child) => ValueListenableBuilder<bool>(
-                valueListenable: _hoverOnline,
-                builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.online'),
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                        color: hover || online == true
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
-                        fontWeight: online == true
-                            ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
-                      ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            _online.value = false;
-          },
-          onHover: (bool value) {
-            _hoverArchive.value = value;
-          },
-          child: Padding(
-            padding: CvSizes.all15,
-            child: ValueListenableBuilder<bool?>(
-              valueListenable: _online,
-              builder: (context, online, child) => ValueListenableBuilder<bool>(
-                valueListenable: _hoverArchive,
-                builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.archive'),
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                        color: hover || online == false
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
-                        fontWeight: online == false
-                            ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
-                      ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -183,7 +93,12 @@ class _RealisationSectionState extends State<RealisationSection> {
             ),
           ),
           const SizedBox(height: CvSizes.px30),
-          _buildTabBar(context),
+          RealisationTabBar(
+            online: _online,
+            hoverAll: _hoverAll,
+            hoverOnline: _hoverOnline,
+            hoverArchive: _hoverArchive,
+          ),
           const SizedBox(height: CvSizes.px30),
           ValueListenableBuilder<bool?>(
             valueListenable: _online,

@@ -10,7 +10,7 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  double get size {
+  double get _size {
     if (MediaQuery.of(context).size.width <
         MediaQuery.of(context).size.height) {
       return MediaQuery.of(context).size.width / 3;
@@ -29,8 +29,8 @@ class _SplashPageState extends State<SplashPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: size,
-                width: size,
+                height: _size,
+                width: _size,
                 child: const CircularProgressIndicator(),
               ),
               const SizedBox(height: CvSizes.px30),

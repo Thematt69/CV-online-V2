@@ -1,26 +1,17 @@
 import 'package:cv_online_v2/models/trap_map_model.dart';
+import 'package:equatable/equatable.dart';
 
-class Competence {
+class Competence extends Equatable {
   static const entryLabel = 'label';
   static const entryUrl = 'url';
 
   final TradMapModel label;
   final String? url;
 
-  Competence({
+  const Competence({
     required this.label,
     this.url,
   });
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Competence && other.label == label && other.url == url;
-  }
-
-  @override
-  int get hashCode => label.hashCode ^ url.hashCode;
 
   @override
   String toString() => 'Competence(label: $label, url: $url)';
@@ -46,4 +37,7 @@ class Competence {
         entryLabel: label.toJson(),
         entryUrl: url,
       };
+
+  @override
+  List<Object?> get props => [label, url];
 }
