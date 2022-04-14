@@ -17,12 +17,6 @@ class _CompetenceSectionState extends State<CompetenceSection> {
   late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
 
   @override
-  void dispose() {
-    _firestoreBloc.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       color: CvColors.greyLight,

@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 class Job extends Equatable {
+  static const collectionName = 'jobs';
   static const entryDescription = 'description';
   static const entryLieu = 'lieu';
   static const entryPeriode = 'periode';
@@ -42,7 +43,6 @@ class Job extends Equatable {
     }
     return value;
   }
-
 
   @override
   String toString() {

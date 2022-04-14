@@ -2,6 +2,7 @@ import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 
 class Competence extends Equatable {
+  static const collectionName = 'competences';
   static const entryLabel = 'label';
   static const entryUrl = 'url';
 

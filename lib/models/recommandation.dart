@@ -2,6 +2,7 @@ import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 
 class Recommandation extends Equatable {
+  static const collectionName = 'recommandations';
   static const entryAuteur = 'auteur';
   static const entryEntreprise = 'entreprise';
   static const entryPoste = 'poste';

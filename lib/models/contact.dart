@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 class Contact extends Equatable {
+  static const collectionName = 'contacts';
   static const entryIcon = 'icon';
   static const entryIconCodePoint = 'codePoint';
   static const entryIconFontFamily = 'fontFamily';

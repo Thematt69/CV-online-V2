@@ -2,6 +2,7 @@ import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 
 class Realisation extends Equatable {
+  static const collectionName = 'realisations';
   static const entryImageUrl = 'imageUrl';
   static const entryName = 'name';
   static const entryUrl = 'url';
