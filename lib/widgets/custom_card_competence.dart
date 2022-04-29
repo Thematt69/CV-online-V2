@@ -17,8 +17,9 @@ class CustomCardCompetence extends StatelessWidget {
       color: CvColors.orangeLight,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: InkWell(
-        onTap:
-            competence.url != null ? () async => launch(competence.url!) : null,
+        onTap: competence.url != null
+            ? () async => launchUrl(Uri.parse(competence.url!))
+            : null,
         child: Text(
           competence.label.currentLang,
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
