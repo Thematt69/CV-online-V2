@@ -80,7 +80,7 @@ class _CustomCardEtudesState extends State<CustomCardEtudes> {
               const SizedBox(height: CvSizes.px30),
               Padding(
                 padding: CvSizes.right22,
-                child: Text(
+                child: SelectableText(
                   widget.nom,
                   style: Theme.of(context).textTheme.headline3!.copyWith(
                         color: Theme.of(context).colorScheme.onBackground,
@@ -90,7 +90,7 @@ class _CustomCardEtudesState extends State<CustomCardEtudes> {
               const SizedBox(height: CvSizes.px15),
               Padding(
                 padding: CvSizes.right22,
-                child: Text(
+                child: SelectableText(
                   widget.ecole,
                   style: Theme.of(context).textTheme.headline6!.copyWith(
                         fontWeight: FontWeight.w700,
@@ -100,7 +100,7 @@ class _CustomCardEtudesState extends State<CustomCardEtudes> {
               ),
               Padding(
                 padding: CvSizes.right22,
-                child: Text(
+                child: SelectableText(
                   widget.description,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         letterSpacing: 0.5,
