@@ -1,7 +1,9 @@
 import 'package:cv_online_v2/models/trap_map_model.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class Contact {
+class Contact extends Equatable {
+  static const collectionName = 'contacts';
   static const entryIcon = 'icon';
   static const entryIconCodePoint = 'codePoint';
   static const entryIconFontFamily = 'fontFamily';
@@ -14,28 +16,12 @@ class Contact {
   final String value;
   final String url;
 
-  Contact({
+  const Contact({
     required this.icon,
     required this.label,
     required this.value,
     required this.url,
   });
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Contact &&
-        other.icon == icon &&
-        other.label == label &&
-        other.value == value &&
-        other.url == url;
-  }
-
-  @override
-  int get hashCode {
-    return icon.hashCode ^ label.hashCode ^ value.hashCode ^ url.hashCode;
-  }
 
   @override
   String toString() {
@@ -79,4 +65,7 @@ class Contact {
         entryValue: value,
         entryUrl: url,
       };
+
+  @override
+  List<Object> get props => [icon, label, value, url];
 }

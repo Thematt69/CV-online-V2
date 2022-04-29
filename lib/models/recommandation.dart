@@ -1,6 +1,8 @@
 import 'package:cv_online_v2/models/trap_map_model.dart';
+import 'package:equatable/equatable.dart';
 
-class Recommandation {
+class Recommandation extends Equatable {
+  static const collectionName = 'recommandations';
   static const entryAuteur = 'auteur';
   static const entryEntreprise = 'entreprise';
   static const entryPoste = 'poste';
@@ -11,31 +13,12 @@ class Recommandation {
   final TradMapModel poste;
   final TradMapModel texte;
 
-  Recommandation({
+  const Recommandation({
     required this.auteur,
     required this.entreprise,
     required this.poste,
     required this.texte,
   });
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Recommandation &&
-        other.auteur == auteur &&
-        other.entreprise == entreprise &&
-        other.poste == poste &&
-        other.texte == texte;
-  }
-
-  @override
-  int get hashCode {
-    return auteur.hashCode ^
-        entreprise.hashCode ^
-        poste.hashCode ^
-        texte.hashCode;
-  }
 
   @override
   String toString() {
@@ -80,4 +63,7 @@ class Recommandation {
         entryPoste: poste.toJson(),
         entryText: texte.toJson(),
       };
+
+  @override
+  List<Object> get props => [auteur, entreprise, poste, texte];
 }

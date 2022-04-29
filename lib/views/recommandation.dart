@@ -1,4 +1,3 @@
-import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
@@ -25,19 +24,16 @@ class _RecommandationSectionState extends State<RecommandationSection> {
       return const SizedBox();
     }
     return Container(
-      color: darkLightColor,
+      color: Theme.of(context).colorScheme.secondary,
       width: double.infinity,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: whiteDarkerColor.withOpacity(0.2),
+            color: Theme.of(context).colorScheme.onSecondary.withOpacity(0.2),
             width: 10,
           ),
         ),
-        margin: const EdgeInsets.symmetric(
-          horizontal: defaultPadding40,
-          vertical: defaultPadding150,
-        ),
+        margin: CvSizes.hor40ver150,
         child: const Responsive(
           desktop: CustomCardRecommandationWeb(),
           tablet: CustomCardRecommandationMobile(),

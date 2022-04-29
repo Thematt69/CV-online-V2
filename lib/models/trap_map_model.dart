@@ -1,13 +1,14 @@
 import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
+import 'package:equatable/equatable.dart';
 
-class TradMapModel {
+class TradMapModel extends Equatable {
   static const entryEnUS = 'en_US';
   static const entryFrFR = 'fr_FR';
 
   final String? enUS;
   final String frFR;
 
-  TradMapModel({
+  const TradMapModel({
     this.enUS,
     required this.frFR,
   });
@@ -40,4 +41,7 @@ class TradMapModel {
 
   @override
   String toString() => '{enUS: $enUS, frFR: $frFR}';
+
+  @override
+  List<Object?> get props => [enUS, frFR];
 }

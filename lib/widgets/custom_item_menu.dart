@@ -22,17 +22,18 @@ class CustomItemMenu extends StatelessWidget {
       onHover: onHover,
       onTap: onTap,
       child: Container(
-        width: 180 - (defaultPadding30 * 2),
+        width: CvSizes.px120,
         padding: EdgeInsets.symmetric(
-          vertical: MediaQuery.of(context).size.height > 338
-              ? defaultPadding10
-              : defaultPadding6,
+          vertical: MediaQuery.of(context).size.height > CvSizes.px338
+              ? CvSizes.px10
+              : CvSizes.px6,
         ),
         child: Text(
           title,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                color:
-                    hover ? Theme.of(context).colorScheme.primary : blackColor,
+                color: hover
+                    ? Theme.of(context).colorScheme.primary
+                    : CvColors.black,
               ),
         ),
       ),

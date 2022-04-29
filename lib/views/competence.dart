@@ -17,20 +17,11 @@ class _CompetenceSectionState extends State<CompetenceSection> {
   late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
 
   @override
-  void dispose() {
-    _firestoreBloc.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
-      color: greyLightColor,
+      color: CvColors.greyLight,
       width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(
-        horizontal: defaultPadding30,
-        vertical: defaultPadding30 * 3,
-      ),
+      padding: CvSizes.hor30ver90,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -51,7 +42,7 @@ class _CompetenceSectionState extends State<CompetenceSection> {
               ],
             ),
           ),
-          const SizedBox(height: defaultPadding30),
+          const SizedBox(height: CvSizes.px30),
           Wrap(
             spacing: 10,
             runSpacing: 10,

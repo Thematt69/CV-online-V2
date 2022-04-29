@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
             key: _keyError,
             title: 'CV en ligne - DEVILLIERS Matthieu',
             themeMode: ThemeMode.light,
-            theme: lightTheme,
+            theme: CvThemeDatas.lightTheme,
             home: ErrorPage(
               error: snapshot.data!,
             ),
@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
             key: _keyMain,
             title: 'CV en ligne - DEVILLIERS Matthieu',
             themeMode: ThemeMode.light,
-            theme: lightTheme,
+            theme: CvThemeDatas.lightTheme,
             home: const MainPage(),
             supportedLocales: translations.supportedLocales,
             localizationsDelegates: const [
@@ -102,7 +102,7 @@ class _MyAppState extends State<MyApp> {
           key: _keySplash,
           title: 'CV en ligne - DEVILLIERS Matthieu',
           themeMode: ThemeMode.light,
-          theme: lightTheme,
+          theme: CvThemeDatas.lightTheme,
           home: const SplashPage(),
         );
       },

@@ -17,7 +17,7 @@ class CustomCardPresentation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: orangeLightColor,
+      color: CvColors.orangeLight,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -39,7 +39,7 @@ class CustomCardPresentation extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: url != null
                           ? Theme.of(context).colorScheme.primary
-                          : greyDarkColor,
+                          : CvColors.greyDark,
                       height: 1.6,
                       decoration: url != null ? TextDecoration.underline : null,
                     ),

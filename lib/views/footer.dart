@@ -1,4 +1,3 @@
-import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +18,8 @@ class _FooterSectionState extends State<FooterSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: darkLightColor,
-      padding: const EdgeInsets.symmetric(
-        vertical: defaultPadding30,
-        horizontal: defaultPadding16,
-      ),
+      color: Theme.of(context).colorScheme.secondary,
+      padding: CvSizes.hor16ver30,
       width: double.infinity,
       child: Column(
         children: [
@@ -44,7 +40,7 @@ class _FooterSectionState extends State<FooterSection> {
                       ),
                 ),
               ),
-              const SizedBox(width: 4),
+              const SizedBox(width: CvSizes.px4),
               const FlutterLogo(),
             ],
           ),

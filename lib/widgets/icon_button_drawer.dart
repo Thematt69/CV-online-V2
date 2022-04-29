@@ -42,7 +42,7 @@ class _IconButtonDrawerState extends State<IconButtonDrawer>
   Widget build(BuildContext context) {
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 200),
-      top: defaultPadding30,
+      top: CvSizes.px30,
       left: widget.isShowDrawer ? 180 : 0,
       child: Material(
         elevation: 20,
@@ -54,7 +54,7 @@ class _IconButtonDrawerState extends State<IconButtonDrawer>
           width: 40,
           height: 40,
           decoration: const BoxDecoration(
-            color: whiteColor,
+            color: CvColors.white,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(20),
               bottomRight: Radius.circular(20),

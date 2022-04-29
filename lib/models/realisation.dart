@@ -1,6 +1,8 @@
 import 'package:cv_online_v2/models/trap_map_model.dart';
+import 'package:equatable/equatable.dart';
 
-class Realisation {
+class Realisation extends Equatable {
+  static const collectionName = 'realisations';
   static const entryImageUrl = 'imageUrl';
   static const entryName = 'name';
   static const entryUrl = 'url';
@@ -11,7 +13,7 @@ class Realisation {
   final String? url;
   final String? urlGitHub;
 
-  Realisation({
+  const Realisation({
     required this.imageUrl,
     required this.name,
     this.url,
@@ -23,25 +25,6 @@ class Realisation {
   @override
   String toString() {
     return 'Realisation(imageUrl: $imageUrl, name: $name, url: $url, urlGitHub: $urlGitHub)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Realisation &&
-        other.imageUrl == imageUrl &&
-        other.name == name &&
-        other.url == url &&
-        other.urlGitHub == urlGitHub;
-  }
-
-  @override
-  int get hashCode {
-    return imageUrl.hashCode ^
-        name.hashCode ^
-        url.hashCode ^
-        urlGitHub.hashCode;
   }
 
   Realisation copyWith({
@@ -73,4 +56,7 @@ class Realisation {
         entryUrl: url,
         entryUrlGitHub: urlGitHub,
       };
+
+  @override
+  List<Object?> get props => [imageUrl, name, url, urlGitHub];
 }

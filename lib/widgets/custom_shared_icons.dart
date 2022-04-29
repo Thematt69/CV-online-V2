@@ -35,7 +35,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
 
   void _goTo(Section section) {
     widget.scrollController.animateTo(
-      positionToSection(section),
+      CvSections.positionToSection(section),
       duration: const Duration(milliseconds: 200),
       curve: Curves.linear,
     );
@@ -50,7 +50,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
           valueListenable: _hoverMail,
           builder: (context, hover, child) => CustomSharedIcon(
             hover: hover,
-            onPressed: () async => launch(urlMail),
+            onPressed: () async => launch(CvUrls.urlMail),
             iconData: Icons.email,
             title: translations.text('drawer.email'),
             onEnter: (event) {
@@ -65,7 +65,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
           valueListenable: _hoverLinkedin,
           builder: (context, hover, child) => CustomSharedIcon(
             title: translations.text('drawer.linkedin'),
-            onPressed: () async => launch(urlLinkedin),
+            onPressed: () async => launch(CvUrls.urlLinkedin),
             hover: hover,
             iconData: FontAwesomeIcons.linkedinIn,
             onEnter: (event) {
@@ -80,7 +80,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
           valueListenable: _hoverGitHub,
           builder: (context, hover, child) => CustomSharedIcon(
             title: translations.text('drawer.github'),
-            onPressed: () async => launch(urlGithub),
+            onPressed: () async => launch(CvUrls.urlGithub),
             hover: hover,
             iconData: FontAwesomeIcons.github,
             onEnter: (event) {

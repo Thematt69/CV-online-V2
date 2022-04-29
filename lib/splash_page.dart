@@ -1,4 +1,3 @@
-import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  double get size {
+  double get _size {
     if (MediaQuery.of(context).size.width <
         MediaQuery.of(context).size.height) {
       return MediaQuery.of(context).size.width / 3;
@@ -22,26 +21,26 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: darkLightColor,
-        body: Center(
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
+      body: SafeArea(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: size,
-                width: size,
+                height: _size,
+                width: _size,
                 child: const CircularProgressIndicator(),
               ),
-              const SizedBox(height: defaultPadding30),
+              const SizedBox(height: CvSizes.px30),
               Text(
                 translations.text(
                   'splash.get_data',
                   defaultText: 'Récupération des données en cours...',
                 ),
                 style: Theme.of(context).textTheme.headline2?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
                 textAlign: TextAlign.center,
               ),
