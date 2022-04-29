@@ -78,7 +78,7 @@ class _ContactSectionState extends State<ContactSection> {
                             ),
                       ),
                       InkWell(
-                        onTap: () async => launch(_contact.url),
+                        onTap: () async => launchUrl(Uri.parse(_contact.url)),
                         child: Text(
                           _contact.value,
                           style: Theme.of(context)

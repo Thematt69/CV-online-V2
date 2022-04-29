@@ -50,7 +50,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
           valueListenable: _hoverMail,
           builder: (context, hover, child) => CustomSharedIcon(
             hover: hover,
-            onPressed: () async => launch(CvUrls.urlMail),
+            onPressed: () async => launchUrl(Uri.parse(CvUrls.urlMail)),
             iconData: Icons.email,
             title: translations.text('drawer.email'),
             onEnter: (event) {
@@ -65,7 +65,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
           valueListenable: _hoverLinkedin,
           builder: (context, hover, child) => CustomSharedIcon(
             title: translations.text('drawer.linkedin'),
-            onPressed: () async => launch(CvUrls.urlLinkedin),
+            onPressed: () async => launchUrl(Uri.parse(CvUrls.urlLinkedin)),
             hover: hover,
             iconData: FontAwesomeIcons.linkedinIn,
             onEnter: (event) {
@@ -80,7 +80,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
           valueListenable: _hoverGitHub,
           builder: (context, hover, child) => CustomSharedIcon(
             title: translations.text('drawer.github'),
-            onPressed: () async => launch(CvUrls.urlGithub),
+            onPressed: () async => launchUrl(Uri.parse(CvUrls.urlGithub)),
             hover: hover,
             iconData: FontAwesomeIcons.github,
             onEnter: (event) {
