@@ -33,7 +33,8 @@ class CustomCardPresentation extends StatelessWidget {
           ),
           Flexible(
             child: InkWell(
-              onTap: url != null ? () async => launch(url!) : null,
+              onTap:
+                  url != null ? () async => launchUrl(Uri.parse(url!)) : null,
               child: Text(
                 value,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(

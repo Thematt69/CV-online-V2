@@ -54,7 +54,7 @@ class _PresentationSectionState extends State<PresentationSection> {
           const SizedBox(height: CvSizes.px30),
           if (_firestoreBloc.description != null)
             SelectableText.rich(
-               TextSpan(
+              TextSpan(
                 text: translations.text('views_presentation.my_name_is'),
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: CvColors.greyDark,
@@ -95,7 +95,7 @@ class _PresentationSectionState extends State<PresentationSection> {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () async => launch(CvUrls.urlCV),
+                onPressed: () async => launchUrl(Uri.parse(CvUrls.urlCV)),
                 child:
                     Text(translations.text('views_presentation.download_cv')),
               ),
