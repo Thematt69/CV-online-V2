@@ -52,7 +52,7 @@ class CustomCardImage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  SelectableText(
                     title,
                     style: Theme.of(context)
                         .textTheme

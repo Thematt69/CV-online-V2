@@ -53,8 +53,8 @@ class _PresentationSectionState extends State<PresentationSection> {
           ),
           const SizedBox(height: CvSizes.px30),
           if (_firestoreBloc.description != null)
-            RichText(
-              text: TextSpan(
+            SelectableText.rich(
+               TextSpan(
                 text: translations.text('views_presentation.my_name_is'),
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: CvColors.greyDark,

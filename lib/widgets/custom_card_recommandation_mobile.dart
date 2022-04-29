@@ -29,7 +29,7 @@ class _CustomCardRecommandationMobileState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          SelectableText(
             _recommandation.texte.currentLang,
             style: Theme.of(context).textTheme.headline6?.copyWith(
                   letterSpacing: 0,
@@ -39,7 +39,7 @@ class _CustomCardRecommandationMobileState
                 ),
           ),
           const SizedBox(height: CvSizes.px30),
-          Text(
+          SelectableText(
             _recommandation.auteur.currentLang,
             style: Theme.of(context).textTheme.headline3?.copyWith(
                   letterSpacing: 0,
@@ -55,7 +55,7 @@ class _CustomCardRecommandationMobileState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    SelectableText(
                       _recommandation.poste.currentLang,
                       style: Theme.of(context).textTheme.headline5?.copyWith(
                             color:
@@ -63,7 +63,7 @@ class _CustomCardRecommandationMobileState
                             fontSize: 18,
                           ),
                     ),
-                    Text(
+                    SelectableText(
                       _recommandation.entreprise.currentLang,
                       style: Theme.of(context).textTheme.headline5?.copyWith(
                             color:

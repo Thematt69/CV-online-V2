@@ -82,7 +82,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
               const SizedBox(height: CvSizes.px30),
               Padding(
                 padding: CvSizes.right22,
-                child: Text(
+                child: SelectableText(
                   widget.poste,
                   style: Theme.of(context).textTheme.headline3!.copyWith(
                         color: Theme.of(context).colorScheme.onBackground,
@@ -92,7 +92,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
               const SizedBox(height: CvSizes.px15),
               Padding(
                 padding: CvSizes.right22,
-                child: Text(
+                child: SelectableText(
                   widget.lieu,
                   style: Theme.of(context).textTheme.headline6!.copyWith(
                         fontWeight: FontWeight.w700,
@@ -103,7 +103,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
               if (widget.service != null)
                 Padding(
                   padding: CvSizes.right22,
-                  child: Text(
+                  child: SelectableText(
                     widget.service!,
                     style: Theme.of(context).textTheme.headline6!.copyWith(
                           fontSize: 16,
@@ -115,7 +115,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
               if (widget.description != null)
                 Padding(
                   padding: CvSizes.right22,
-                  child: Text(
+                  child: SelectableText(
                     widget.description!,
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
                           letterSpacing: 0.5,
