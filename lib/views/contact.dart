@@ -77,7 +77,6 @@ class _ContactSectionState extends State<ContactSection> {
                               height: 1,
                             ),
                       ),
-                      // TODO - Cacher et afficher au clic (pour le mail uniquement) - Eviter le spam robot
                       InkWell(
                         onTap: () async => launch(_contact.url),
                         child: Text(
