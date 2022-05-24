@@ -1,6 +1,6 @@
 import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ErrorPage extends StatelessWidget {
   final String error;
@@ -20,11 +20,7 @@ class ErrorPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                translations.text(
-                  'error.no_init',
-                  defaultText:
-                      "Il semblerait que l'application n'ait pas pu se lancer correctement.",
-                ),
+                AppLocalizations.of(context)!.error_noInit,
                 style: Theme.of(context).textTheme.headline2?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
@@ -32,11 +28,7 @@ class ErrorPage extends StatelessWidget {
               ),
               const SizedBox(height: CvSizes.px10),
               Text(
-                translations.text(
-                  'error.contact',
-                  defaultText:
-                      'Contactez le support en mentionnant le message inscrit ci-dessous.',
-                ),
+                AppLocalizations.of(context)!.error_contact,
                 style: Theme.of(context).textTheme.headline4?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),

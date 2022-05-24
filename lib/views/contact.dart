@@ -2,9 +2,9 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/contact.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -37,14 +37,14 @@ class _ContactSectionState extends State<ContactSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: translations.text('views_contact.contact'),
+              text: AppLocalizations.of(context)!.contactViews_contact,
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: translations.text('views_contact.me'),
+                  text: AppLocalizations.of(context)!.contactViews_me,
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -70,7 +70,7 @@ class _ContactSectionState extends State<ContactSection> {
                       ),
                       const SizedBox(width: CvSizes.px6),
                       Text(
-                        '${_contact.label.currentLang} : ',
+                        '${_contact.label.currentLang(context)} : ',
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.w500,

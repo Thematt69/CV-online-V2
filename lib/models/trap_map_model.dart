@@ -1,5 +1,5 @@
-import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class TradMapModel extends Equatable {
   static const entryEnUS = 'en_US';
@@ -25,7 +25,8 @@ class TradMapModel extends Equatable {
         entryFrFR: frFR,
       };
 
-  String get currentLang => _tradFromLangCode(SharedPrefsHelper.currentLang);
+  String currentLang(BuildContext context) =>
+      _tradFromLangCode(Localizations.localeOf(context).languageCode);
 
   String _tradFromLangCode(String? languageCode) {
     final tradMap = <String, String?>{

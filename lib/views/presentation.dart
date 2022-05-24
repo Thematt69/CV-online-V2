@@ -4,11 +4,11 @@ import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/constants/urls.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
 import 'package:cv_online_v2/widgets/custom_card_presentation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PresentationSection extends StatefulWidget {
@@ -36,14 +36,14 @@ class _PresentationSectionState extends State<PresentationSection> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            translations.text('views_presentation.i_am'),
+            AppLocalizations.of(context)!.presentationViews_iAm,
             style: Theme.of(context).textTheme.headline2?.copyWith(
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
           ),
           CustomAnimatedTextKit(
             textAlign: TextAlign.start,
-            prefix: '${translations.text('views_header.i_am')} ',
+            prefix: '${AppLocalizations.of(context)!.headerViews_iAm} ',
             textStyle: Theme.of(context).textTheme.headline2!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 26,
@@ -55,21 +55,22 @@ class _PresentationSectionState extends State<PresentationSection> {
           if (_firestoreBloc.description != null)
             SelectableText.rich(
               TextSpan(
-                text: translations.text('views_presentation.my_name_is'),
+                text: AppLocalizations.of(context)!.presentationViews_myNameIs,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: CvColors.greyDark,
                     ),
                 children: <TextSpan>[
                   const TextSpan(text: ' '),
                   TextSpan(
-                    text: translations.text('views_presentation.name'),
+                    text: AppLocalizations.of(context)!.presentationViews_name,
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
                           color: Theme.of(context).colorScheme.primary,
                         ),
                   ),
                   const TextSpan(text: ' '),
                   TextSpan(
-                    text: _firestoreBloc.description!.value.currentLang,
+                    text:
+                        _firestoreBloc.description!.value.currentLang(context),
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
                           color: CvColors.greyDark,
                         ),
@@ -85,8 +86,10 @@ class _PresentationSectionState extends State<PresentationSection> {
               children: List.generate(
                 _firestoreBloc.presentations.length,
                 (index) => CustomCardPresentation(
-                  label: _firestoreBloc.presentations[index].label!.currentLang,
-                  value: _firestoreBloc.presentations[index].value.currentLang,
+                  label: _firestoreBloc.presentations[index].label!
+                      .currentLang(context),
+                  value: _firestoreBloc.presentations[index].value
+                      .currentLang(context),
                   url: _firestoreBloc.presentations[index].url,
                 ),
               ),
@@ -96,8 +99,9 @@ class _PresentationSectionState extends State<PresentationSection> {
             children: [
               ElevatedButton(
                 onPressed: () async => launchUrl(Uri.parse(CvUrls.urlCV)),
-                child:
-                    Text(translations.text('views_presentation.download_cv')),
+                child: Text(
+                  AppLocalizations.of(context)!.presentationViews_downloadCv,
+                ),
               ),
               if (Responsive.isMobile(context))
                 const Spacer()
@@ -111,7 +115,9 @@ class _PresentationSectionState extends State<PresentationSection> {
                     curve: Curves.linear,
                   );
                 },
-                child: Text(translations.text('views_presentation.contact_me')),
+                child: Text(
+                  AppLocalizations.of(context)!.presentationViews_contactMe,
+                ),
               ),
             ],
           ),

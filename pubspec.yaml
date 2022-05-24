@@ -6,31 +6,30 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 0.10.1+27
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  version: ^2.10.5
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
-  animated_text_kit: ^4.2.1
-  cloud_firestore: ^3.1.10
-  equatable: ^2.0.3
-  firebase_auth: ^3.3.10
-  firebase_core: ^1.13.1
+  animated_text_kit: 4.2.1
+  cloud_firestore: 3.1.16
+  equatable: 2.0.3
+  firebase_auth: 3.3.18
+  firebase_core: 1.17.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  font_awesome_flutter: ^9.2.0
-  intl: ^0.17.0
-  package_info_plus: ^1.4.0
-  shared_preferences: ^2.0.13
-  url_launcher: ^6.1.0
-  url_strategy: ^0.2.0
+  font_awesome_flutter: 10.1.0
+  intl: 0.17.0
+  package_info_plus: 1.4.2
+  shared_preferences: 2.0.15
+  url_launcher: 6.1.2
+  url_strategy: 0.2.0
 
 dev_dependencies:
-  flutter_native_splash: ^2.1.0
+  flutter_native_splash: 2.2.1
   flutter_test:
     sdk: flutter
-  lint: ^1.8.2
+  lint: 1.8.2
 
 flutter_native_splash:
   color: "#121212"
@@ -38,6 +37,9 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
+
+  # Enable generation of localized Strings from arb files.
+  generate: true
 
   assets:
     - assets/

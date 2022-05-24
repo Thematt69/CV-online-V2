@@ -2,11 +2,11 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/jobs.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_jobs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class JobsSection extends StatefulWidget {
   const JobsSection({
@@ -59,14 +59,14 @@ class _JobsSectionState extends State<JobsSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: translations.text('views_jobs.my'),
+              text: AppLocalizations.of(context)!.jobsViews_my,
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: translations.text('views_jobs.jobs'),
+                  text: AppLocalizations.of(context)!.jobsViews_jobs,
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -84,12 +84,12 @@ class _JobsSectionState extends State<JobsSection> {
               (index) {
                 final Job _job = _firestoreBloc.jobs[index];
                 return CustomCardJobs(
-                  periode: _job.periodeString,
-                  lieu: _job.lieu.currentLang,
-                  poste: _job.poste.currentLang,
+                  periode: _job.periodeString(context),
+                  lieu: _job.lieu.currentLang(context),
+                  poste: _job.poste.currentLang(context),
                   widthCard: _widthCard,
-                  description: _job.description?.currentLang,
-                  service: _job.service?.currentLang,
+                  description: _job.description?.currentLang(context),
+                  service: _job.service?.currentLang(context),
                 );
               },
             ),

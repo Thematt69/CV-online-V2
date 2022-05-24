@@ -1,6 +1,6 @@
 import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RealisationTabBar extends StatelessWidget {
   const RealisationTabBar({
@@ -34,7 +34,7 @@ class RealisationTabBar extends StatelessWidget {
               builder: (context, online, child) => ValueListenableBuilder<bool>(
                 valueListenable: hoverAll,
                 builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.all'),
+                  AppLocalizations.of(context)!.realisationViews_all,
                   style: Theme.of(context).textTheme.button!.copyWith(
                         color: hover || online == null
                             ? Theme.of(context).colorScheme.primary
@@ -62,7 +62,7 @@ class RealisationTabBar extends StatelessWidget {
               builder: (context, online, child) => ValueListenableBuilder<bool>(
                 valueListenable: hoverOnline,
                 builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.online'),
+                  AppLocalizations.of(context)!.realisationViews_online,
                   style: Theme.of(context).textTheme.button!.copyWith(
                         color: hover || online == true
                             ? Theme.of(context).colorScheme.primary
@@ -90,7 +90,7 @@ class RealisationTabBar extends StatelessWidget {
               builder: (context, online, child) => ValueListenableBuilder<bool>(
                 valueListenable: hoverArchive,
                 builder: (context, hover, child) => Text(
-                  translations.text('views_realisation.archive'),
+                  AppLocalizations.of(context)!.realisationViews_archive,
                   style: Theme.of(context).textTheme.button!.copyWith(
                         color: hover || online == false
                             ? Theme.of(context).colorScheme.primary

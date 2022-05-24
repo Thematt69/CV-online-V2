@@ -39,9 +39,9 @@ mixin CvThemeDatas {
         ),
       ),
     ),
-    scrollbarTheme: const ScrollbarThemeData(
+    scrollbarTheme: ScrollbarThemeData(
       interactive: true,
-      showTrackOnHover: true,
+      trackVisibility: MaterialStateProperty.all(true),
     ),
   );
 }

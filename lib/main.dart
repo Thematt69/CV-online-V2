@@ -1,26 +1,44 @@
+import 'dart:async';
+
 import 'package:cv_online_v2/constants/theme_datas.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/error_page.dart';
-import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/main_page.dart';
 import 'package:cv_online_v2/splash_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-Future<void> main() async {
-  runApp(
-    BlocProvider(
-      key: GlobalKey(),
-      blocs: [FirestoreBloc()],
-      child: const MyApp(),
-    ),
-  );
+List<LocalizationsDelegate<Object>> _localizationsDelegates = const [
+  AppLocalizations.delegate,
+  GlobalMaterialLocalizations.delegate,
+  GlobalWidgetsLocalizations.delegate,
+  GlobalCupertinoLocalizations.delegate,
+];
+List<Locale> _supportedLocales = const [
+  Locale('fr', ''), // French, no country code
+  Locale('en', ''), // English, no country code
+];
+
+void main() async {
+  // * For more info on error handling, see:
+  // * https://docs.flutter.dev/testing/errors
+  await runZonedGuarded(() async {
+    runApp(
+      BlocProvider(
+        key: GlobalKey(),
+        blocs: [FirestoreBloc()],
+        child: const MyApp(),
+      ),
+    );
+  }, (Object error, StackTrace stack) {
+    // * Log any errors to console
+    debugPrint(error.toString());
+  });
 }
 
 class MyApp extends StatefulWidget {
@@ -38,16 +56,12 @@ class _MyAppState extends State<MyApp> {
   Future<String?> initialize() async {
     try {
       WidgetsFlutterBinding.ensureInitialized();
+
       setPathUrlStrategy();
 
       await Firebase.initializeApp();
 
       await FirebaseAuth.instance.signInAnonymously();
-
-      await SharedPrefsHelper.initPreferences();
-
-      await translations.init();
-      Intl.defaultLocale = translations.deviceLang;
 
       await BlocProvider.master<FirestoreBloc>().initFirestore();
 
@@ -66,44 +80,36 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
             key: _keyError,
             title: 'CV en ligne - DEVILLIERS Matthieu',
+            debugShowCheckedModeBanner: false,
             themeMode: ThemeMode.light,
             theme: CvThemeDatas.lightTheme,
             home: ErrorPage(
               error: snapshot.data!,
             ),
+            localizationsDelegates: _localizationsDelegates,
+            supportedLocales: _supportedLocales,
           );
         } else if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
             key: _keyMain,
             title: 'CV en ligne - DEVILLIERS Matthieu',
+            debugShowCheckedModeBanner: false,
             themeMode: ThemeMode.light,
             theme: CvThemeDatas.lightTheme,
             home: const MainPage(),
-            supportedLocales: translations.supportedLocales,
-            localizationsDelegates: const [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            locale: Locale(translations.deviceLang),
-            localeResolutionCallback:
-                (Locale? locale, Iterable<Locale> supportedLocales) {
-              locale ??= defaultLocale;
-              for (final supportedLocale in supportedLocales) {
-                if (supportedLocale.languageCode == locale.languageCode) {
-                  return supportedLocale;
-                }
-              }
-              return supportedLocales.first;
-            },
+            localizationsDelegates: _localizationsDelegates,
+            supportedLocales: _supportedLocales,
           );
         }
         return MaterialApp(
           key: _keySplash,
           title: 'CV en ligne - DEVILLIERS Matthieu',
+          debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.light,
           theme: CvThemeDatas.lightTheme,
           home: const SplashPage(),
+          localizationsDelegates: _localizationsDelegates,
+          supportedLocales: _supportedLocales,
         );
       },
     );

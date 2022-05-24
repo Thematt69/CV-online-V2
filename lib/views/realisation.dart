@@ -1,12 +1,12 @@
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/realisation.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_image.dart';
 import 'package:cv_online_v2/widgets/realisation_tab_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RealisationSection extends StatefulWidget {
   const RealisationSection({
@@ -57,13 +57,16 @@ class _RealisationSectionState extends State<RealisationSection> {
     }
   }
 
-  String _selectedFilterToString({bool? value}) {
+  String _selectedFilterToString({
+    bool? value,
+    required BuildContext context,
+  }) {
     if (value == null) {
-      return translations.text('views_realisation.all');
+      return AppLocalizations.of(context)!.realisationViews_all;
     } else if (value) {
-      return translations.text('views_realisation.online');
+      return AppLocalizations.of(context)!.realisationViews_online;
     } else {
-      return translations.text('views_realisation.archive');
+      return AppLocalizations.of(context)!.realisationViews_archive;
     }
   }
 
@@ -77,14 +80,15 @@ class _RealisationSectionState extends State<RealisationSection> {
         children: <Widget>[
           RichText(
             text: TextSpan(
-              text: translations.text('views_realisation.my_different'),
+              text: AppLocalizations.of(context)!.realisationViews_myDifferent,
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: translations.text('views_realisation.realisation'),
+                  text: AppLocalizations.of(context)!
+                      .realisationViews_realisation,
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -109,7 +113,9 @@ class _RealisationSectionState extends State<RealisationSection> {
                   )
                   .toList();
               _list.sort(
-                (a, b) => a.name.currentLang.compareTo(b.name.currentLang),
+                (a, b) => a.name
+                    .currentLang(context)
+                    .compareTo(b.name.currentLang(context)),
               );
               return Wrap(
                 spacing: CvSizes.px30,
@@ -121,8 +127,11 @@ class _RealisationSectionState extends State<RealisationSection> {
                     return CustomCardImage(
                       widthCard: _widthCard,
                       assetImage: _realisation.imageUrl,
-                      title: _realisation.name.currentLang,
-                      tag: _selectedFilterToString(value: _realisation.online),
+                      title: _realisation.name.currentLang(context),
+                      tag: _selectedFilterToString(
+                        value: _realisation.online,
+                        context: context,
+                      ),
                       url: _realisation.url,
                       urlGitHub: _realisation.urlGitHub,
                     );

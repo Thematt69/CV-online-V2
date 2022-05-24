@@ -1,7 +1,7 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class IconButtonDrawer extends StatefulWidget {
   final bool isShowDrawer;
@@ -76,8 +76,8 @@ class _IconButtonDrawerState extends State<IconButtonDrawer>
             child: Center(
               child: Tooltip(
                 message: widget.isShowDrawer
-                    ? translations.text('drawer.hide_menu')
-                    : translations.text('drawer.show_menu'),
+                    ? AppLocalizations.of(context)!.drawer_hideMenu
+                    : AppLocalizations.of(context)!.drawer_showMenu,
                 child: AnimatedIcon(
                   icon: AnimatedIcons.menu_arrow,
                   progress: _myAnimation,

@@ -1,9 +1,11 @@
-import 'package:cv_online_v2/helpers/shared_prefs_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
 extension DateTimeFormat on DateTime {
-  String get yMMMd =>
-      DateFormat.yMMMd(SharedPrefsHelper.currentLang).format(this);
-  String get yMMM =>
-      DateFormat.yMMM(SharedPrefsHelper.currentLang).format(this);
+  String yMMMd(BuildContext context) =>
+      DateFormat.yMMMd(Localizations.localeOf(context).languageCode)
+          .format(this);
+  String yMMM(BuildContext context) =>
+      DateFormat.yMMM(Localizations.localeOf(context).languageCode)
+          .format(this);
 }

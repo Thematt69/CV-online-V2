@@ -1,8 +1,8 @@
 import 'package:cv_online_v2/constants/sections.dart';
 import 'package:cv_online_v2/constants/urls.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/widgets/custom_shared_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -52,7 +52,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
             hover: hover,
             onPressed: () async => launchUrl(Uri.parse(CvUrls.urlMail)),
             iconData: Icons.email,
-            title: translations.text('drawer.email'),
+            title: AppLocalizations.of(context)!.drawer_email,
             onEnter: (event) {
               _hoverMail.value = true;
             },
@@ -64,7 +64,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
         ValueListenableBuilder<bool>(
           valueListenable: _hoverLinkedin,
           builder: (context, hover, child) => CustomSharedIcon(
-            title: translations.text('drawer.linkedin'),
+            title: AppLocalizations.of(context)!.drawer_linkedin,
             onPressed: () async => launchUrl(Uri.parse(CvUrls.urlLinkedin)),
             hover: hover,
             iconData: FontAwesomeIcons.linkedinIn,
@@ -79,7 +79,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
         ValueListenableBuilder<bool>(
           valueListenable: _hoverGitHub,
           builder: (context, hover, child) => CustomSharedIcon(
-            title: translations.text('drawer.github'),
+            title: AppLocalizations.of(context)!.drawer_github,
             onPressed: () async => launchUrl(Uri.parse(CvUrls.urlGithub)),
             hover: hover,
             iconData: FontAwesomeIcons.github,
@@ -94,7 +94,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
         ValueListenableBuilder<bool>(
           valueListenable: _hoverSeeMore,
           builder: (context, hover, child) => CustomSharedIcon(
-            title: translations.text('drawer.see_more'),
+            title: AppLocalizations.of(context)!.drawer_seeMore,
             onPressed: () {
               _goTo(Section.contact);
             },

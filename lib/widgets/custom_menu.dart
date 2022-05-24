@@ -1,9 +1,9 @@
 import 'package:cv_online_v2/constants/assets.dart';
 import 'package:cv_online_v2/constants/sections.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/widgets/custom_item_menu.dart';
 import 'package:cv_online_v2/widgets/custom_shared_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomMenu extends StatefulWidget {
   final ScrollController scrollController;
@@ -70,7 +70,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverAccueil,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.home'),
+            title: AppLocalizations.of(context)!.drawer_home,
             onHover: (value) {
               _hoverAccueil.value = value;
             },
@@ -84,7 +84,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverAPropos,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.presentation'),
+            title: AppLocalizations.of(context)!.drawer_presentation,
             onHover: (value) {
               _hoverAPropos.value = value;
             },
@@ -98,7 +98,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverCompetences,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.competence'),
+            title: AppLocalizations.of(context)!.drawer_competence,
             onHover: (value) {
               _hoverCompetences.value = value;
             },
@@ -112,7 +112,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverRealisations,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.realisation'),
+            title: AppLocalizations.of(context)!.drawer_realisation,
             onHover: (value) {
               _hoverRealisations.value = value;
             },
@@ -126,7 +126,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverEtudes,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.etudes'),
+            title: AppLocalizations.of(context)!.drawer_etudes,
             onHover: (value) {
               _hoverEtudes.value = value;
             },
@@ -140,7 +140,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverRecommandation,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.recommandation'),
+            title: AppLocalizations.of(context)!.drawer_recommandation,
             onHover: (value) {
               _hoverRecommandation.value = value;
             },
@@ -154,7 +154,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverJobs,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.jobs'),
+            title: AppLocalizations.of(context)!.drawer_jobs,
             onHover: (value) {
               _hoverJobs.value = value;
             },
@@ -168,7 +168,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverContact,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: translations.text('drawer.contact'),
+            title: AppLocalizations.of(context)!.drawer_contact,
             onHover: (value) {
               _hoverContact.value = value;
             },

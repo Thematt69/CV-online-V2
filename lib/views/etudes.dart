@@ -3,11 +3,12 @@ import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/extensions/date_time_extension.dart';
-import 'package:cv_online_v2/localization/localization.dart';
+import 'package:cv_online_v2/extensions/string_extension.dart';
 import 'package:cv_online_v2/models/etudes.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EtudesSection extends StatefulWidget {
   const EtudesSection({
@@ -61,14 +62,14 @@ class _EtudesSectionState extends State<EtudesSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: translations.text('views_etudes.my'),
+              text: AppLocalizations.of(context)!.etudesViews_my,
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: translations.text('views_etudes.etudes'),
+                  text: AppLocalizations.of(context)!.etudesViews_etudes,
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -87,10 +88,10 @@ class _EtudesSectionState extends State<EtudesSection> {
                 final Etude _etude = _firestoreBloc.etudes[index];
                 return CustomCardEtudes(
                   periode:
-                      '${_etude.periode.start.yMMM} - ${_etude.periode.end.yMMM}',
-                  ecole: _etude.ecole.currentLang,
-                  nom: _etude.diplome.currentLang,
-                  description: _etude.description.currentLang,
+                      '${_etude.periode.start.yMMM(context).capitalize} - ${_etude.periode.end.yMMM(context).capitalize}',
+                  ecole: _etude.ecole.currentLang(context),
+                  nom: _etude.diplome.currentLang(context),
+                  description: _etude.description.currentLang(context),
                   widthCard: _widthCard,
                 );
               },

@@ -1,6 +1,6 @@
 import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -35,10 +35,7 @@ class _SplashPageState extends State<SplashPage> {
               ),
               const SizedBox(height: CvSizes.px30),
               Text(
-                translations.text(
-                  'splash.get_data',
-                  defaultText: 'Récupération des données en cours...',
-                ),
+                AppLocalizations.of(context)!.splash_getData,
                 style: Theme.of(context).textTheme.headline2?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
