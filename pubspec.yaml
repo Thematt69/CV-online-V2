@@ -43,7 +43,6 @@ flutter:
 
   assets:
     - assets/
-    - assets/l10n/
     - assets/images/
 
   fonts:
