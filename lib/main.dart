@@ -4,6 +4,7 @@ import 'package:cv_online_v2/constants/theme_datas.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/error_page.dart';
+import 'package:cv_online_v2/firebase_options.dart';
 import 'package:cv_online_v2/main_page.dart';
 import 'package:cv_online_v2/splash_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -59,7 +60,9 @@ class _MyAppState extends State<MyApp> {
 
       setPathUrlStrategy();
 
-      await Firebase.initializeApp();
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
 
       await FirebaseAuth.instance.signInAnonymously();
 
