@@ -4,12 +4,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomAnimatedTextKit extends StatelessWidget {
   const CustomAnimatedTextKit({
-    Key? key,
+    super.key,
     this.prefix = '',
     required this.textStyle,
     this.textAlign = TextAlign.center,
     this.duration = const Duration(milliseconds: 100),
-  }) : super(key: key);
+  });
 
   final Duration duration;
   final String prefix;

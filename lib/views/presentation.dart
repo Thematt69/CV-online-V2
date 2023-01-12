@@ -13,9 +13,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 class PresentationSection extends StatefulWidget {
   const PresentationSection({
-    Key? key,
+    super.key,
     required this.scrollController,
-  }) : super(key: key);
+  });
 
   final ScrollController scrollController;
 

@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSharedIcon extends StatelessWidget {
   const CustomSharedIcon({
-    Key? key,
+    super.key,
     required this.onEnter,
     required this.onExit,
     required this.onPressed,
@@ -14,7 +14,7 @@ class CustomSharedIcon extends StatelessWidget {
     required this.hover,
     required this.title,
     this.size = 30,
-  }) : super(key: key);
+  });
 
   final void Function(PointerEnterEvent event)? onEnter;
   final void Function(PointerExitEvent event)? onExit;
@@ -36,9 +36,8 @@ class CustomSharedIcon extends StatelessWidget {
           onPressed: onPressed,
           icon: FaIcon(
             iconData,
-            color: hover
-                ? Theme.of(context).colorScheme.primary
-                : CvColors.black,
+            color:
+                hover ? Theme.of(context).colorScheme.primary : CvColors.black,
           ),
           splashRadius: CvSizes.defaultSplashRadius,
           iconSize: CvSizes.defaultIconSize,

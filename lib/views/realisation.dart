@@ -10,9 +10,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RealisationSection extends StatefulWidget {
   const RealisationSection({
-    Key? key,
+    super.key,
     required this.isShowDrawer,
-  }) : super(key: key);
+  });
 
   final bool isShowDrawer;
 
@@ -107,12 +107,12 @@ class _RealisationSectionState extends State<RealisationSection> {
           ValueListenableBuilder<bool?>(
             valueListenable: _online,
             builder: (context, online, child) {
-              final List<Realisation> _list = _firestoreBloc.realisations
+              final List<Realisation> list = _firestoreBloc.realisations
                   .where(
                     (element) => online == null || online == element.online,
                   )
                   .toList();
-              _list.sort(
+              list.sort(
                 (a, b) => a.name
                     .currentLang(context)
                     .compareTo(b.name.currentLang(context)),
@@ -121,19 +121,19 @@ class _RealisationSectionState extends State<RealisationSection> {
                 spacing: CvSizes.px30,
                 runSpacing: CvSizes.px30,
                 children: List.generate(
-                  _list.length,
+                  list.length,
                   (index) {
-                    final Realisation _realisation = _list[index];
+                    final Realisation realisation = list[index];
                     return CustomCardImage(
                       widthCard: _widthCard,
-                      assetImage: _realisation.imageUrl,
-                      title: _realisation.name.currentLang(context),
+                      assetImage: realisation.imageUrl,
+                      title: realisation.name.currentLang(context),
                       tag: _selectedFilterToString(
-                        value: _realisation.online,
+                        value: realisation.online,
                         context: context,
                       ),
-                      url: _realisation.url,
-                      urlGitHub: _realisation.urlGitHub,
+                      url: realisation.url,
+                      urlGitHub: realisation.urlGitHub,
                     );
                   },
                 ),

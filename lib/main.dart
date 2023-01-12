@@ -43,7 +43,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -81,9 +81,9 @@ class _MyAppState extends State<MyApp> {
       builder: (context, snapshot) {
         if (snapshot.data != null) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             key: _keyError,
             title: 'CV en ligne - DEVILLIERS Matthieu',
-            debugShowCheckedModeBanner: false,
             themeMode: ThemeMode.light,
             theme: CvThemeDatas.lightTheme,
             home: ErrorPage(
@@ -94,9 +94,9 @@ class _MyAppState extends State<MyApp> {
           );
         } else if (snapshot.connectionState == ConnectionState.done) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             key: _keyMain,
             title: 'CV en ligne - DEVILLIERS Matthieu',
-            debugShowCheckedModeBanner: false,
             themeMode: ThemeMode.light,
             theme: CvThemeDatas.lightTheme,
             home: const MainPage(),
@@ -105,9 +105,9 @@ class _MyAppState extends State<MyApp> {
           );
         }
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           key: _keySplash,
           title: 'CV en ligne - DEVILLIERS Matthieu',
-          debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.light,
           theme: CvThemeDatas.lightTheme,
           home: const SplashPage(),

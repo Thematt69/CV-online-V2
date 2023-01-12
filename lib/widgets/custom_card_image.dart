@@ -7,14 +7,14 @@ import 'package:url_launcher/url_launcher.dart';
 
 class CustomCardImage extends StatelessWidget {
   const CustomCardImage({
-    Key? key,
+    super.key,
     required this.widthCard,
     required this.assetImage,
     required this.title,
     required this.tag,
     this.url,
     this.urlGitHub,
-  }) : super(key: key);
+  });
 
   final String assetImage;
   final String tag;

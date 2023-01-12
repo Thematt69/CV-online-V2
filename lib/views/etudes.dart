@@ -12,9 +12,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EtudesSection extends StatefulWidget {
   const EtudesSection({
-    Key? key,
+    super.key,
     required this.isShowDrawer,
-  }) : super(key: key);
+  });
 
   final bool isShowDrawer;
 
@@ -85,13 +85,13 @@ class _EtudesSectionState extends State<EtudesSection> {
             children: List.generate(
               _firestoreBloc.etudes.length,
               (index) {
-                final Etude _etude = _firestoreBloc.etudes[index];
+                final Etude etude = _firestoreBloc.etudes[index];
                 return CustomCardEtudes(
                   periode:
-                      '${_etude.periode.start.yMMM(context).capitalize} - ${_etude.periode.end.yMMM(context).capitalize}',
-                  ecole: _etude.ecole.currentLang(context),
-                  nom: _etude.diplome.currentLang(context),
-                  description: _etude.description.currentLang(context),
+                      '${etude.periode.start.yMMM(context).capitalize} - ${etude.periode.end.yMMM(context).capitalize}',
+                  ecole: etude.ecole.currentLang(context),
+                  nom: etude.diplome.currentLang(context),
+                  description: etude.description.currentLang(context),
                   widthCard: _widthCard,
                 );
               },

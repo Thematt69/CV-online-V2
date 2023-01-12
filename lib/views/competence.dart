@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CompetenceSection extends StatefulWidget {
-  const CompetenceSection({Key? key}) : super(key: key);
+  const CompetenceSection({super.key});
 
   @override
   State<CompetenceSection> createState() => _CompetenceSectionState();

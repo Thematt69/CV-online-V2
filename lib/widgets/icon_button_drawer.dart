@@ -8,10 +8,10 @@ class IconButtonDrawer extends StatefulWidget {
   final Function(bool isShowDrawer) onShowDrawer;
 
   const IconButtonDrawer({
-    Key? key,
+    super.key,
     required this.isShowDrawer,
     required this.onShowDrawer,
-  }) : super(key: key);
+  });
 
   @override
   State<IconButtonDrawer> createState() => _IconButtonDrawerState();

@@ -10,9 +10,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class JobsSection extends StatefulWidget {
   const JobsSection({
-    Key? key,
+    super.key,
     required this.isShowDrawer,
-  }) : super(key: key);
+  });
 
   final bool isShowDrawer;
 
@@ -82,14 +82,14 @@ class _JobsSectionState extends State<JobsSection> {
             children: List.generate(
               _firestoreBloc.jobs.length,
               (index) {
-                final Job _job = _firestoreBloc.jobs[index];
+                final Job job = _firestoreBloc.jobs[index];
                 return CustomCardJobs(
-                  periode: _job.periodeString(context),
-                  lieu: _job.lieu.currentLang(context),
-                  poste: _job.poste.currentLang(context),
+                  periode: job.periodeString(context),
+                  lieu: job.lieu.currentLang(context),
+                  poste: job.poste.currentLang(context),
                   widthCard: _widthCard,
-                  description: _job.description?.currentLang(context),
-                  service: _job.service?.currentLang(context),
+                  description: job.description?.currentLang(context),
+                  service: job.service?.currentLang(context),
                 );
               },
             ),

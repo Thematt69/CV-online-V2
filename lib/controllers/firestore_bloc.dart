@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/extensions/iterable_extension.dart';
 import 'package:cv_online_v2/models/competence.dart';
 import 'package:cv_online_v2/models/contact.dart';
 import 'package:cv_online_v2/models/etudes.dart';

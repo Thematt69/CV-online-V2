@@ -9,9 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatefulWidget {
-  const ContactSection({
-    Key? key,
-  }) : super(key: key);
+  const ContactSection({super.key});
 
   @override
   State<ContactSection> createState() => _ContactSectionState();
@@ -58,19 +56,19 @@ class _ContactSectionState extends State<ContactSection> {
             children: List.generate(
               _firestoreBloc.contacts.length,
               (index) {
-                final Contact _contact = _firestoreBloc.contacts[index];
+                final Contact contact = _firestoreBloc.contacts[index];
                 return Padding(
                   padding: CvSizes.bottom16,
                   child: Wrap(
                     children: [
                       FaIcon(
-                        _contact.icon,
+                        contact.icon,
                         color: CvColors.greyDark,
                         size: 16,
                       ),
                       const SizedBox(width: CvSizes.px6),
                       Text(
-                        '${_contact.label.currentLang(context)} : ',
+                        '${contact.label.currentLang(context)} : ',
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.w500,
@@ -78,9 +76,9 @@ class _ContactSectionState extends State<ContactSection> {
                             ),
                       ),
                       InkWell(
-                        onTap: () async => launchUrl(Uri.parse(_contact.url)),
+                        onTap: () async => launchUrl(Uri.parse(contact.url)),
                         child: Text(
-                          _contact.value,
+                          contact.value,
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!

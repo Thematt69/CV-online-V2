@@ -4,9 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class FooterSection extends StatefulWidget {
-  const FooterSection({
-    Key? key,
-  }) : super(key: key);
+  const FooterSection({super.key});
 
   @override
   State<FooterSection> createState() => _FooterSectionState();

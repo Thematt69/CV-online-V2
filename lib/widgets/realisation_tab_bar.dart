@@ -4,12 +4,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RealisationTabBar extends StatelessWidget {
   const RealisationTabBar({
-    Key? key,
+    super.key,
     required this.online,
     required this.hoverAll,
     required this.hoverOnline,
     required this.hoverArchive,
-  }) : super(key: key);
+  });
 
   final ValueNotifier<bool?> online;
   final ValueNotifier<bool> hoverAll;

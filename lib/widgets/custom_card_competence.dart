@@ -7,9 +7,9 @@ class CustomCardCompetence extends StatelessWidget {
   final Competence competence;
 
   const CustomCardCompetence({
-    Key? key,
+    super.key,
     required this.competence,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
