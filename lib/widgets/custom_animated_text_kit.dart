@@ -1,15 +1,15 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomAnimatedTextKit extends StatelessWidget {
   const CustomAnimatedTextKit({
-    Key? key,
+    super.key,
     this.prefix = '',
     required this.textStyle,
     this.textAlign = TextAlign.center,
     this.duration = const Duration(milliseconds: 100),
-  }) : super(key: key);
+  });
 
   final Duration duration;
   final String prefix;
@@ -22,31 +22,31 @@ class CustomAnimatedTextKit extends StatelessWidget {
       repeatForever: true,
       animatedTexts: [
         TypewriterAnimatedText(
-          prefix + translations.text('custom_animated_text_kit.dev_flutter'),
+          prefix + AppLocalizations.of(context)!.animatedText_devFlutter,
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + translations.text('custom_animated_text_kit.gamers'),
+          prefix + AppLocalizations.of(context)!.animatedText_gamers,
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + translations.text('custom_animated_text_kit.dev_web'),
+          prefix + AppLocalizations.of(context)!.animatedText_devWeb,
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + translations.text('custom_animated_text_kit.photographer'),
+          prefix + AppLocalizations.of(context)!.animatedText_photographer,
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,
         ),
         TypewriterAnimatedText(
-          prefix + translations.text('custom_animated_text_kit.dev_android'),
+          prefix + AppLocalizations.of(context)!.animatedText_devAndroid,
           speed: duration,
           textStyle: textStyle,
           textAlign: textAlign,

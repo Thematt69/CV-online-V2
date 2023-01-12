@@ -7,9 +7,7 @@ import 'package:cv_online_v2/models/recommandation.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardRecommandationWeb extends StatefulWidget {
-  const CustomCardRecommandationWeb({
-    Key? key,
-  }) : super(key: key);
+  const CustomCardRecommandationWeb({super.key});
 
   @override
   State<CustomCardRecommandationWeb> createState() =>
@@ -39,7 +37,7 @@ class _CustomCardRecommandationWebState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  recommandation.texte.currentLang,
+                  recommandation.texte.currentLang(context),
                   style: Theme.of(context).textTheme.headline6?.copyWith(
                         letterSpacing: 0,
                         height: 1.6,
@@ -49,7 +47,7 @@ class _CustomCardRecommandationWebState
                 ),
                 const SizedBox(height: CvSizes.px30),
                 SelectableText(
-                  recommandation.auteur.currentLang,
+                  recommandation.auteur.currentLang(context),
                   style: Theme.of(context).textTheme.headline3?.copyWith(
                         letterSpacing: 0,
                         fontWeight: FontWeight.w300,
@@ -59,14 +57,14 @@ class _CustomCardRecommandationWebState
                 ),
                 const SizedBox(height: CvSizes.px6),
                 SelectableText(
-                  recommandation.poste.currentLang,
+                  recommandation.poste.currentLang(context),
                   style: Theme.of(context).textTheme.headline5?.copyWith(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,
                       ),
                 ),
                 SelectableText(
-                  recommandation.entreprise.currentLang,
+                  recommandation.entreprise.currentLang(context),
                   style: Theme.of(context).textTheme.headline5?.copyWith(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,

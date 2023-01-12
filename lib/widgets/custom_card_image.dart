@@ -1,20 +1,20 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomCardImage extends StatelessWidget {
   const CustomCardImage({
-    Key? key,
+    super.key,
     required this.widthCard,
     required this.assetImage,
     required this.title,
     required this.tag,
     this.url,
     this.urlGitHub,
-  }) : super(key: key);
+  });
 
   final String assetImage;
   final String tag;
@@ -73,7 +73,7 @@ class CustomCardImage extends StatelessWidget {
                         visible: urlGitHub != null,
                         child: IconButton(
                           tooltip:
-                              translations.text('custom_card_image.go_github'),
+                              AppLocalizations.of(context)!.cardImage_goGithub,
                           onPressed: () async =>
                               launchUrl(Uri.parse(urlGitHub!)),
                           icon: FaIcon(

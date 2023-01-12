@@ -13,8 +13,8 @@ class CustomItemMenu extends StatelessWidget {
     required this.onTap,
     required this.hover,
     required this.title,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

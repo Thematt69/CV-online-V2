@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cv_online_v2/extensions/date_time_extension.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Job extends Equatable {
   static const collectionName = 'jobs';
@@ -32,14 +32,14 @@ class Job extends Equatable {
     this.service,
   });
 
-  String get periodeString {
-    String value = '${periode.start.yMMMd} - ';
+  String periodeString(BuildContext context) {
+    String value = '${periode.start.yMMMd(context)} - ';
     if (periode.end.day == DateTime.now().day &&
         periode.end.month == DateTime.now().month &&
         periode.end.year == DateTime.now().year) {
-      value += translations.text('contents.today');
+      value += AppLocalizations.of(context)!.contents_today;
     } else {
-      value += periode.end.yMMMd;
+      value += periode.end.yMMMd(context);
     }
     return value;
   }

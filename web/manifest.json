@@ -4,7 +4,7 @@
     "start_url": ".",
     "display": "standalone",
     "description": "Ce CV en ligne me permet de me présenter plus facilement et avec toutes mes expériences professionnelles ainsi que mes différentes réalisations et réseaux sociaux.",
-    "orientation": "portrait-primary",
+    "orientation": "portrait-primary", 
     "prefer_related_applications": false,
     "icons": [
         {

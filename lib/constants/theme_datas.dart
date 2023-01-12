@@ -40,8 +40,7 @@ mixin CvThemeDatas {
       ),
     ),
     scrollbarTheme: const ScrollbarThemeData(
-      interactive: true,
-      showTrackOnHover: true,
+      thumbVisibility: MaterialStatePropertyAll(true),
     ),
   );
 }

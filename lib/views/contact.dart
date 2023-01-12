@@ -2,16 +2,14 @@ import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:cv_online_v2/models/contact.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatefulWidget {
-  const ContactSection({
-    Key? key,
-  }) : super(key: key);
+  const ContactSection({super.key});
 
   @override
   State<ContactSection> createState() => _ContactSectionState();
@@ -37,14 +35,14 @@ class _ContactSectionState extends State<ContactSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: translations.text('views_contact.contact'),
+              text: AppLocalizations.of(context)!.contactViews_contact,
               style: Theme.of(context).textTheme.headline2?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: translations.text('views_contact.me'),
+                  text: AppLocalizations.of(context)!.contactViews_me,
                   style: Theme.of(context).textTheme.headline2!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -58,19 +56,19 @@ class _ContactSectionState extends State<ContactSection> {
             children: List.generate(
               _firestoreBloc.contacts.length,
               (index) {
-                final Contact _contact = _firestoreBloc.contacts[index];
+                final Contact contact = _firestoreBloc.contacts[index];
                 return Padding(
                   padding: CvSizes.bottom16,
                   child: Wrap(
                     children: [
                       FaIcon(
-                        _contact.icon,
+                        contact.icon,
                         color: CvColors.greyDark,
                         size: 16,
                       ),
                       const SizedBox(width: CvSizes.px6),
                       Text(
-                        '${_contact.label.currentLang} : ',
+                        '${contact.label.currentLang(context)} : ',
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.w500,
@@ -78,9 +76,9 @@ class _ContactSectionState extends State<ContactSection> {
                             ),
                       ),
                       InkWell(
-                        onTap: () async => launchUrl(Uri.parse(_contact.url)),
+                        onTap: () async => launchUrl(Uri.parse(contact.url)),
                         child: Text(
-                          _contact.value,
+                          contact.value,
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!

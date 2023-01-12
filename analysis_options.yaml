@@ -1,16 +1,17 @@
 include: package:lint/analysis_options.yaml
 
+# You might want to exclude auto-generated files from dart analysis
 analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "lib/generated_plugin_registrant.dart"
-  errors:
-    avoid_print: ignore
-    todo: info
 
+# You can customize the lint rules set to your own liking. A list of all rules
+# can be found at https://dart-lang.github.io/linter/lints/options/options.html
 linter:
   rules:
+    use_setters_to_change_properties: false
     use_key_in_widget_constructors: true
     prefer_single_quotes: true
     require_trailing_commas: true

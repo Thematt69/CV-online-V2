@@ -8,9 +8,7 @@ import 'package:cv_online_v2/responsive.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardRecommandationMobile extends StatefulWidget {
-  const CustomCardRecommandationMobile({
-    Key? key,
-  }) : super(key: key);
+  const CustomCardRecommandationMobile({super.key});
 
   @override
   State<CustomCardRecommandationMobile> createState() =>
@@ -23,14 +21,15 @@ class _CustomCardRecommandationMobileState
 
   @override
   Widget build(BuildContext context) {
-    final Recommandation _recommandation = _firestoreBloc.recommandations.first;
+    final Recommandation recommandation = _firestoreBloc.recommandations.first;
+
     return Padding(
       padding: CvSizes.all30,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SelectableText(
-            _recommandation.texte.currentLang,
+            recommandation.texte.currentLang(context),
             style: Theme.of(context).textTheme.headline6?.copyWith(
                   letterSpacing: 0,
                   height: 1.6,
@@ -40,7 +39,7 @@ class _CustomCardRecommandationMobileState
           ),
           const SizedBox(height: CvSizes.px30),
           SelectableText(
-            _recommandation.auteur.currentLang,
+            recommandation.auteur.currentLang(context),
             style: Theme.of(context).textTheme.headline3?.copyWith(
                   letterSpacing: 0,
                   fontWeight: FontWeight.w300,
@@ -56,7 +55,7 @@ class _CustomCardRecommandationMobileState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SelectableText(
-                      _recommandation.poste.currentLang,
+                      recommandation.poste.currentLang(context),
                       style: Theme.of(context).textTheme.headline5?.copyWith(
                             color:
                                 Theme.of(context).colorScheme.primaryContainer,
@@ -64,7 +63,7 @@ class _CustomCardRecommandationMobileState
                           ),
                     ),
                     SelectableText(
-                      _recommandation.entreprise.currentLang,
+                      recommandation.entreprise.currentLang(context),
                       style: Theme.of(context).textTheme.headline5?.copyWith(
                             color:
                                 Theme.of(context).colorScheme.primaryContainer,
