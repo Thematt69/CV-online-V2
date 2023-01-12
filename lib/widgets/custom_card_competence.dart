@@ -7,9 +7,9 @@ class CustomCardCompetence extends StatelessWidget {
   final Competence competence;
 
   const CustomCardCompetence({
-    Key? key,
+    super.key,
     required this.competence,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class CustomCardCompetence extends StatelessWidget {
             ? () async => launchUrl(Uri.parse(competence.url!))
             : null,
         child: Text(
-          competence.label.currentLang,
+          competence.label.currentLang(context),
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 class CustomCardJobs extends StatefulWidget {
   const CustomCardJobs({
-    Key? key,
+    super.key,
     required this.widthCard,
     required this.periode,
     required this.poste,
     required this.lieu,
     this.service,
     this.description,
-  }) : super(key: key);
+  });
 
   final String? description;
   final String lieu;

@@ -7,9 +7,7 @@ import 'package:cv_online_v2/widgets/custom_card_recommandation_web.dart';
 import 'package:flutter/material.dart';
 
 class RecommandationSection extends StatefulWidget {
-  const RecommandationSection({
-    Key? key,
-  }) : super(key: key);
+  const RecommandationSection({super.key});
 
   @override
   _RecommandationSectionState createState() => _RecommandationSectionState();

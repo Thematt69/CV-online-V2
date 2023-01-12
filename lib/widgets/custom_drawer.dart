@@ -10,8 +10,8 @@ class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
     required this.scrollController,
     required this.isShowDrawer,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

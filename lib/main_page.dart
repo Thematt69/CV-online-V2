@@ -11,12 +11,11 @@ import 'package:cv_online_v2/views/realisation.dart';
 import 'package:cv_online_v2/views/recommandation.dart';
 import 'package:cv_online_v2/widgets/custom_drawer.dart';
 import 'package:cv_online_v2/widgets/icon_button_drawer.dart';
-import 'package:cv_online_v2/widgets/popup_menu_button_language.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -52,7 +51,7 @@ class _MainPageState extends State<MainPage> {
                 Expanded(
                   child: Scrollbar(
                     controller: _scrollController,
-                    isAlwaysShown: Responsive.isDesktop(context),
+                    thumbVisibility: Responsive.isDesktop(context),
                     child: SingleChildScrollView(
                       controller: _scrollController,
                       child: Column(
@@ -121,7 +120,6 @@ class _MainPageState extends State<MainPage> {
                 scrollController: _scrollController,
               ),
             ),
-            const PopupMenuButtonLanguage(),
           ],
         ),
       ),

@@ -14,13 +14,13 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v2.5.0
+      - uses: subosito/flutter-action@v2.8.0
         with:
-          flutter-version: "2.10.5"
+          flutter-version: "3.3.10"
           channel: "stable"
           cache: true
-          cache-key: flutter 2.10.5 # change this to force refresh cache
+          cache-key: flutter 3.3.10 # change this to force refresh cache
       - run: flutter config --no-analytics
       - run: flutter pub get
       - run: flutter doctor -v

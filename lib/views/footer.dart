@@ -1,12 +1,10 @@
 import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/localization/localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class FooterSection extends StatefulWidget {
-  const FooterSection({
-    Key? key,
-  }) : super(key: key);
+  const FooterSection({super.key});
 
   @override
   State<FooterSection> createState() => _FooterSectionState();
@@ -34,7 +32,7 @@ class _FooterSectionState extends State<FooterSection> {
             children: [
               Flexible(
                 child: Text(
-                  translations.text('views_footer.develop_flutter'),
+                  AppLocalizations.of(context)!.footerViews_developFlutter,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),

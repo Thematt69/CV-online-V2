@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 
 class CustomCardEtudes extends StatefulWidget {
   const CustomCardEtudes({
-    Key? key,
+    super.key,
     required this.widthCard,
     required this.periode,
     required this.nom,
     required this.description,
     required this.ecole,
-  }) : super(key: key);
+  });
 
   final String description;
   final String ecole;
