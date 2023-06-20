@@ -61,14 +61,14 @@ class JobsSectionState extends State<JobsSection> {
           RichText(
             text: TextSpan(
               text: AppLocalizations.of(context)!.jobsViews_my,
-              style: Theme.of(context).textTheme.headline2?.copyWith(
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
                   text: AppLocalizations.of(context)!.jobsViews_jobs,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 )

@@ -38,14 +38,14 @@ class _PresentationSectionState extends State<PresentationSection> {
         children: [
           Text(
             AppLocalizations.of(context)!.presentationViews_iAm,
-            style: Theme.of(context).textTheme.headline2?.copyWith(
+            style: Theme.of(context).textTheme.displayMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
           ),
           CustomAnimatedTextKit(
             textAlign: TextAlign.start,
             prefix: '${AppLocalizations.of(context)!.headerViews_iAm} ',
-            textStyle: Theme.of(context).textTheme.headline2!.copyWith(
+            textStyle: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 26,
                   height: 1,
@@ -57,14 +57,14 @@ class _PresentationSectionState extends State<PresentationSection> {
             SelectableText.rich(
               TextSpan(
                 text: AppLocalizations.of(context)!.presentationViews_myNameIs,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: CvColors.greyDark,
                     ),
                 children: <TextSpan>[
                   const TextSpan(text: ' '),
                   TextSpan(
                     text: AppLocalizations.of(context)!.presentationViews_name,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           color: Theme.of(context).colorScheme.primary,
                         ),
                   ),
@@ -72,7 +72,7 @@ class _PresentationSectionState extends State<PresentationSection> {
                   TextSpan(
                     text:
                         _firestoreBloc.description!.value.currentLang(context),
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           color: CvColors.greyDark,
                         ),
                   ),

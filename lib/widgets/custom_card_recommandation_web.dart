@@ -39,7 +39,7 @@ class _CustomCardRecommandationWebState
               children: [
                 SelectableText(
                   recommandation.texte.currentLang(context),
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         letterSpacing: 0,
                         height: 1.6,
                         fontWeight: FontWeight.w300,
@@ -49,7 +49,7 @@ class _CustomCardRecommandationWebState
                 const SizedBox(height: CvSizes.px30),
                 SelectableText(
                   recommandation.auteur.currentLang(context),
-                  style: Theme.of(context).textTheme.headline3?.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
                         letterSpacing: 0,
                         fontWeight: FontWeight.w300,
                         fontSize: 18,
@@ -59,14 +59,14 @@ class _CustomCardRecommandationWebState
                 const SizedBox(height: CvSizes.px6),
                 SelectableText(
                   recommandation.poste.currentLang(context),
-                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,
                       ),
                 ),
                 SelectableText(
                   recommandation.entreprise.currentLang(context),
-                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,
                       ),

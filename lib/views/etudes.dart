@@ -64,14 +64,14 @@ class EtudesSectionState extends State<EtudesSection> {
           RichText(
             text: TextSpan(
               text: AppLocalizations.of(context)!.etudesViews_my,
-              style: Theme.of(context).textTheme.headline2?.copyWith(
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
                   text: AppLocalizations.of(context)!.etudesViews_etudes,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 )

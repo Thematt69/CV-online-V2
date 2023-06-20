@@ -29,7 +29,7 @@ class _CompetenceSectionState extends State<CompetenceSection> {
           RichText(
             text: TextSpan(
               text: AppLocalizations.of(context)!.competenceViews_my,
-              style: Theme.of(context).textTheme.headline2?.copyWith(
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
@@ -37,7 +37,7 @@ class _CompetenceSectionState extends State<CompetenceSection> {
                 TextSpan(
                   text:
                       AppLocalizations.of(context)!.competenceViews_competence,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 )

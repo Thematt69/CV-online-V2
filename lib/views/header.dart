@@ -65,7 +65,7 @@ class HeaderSection extends StatelessWidget {
                     Text(
                       'DEVILLIERS',
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
                             color: Theme.of(context).colorScheme.onSecondary,
                             fontSize: Responsive.isDesktop(context) ? 72 : 50,
                           ),
@@ -74,7 +74,7 @@ class HeaderSection extends StatelessWidget {
                     Text(
                       'Matthieu',
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
                             color: Theme.of(context).colorScheme.onSecondary,
                             fontSize: Responsive.isDesktop(context) ? 72 : 50,
                           ),
@@ -83,10 +83,11 @@ class HeaderSection extends StatelessWidget {
                 ),
                 CustomAnimatedTextKit(
                   prefix: '${AppLocalizations.of(context)!.headerViews_iAm} ',
-                  textStyle: Theme.of(context).textTheme.headline2!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                        fontSize: Responsive.isDesktop(context) ? 30 : 24,
-                      ),
+                  textStyle:
+                      Theme.of(context).textTheme.displayMedium!.copyWith(
+                            color: Theme.of(context).colorScheme.onSecondary,
+                            fontSize: Responsive.isDesktop(context) ? 30 : 24,
+                          ),
                 ),
               ],
             ),

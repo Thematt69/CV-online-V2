@@ -69,7 +69,7 @@ class CustomCardJobsState extends State<CustomCardJobs> {
                 padding: CvSizes.right22,
                 child: Text(
                   widget.periode,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontWeight: FontWeight.w600,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -85,7 +85,7 @@ class CustomCardJobsState extends State<CustomCardJobs> {
                 padding: CvSizes.right22,
                 child: SelectableText(
                   widget.poste,
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
                         color: Theme.of(context).colorScheme.onBackground,
                       ),
                 ),
@@ -95,7 +95,7 @@ class CustomCardJobsState extends State<CustomCardJobs> {
                 padding: CvSizes.right22,
                 child: SelectableText(
                   widget.lieu,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.w700,
                         color: CvColors.greyDark,
                       ),
@@ -106,7 +106,7 @@ class CustomCardJobsState extends State<CustomCardJobs> {
                   padding: CvSizes.right22,
                   child: SelectableText(
                     widget.service!,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           color: CvColors.greyDark,
@@ -118,7 +118,7 @@ class CustomCardJobsState extends State<CustomCardJobs> {
                   padding: CvSizes.right22,
                   child: SelectableText(
                     widget.description!,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.w400,
                           color: CvColors.greyDark,

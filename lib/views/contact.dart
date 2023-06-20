@@ -37,14 +37,14 @@ class _ContactSectionState extends State<ContactSection> {
           RichText(
             text: TextSpan(
               text: AppLocalizations.of(context)!.contactViews_contact,
-              style: Theme.of(context).textTheme.headline2?.copyWith(
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
                   text: AppLocalizations.of(context)!.contactViews_me,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 )
@@ -70,7 +70,7 @@ class _ContactSectionState extends State<ContactSection> {
                       const SizedBox(width: CvSizes.px6),
                       Text(
                         '${contact.label.currentLang(context)} : ',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.w500,
                               height: 1,
@@ -82,7 +82,7 @@ class _ContactSectionState extends State<ContactSection> {
                           contact.value,
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .copyWith(
                                 color: Theme.of(context).colorScheme.primary,
                                 height: 1,
