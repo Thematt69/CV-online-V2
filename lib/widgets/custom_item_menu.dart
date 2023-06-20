@@ -31,7 +31,7 @@ class CustomItemMenu extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: hover
                     ? Theme.of(context).colorScheme.primary
                     : CvColors.black,

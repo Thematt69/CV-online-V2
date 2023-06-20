@@ -57,7 +57,7 @@ class CustomCardImage extends StatelessWidget {
                     title,
                     style: Theme.of(context)
                         .textTheme
-                        .headline5
+                        .headlineSmall
                         ?.copyWith(color: CvColors.white),
                   ),
                   Row(
@@ -66,7 +66,7 @@ class CustomCardImage extends StatelessWidget {
                         tag,
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyLarge
                             ?.copyWith(color: CvColors.white),
                       ),
                       const Spacer(),

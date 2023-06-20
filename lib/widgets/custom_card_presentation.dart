@@ -26,7 +26,7 @@ class CustomCardPresentation extends StatelessWidget {
         children: [
           Text(
             '$label : ',
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   height: 1.6,
                   fontWeight: FontWeight.w600,
                   color: Theme.of(context).colorScheme.onBackground,
@@ -38,7 +38,7 @@ class CustomCardPresentation extends StatelessWidget {
                   url != null ? () async => launchUrl(Uri.parse(url!)) : null,
               child: Text(
                 value,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: url != null
                           ? Theme.of(context).colorScheme.primary
                           : CvColors.greyDark,

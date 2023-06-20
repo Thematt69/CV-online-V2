@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> {
               const SizedBox(height: CvSizes.px30),
               Text(
                 AppLocalizations.of(context)!.splash_getData,
-                style: Theme.of(context).textTheme.headline2?.copyWith(
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
                 textAlign: TextAlign.center,

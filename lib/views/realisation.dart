@@ -82,7 +82,7 @@ class RealisationSectionState extends State<RealisationSection> {
           RichText(
             text: TextSpan(
               text: AppLocalizations.of(context)!.realisationViews_myDifferent,
-              style: Theme.of(context).textTheme.headline2?.copyWith(
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
@@ -90,7 +90,7 @@ class RealisationSectionState extends State<RealisationSection> {
                 TextSpan(
                   text: AppLocalizations.of(context)!
                       .realisationViews_realisation,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 )

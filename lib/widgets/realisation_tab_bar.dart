@@ -36,13 +36,16 @@ class RealisationTabBar extends StatelessWidget {
                 valueListenable: hoverAll,
                 builder: (context, hover, child) => Text(
                   AppLocalizations.of(context)!.realisationViews_all,
-                  style: Theme.of(context).textTheme.button!.copyWith(
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || online == null
                             ? Theme.of(context).colorScheme.primary
                             : Theme.of(context).colorScheme.onBackground,
                         fontWeight: online == null
                             ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
+                            : Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.fontWeight,
                       ),
                 ),
               ),
@@ -64,13 +67,16 @@ class RealisationTabBar extends StatelessWidget {
                 valueListenable: hoverOnline,
                 builder: (context, hover, child) => Text(
                   AppLocalizations.of(context)!.realisationViews_online,
-                  style: Theme.of(context).textTheme.button!.copyWith(
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || (online != null && online)
                             ? Theme.of(context).colorScheme.primary
                             : Theme.of(context).colorScheme.onBackground,
                         fontWeight: (online != null && online)
                             ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
+                            : Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.fontWeight,
                       ),
                 ),
               ),
@@ -92,13 +98,16 @@ class RealisationTabBar extends StatelessWidget {
                 valueListenable: hoverArchive,
                 builder: (context, hover, child) => Text(
                   AppLocalizations.of(context)!.realisationViews_archive,
-                  style: Theme.of(context).textTheme.button!.copyWith(
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || online == false
                             ? Theme.of(context).colorScheme.primary
                             : Theme.of(context).colorScheme.onBackground,
                         fontWeight: online == false
                             ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
+                            : Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.fontWeight,
                       ),
                 ),
               ),
