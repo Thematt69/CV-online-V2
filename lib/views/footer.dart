@@ -1,7 +1,8 @@
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+
+import '../constants/sizes.dart';
 
 class FooterSection extends StatefulWidget {
   const FooterSection({super.key});

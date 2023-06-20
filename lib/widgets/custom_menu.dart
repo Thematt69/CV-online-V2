@@ -1,9 +1,10 @@
-import 'package:cv_online_v2/constants/assets.dart';
-import 'package:cv_online_v2/constants/sections.dart';
-import 'package:cv_online_v2/widgets/custom_item_menu.dart';
-import 'package:cv_online_v2/widgets/custom_shared_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../constants/assets.dart';
+import '../constants/sections.dart';
+import 'custom_item_menu.dart';
+import 'custom_shared_icons.dart';
 
 class CustomMenu extends StatefulWidget {
   final ScrollController scrollController;

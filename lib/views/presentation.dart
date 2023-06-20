@@ -1,15 +1,16 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sections.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/constants/urls.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/responsive.dart';
-import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
-import 'package:cv_online_v2/widgets/custom_card_presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/colors.dart';
+import '../constants/sections.dart';
+import '../constants/sizes.dart';
+import '../constants/urls.dart';
+import '../controllers/bloc_provider.dart';
+import '../controllers/firestore_bloc.dart';
+import '../responsive.dart';
+import '../widgets/custom_animated_text_kit.dart';
+import '../widgets/custom_card_presentation.dart';
 
 class PresentationSection extends StatefulWidget {
   const PresentationSection({

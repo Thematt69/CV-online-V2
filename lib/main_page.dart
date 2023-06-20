@@ -1,27 +1,28 @@
-import 'package:cv_online_v2/constants/sections.dart';
-import 'package:cv_online_v2/responsive.dart';
-import 'package:cv_online_v2/views/competence.dart';
-import 'package:cv_online_v2/views/contact.dart';
-import 'package:cv_online_v2/views/etudes.dart';
-import 'package:cv_online_v2/views/footer.dart';
-import 'package:cv_online_v2/views/header.dart';
-import 'package:cv_online_v2/views/jobs.dart';
-import 'package:cv_online_v2/views/presentation.dart';
-import 'package:cv_online_v2/views/realisation.dart';
-import 'package:cv_online_v2/views/recommandation.dart';
-import 'package:cv_online_v2/widgets/custom_drawer.dart';
-import 'package:cv_online_v2/widgets/icon_button_drawer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'constants/sections.dart';
+import 'responsive.dart';
+import 'views/competence.dart';
+import 'views/contact.dart';
+import 'views/etudes.dart';
+import 'views/footer.dart';
+import 'views/header.dart';
+import 'views/jobs.dart';
+import 'views/presentation.dart';
+import 'views/realisation.dart';
+import 'views/recommandation.dart';
+import 'widgets/custom_drawer.dart';
+import 'widgets/icon_button_drawer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
-  _MainPageState createState() => _MainPageState();
+  MainPageState createState() => MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class MainPageState extends State<MainPage> {
   final ValueNotifier<bool> _isShowDrawer = ValueNotifier<bool>(kIsWeb);
   final ScrollController _scrollController = ScrollController();
 

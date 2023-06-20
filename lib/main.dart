@@ -1,18 +1,19 @@
 import 'dart:async';
 
-import 'package:cv_online_v2/constants/theme_datas.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/error_page.dart';
-import 'package:cv_online_v2/firebase_options.dart';
-import 'package:cv_online_v2/main_page.dart';
-import 'package:cv_online_v2/splash_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:url_strategy/url_strategy.dart';
+
+import 'constants/theme_datas.dart';
+import 'controllers/bloc_provider.dart';
+import 'controllers/firestore_bloc.dart';
+import 'error_page.dart';
+import 'firebase_options.dart';
+import 'main_page.dart';
+import 'splash_page.dart';
 
 List<LocalizationsDelegate<Object>> _localizationsDelegates = const [
   AppLocalizations.delegate,

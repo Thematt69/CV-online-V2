@@ -1,7 +1,8 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/models/competence.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/colors.dart';
+import '../models/competence.dart';
 
 class CustomCardCompetence extends StatelessWidget {
   final Competence competence;

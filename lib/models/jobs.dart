@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cv_online_v2/extensions/date_time_extension.dart';
-import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../extensions/date_time_extension.dart';
+import 'trap_map_model.dart';
 
 class Job extends Equatable {
   static const collectionName = 'jobs';

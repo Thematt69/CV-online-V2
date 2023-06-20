@@ -21,7 +21,7 @@ class BlocProvider<T extends BlocBase> extends StatefulWidget {
   }
 
   @override
-  _BlocProviderState createState() => _BlocProviderState();
+  BlocProviderState createState() => BlocProviderState();
 
   static T of<T extends BlocBase>(BuildContext context) {
     final _BlocProviderInherited provider = context
@@ -36,7 +36,7 @@ class BlocProvider<T extends BlocBase> extends StatefulWidget {
           .firstWhere((x) => x is T) as T;
 }
 
-class _BlocProviderState extends State<BlocProvider> {
+class BlocProviderState extends State<BlocProvider> {
   @override
   void initState() {
     super.initState();

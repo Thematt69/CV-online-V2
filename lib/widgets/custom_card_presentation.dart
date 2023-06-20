@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/colors.dart';
 
 class CustomCardPresentation extends StatelessWidget {
   final String label;

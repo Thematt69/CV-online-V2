@@ -1,10 +1,11 @@
-import 'package:cv_online_v2/constants/sections.dart';
-import 'package:cv_online_v2/constants/urls.dart';
-import 'package:cv_online_v2/widgets/custom_shared_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/sections.dart';
+import '../constants/urls.dart';
+import 'custom_shared_icon.dart';
 
 class CustomSharedIcons extends StatefulWidget {
   final ScrollController scrollController;

@@ -1,12 +1,13 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/models/jobs.dart';
-import 'package:cv_online_v2/responsive.dart';
-import 'package:cv_online_v2/widgets/custom_card_jobs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+import '../controllers/bloc_provider.dart';
+import '../controllers/firestore_bloc.dart';
+import '../models/jobs.dart';
+import '../responsive.dart';
+import '../widgets/custom_card_jobs.dart';
 
 class JobsSection extends StatefulWidget {
   const JobsSection({
@@ -17,10 +18,10 @@ class JobsSection extends StatefulWidget {
   final bool isShowDrawer;
 
   @override
-  _JobsSectionState createState() => _JobsSectionState();
+  JobsSectionState createState() => JobsSectionState();
 }
 
-class _JobsSectionState extends State<JobsSection> {
+class JobsSectionState extends State<JobsSection> {
   late final _firestoreBloc = BlocProvider.of<FirestoreBloc>(context);
 
   double get _widthMediaQuery {

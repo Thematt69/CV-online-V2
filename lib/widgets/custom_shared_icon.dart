@@ -1,8 +1,9 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
 
 class CustomSharedIcon extends StatelessWidget {
   const CustomSharedIcon({
