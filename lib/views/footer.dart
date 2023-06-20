@@ -23,7 +23,7 @@ class _FooterSectionState extends State<FooterSection> {
       child: Column(
         children: [
           Text(
-            'Matthieu Devilliers ©2023',
+            'Matthieu Devilliers ©${DateTime.now().year}',
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
