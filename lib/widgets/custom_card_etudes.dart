@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
 
 class CustomCardEtudes extends StatefulWidget {
   const CustomCardEtudes({
@@ -19,10 +20,10 @@ class CustomCardEtudes extends StatefulWidget {
   final double widthCard;
 
   @override
-  _CustomCardEtudesState createState() => _CustomCardEtudesState();
+  CustomCardEtudesState createState() => CustomCardEtudesState();
 }
 
-class _CustomCardEtudesState extends State<CustomCardEtudes> {
+class CustomCardEtudesState extends State<CustomCardEtudes> {
   final ValueNotifier<bool> _hover = ValueNotifier<bool>(false);
 
   @override

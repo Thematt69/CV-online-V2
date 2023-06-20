@@ -1,11 +1,12 @@
-import 'package:cv_online_v2/constants/assets.dart';
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/models/recommandation.dart';
-import 'package:cv_online_v2/responsive.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/assets.dart';
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+import '../controllers/bloc_provider.dart';
+import '../controllers/firestore_bloc.dart';
+import '../models/recommandation.dart';
+import '../responsive.dart';
 
 class CustomCardRecommandationMobile extends StatefulWidget {
   const CustomCardRecommandationMobile({super.key});

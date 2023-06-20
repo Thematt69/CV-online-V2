@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
 
 class CustomItemMenu extends StatelessWidget {
   final void Function(bool value)? onHover;

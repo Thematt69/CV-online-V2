@@ -19,14 +19,14 @@ dependencies:
   flutter_localizations: { sdk: flutter }
   font_awesome_flutter: ^10.3.0
   intl: ^0.17.0
-  package_info_plus: ^3.0.2
+  package_info_plus: ^4.0.2
   url_launcher: ^6.1.5
   url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_native_splash: ^2.2.16
   flutter_test: { sdk: flutter }
-  lint: ^2.0.1
+  flutter_lints: ^2.0.1
 
 flutter_native_splash:
   color: "#121212"

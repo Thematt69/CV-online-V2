@@ -1,5 +1,6 @@
-import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
+
+import 'trap_map_model.dart';
 
 class Realisation extends Equatable {
   static const collectionName = 'realisations';

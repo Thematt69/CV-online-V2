@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'constants/sizes.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({

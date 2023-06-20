@@ -1,12 +1,13 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/models/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+import '../controllers/bloc_provider.dart';
+import '../controllers/firestore_bloc.dart';
+import '../models/contact.dart';
 
 class ContactSection extends StatefulWidget {
   const ContactSection({super.key});
