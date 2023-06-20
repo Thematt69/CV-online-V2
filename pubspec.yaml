@@ -6,7 +6,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 0.11.0+28
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   animated_text_kit: ^4.2.1
@@ -18,7 +18,7 @@ dependencies:
   flutter: { sdk: flutter }
   flutter_localizations: { sdk: flutter }
   font_awesome_flutter: ^10.3.0
-  intl: ^0.17.0
+  intl: ^0.18.0
   package_info_plus: ^4.0.2
   url_launcher: ^6.1.5
   url_strategy: ^0.2.0
