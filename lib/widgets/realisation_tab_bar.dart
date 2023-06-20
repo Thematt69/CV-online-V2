@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../constants/sizes.dart';
 
 class RealisationTabBar extends StatelessWidget {
   const RealisationTabBar({
@@ -35,13 +36,16 @@ class RealisationTabBar extends StatelessWidget {
                 valueListenable: hoverAll,
                 builder: (context, hover, child) => Text(
                   AppLocalizations.of(context)!.realisationViews_all,
-                  style: Theme.of(context).textTheme.button!.copyWith(
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || online == null
                             ? Theme.of(context).colorScheme.primary
                             : Theme.of(context).colorScheme.onBackground,
                         fontWeight: online == null
                             ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
+                            : Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.fontWeight,
                       ),
                 ),
               ),
@@ -63,13 +67,16 @@ class RealisationTabBar extends StatelessWidget {
                 valueListenable: hoverOnline,
                 builder: (context, hover, child) => Text(
                   AppLocalizations.of(context)!.realisationViews_online,
-                  style: Theme.of(context).textTheme.button!.copyWith(
-                        color: hover || online == true
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: hover || (online != null && online)
                             ? Theme.of(context).colorScheme.primary
                             : Theme.of(context).colorScheme.onBackground,
-                        fontWeight: online == true
+                        fontWeight: (online != null && online)
                             ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
+                            : Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.fontWeight,
                       ),
                 ),
               ),
@@ -91,13 +98,16 @@ class RealisationTabBar extends StatelessWidget {
                 valueListenable: hoverArchive,
                 builder: (context, hover, child) => Text(
                   AppLocalizations.of(context)!.realisationViews_archive,
-                  style: Theme.of(context).textTheme.button!.copyWith(
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || online == false
                             ? Theme.of(context).colorScheme.primary
                             : Theme.of(context).colorScheme.onBackground,
                         fontWeight: online == false
                             ? FontWeight.w600
-                            : Theme.of(context).textTheme.button?.fontWeight,
+                            : Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.fontWeight,
                       ),
                 ),
               ),

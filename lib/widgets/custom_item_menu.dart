@@ -1,6 +1,9 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'package:flutter/material.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
 
 class CustomItemMenu extends StatelessWidget {
   final void Function(bool value)? onHover;
@@ -30,7 +33,7 @@ class CustomItemMenu extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: hover
                     ? Theme.of(context).colorScheme.primary
                     : CvColors.black,

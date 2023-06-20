@@ -1,9 +1,10 @@
-import 'package:cv_online_v2/constants/assets.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/responsive.dart';
-import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../constants/assets.dart';
+import '../constants/sizes.dart';
+import '../responsive.dart';
+import '../widgets/custom_animated_text_kit.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -64,7 +65,7 @@ class HeaderSection extends StatelessWidget {
                     Text(
                       'DEVILLIERS',
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
                             color: Theme.of(context).colorScheme.onSecondary,
                             fontSize: Responsive.isDesktop(context) ? 72 : 50,
                           ),
@@ -73,7 +74,7 @@ class HeaderSection extends StatelessWidget {
                     Text(
                       'Matthieu',
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
                             color: Theme.of(context).colorScheme.onSecondary,
                             fontSize: Responsive.isDesktop(context) ? 72 : 50,
                           ),
@@ -82,10 +83,11 @@ class HeaderSection extends StatelessWidget {
                 ),
                 CustomAnimatedTextKit(
                   prefix: '${AppLocalizations.of(context)!.headerViews_iAm} ',
-                  textStyle: Theme.of(context).textTheme.headline2!.copyWith(
-                        color: Theme.of(context).colorScheme.onSecondary,
-                        fontSize: Responsive.isDesktop(context) ? 30 : 24,
-                      ),
+                  textStyle:
+                      Theme.of(context).textTheme.displayMedium!.copyWith(
+                            color: Theme.of(context).colorScheme.onSecondary,
+                            fontSize: Responsive.isDesktop(context) ? 30 : 24,
+                          ),
                 ),
               ],
             ),

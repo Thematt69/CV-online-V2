@@ -1,7 +1,8 @@
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+
+import '../constants/sizes.dart';
 
 class FooterSection extends StatefulWidget {
   const FooterSection({super.key});
@@ -22,8 +23,8 @@ class _FooterSectionState extends State<FooterSection> {
       child: Column(
         children: [
           Text(
-            'Matthieu Devilliers ©2022',
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            'Matthieu Devilliers ©${DateTime.now().year}',
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: Theme.of(context).colorScheme.onSecondary,
                 ),
           ),
@@ -33,7 +34,7 @@ class _FooterSectionState extends State<FooterSection> {
               Flexible(
                 child: Text(
                   AppLocalizations.of(context)!.footerViews_developFlutter,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
                 ),
@@ -49,7 +50,7 @@ class _FooterSectionState extends State<FooterSection> {
                   snapshot.data != null) {
                 return Text(
                   'v${snapshot.data!.version}',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
                 );

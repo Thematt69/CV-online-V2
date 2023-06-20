@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+
+import 'trap_map_model.dart';
 
 class Etude extends Equatable {
   static const collectionName = 'etudes';

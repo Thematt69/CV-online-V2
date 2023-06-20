@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/colors.dart';
 
 class CustomCardPresentation extends StatelessWidget {
   final String label;
@@ -25,7 +26,7 @@ class CustomCardPresentation extends StatelessWidget {
         children: [
           Text(
             '$label : ',
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   height: 1.6,
                   fontWeight: FontWeight.w600,
                   color: Theme.of(context).colorScheme.onBackground,
@@ -37,7 +38,7 @@ class CustomCardPresentation extends StatelessWidget {
                   url != null ? () async => launchUrl(Uri.parse(url!)) : null,
               child: Text(
                 value,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: url != null
                           ? Theme.of(context).colorScheme.primary
                           : CvColors.greyDark,

@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/text_style.dart';
 import 'package:flutter/material.dart';
+
+import 'colors.dart';
+import 'text_style.dart';
 
 mixin CvThemeDatas {
   static final ThemeData lightTheme = ThemeData.light().copyWith(
@@ -24,13 +25,13 @@ mixin CvThemeDatas {
       shape: RoundedRectangleBorder(),
     ),
     textTheme: const TextTheme(
-      bodyText1: CvTextStyle.bodyText1,
-      headline1: CvTextStyle.headline1,
-      headline2: CvTextStyle.headline2,
-      headline3: CvTextStyle.headline3,
-      headline5: CvTextStyle.headline5,
-      headline6: CvTextStyle.headline6,
-      button: CvTextStyle.button,
+      bodyLarge: CvTextStyle.bodyText1,
+      displayLarge: CvTextStyle.headline1,
+      displayMedium: CvTextStyle.headline2,
+      displaySmall: CvTextStyle.headline3,
+      headlineSmall: CvTextStyle.headline5,
+      titleLarge: CvTextStyle.headline6,
+      labelLarge: CvTextStyle.button,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(

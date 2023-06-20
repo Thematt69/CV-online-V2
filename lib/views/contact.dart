@@ -1,12 +1,13 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/models/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+import '../controllers/bloc_provider.dart';
+import '../controllers/firestore_bloc.dart';
+import '../models/contact.dart';
 
 class ContactSection extends StatefulWidget {
   const ContactSection({super.key});
@@ -36,14 +37,14 @@ class _ContactSectionState extends State<ContactSection> {
           RichText(
             text: TextSpan(
               text: AppLocalizations.of(context)!.contactViews_contact,
-              style: Theme.of(context).textTheme.headline2?.copyWith(
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
                   text: AppLocalizations.of(context)!.contactViews_me,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 )
@@ -69,7 +70,7 @@ class _ContactSectionState extends State<ContactSection> {
                       const SizedBox(width: CvSizes.px6),
                       Text(
                         '${contact.label.currentLang(context)} : ',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: Theme.of(context).colorScheme.onBackground,
                               fontWeight: FontWeight.w500,
                               height: 1,
@@ -81,7 +82,7 @@ class _ContactSectionState extends State<ContactSection> {
                           contact.value,
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyLarge!
                               .copyWith(
                                 color: Theme.of(context).colorScheme.primary,
                                 height: 1,

@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
 
 class CustomCardJobs extends StatefulWidget {
   const CustomCardJobs({
@@ -21,10 +22,10 @@ class CustomCardJobs extends StatefulWidget {
   final double widthCard;
 
   @override
-  _CustomCardJobsState createState() => _CustomCardJobsState();
+  CustomCardJobsState createState() => CustomCardJobsState();
 }
 
-class _CustomCardJobsState extends State<CustomCardJobs> {
+class CustomCardJobsState extends State<CustomCardJobs> {
   final ValueNotifier<bool> _hover = ValueNotifier<bool>(false);
 
   @override
@@ -68,7 +69,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                 padding: CvSizes.right22,
                 child: Text(
                   widget.periode,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontWeight: FontWeight.w600,
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -84,7 +85,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                 padding: CvSizes.right22,
                 child: SelectableText(
                   widget.poste,
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
                         color: Theme.of(context).colorScheme.onBackground,
                       ),
                 ),
@@ -94,7 +95,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                 padding: CvSizes.right22,
                 child: SelectableText(
                   widget.lieu,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.w700,
                         color: CvColors.greyDark,
                       ),
@@ -105,7 +106,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                   padding: CvSizes.right22,
                   child: SelectableText(
                     widget.service!,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           color: CvColors.greyDark,
@@ -117,7 +118,7 @@ class _CustomCardJobsState extends State<CustomCardJobs> {
                   padding: CvSizes.right22,
                   child: SelectableText(
                     widget.description!,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.w400,
                           color: CvColors.greyDark,

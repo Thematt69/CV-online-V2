@@ -1,7 +1,8 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/models/competence.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/colors.dart';
+import '../models/competence.dart';
 
 class CustomCardCompetence extends StatelessWidget {
   final Competence competence;
@@ -22,7 +23,7 @@ class CustomCardCompetence extends StatelessWidget {
             : null,
         child: Text(
           competence.label.currentLang(context),
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
                 color: Theme.of(context).colorScheme.onBackground,

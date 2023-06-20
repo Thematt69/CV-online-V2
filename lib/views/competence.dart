@@ -1,10 +1,11 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/widgets/custom_card_competence.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+import '../controllers/bloc_provider.dart';
+import '../controllers/firestore_bloc.dart';
+import '../widgets/custom_card_competence.dart';
 
 class CompetenceSection extends StatefulWidget {
   const CompetenceSection({super.key});
@@ -28,7 +29,7 @@ class _CompetenceSectionState extends State<CompetenceSection> {
           RichText(
             text: TextSpan(
               text: AppLocalizations.of(context)!.competenceViews_my,
-              style: Theme.of(context).textTheme.headline2?.copyWith(
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
@@ -36,7 +37,7 @@ class _CompetenceSectionState extends State<CompetenceSection> {
                 TextSpan(
                   text:
                       AppLocalizations.of(context)!.competenceViews_competence,
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
                 )

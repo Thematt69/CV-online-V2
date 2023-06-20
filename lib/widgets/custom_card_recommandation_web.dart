@@ -1,10 +1,11 @@
-import 'package:cv_online_v2/constants/assets.dart';
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
-import 'package:cv_online_v2/controllers/bloc_provider.dart';
-import 'package:cv_online_v2/controllers/firestore_bloc.dart';
-import 'package:cv_online_v2/models/recommandation.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/assets.dart';
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+import '../controllers/bloc_provider.dart';
+import '../controllers/firestore_bloc.dart';
+import '../models/recommandation.dart';
 
 class CustomCardRecommandationWeb extends StatefulWidget {
   const CustomCardRecommandationWeb({super.key});
@@ -38,7 +39,7 @@ class _CustomCardRecommandationWebState
               children: [
                 SelectableText(
                   recommandation.texte.currentLang(context),
-                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         letterSpacing: 0,
                         height: 1.6,
                         fontWeight: FontWeight.w300,
@@ -48,7 +49,7 @@ class _CustomCardRecommandationWebState
                 const SizedBox(height: CvSizes.px30),
                 SelectableText(
                   recommandation.auteur.currentLang(context),
-                  style: Theme.of(context).textTheme.headline3?.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
                         letterSpacing: 0,
                         fontWeight: FontWeight.w300,
                         fontSize: 18,
@@ -58,14 +59,14 @@ class _CustomCardRecommandationWebState
                 const SizedBox(height: CvSizes.px6),
                 SelectableText(
                   recommandation.poste.currentLang(context),
-                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,
                       ),
                 ),
                 SelectableText(
                   recommandation.entreprise.currentLang(context),
-                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: Theme.of(context).colorScheme.primaryContainer,
                         fontSize: 18,
                       ),

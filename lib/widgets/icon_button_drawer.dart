@@ -1,11 +1,14 @@
-import 'package:cv_online_v2/constants/colors.dart';
-import 'package:cv_online_v2/constants/sizes.dart';
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../constants/colors.dart';
+import '../constants/sizes.dart';
+
 class IconButtonDrawer extends StatefulWidget {
   final bool isShowDrawer;
-  final Function(bool isShowDrawer) onShowDrawer;
+  final void Function(bool isShowDrawer) onShowDrawer;
 
   const IconButtonDrawer({
     super.key,

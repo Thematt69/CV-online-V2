@@ -1,6 +1,7 @@
-import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'constants/sizes.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({
@@ -21,7 +22,7 @@ class ErrorPage extends StatelessWidget {
             children: [
               Text(
                 AppLocalizations.of(context)!.error_noInit,
-                style: Theme.of(context).textTheme.headline2?.copyWith(
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
                 textAlign: TextAlign.center,
@@ -29,7 +30,7 @@ class ErrorPage extends StatelessWidget {
               const SizedBox(height: CvSizes.px10),
               Text(
                 AppLocalizations.of(context)!.error_contact,
-                style: Theme.of(context).textTheme.headline4?.copyWith(
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
                 textAlign: TextAlign.center,
@@ -37,7 +38,7 @@ class ErrorPage extends StatelessWidget {
               const SizedBox(height: CvSizes.px30),
               Text(
                 error,
-                style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
                 textAlign: TextAlign.center,
