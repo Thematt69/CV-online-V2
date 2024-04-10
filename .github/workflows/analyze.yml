@@ -1,0 +1,23 @@
+name: Analyze
+
+on:
+  push:
+    branches:
+      - "*"
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: subosito/flutter-action@v2.12.0
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+          cache: true
+          cache-key: flutter ${{ vars.FLUTTER_VERSION }}
+      - run: flutter config --no-analytics
+      - run: flutter pub get
+      - run: flutter analyze

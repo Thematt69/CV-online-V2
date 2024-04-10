@@ -1,10 +1,11 @@
+import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
-import 'text_style.dart';
-
 mixin CvThemeDatas {
-  static final ThemeData lightTheme = ThemeData.light().copyWith(
+  static final ThemeData lightTheme = ThemeData.light(
+    useMaterial3: false,
+  ).copyWith(
     hoverColor: Colors.transparent,
     highlightColor: Colors.transparent,
     colorScheme: const ColorScheme.light(

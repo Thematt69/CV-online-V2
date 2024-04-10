@@ -6,27 +6,27 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 0.11.0+28
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
-  animated_text_kit: ^4.2.1
-  cloud_firestore: ^4.3.1
-  collection: ^1.16.0
+  animated_text_kit: ^4.2.2
+  cloud_firestore: ^4.16.1
+  collection: ^1.18.0
   equatable: ^2.0.5
-  firebase_auth: ^4.2.5
-  firebase_core: ^2.4.1
+  firebase_auth: ^4.19.1
+  firebase_core: ^2.29.0
   flutter: { sdk: flutter }
   flutter_localizations: { sdk: flutter }
-  font_awesome_flutter: ^10.3.0
+  font_awesome_flutter: ^10.7.0
   intl: ^0.18.0
-  package_info_plus: ^4.0.2
-  url_launcher: ^6.1.5
-  url_strategy: ^0.2.0
+  package_info_plus: ^7.0.0
+  url_launcher: ^6.2.5
+  easy_localization: ^3.0.5
 
 dev_dependencies:
-  flutter_native_splash: ^2.2.16
+  flutter_native_splash: ^2.4.0
   flutter_test: { sdk: flutter }
-  flutter_lints: ^3.0.1
+  flutter_lints: ^3.0.2
 
 flutter_native_splash:
   color: "#121212"
@@ -35,12 +35,10 @@ flutter_native_splash:
 flutter:
   uses-material-design: true
 
-  # Enable generation of localized Strings from arb files.
-  generate: true
-
   assets:
     - assets/
     - assets/images/
+    - assets/l10n/
 
   fonts:
     - family: KaushanScript

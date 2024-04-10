@@ -2,11 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 class TradMapModel extends Equatable {
-  static const entryEnUS = 'en_US';
-  static const entryFrFR = 'fr_FR';
-
-  final String? enUS;
-  final String frFR;
 
   const TradMapModel({
     this.enUS,
@@ -19,6 +14,11 @@ class TradMapModel extends Equatable {
       );
 
   factory TradMapModel.fromJsonString(String json) => TradMapModel(frFR: json);
+  static const entryEnUS = 'en_US';
+  static const entryFrFR = 'fr_FR';
+
+  final String? enUS;
+  final String frFR;
 
   Map<String, dynamic> toJson() => {
         entryEnUS: enUS,

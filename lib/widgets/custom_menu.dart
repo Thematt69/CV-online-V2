@@ -1,18 +1,16 @@
+import 'package:cv_online_v2/constants/assets.dart';
+import 'package:cv_online_v2/constants/sections.dart';
+import 'package:cv_online_v2/widgets/custom_item_menu.dart';
+import 'package:cv_online_v2/widgets/custom_shared_icons.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../constants/assets.dart';
-import '../constants/sections.dart';
-import 'custom_item_menu.dart';
-import 'custom_shared_icons.dart';
 
 class CustomMenu extends StatefulWidget {
-  final ScrollController scrollController;
-
   const CustomMenu({
     super.key,
     required this.scrollController,
   });
+  final ScrollController scrollController;
 
   @override
   State<CustomMenu> createState() => _CustomMenuState();
@@ -71,7 +69,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverAccueil,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_home,
+            title: tr('drawer_home'),
             onHover: (value) {
               _hoverAccueil.value = value;
             },
@@ -85,7 +83,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverAPropos,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_presentation,
+            title: tr('drawer_presentation'),
             onHover: (value) {
               _hoverAPropos.value = value;
             },
@@ -99,7 +97,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverCompetences,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_competence,
+            title: tr('drawer_competence'),
             onHover: (value) {
               _hoverCompetences.value = value;
             },
@@ -113,7 +111,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverRealisations,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_realisation,
+            title: tr('drawer_realisation'),
             onHover: (value) {
               _hoverRealisations.value = value;
             },
@@ -127,7 +125,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverEtudes,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_etudes,
+            title: tr('drawer_etudes'),
             onHover: (value) {
               _hoverEtudes.value = value;
             },
@@ -141,7 +139,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverRecommandation,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_recommandation,
+            title: tr('drawer_recommandation'),
             onHover: (value) {
               _hoverRecommandation.value = value;
             },
@@ -155,7 +153,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverJobs,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_jobs,
+            title: tr('drawer_jobs'),
             onHover: (value) {
               _hoverJobs.value = value;
             },
@@ -169,7 +167,7 @@ class _CustomMenuState extends State<CustomMenu> {
           valueListenable: _hoverContact,
           builder: (context, hover, child) => CustomItemMenu(
             hover: hover,
-            title: AppLocalizations.of(context)!.drawer_contact,
+            title: tr('drawer_contact'),
             onHover: (value) {
               _hoverContact.value = value;
             },

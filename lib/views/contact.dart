@@ -1,13 +1,12 @@
+import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/models/contact.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../constants/colors.dart';
-import '../constants/sizes.dart';
-import '../controllers/bloc_provider.dart';
-import '../controllers/firestore_bloc.dart';
-import '../models/contact.dart';
 
 class ContactSection extends StatefulWidget {
   const ContactSection({super.key});
@@ -36,18 +35,18 @@ class _ContactSectionState extends State<ContactSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: AppLocalizations.of(context)!.contactViews_contact,
+              text: tr('contactViews_contact'),
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: AppLocalizations.of(context)!.contactViews_me,
+                  text: tr('contactViews_me'),
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
-                )
+                ),
               ],
             ),
           ),

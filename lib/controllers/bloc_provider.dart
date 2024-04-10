@@ -7,10 +7,6 @@ abstract class BlocBase {
 }
 
 class BlocProvider<T extends BlocBase> extends StatefulWidget {
-  final Widget child;
-  final List<T> blocs;
-
-  static late GlobalKey _masterKey;
 
   BlocProvider({
     required Key key,
@@ -19,6 +15,10 @@ class BlocProvider<T extends BlocBase> extends StatefulWidget {
   }) : super(key: key) {
     _masterKey = key as GlobalKey;
   }
+  final Widget child;
+  final List<T> blocs;
+
+  static late GlobalKey _masterKey;
 
   @override
   BlocProviderState createState() => BlocProviderState();
@@ -63,12 +63,12 @@ class BlocProviderState extends State<BlocProvider> {
 }
 
 class _BlocProviderInherited extends InheritedWidget {
-  final List<BlocBase> blocs;
 
   const _BlocProviderInherited({
     required super.child,
     required this.blocs,
   });
+  final List<BlocBase> blocs;
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => false;

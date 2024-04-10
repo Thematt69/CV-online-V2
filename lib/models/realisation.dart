@@ -1,8 +1,23 @@
+import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 
-import 'trap_map_model.dart';
-
 class Realisation extends Equatable {
+
+  const Realisation({
+    required this.imageUrl,
+    required this.name,
+    this.url,
+    this.urlGitHub,
+  });
+
+  factory Realisation.fromFireStore(Map<String, dynamic> json) => Realisation(
+        imageUrl: json[entryImageUrl] as String,
+        name: json[entryName] is String
+            ? TradMapModel.fromJsonString(json[entryName] as String)
+            : TradMapModel.fromJson(json[entryName] as Map<String, dynamic>),
+        url: json[entryUrl] as String?,
+        urlGitHub: json[entryUrlGitHub] as String?,
+      );
   static const collectionName = 'realisations';
   static const entryImageUrl = 'imageUrl';
   static const entryName = 'name';
@@ -13,13 +28,6 @@ class Realisation extends Equatable {
   final TradMapModel name;
   final String? url;
   final String? urlGitHub;
-
-  const Realisation({
-    required this.imageUrl,
-    required this.name,
-    this.url,
-    this.urlGitHub,
-  });
 
   bool get online => url != null;
 
@@ -41,15 +49,6 @@ class Realisation extends Equatable {
       urlGitHub: urlGitHub ?? this.urlGitHub,
     );
   }
-
-  factory Realisation.fromFireStore(Map<String, dynamic> json) => Realisation(
-        imageUrl: json[entryImageUrl] as String,
-        name: json[entryName] is String
-            ? TradMapModel.fromJsonString(json[entryName] as String)
-            : TradMapModel.fromJson(json[entryName] as Map<String, dynamic>),
-        url: json[entryUrl] as String?,
-        urlGitHub: json[entryUrlGitHub] as String?,
-      );
 
   Map<String, dynamic> toJson() => {
         entryImageUrl: imageUrl,

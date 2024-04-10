@@ -1,47 +1,49 @@
 {
-    "name": "CV en ligne - DEVILLIERS Matthieu",
-    "short_name": "CV en ligne",
-    "start_url": ".",
-    "display": "standalone",
-    "description": "Ce CV en ligne me permet de me présenter plus facilement et avec toutes mes expériences professionnelles ainsi que mes différentes réalisations et réseaux sociaux.",
-    "orientation": "portrait-primary", 
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "icons/android-icon-36x36.webp",
-            "sizes": "36x36",
-            "type": "image/webp",
-            "density": "0.75"
-        },
-        {
-            "src": "icons/android-icon-48x48.webp",
-            "sizes": "48x48",
-            "type": "image/webp",
-            "density": "1.0"
-        },
-        {
-            "src": "icons/android-icon-72x72.webp",
-            "sizes": "72x72",
-            "type": "image/webp",
-            "density": "1.5"
-        },
-        {
-            "src": "icons/android-icon-96x96.webp",
-            "sizes": "96x96",
-            "type": "image/webp",
-            "density": "2.0"
-        },
-        {
-            "src": "icons/android-icon-144x144.webp",
-            "sizes": "144x144",
-            "type": "image/webp",
-            "density": "3.0"
-        },
-        {
-            "src": "icons/android-icon-192x192.webp",
-            "sizes": "192x192",
-            "type": "image/webp",
-            "density": "4.0"
-        }
-    ]
+  "name": "CV en ligne - DEVILLIERS Matthieu",
+  "short_name": "CV en ligne",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#14131B",
+  "theme_color": "#FF4B36",
+  "description": "Ce CV en ligne me permet de me présenter plus facilement et avec toutes mes expériences professionnelles ainsi que mes différentes réalisations et réseaux sociaux.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/android-icon-36x36.webp",
+      "sizes": "36x36",
+      "type": "image/webp",
+      "density": "0.75"
+    },
+    {
+      "src": "icons/android-icon-48x48.webp",
+      "sizes": "48x48",
+      "type": "image/webp",
+      "density": "1.0"
+    },
+    {
+      "src": "icons/android-icon-72x72.webp",
+      "sizes": "72x72",
+      "type": "image/webp",
+      "density": "1.5"
+    },
+    {
+      "src": "icons/android-icon-96x96.webp",
+      "sizes": "96x96",
+      "type": "image/webp",
+      "density": "2.0"
+    },
+    {
+      "src": "icons/android-icon-144x144.webp",
+      "sizes": "144x144",
+      "type": "image/webp",
+      "density": "3.0"
+    },
+    {
+      "src": "icons/android-icon-192x192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "density": "4.0"
+    }
+  ]
 }
