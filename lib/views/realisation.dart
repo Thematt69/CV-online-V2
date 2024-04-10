@@ -133,6 +133,7 @@ class RealisationSectionState extends State<RealisationSection> {
                       ),
                       url: realisation.url,
                       urlGitHub: realisation.urlGitHub,
+                      urlGoogleAppStore: realisation.urlGoogleAppStore,
                     );
                   },
                 ),

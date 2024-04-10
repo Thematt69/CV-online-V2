@@ -51,33 +51,33 @@ class _PresentationSectionState extends State<PresentationSection> {
                   fontWeight: FontWeight.w300,
                 ),
           ),
-          const SizedBox(height: CvSizes.px30),
-          if (_firestoreBloc.description != null)
-            SelectableText.rich(
-              TextSpan(
-                text: tr('presentationViews_myNameIs'),
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: CvColors.greyDark,
-                    ),
-                children: <TextSpan>[
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                    text: tr('presentationViews_name'),
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                  ),
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                    text:
-                        _firestoreBloc.description!.value.currentLang(context),
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: CvColors.greyDark,
-                        ),
-                  ),
-                ],
-              ),
-            ),
+          // const SizedBox(height: CvSizes.px30),
+          // if (_firestoreBloc.description != null)
+          //   SelectableText.rich(
+          //     TextSpan(
+          //       text: tr('presentationViews_myNameIs'),
+          //       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          //             color: CvColors.greyDark,
+          //           ),
+          //       children: <TextSpan>[
+          //         const TextSpan(text: ' '),
+          //         TextSpan(
+          //           text: tr('presentationViews_name'),
+          //           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          //                 color: Theme.of(context).colorScheme.primary,
+          //               ),
+          //         ),
+          //         const TextSpan(text: ' '),
+          //         TextSpan(
+          //           text:
+          //               _firestoreBloc.description!.value.currentLang(context),
+          //           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          //                 color: CvColors.greyDark,
+          //               ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
           Padding(
             padding: CvSizes.ver30,
             child: Wrap(
