@@ -61,4 +61,6 @@ app.*.map.json
 /android/app/release
 
 # Custom
-.fvm
+
+# FVM Version Cache
+.fvm/

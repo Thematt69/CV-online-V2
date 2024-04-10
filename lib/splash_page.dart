@@ -1,7 +1,6 @@
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'constants/sizes.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -36,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
               ),
               const SizedBox(height: CvSizes.px30),
               Text(
-                AppLocalizations.of(context)!.splash_getData,
+                tr('splash_getData'),
                 style: Theme.of(context).textTheme.displayMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),

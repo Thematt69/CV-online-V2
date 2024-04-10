@@ -1,11 +1,10 @@
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/responsive.dart';
+import 'package:cv_online_v2/widgets/custom_card_recommandation_mobile.dart';
+import 'package:cv_online_v2/widgets/custom_card_recommandation_web.dart';
 import 'package:flutter/material.dart';
-
-import '../constants/sizes.dart';
-import '../controllers/bloc_provider.dart';
-import '../controllers/firestore_bloc.dart';
-import '../responsive.dart';
-import '../widgets/custom_card_recommandation_mobile.dart';
-import '../widgets/custom_card_recommandation_web.dart';
 
 class RecommandationSection extends StatefulWidget {
   const RecommandationSection({super.key});

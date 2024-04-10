@@ -1,16 +1,15 @@
+import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sections.dart';
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/constants/urls.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/responsive.dart';
+import 'package:cv_online_v2/widgets/custom_animated_text_kit.dart';
+import 'package:cv_online_v2/widgets/custom_card_presentation.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../constants/colors.dart';
-import '../constants/sections.dart';
-import '../constants/sizes.dart';
-import '../constants/urls.dart';
-import '../controllers/bloc_provider.dart';
-import '../controllers/firestore_bloc.dart';
-import '../responsive.dart';
-import '../widgets/custom_animated_text_kit.dart';
-import '../widgets/custom_card_presentation.dart';
 
 class PresentationSection extends StatefulWidget {
   const PresentationSection({
@@ -37,14 +36,14 @@ class _PresentationSectionState extends State<PresentationSection> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.presentationViews_iAm,
+            tr('presentationViews_iAm'),
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
           ),
           CustomAnimatedTextKit(
             textAlign: TextAlign.start,
-            prefix: '${AppLocalizations.of(context)!.headerViews_iAm} ',
+            prefix: '${tr('headerViews_iAm')} ',
             textStyle: Theme.of(context).textTheme.displayMedium!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 26,
@@ -52,33 +51,33 @@ class _PresentationSectionState extends State<PresentationSection> {
                   fontWeight: FontWeight.w300,
                 ),
           ),
-          const SizedBox(height: CvSizes.px30),
-          if (_firestoreBloc.description != null)
-            SelectableText.rich(
-              TextSpan(
-                text: AppLocalizations.of(context)!.presentationViews_myNameIs,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: CvColors.greyDark,
-                    ),
-                children: <TextSpan>[
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                    text: AppLocalizations.of(context)!.presentationViews_name,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                  ),
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                    text:
-                        _firestoreBloc.description!.value.currentLang(context),
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: CvColors.greyDark,
-                        ),
-                  ),
-                ],
-              ),
-            ),
+          // const SizedBox(height: CvSizes.px30),
+          // if (_firestoreBloc.description != null)
+          //   SelectableText.rich(
+          //     TextSpan(
+          //       text: tr('presentationViews_myNameIs'),
+          //       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          //             color: CvColors.greyDark,
+          //           ),
+          //       children: <TextSpan>[
+          //         const TextSpan(text: ' '),
+          //         TextSpan(
+          //           text: tr('presentationViews_name'),
+          //           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          //                 color: Theme.of(context).colorScheme.primary,
+          //               ),
+          //         ),
+          //         const TextSpan(text: ' '),
+          //         TextSpan(
+          //           text:
+          //               _firestoreBloc.description!.value.currentLang(context),
+          //           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          //                 color: CvColors.greyDark,
+          //               ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
           Padding(
             padding: CvSizes.ver30,
             child: Wrap(
@@ -101,7 +100,7 @@ class _PresentationSectionState extends State<PresentationSection> {
               ElevatedButton(
                 onPressed: () async => launchUrl(Uri.parse(CvUrls.urlCV)),
                 child: Text(
-                  AppLocalizations.of(context)!.presentationViews_downloadCv,
+                  tr('presentationViews_downloadCv'),
                 ),
               ),
               if (Responsive.isMobile(context))
@@ -117,7 +116,7 @@ class _PresentationSectionState extends State<PresentationSection> {
                   );
                 },
                 child: Text(
-                  AppLocalizations.of(context)!.presentationViews_contactMe,
+                  tr('presentationViews_contactMe'),
                 ),
               ),
             ],

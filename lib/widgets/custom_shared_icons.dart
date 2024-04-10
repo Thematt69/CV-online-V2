@@ -1,19 +1,17 @@
+import 'package:cv_online_v2/constants/sections.dart';
+import 'package:cv_online_v2/constants/urls.dart';
+import 'package:cv_online_v2/widgets/custom_shared_icon.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../constants/sections.dart';
-import '../constants/urls.dart';
-import 'custom_shared_icon.dart';
-
 class CustomSharedIcons extends StatefulWidget {
-  final ScrollController scrollController;
-
   const CustomSharedIcons({
     super.key,
     required this.scrollController,
   });
+  final ScrollController scrollController;
 
   @override
   State<CustomSharedIcons> createState() => _CustomSharedIconsState();
@@ -53,7 +51,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
             hover: hover,
             onPressed: () async => launchUrl(Uri.parse(CvUrls.urlMail)),
             iconData: Icons.email,
-            title: AppLocalizations.of(context)!.drawer_email,
+            title: tr('drawer_email'),
             onEnter: (event) {
               _hoverMail.value = true;
             },
@@ -65,7 +63,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
         ValueListenableBuilder<bool>(
           valueListenable: _hoverLinkedin,
           builder: (context, hover, child) => CustomSharedIcon(
-            title: AppLocalizations.of(context)!.drawer_linkedin,
+            title: tr('drawer_linkedin'),
             onPressed: () async => launchUrl(Uri.parse(CvUrls.urlLinkedin)),
             hover: hover,
             iconData: FontAwesomeIcons.linkedinIn,
@@ -80,7 +78,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
         ValueListenableBuilder<bool>(
           valueListenable: _hoverGitHub,
           builder: (context, hover, child) => CustomSharedIcon(
-            title: AppLocalizations.of(context)!.drawer_github,
+            title: tr('drawer_github'),
             onPressed: () async => launchUrl(Uri.parse(CvUrls.urlGithub)),
             hover: hover,
             iconData: FontAwesomeIcons.github,
@@ -95,7 +93,7 @@ class _CustomSharedIconsState extends State<CustomSharedIcons> {
         ValueListenableBuilder<bool>(
           valueListenable: _hoverSeeMore,
           builder: (context, hover, child) => CustomSharedIcon(
-            title: AppLocalizations.of(context)!.drawer_seeMore,
+            title: tr('drawer_seeMore'),
             onPressed: () {
               _goTo(Section.contact);
             },

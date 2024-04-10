@@ -1,8 +1,7 @@
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-
-import '../constants/sizes.dart';
 
 class FooterSection extends StatefulWidget {
   const FooterSection({super.key});
@@ -12,8 +11,6 @@ class FooterSection extends StatefulWidget {
 }
 
 class _FooterSectionState extends State<FooterSection> {
-  Future<PackageInfo> _getPackageInfo() async => PackageInfo.fromPlatform();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +30,7 @@ class _FooterSectionState extends State<FooterSection> {
             children: [
               Flexible(
                 child: Text(
-                  AppLocalizations.of(context)!.footerViews_developFlutter,
+                  tr('footerViews_developFlutter'),
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
@@ -44,7 +41,7 @@ class _FooterSectionState extends State<FooterSection> {
             ],
           ),
           FutureBuilder<PackageInfo>(
-            future: _getPackageInfo(),
+            future: PackageInfo.fromPlatform(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done &&
                   snapshot.data != null) {
@@ -57,7 +54,7 @@ class _FooterSectionState extends State<FooterSection> {
               }
               return const SizedBox();
             },
-          )
+          ),
         ],
       ),
     );

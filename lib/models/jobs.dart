@@ -1,29 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cv_online_v2/extensions/date_time_extension.dart';
+import 'package:cv_online_v2/models/trap_map_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../extensions/date_time_extension.dart';
-import 'trap_map_model.dart';
 
 class Job extends Equatable {
-  static const collectionName = 'jobs';
-  static const entryDescription = 'description';
-  static const entryLieu = 'lieu';
-  static const entryPeriode = 'periode';
-  static const entryPeriodeStart = 'start';
-  static const entryPeriodeEnd = 'end';
-  static const entryPoste = 'poste';
-  static const entryService = 'service';
-  static const entryType = 'type';
-
-  final TradMapModel? description;
-  final TradMapModel lieu;
-  final DateTimeRange periode;
-  final TradMapModel poste;
-  final TradMapModel? service;
-  final TradMapModel type;
-
   const Job({
     required this.periode,
     required this.poste,
@@ -32,41 +14,6 @@ class Job extends Equatable {
     required this.type,
     this.service,
   });
-
-  String periodeString(BuildContext context) {
-    String value = '${periode.start.yMMMd(context)} - ';
-    if (periode.end.day == DateTime.now().day &&
-        periode.end.month == DateTime.now().month &&
-        periode.end.year == DateTime.now().year) {
-      value += AppLocalizations.of(context)!.contents_today;
-    } else {
-      value += periode.end.yMMMd(context);
-    }
-    return value;
-  }
-
-  @override
-  String toString() {
-    return 'Jobs(periode: $periode, poste: $poste, lieu: $lieu, description: $description, type: $type, service: $service)';
-  }
-
-  Job copyWith({
-    TradMapModel? description,
-    TradMapModel? lieu,
-    DateTimeRange? periode,
-    TradMapModel? poste,
-    TradMapModel? service,
-    TradMapModel? type,
-  }) {
-    return Job(
-      description: description ?? this.description,
-      lieu: lieu ?? this.lieu,
-      periode: periode ?? this.periode,
-      poste: poste ?? this.poste,
-      service: service ?? this.service,
-      type: type ?? this.type,
-    );
-  }
 
   factory Job.fromFireStore(Map<String, dynamic> json) => Job(
         description: json[entryDescription] != null
@@ -104,6 +51,57 @@ class Job extends Equatable {
             ? TradMapModel.fromJsonString(json[entryType] as String)
             : TradMapModel.fromJson(json[entryType] as Map<String, dynamic>),
       );
+  static const collectionName = 'jobs';
+  static const entryDescription = 'description';
+  static const entryLieu = 'lieu';
+  static const entryPeriode = 'periode';
+  static const entryPeriodeStart = 'start';
+  static const entryPeriodeEnd = 'end';
+  static const entryPoste = 'poste';
+  static const entryService = 'service';
+  static const entryType = 'type';
+
+  final TradMapModel? description;
+  final TradMapModel lieu;
+  final DateTimeRange periode;
+  final TradMapModel poste;
+  final TradMapModel? service;
+  final TradMapModel type;
+
+  String periodeString() {
+    String value = '${periode.start.yMMMd()} - ';
+    if (periode.end.day == DateTime.now().day &&
+        periode.end.month == DateTime.now().month &&
+        periode.end.year == DateTime.now().year) {
+      value += tr('contents_today');
+    } else {
+      value += periode.end.yMMMd();
+    }
+    return value;
+  }
+
+  @override
+  String toString() {
+    return 'Jobs(periode: $periode, poste: $poste, lieu: $lieu, description: $description, type: $type, service: $service)';
+  }
+
+  Job copyWith({
+    TradMapModel? description,
+    TradMapModel? lieu,
+    DateTimeRange? periode,
+    TradMapModel? poste,
+    TradMapModel? service,
+    TradMapModel? type,
+  }) {
+    return Job(
+      description: description ?? this.description,
+      lieu: lieu ?? this.lieu,
+      periode: periode ?? this.periode,
+      poste: poste ?? this.poste,
+      service: service ?? this.service,
+      type: type ?? this.type,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         entryDescription: description?.toJson(),

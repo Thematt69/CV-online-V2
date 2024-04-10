@@ -1,8 +1,27 @@
+import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 
-import 'trap_map_model.dart';
-
 class Presentation extends Equatable {
+
+  const Presentation({
+    this.label,
+    required this.value,
+    this.url,
+  });
+
+  factory Presentation.fromFireStore(Map<String, dynamic> json) => Presentation(
+        label: json[entryLabel] == null
+            ? null
+            : json[entryLabel] is String
+                ? TradMapModel.fromJsonString(json[entryLabel] as String)
+                : TradMapModel.fromJson(
+                    json[entryLabel] as Map<String, dynamic>,
+                  ),
+        value: json[entryValue] is String
+            ? TradMapModel.fromJsonString(json[entryValue] as String)
+            : TradMapModel.fromJson(json[entryValue] as Map<String, dynamic>),
+        url: json[entryUrl] != null ? json[entryUrl] as String : null,
+      );
   static const collectionName = 'presentations';
   static const entryLabel = 'label';
   static const entryValue = 'value';
@@ -11,12 +30,6 @@ class Presentation extends Equatable {
   final TradMapModel? label;
   final TradMapModel value;
   final String? url;
-
-  const Presentation({
-    this.label,
-    required this.value,
-    this.url,
-  });
 
   @override
   String toString() => 'Presentation(label: $label, value: $value, url: $url)';
@@ -32,20 +45,6 @@ class Presentation extends Equatable {
       url: url ?? this.url,
     );
   }
-
-  factory Presentation.fromFireStore(Map<String, dynamic> json) => Presentation(
-        label: json[entryLabel] == null
-            ? null
-            : json[entryLabel] is String
-                ? TradMapModel.fromJsonString(json[entryLabel] as String)
-                : TradMapModel.fromJson(
-                    json[entryLabel] as Map<String, dynamic>,
-                  ),
-        value: json[entryValue] is String
-            ? TradMapModel.fromJsonString(json[entryValue] as String)
-            : TradMapModel.fromJson(json[entryValue] as Map<String, dynamic>),
-        url: json[entryUrl] != null ? json[entryUrl] as String : null,
-      );
 
   Map<String, dynamic> toJson() => {
         entryLabel: label?.toJson(),
