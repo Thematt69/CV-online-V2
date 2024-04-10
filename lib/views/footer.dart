@@ -11,8 +11,6 @@ class FooterSection extends StatefulWidget {
 }
 
 class _FooterSectionState extends State<FooterSection> {
-  Future<PackageInfo> _getPackageInfo() async => PackageInfo.fromPlatform();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,7 +41,7 @@ class _FooterSectionState extends State<FooterSection> {
             ],
           ),
           FutureBuilder<PackageInfo>(
-            future: _getPackageInfo(),
+            future: PackageInfo.fromPlatform(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done &&
                   snapshot.data != null) {
