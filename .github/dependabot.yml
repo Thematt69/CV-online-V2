@@ -12,3 +12,4 @@ updates:
       timezone: "Europe/Paris"
     reviewers:
       - "Thematt69"
+    target-branch: "develop"
