@@ -1,13 +1,12 @@
+import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/models/jobs.dart';
+import 'package:cv_online_v2/responsive.dart';
+import 'package:cv_online_v2/widgets/custom_card_jobs.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../constants/colors.dart';
-import '../constants/sizes.dart';
-import '../controllers/bloc_provider.dart';
-import '../controllers/firestore_bloc.dart';
-import '../models/jobs.dart';
-import '../responsive.dart';
-import '../widgets/custom_card_jobs.dart';
 
 class JobsSection extends StatefulWidget {
   const JobsSection({
@@ -60,18 +59,18 @@ class JobsSectionState extends State<JobsSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: AppLocalizations.of(context)!.jobsViews_my,
+              text: tr('jobsViews_my'),
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: AppLocalizations.of(context)!.jobsViews_jobs,
+                  text: tr('jobsViews_jobs'),
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
-                )
+                ),
               ],
             ),
           ),
@@ -85,7 +84,7 @@ class JobsSectionState extends State<JobsSection> {
               (index) {
                 final Job job = _firestoreBloc.jobs[index];
                 return CustomCardJobs(
-                  periode: job.periodeString(context),
+                  periode: job.periodeString(),
                   lieu: job.lieu.currentLang(context),
                   poste: job.poste.currentLang(context),
                   widthCard: _widthCard,

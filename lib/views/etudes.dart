@@ -1,15 +1,14 @@
+import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/extensions/date_time_extension.dart';
+import 'package:cv_online_v2/extensions/string_extension.dart';
+import 'package:cv_online_v2/models/etudes.dart';
+import 'package:cv_online_v2/responsive.dart';
+import 'package:cv_online_v2/widgets/custom_card_etudes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../constants/colors.dart';
-import '../constants/sizes.dart';
-import '../controllers/bloc_provider.dart';
-import '../controllers/firestore_bloc.dart';
-import '../extensions/date_time_extension.dart';
-import '../extensions/string_extension.dart';
-import '../models/etudes.dart';
-import '../responsive.dart';
-import '../widgets/custom_card_etudes.dart';
 
 class EtudesSection extends StatefulWidget {
   const EtudesSection({
@@ -63,18 +62,18 @@ class EtudesSectionState extends State<EtudesSection> {
         children: [
           RichText(
             text: TextSpan(
-              text: AppLocalizations.of(context)!.etudesViews_my,
+              text: tr('etudesViews_my'),
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: AppLocalizations.of(context)!.etudesViews_etudes,
+                  text: tr('etudesViews_etudes'),
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: Theme.of(context).colorScheme.primary,
                       ),
-                )
+                ),
               ],
             ),
           ),
@@ -89,7 +88,7 @@ class EtudesSectionState extends State<EtudesSection> {
                 final Etude etude = _firestoreBloc.etudes[index];
                 return CustomCardEtudes(
                   periode:
-                      '${etude.periode.start.yMMM(context).capitalize} - ${etude.periode.end.yMMM(context).capitalize}',
+                      '${etude.periode.start.yMMM().capitalize} - ${etude.periode.end.yMMM().capitalize}',
                   ecole: etude.ecole.currentLang(context),
                   nom: etude.diplome.currentLang(context),
                   description: etude.description.currentLang(context),

@@ -1,12 +1,8 @@
+import 'package:cv_online_v2/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../constants/colors.dart';
-
 class CustomCardPresentation extends StatelessWidget {
-  final String label;
-  final String? url;
-  final String value;
 
   const CustomCardPresentation({
     super.key,
@@ -14,6 +10,9 @@ class CustomCardPresentation extends StatelessWidget {
     this.url,
     required this.value,
   });
+  final String label;
+  final String? url;
+  final String value;
 
   @override
   Widget build(BuildContext context) {

@@ -1,20 +1,16 @@
-// ignore_for_file: avoid_positional_boolean_parameters
-
+import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../constants/colors.dart';
-import '../constants/sizes.dart';
 
 class IconButtonDrawer extends StatefulWidget {
-  final bool isShowDrawer;
-  final void Function(bool isShowDrawer) onShowDrawer;
-
   const IconButtonDrawer({
     super.key,
     required this.isShowDrawer,
     required this.onShowDrawer,
   });
+  final bool isShowDrawer;
+  final void Function(bool isShowDrawer) onShowDrawer;
 
   @override
   State<IconButtonDrawer> createState() => _IconButtonDrawerState();
@@ -79,8 +75,8 @@ class _IconButtonDrawerState extends State<IconButtonDrawer>
             child: Center(
               child: Tooltip(
                 message: widget.isShowDrawer
-                    ? AppLocalizations.of(context)!.drawer_hideMenu
-                    : AppLocalizations.of(context)!.drawer_showMenu,
+                    ? tr('drawer_hideMenu')
+                    : tr('drawer_showMenu'),
                 child: AnimatedIcon(
                   icon: AnimatedIcons.menu_arrow,
                   progress: _myAnimation,

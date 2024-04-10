@@ -1,14 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
-
-import '../models/competence.dart';
-import '../models/contact.dart';
-import '../models/etudes.dart';
-import '../models/jobs.dart';
-import '../models/presentation.dart';
-import '../models/realisation.dart';
-import '../models/recommandation.dart';
-import 'bloc_provider.dart';
+import 'package:cv_online_v2/controllers/bloc_provider.dart';
+import 'package:cv_online_v2/models/competence.dart';
+import 'package:cv_online_v2/models/contact.dart';
+import 'package:cv_online_v2/models/etudes.dart';
+import 'package:cv_online_v2/models/jobs.dart';
+import 'package:cv_online_v2/models/presentation.dart';
+import 'package:cv_online_v2/models/realisation.dart';
+import 'package:cv_online_v2/models/recommandation.dart';
 
 class FirestoreBloc extends BlocBase {
   // SECTION - Référence

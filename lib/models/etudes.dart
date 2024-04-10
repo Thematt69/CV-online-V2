@@ -1,22 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cv_online_v2/models/trap_map_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import 'trap_map_model.dart';
-
 class Etude extends Equatable {
-  static const collectionName = 'etudes';
-  static const entryDescription = 'description';
-  static const entryEcole = 'ecole';
-  static const entryDiplome = 'diplome';
-  static const entryPeriode = 'periode';
-  static const entryPeriodeStart = 'start';
-  static const entryPeriodeEnd = 'end';
-
-  final TradMapModel description;
-  final TradMapModel ecole;
-  final TradMapModel diplome;
-  final DateTimeRange periode;
 
   const Etude({
     required this.periode,
@@ -24,25 +11,6 @@ class Etude extends Equatable {
     required this.description,
     required this.ecole,
   });
-
-  @override
-  String toString() {
-    return 'Etudes(periode: $periode, nom: $diplome, description: $description, ecole: $ecole)';
-  }
-
-  Etude copyWith({
-    DateTimeRange? periode,
-    TradMapModel? diplome,
-    TradMapModel? description,
-    TradMapModel? ecole,
-  }) {
-    return Etude(
-      periode: periode ?? this.periode,
-      diplome: diplome ?? this.diplome,
-      description: description ?? this.description,
-      ecole: ecole ?? this.ecole,
-    );
-  }
 
   factory Etude.fromFireStore(Map<String, dynamic> json) => Etude(
         diplome: json[entryDiplome] is String
@@ -65,6 +33,37 @@ class Etude extends Equatable {
               .toDate(),
         ),
       );
+  static const collectionName = 'etudes';
+  static const entryDescription = 'description';
+  static const entryEcole = 'ecole';
+  static const entryDiplome = 'diplome';
+  static const entryPeriode = 'periode';
+  static const entryPeriodeStart = 'start';
+  static const entryPeriodeEnd = 'end';
+
+  final TradMapModel description;
+  final TradMapModel ecole;
+  final TradMapModel diplome;
+  final DateTimeRange periode;
+
+  @override
+  String toString() {
+    return 'Etudes(periode: $periode, nom: $diplome, description: $description, ecole: $ecole)';
+  }
+
+  Etude copyWith({
+    DateTimeRange? periode,
+    TradMapModel? diplome,
+    TradMapModel? description,
+    TradMapModel? ecole,
+  }) {
+    return Etude(
+      periode: periode ?? this.periode,
+      diplome: diplome ?? this.diplome,
+      description: description ?? this.description,
+      ecole: ecole ?? this.ecole,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         entryDiplome: diplome.toJson(),
@@ -73,7 +72,7 @@ class Etude extends Equatable {
         entryPeriode: {
           entryPeriodeStart: Timestamp.fromDate(periode.start),
           entryPeriodeEnd: Timestamp.fromDate(periode.end),
-        }
+        },
       };
 
   @override

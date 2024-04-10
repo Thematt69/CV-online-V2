@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: subosito/flutter-action@v2.12.0
+        with:
+          flutter-version: ${{ vars.FLUTTER_VERSION }}
+          cache: true
+          cache-key: flutter ${{ vars.FLUTTER_VERSION }}
+      - name: Configure Flutter
+        run: |
+          flutter config --no-analytics
+          flutter pub get
+      - name: Build Web Release
+        run: flutter build web --release --no-tree-shake-icons
+      - name: Sync files FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.matthieudevilliers.fr
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: build/web/
+          server-dir: /matthieudevilliers.fr/

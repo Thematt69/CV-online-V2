@@ -1,18 +1,17 @@
+import 'package:cv_online_v2/constants/colors.dart';
+import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/widgets/custom_menu.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/colors.dart';
-import '../constants/sizes.dart';
-import 'custom_menu.dart';
-
 class CustomDrawer extends StatelessWidget {
-  final bool isShowDrawer;
-  final ScrollController scrollController;
 
   const CustomDrawer({
     required this.scrollController,
     required this.isShowDrawer,
     super.key,
   });
+  final bool isShowDrawer;
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
