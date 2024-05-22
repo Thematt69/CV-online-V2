@@ -38,7 +38,7 @@ class _PresentationSectionState extends State<PresentationSection> {
           Text(
             tr('presentationViews_iAm'),
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
           ),
           CustomAnimatedTextKit(

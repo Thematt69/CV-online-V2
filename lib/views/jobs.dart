@@ -61,7 +61,7 @@ class JobsSectionState extends State<JobsSection> {
             text: TextSpan(
               text: tr('jobsViews_my'),
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),

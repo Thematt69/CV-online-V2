@@ -38,7 +38,7 @@ class RealisationTabBar extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || online == null
                             ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
+                            : Theme.of(context).colorScheme.onSurface,
                         fontWeight: online == null
                             ? FontWeight.w600
                             : Theme.of(context)
@@ -69,7 +69,7 @@ class RealisationTabBar extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || (online != null && online)
                             ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
+                            : Theme.of(context).colorScheme.onSurface,
                         fontWeight: (online != null && online)
                             ? FontWeight.w600
                             : Theme.of(context)
@@ -100,7 +100,7 @@ class RealisationTabBar extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: hover || online == false
                             ? Theme.of(context).colorScheme.primary
-                            : Theme.of(context).colorScheme.onBackground,
+                            : Theme.of(context).colorScheme.onSurface,
                         fontWeight: online == false
                             ? FontWeight.w600
                             : Theme.of(context)

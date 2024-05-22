@@ -39,14 +39,6 @@
     <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.webp">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.webp">
 
-    <!-- Flutter -->
-    <script>
-      // The value below is injected by flutter build, do not touch.
-      const serviceWorkerVersion = null;
-    </script>
-    <!-- This script adds the flutter initialization JS code -->
-    <script src="flutter.js" defer=""></script>
-
     <!-- Splash screen -->
     <style id="splash-screen-style">
       html {
@@ -131,23 +123,8 @@
         media="(prefers-color-scheme: dark)">
       <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
     </picture>
-
     <!-- Flutter Framework -->
-    <script>
-      window.addEventListener('load', function (ev) {
-        // Download main.dart.js
-        _flutter.loader.loadEntrypoint({
-          serviceWorker: {
-            serviceWorkerVersion: serviceWorkerVersion,
-          },
-          onEntrypointLoaded: function (engineInitializer) {
-            engineInitializer.initializeEngine().then(function (appRunner) {
-              appRunner.runApp();
-            });
-          }
-        });
-      });
-    </script>
+    <script src="flutter_bootstrap.js" async=""></script>
 
   </body>
 
