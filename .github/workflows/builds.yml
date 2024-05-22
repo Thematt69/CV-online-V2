@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: subosito/flutter-action@v2.12.0
+      - uses: subosito/flutter-action@v2.16.0
         with:
           flutter-version: ${{ vars.FLUTTER_VERSION }}
           cache: true
@@ -22,9 +22,9 @@ jobs:
           flutter config --no-analytics
           flutter pub get
       - name: Build Web Release
-        run: flutter build web --release --no-tree-shake-icons
+        run: flutter build web --release --no-tree-shake-icons --wasm
       - name: Sync files FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.matthieudevilliers.fr
           username: ${{ secrets.FTP_USERNAME }}
