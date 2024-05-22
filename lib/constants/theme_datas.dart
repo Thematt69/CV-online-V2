@@ -20,7 +20,6 @@ mixin CvThemeDatas {
       error: CvColors.red,
       onError: CvColors.black,
       surface: CvColors.whiteDarker,
-      background: CvColors.whiteDarker,
     ),
     cardTheme: const CardTheme(
       shape: RoundedRectangleBorder(),
@@ -36,13 +35,13 @@ mixin CvThemeDatas {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(
+        padding: WidgetStateProperty.all(
           const EdgeInsets.all(24),
         ),
       ),
     ),
     scrollbarTheme: const ScrollbarThemeData(
-      thumbVisibility: MaterialStatePropertyAll(true),
+      thumbVisibility: WidgetStatePropertyAll(true),
     ),
   );
 }

@@ -85,7 +85,7 @@ class CustomCardJobsState extends State<CustomCardJobs> {
                 child: SelectableText(
                   widget.poste,
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                 ),
               ),

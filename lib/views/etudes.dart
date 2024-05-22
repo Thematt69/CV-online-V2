@@ -64,7 +64,7 @@ class EtudesSectionState extends State<EtudesSection> {
             text: TextSpan(
               text: tr('etudesViews_my'),
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),

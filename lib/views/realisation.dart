@@ -82,7 +82,7 @@ class RealisationSectionState extends State<RealisationSection> {
             text: TextSpan(
               text: tr('realisationViews_myDifferent'),
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),

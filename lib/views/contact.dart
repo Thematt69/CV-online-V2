@@ -37,7 +37,7 @@ class _ContactSectionState extends State<ContactSection> {
             text: TextSpan(
               text: tr('contactViews_contact'),
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
               children: <TextSpan>[
                 const TextSpan(text: ' '),
@@ -70,7 +70,7 @@ class _ContactSectionState extends State<ContactSection> {
                       Text(
                         '${contact.label.currentLang(context)} : ',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: Theme.of(context).colorScheme.onBackground,
+                              color: Theme.of(context).colorScheme.onSurface,
                               fontWeight: FontWeight.w500,
                               height: 1,
                             ),

@@ -25,7 +25,7 @@ class CustomCardCompetence extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 height: 1.6,
                 fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 decoration:
                     competence.url != null ? TextDecoration.underline : null,
               ),

@@ -83,7 +83,7 @@ class CustomCardEtudesState extends State<CustomCardEtudes> {
                 child: SelectableText(
                   widget.nom,
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                 ),
               ),
