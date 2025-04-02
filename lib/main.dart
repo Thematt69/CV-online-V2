@@ -6,11 +6,17 @@ import 'package:cv_online_v2/controllers/firestore_bloc.dart';
 import 'package:cv_online_v2/firebase_options.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 
 void main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+
+    if (kIsWeb) {
+      SemanticsBinding.instance.ensureSemantics();
+    }
 
     await EasyLocalization.ensureInitialized();
 

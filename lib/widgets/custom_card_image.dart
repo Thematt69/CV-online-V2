@@ -1,5 +1,6 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/extensions/colors_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -45,7 +46,7 @@ class CustomCardImage extends StatelessWidget {
             color: Theme.of(context)
                 .colorScheme
                 .secondaryContainer
-                .withOpacity(0.7),
+                .adjustOpacity(0.7),
             padding: CvSizes.hor15ver15,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

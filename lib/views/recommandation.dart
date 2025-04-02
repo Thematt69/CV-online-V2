@@ -1,6 +1,7 @@
 import 'package:cv_online_v2/constants/sizes.dart';
 import 'package:cv_online_v2/controllers/bloc_provider.dart';
 import 'package:cv_online_v2/controllers/firestore_bloc.dart';
+import 'package:cv_online_v2/extensions/colors_extension.dart';
 import 'package:cv_online_v2/responsive.dart';
 import 'package:cv_online_v2/widgets/custom_card_recommandation_mobile.dart';
 import 'package:cv_online_v2/widgets/custom_card_recommandation_web.dart';
@@ -27,7 +28,7 @@ class RecommandationSectionState extends State<RecommandationSection> {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Theme.of(context).colorScheme.onSecondary.withOpacity(0.2),
+            color: Theme.of(context).colorScheme.onSecondary.adjustOpacity(0.2),
             width: 10,
           ),
         ),

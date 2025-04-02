@@ -66,8 +66,6 @@ mixin CvSections {
         return positionJobs;
       case Section.contact:
         return positionContact;
-      default:
-        return positionHeader;
     }
   }
 }
