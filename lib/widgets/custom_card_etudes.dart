@@ -1,5 +1,6 @@
 import 'package:cv_online_v2/constants/colors.dart';
 import 'package:cv_online_v2/constants/sizes.dart';
+import 'package:cv_online_v2/extensions/colors_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardEtudes extends StatefulWidget {
@@ -54,7 +55,7 @@ class CustomCardEtudesState extends State<CustomCardEtudes> {
                 ? [
                     BoxShadow(
                       blurRadius: 30,
-                      color: Theme.of(context).shadowColor.withOpacity(0.1),
+                      color: Theme.of(context).shadowColor.adjustOpacity(0.1),
                     ),
                   ]
                 : [],
